@@ -1,0 +1,165 @@
+{% extends "base.html.twig" %}
+
+{% block body %}
+
+	<section id="caddie" class="first_section">
+		<div class="container_small">
+			<nav class="nav_caddie">
+				<label for="show-caddie_menu" class="show-caddie_menu">Etapes de votre commande:</label>
+				<input type="checkbox" id="show-caddie_menu" role="button">
+				<ul id="menu_caddie">
+					<li><a href="{{ path('cart')}}" class="opac"><strong>1</strong> ma commande</a></li>
+					<li><a href="{{ path('cart_identification')}}"><strong>2</strong> identification</a></li>
+					<li><a href="" class="opac"><strong>3</strong> livraison</a></li>
+					<li><a href="" class="opac"><strong>4</strong> paiment</a></li>
+					<li><a href="" class="opac"><strong>5</strong> récapitulatif</a></li>
+				</ul>
+			</nav>
+			<div id="box_caddie">
+				<p class="conseil_tel">Besoin d’un conseil avant de finaliser votre commande ? appelez-nous : <strong>01 63 12 16 02</strong></p>
+                <nav class="breadcrumb">
+                    {{ knp_menu_render('breadcrumb',{'depth': 5,'currentAsLink':false}) }}
+                </nav>
+	        </div>
+<!-- 	        {{ dump(url) }}
+            {{ dump(referer)}}
+            {{ app.request.attributes.get('_route') }} -->
+            
+            <div id="testrow"></div>
+            <div class="box_subs">
+                <form action="{{ path('login') }}" method="post" class="login_form">
+                    <label for="username">Votre email:</label>
+                    <input type="text" id="username" name="_username"  />
+
+                    <label for="password">Mot de passe:</label>
+                    <input type="password" id="password" name="_password" />
+
+                    <input type="checkbox" id="remember_me" name="_remember_me" checked />
+                    <label for="remember_me">Se souvenir de moi</label>
+                    <input type="hidden" name="_csrf_token" value="{{ csrf_token('authenticate') }}"/>
+                    
+                       {#
+                        <input type="hidden" name="_failure_path" value="/caddie/identification" />
+                        #}
+                    <input type="submit" value="Me connecter"></input>
+                </form>
+            </div>
+			{{ include ("form/subsaccountForm.html.twig") }}
+	    </div>
+	</section>
+
+{% endblock %} 
+
+{% block javascripts %} 
+
+	{{ parent() }}
+
+	<script type="text/javascript">
+
+
+    $('.email_row').on('change', function(){
+
+        var $this = $(this);
+        var delay = 2000; // 2 seconds delay after last input
+
+        clearTimeout($this.data('timer'));
+
+
+
+            $this.removeData('timer');
+            $.ajax({
+                type: 'post',
+                url: "{{ path('checkMail') }}" + "/" + $(this).val(),
+                data: $(this).val(),
+                beforeSend: function() {
+               $('#spinner').html('encours');
+            }
+                
+            })
+            .done(function (data) {
+
+                $('#spinner').html('Deja pris');
+            })
+            .fail(function (jqXHR, textStatus, errorThrown, data) {
+
+                $('#spinner').html('libre');
+            })
+
+
+    });
+
+
+
+
+
+        $(document).ready(function() 
+        {
+            $('#appbundle_user_roles option:nth-child(2)').attr('selected', 'selected');
+            // On récupère la balise <div> en question qui contient l'attribut « data-prototype » qui nous intéresse.
+            var $container = $('div#appbundle_user_adresses');
+
+            // On ajoute un lien pour ajouter une nouvelle catégorie
+            var $addLink = $('<a href="#" id="add_adresse" class="btn btn-default">Ajouter une autre adresse de livraison</a>');
+            $container.after($addLink);
+
+            // On ajoute un nouveau champ à chaque clic sur le lien d'ajout.
+            $addLink.click(function(e) {
+              addAdresse($container);
+              e.preventDefault(); // évite qu'un # apparaisse dans l'URL
+              return false;
+            });
+
+            // On définit un compteur unique pour nommer les champs qu'on va ajouter dynamiquement
+            var index = $container.find(':input').length;
+
+            // On ajoute un premier champ automatiquement s'il n'en existe pas déjà un (cas d'une nouvelle annonce par exemple).
+            if (index == 0) {
+              addAdresse($container);
+            } else {
+              // Pour chaque catégorie déjà existante, on ajoute un lien de suppression
+              $container.children('div').each(function() {
+                addDeleteLink($(this));
+              });
+            }
+
+            // La fonction qui ajoute un formulaire Categorie
+            function addAdresse($container) 
+            {
+              // Dans le contenu de l'attribut « data-prototype », on remplace :
+              // - le texte "__name__label__" qu'il contient par le label du champ
+              // - le texte "__name__" qu'il contient par le numéro du champ
+              var $prototype = $($container.attr('data-prototype').replace(/__name__label__/g, 'Adresse n°' + (index+1))
+                  .replace(/__name__/g, index));
+
+              // On ajoute au prototype un lien pour pouvoir supprimer la catégorie
+              addDeleteLink($prototype);
+
+              // On ajoute le prototype modifié à la fin de la balise <div>
+              $container.append($prototype);
+
+              // Enfin, on incrémente le compteur pour que le prochain ajout se fasse avec un autre numéro
+              index++;
+            }
+
+            // La fonction qui ajoute un lien de suppression d'une catégorie
+            function addDeleteLink($prototype) 
+            {
+              // Création du lien
+              $deleteLink = $('<a href="#" id="erase_adresse" class="btn btn-danger">Supprimer l\'adresse</a>');
+
+              // Ajout du lien
+              $prototype.append($deleteLink);
+
+              // Ajout du listener sur le clic du lien
+              $deleteLink.click(function(e) 
+              {
+                $prototype.remove();
+                e.preventDefault(); // évite qu'un # apparaisse dans l'URL
+                return false;
+              });
+            }
+        });
+
+    </script>
+
+{% endblock %}

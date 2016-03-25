@@ -1,0 +1,55 @@
+{% extends "admin/adminbase.html.twig" %}
+
+{% block sidebar_admin %}
+
+<li class="menu_side menu_side_down">
+    <a href="{{ path('edit_blog_admin', {'id': 'nouveau'})}}">Nouveau blog</a>
+</li>
+<li>
+    <a href="{{ path('categorie_blog_admin')}}">Nouvelle catégorie</a>
+</li>
+
+{% endblock %}
+
+{% block body_admin %}
+
+<h1 class="page-header">Dashboard</h1>
+<h2 class="sub-header">Blog</h2>
+<div class="table-responsive">
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>#</th>
+                <th>Titre</th>
+                <th>Rubrique</th>
+                <th>Date</th>
+                <th>Supprimer</th>
+                <th>Editer</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for blog in liste_blog %}
+            <tr>
+                <td>{{ blog.id }}</td>
+                <td>{{ blog.titre }}</td>
+                <td>{{ blog.rubriqueblog.nom }}</td>
+                <td>{{ blog.date | date('d-m-Y') }}</td>
+                <td>
+                    <form action="{{ path('blog_erase')}}" method="post" onSubmit="return confirm('Êtes-vous sûr de vouloir supprimer ce blog ?');">
+                        <input type="hidden" value="{{ blog.id }}" name="erase" >
+                        <input type="submit" class="btn btn-danger" value="supprimer" name="supprimer" />
+                    </form>
+                </td>
+                <td>
+                    <a class="btn btn-primary" href="{{ path('edit_blog_admin', {'id': blog.id }) }}">Editer</a>
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+</div>
+
+{% endblock %}
+
+

@@ -1,0 +1,40 @@
+/* ==========================================================================
+   Web fonts
+   ========================================================================== */
+
+@font-face {
+    font-family: "mohave bold";
+    src: url('../fonts/Mohave-Bold/Mohave-Bold.eot');
+    src: url('../fonts/Mohave-Bold/Mohave-Bold.eot?') format('embedded-opentype'),  
+         url('../fonts/Mohave-Bold/Mohave-Bold.otf') format('truetype'),
+         url('../fonts/Mohave-Bold/Mohave-Bold.woff') format('woff');
+}
+
+@font-face {
+    font-family: "mohave semi-bold";
+    src: url('../fonts/Mohave-SemiBold/Mohave-SemiBold.eot');
+    src: url('../fonts/Mohave-SemiBold/Mohave-SemiBold.eot?') format('embedded-opentype'),
+         url('../fonts/Mohave-SemiBold/Mohave-SemiBold.otf') format('truetype'),
+         url('../fonts/Mohave-SemiBold/Mohave-SemiBold.woff') format('woff');
+}
+
+@font-face {
+    font-family: "Kraftstoff";
+    src: url('../fonts/Kraftstoff/Kraftstoff-Regular.eot?') format('embedded-opentype'),
+         url('../fonts/Kraftstoff/Kraftstoff-Regular.woff') format('woff'),
+         url('../fonts/Kraftstoff/Kraftstoff-Regular.otf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: "arialnarrow";
+    font-weight: normal;
+    src: url('../fonts/Arial Narrow Regular.ttf');
+}
+
+@font-face {
+    font-family: "aileron";
+    font-weight: normal;
+    src: url('../fonts/Aileron-regular.otf');
+}

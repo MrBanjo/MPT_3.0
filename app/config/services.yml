@@ -1,0 +1,39 @@
+# Learn more about services, parameters and containers at
+# http://symfony.com/doc/current/book/service_container.html
+parameters:
+#    parameter_name: value
+
+services:
+        authentication_handler:
+            class: AppBundle\Controller\AuthenticationHandler
+            public: false
+            arguments: 
+                - "@router"
+                - "@session"
+        twig.extension.intl:
+            class: Twig_Extensions_Extension_Intl
+            tags:
+                - { name: twig.extension }
+        twig.extension.text:
+            class: Twig_Extensions_Extension_Text
+            tags:
+                - { name: twig.extension }
+    # le service de constructeur de menus. Peut servir à créer plusieurs menus
+        app.menu.builder:
+            class: AppBundle\Menu\Builder
+            arguments:
+                - '@knp_menu.factory'
+            tags:
+                - { name: knp_menu.menu_builder, method: createMainMenu, alias: breadcrumb }
+
+        app.twig.menu_extension:
+            class: AppBundle\Twig\MenuExtension
+            arguments:
+                - '@knp_menu.helper'
+                - '@knp_menu.matcher'
+            tags:
+                - { name: twig.extension }
+
+#    service_name:
+#        class: AppBundle\Directory\ClassName
+#        arguments: ["@another_service_name", "plain_value", "%parameter_name%"]

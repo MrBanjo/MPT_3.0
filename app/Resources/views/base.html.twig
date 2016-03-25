@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>{% block title %}{{ app.request.attributes.get('title') }}{% endblock %}</title>
+
+        {% block stylesheets %}
+
+            <link rel="stylesheet" type="text/css" href="{{ asset('css/main.css') }}" />
+
+        {% endblock %}
+
+        <link rel="icon" type="image/x-icon" href="{{ asset('favicon-32x32.png') }}" />
+    </head>
+    <body>
+        <header>
+            <div class='container_small'>
+                <a href="{{ path('accueil')}}"><img src="{{ asset('img/header/logo.png')}}" alt="logo monpaniertoque" id="logo"></a>
+                <nav class="nav_header">
+                    <label for="show-menu" class="show-menu"></label>
+                    <input type="checkbox" id="show-menu" role="button">
+                    <ul id="menu_header">
+                        <li class="left_li">                         
+                            <a href="{{path('paniers')}}">NOS PANIERS ￬</a>
+                            <ul class="ulhidden">
+                                <li><a href="{{ path('classique')}}">Panier classique</a></li>
+                                <li><a href="#">Panier végétarien</a></li>
+                                <li><a href="#">Panier Apéro</a></li>
+                                <li><a href="#">Panier Brunch</a></li>
+                            </ul>               
+                            <li class="left_li">
+                                <a href="#">COMMENT CA MARCHE ￬</a>
+                                <ul class="ulhidden">
+                                    <li><a href="#">Le concept</a></li>
+                                    <li><a href="#">Zones de livraison</a></li>
+                                    <li><a href="#">Nos producteurs partenaires</a></li>
+                                    <li><a href="#">Nos chefs</a></li>
+                                </ul>
+                            </li>
+                            <li class="left_li"><a href="{{path('menus')}}" id="menus_header" >NOS MENUS</a></li>
+                            <li><a href="#" class="right_li">CARTE CADEAU</a></li>
+                            <li><a href="#" class="right_li">QUI SOMMES NOUS</a></li>
+                            <li class="right_li"><div id="barre_left"></div><a href="" id="question">UNE QUESTION ? 01 63 12 16 02</a></li>
+                        </li>
+                    </ul>
+                </nav>
+                <div id="header_right">
+                    <div id="account_header">
+                        <div class="form_header">
+                            {% if (is_granted('ROLE_USER') or is_granted('ROLE_ADMIN')) %}
+                                <a href="{{ path('logout') }}">Se déconnecter</a>
+                            {% else %}
+                                <div>
+                                    {{ include ("form/loginheaderForm.html.twig") }}
+                                    <p id="error_login_header"></p>
+                                </div>
+                                <div>
+                                    <a href="{{path('login')}}">Créer mon compte</a>
+                                </div>
+                            {% endif %}
+                            {% if (is_granted('ROLE_ADMIN')) %}
+                                <a href="{{ path('admin') }}">Admin</a>
+                            {% endif %}
+                        </div>                        
+                    </div>
+                    {% if is_granted('IS_AUTHENTICATED_FULLY') or is_granted('IS_AUTHENTICATED_REMEMBERED') %}
+                        <p id="prenom_header">{{ app.user.prenom }}</p>
+                    {% endif %}                 
+                </div> 
+                <div id="caddie_header">
+                    <a href="{{ path('cart') }}">
+                        <div id="count_caddie">
+                            {{ render(controller('AppBundle:Cart:CountCaddie')) }}
+                        </div>
+                        <img src="{{ asset('img/header/panier.png')}}" alt="">
+                    </a>                         
+                </div>
+            </div>
+        </header>
+
+        {% block body %}{% endblock %}
+
+        <footer>
+            <div class='container_small'>
+                <section>
+                    <div id="newsletter_footer">
+                        <p><span class="footer-picto_partenaire"></span>Inscrivez-vous !</p>
+                    </div>
+                    {{ render(controller('AppBundle:Newsletter:showform')) }}
+                    <div>
+                        <p id="error_newsletter"></p>
+                    </div>
+                </section><!-- 
+             --><section id="social_footer">
+                    <p><span class="footer-plat"></span>Suivez-nous</p>
+                    <a href="" class="footer-facebook"></a>
+                    <a href="" class="footer-twitter"></a>
+                    <a href="" class="footer-truc"></a>
+                    <a href="" class="footer-blog"></a>
+                </section><!-- 
+             --><section id="label_footer">
+                    <p><span class="footer-picto_partenaire"></span>Nos partenaires</p>
+                    <img src="{{ asset('img/footer/labels.png')}}" alt="">
+                </section>
+                <div id="footer_copyright" class='container_small'>
+                    <nav>
+                        <ul>
+                            <li><p>Mon Panier Toqué@2015</p></li>
+                            <li><a href="#">Conditions générales de vente</a></li>
+                            <li><a href="#">Mentions légales</a></li>
+                            <li><a href="#">Conditions de livraison</a></li>
+                        </ul>
+                    </nav>
+                </div>
+            </div>
+        </footer>
+
+    {% block javascripts %}
+
+        <script src="{{ asset('js/vendor/jquery-1.11.2.min.js') }}"></script>
+        <script src="{{ asset('js/main.js') }}"></script>
+
+    {% endblock %}
+
+    </body>
+</html>

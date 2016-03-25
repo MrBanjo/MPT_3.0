@@ -1,0 +1,178 @@
+/* ==========================================================================
+   Base styles: opinionated defaults
+   ========================================================================== */
+
+html {
+    color: #222;
+    font-size: 1em;
+    line-height: 1.4;
+}
+
+::-moz-selection {
+    background: #b3d4fc;
+    text-shadow: none;
+}
+
+::selection {
+    background: #b3d4fc;
+    text-shadow: none;
+}
+
+img { 
+    -ms-interpolation-mode: bicubic; 
+}
+
+hr {
+    display: block;
+    height: 1px;
+    border: 0;
+    border-top: 1px solid #ccc;
+    margin: 1em 0;
+    padding: 0;
+}
+
+audio,
+canvas,
+iframe,
+img,
+svg,
+video {
+    vertical-align: middle;
+}
+
+fieldset,ul,li {
+    border: 0;
+    margin: 0;
+    padding: 0;
+}
+
+textarea {
+    resize: vertical;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+    &:focus {
+        outline: 0;
+    }
+}
+
+h1,h2,h3,h4,h5,h6,p {
+    margin:0;
+    padding:0;
+}
+
+input,button {
+    padding:0;
+    margin:0;
+    border:0;
+    background: none;
+}
+
+.browsehappy {
+    margin: 0.2em 0;
+    background: #ccc;
+    color: #000;
+    padding: 0.2em 0;
+}
+
+.container_small {
+    width: 1280px;
+    margin: 0 auto;
+    position: relative;
+}
+
+.first_section {
+    background-color: #e5dbd1;
+    padding-top: 130px;
+}
+
+.alter_first_section {
+    background-color: white;
+    padding-top: 130px;
+}
+
+@media only screen and (max-width: 1280px) {
+    .container_small {
+        width: 100%;
+    }
+}
+
+.label_login_form .required:after {
+    content: " *";
+    color: #f18a31;
+    font-weight: normal;
+    vertical-align: bottom;
+} 
+
+/* ==========================================================================
+   Styled Buttons
+   ========================================================================== */
+
+.orange {
+    background-color: $orange_ligth;
+    color: white;
+    &:hover {
+        background-color: $orange_dark;
+    }
+    &:active {
+        background-color: $orange_ligth;
+    }
+}
+
+.white-button {
+    background-color: white;
+    color: #987545;
+    &:hover {
+        background-color: #f0f0f0;
+    }
+    &:active {
+        background-color: white;
+    }
+}
+
+.green-button {
+    background-color: $green_light;
+    color: white;
+    &:hover {
+        background-color: $green_dark;
+    }
+    &:active {
+        background-color: $green_light;
+    }
+}
+
+/* ==========================================================================
+   BREADCRUMB
+   ========================================================================== */
+
+ .breadcrumb {
+    margin: 0 0 10px 20px; 
+
+    ul li {
+        display: inline-block;
+        color: #4d4135;
+        font-family: "arialnarrow";
+        font-size: 18px;
+        margin-right: 5px;
+
+        a {
+            text-decoration: underline;
+            color: #4d4135;
+        }
+
+    }
+
+    ul li:after {
+        content : ">";
+    }
+
+    ul li:last-child:after {
+        content : "";
+    }
+
+    ul li:first-child:after {
+        content : "/";
+    }
+} 

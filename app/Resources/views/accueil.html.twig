@@ -1,0 +1,157 @@
+{% extends "base.html.twig" %}
+
+{% block body %}
+
+<div class="accueil">
+    <section id="banner">
+        <div class="container_small">
+            <div id="title_banner">
+                <h1>CUISINEZ COMME UN CHEF !</h1>
+                <p>les produits de notre région</p>
+            </div>
+            <div id="show_panier" class="orange">
+                <a href="{{ path('paniers') }}">VOIR NOS PANIERS</a>
+            </div>
+        </div>
+    </section>
+    <section id="howitworks">
+        <div class="container_small">
+            <div class="title_section">
+                <h2>COMMENT CA MARCHE</h2>
+                <p>Le panier à la semaine pour concocter de délicieux repas, livré directement chez soi !</p>
+            </div>
+            <div id="show_how">
+                <div class="afterarrow howdiv">
+                    <img src="{{ asset('img/accueil/toque.png') }}" alt="">
+                    <p>Chaque semaine, nos chefs créent de nouvelles recettes pour réaliser 4 plats.</p>
+                </div>
+                <div class="afterarrow howdiv">
+                    <img src="{{ asset('img/accueil/panier.png') }}" alt="">
+                    <p>Vous choisissez votre panier contenant des produits locaux et de saison</p>
+                </div>
+                <div class="afterarrow howdiv">
+                    <img src="{{ asset('img/accueil/camion.png') }}" alt="">
+                    <p>Nous vous livrons à domicile</p>
+                </div>
+                <div class="howdiv">
+                    <img src="{{ asset('img/accueil/assiette.png') }}" alt="">
+                    <p>Vous cuisinez un repas original. Comme un chef!</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section id="last_section">
+        <div class="container_small">
+            <article id="plat">
+                <div class="title_section">
+                    <h2>NOS MENUS</h2>
+                    <p>Chaque semaine, nous créons de délicieuses recettes.</p>
+                </div>
+                <div id="slider_start">
+                    <nav id="slider_start_nav">
+                        <ul class="bxslider">
+                            <li><img src="{{ asset('img/plat/semaine/plat1.jpg') }}" alt=""></li>
+                            <li><img src="{{ asset('img/plat/semaine/plat2.jpg') }}" alt=""></li>
+                            <li><img src="{{ asset('img/plat/semaine/plat3.jpg') }}" alt=""></li>
+                        </ul>
+                    </nav>
+                    <div id="slider_button">
+                        <div id="show_menus_slider">
+                        	<a href="{{ path('menus') }}" class="white-button">VOIR NOS MENUS</a>
+                        </div>
+                        <div id="show_paniers_slider">
+                        	<a href="{{ path('paniers') }}" class="orange">VOIR NOS PANIERS</a>
+                        </div>
+                    </div>
+                </div>
+            </article>
+
+			{% if liste_blog is not empty %}
+
+	            <article id="blog_accueil">
+	                <div id="title_blog_accueil">
+	                    <h2>LES DERNIERS ARTICLES DE NOTRE BLOG</h2>
+	                </div>
+                    <div class="flexbox_blog">
+                    {% for blog in liste_blog %}
+                        <div class="blog_accueil_box">
+                            <h5>{{ blog.titre }}</h5>
+                            <small>Publié le <strong>{{ blog.date | localizeddate('medium', 'none', 'fr') }}</strong>
+                                dans la rubrique <strong>{{ blog.rubriqueblog.nom }}</strong></small>
+                            <p>{{ blog.article | truncate(145, false, ' (...)') }}</p>
+                            <a href="">lire la suite</a>
+                            <img src="{{ asset(blog.image) }}" alt="">
+                        </div>
+                    {% endfor %}                        
+                    </div>
+	            </article>
+
+            {% endif %}
+
+            <article id="commentaire">
+                <h4>NOS CLIENTS</br>
+                    <small>témoignent</small>
+                </h4>
+                <div><p>« Très pratique pour éviter les courses et toute la famille est contente ! Une nourriture
+                        saine et je reprends plaisir à cuisiner comme un chef ! » <br><span>Marie (77450)</span></p>
+                    <img src="{{ asset('img/accueil/3stars.png') }}" alt="">
+                </div>
+                <div><p>« Vraiment sympa ! Pratique, rapide à préparer je reprends plaisir à cuisiner ! Les produits
+                        du terroirs sont tops ! » <br><span>Nadia (75013)</span></p>
+                    <img src="{{ asset('img/accueil/4stars.png') }}" alt="">
+                </div>
+                <div><p>« Au départ assez sceptique sur le coût ... mais après quelques semaines, je ne regrette
+                        rien ! » <br><span>Charles (75004)</span></p>
+                    <img src="{{ asset('img/accueil/3stars.png') }}" alt="">
+                </div>
+                <div id="youradvice">
+                    <a href="#">Donnez-nous votre avis<img src="{{ asset('img/accueil/medium_arrow_white.png') }}" alt=""></a>
+                </div>
+
+            </article><!-- 
+         --><article id="engagements">
+                <div class="title_section">
+                    <h2>NOS ENGAGEMENTS</h2>
+
+                    <p>renouer avec les plaisirs gustatifs des produits de notre région !</p>
+                </div>
+                <img src="{{ asset('img/accueil/local.png') }}" alt="">
+
+                <div id="engagement">
+                    <div>
+                        <p>NOS PRODUITS<br>Des ingrédients de qualité <br> et des recettes accessibles, <br>le tout livré chez vous pour<br> vous simplifier la vie.</p>
+                        <a href="#">Lire la suite ></a>
+                        <img src="{{ asset('img/accueil/panier_garni.png') }}" alt="">
+                    </div>
+                    <div>
+                        <img src="{{ asset('img/accueil/producteur.png') }}" alt="">
+                        <p>Des produits de <br> saison issus des <br> PRODUCTEURS locaux.</p>
+                        <a href="#">Lire la suite ></a>
+                    </div>
+                    <div>
+                        <p>Des recettes simples, <br> pour tous les goûts, <br> élaborées par NOS CHEFS.</p>
+                        <a href="#">Lire la suite ></a>
+                        <img src="{{ asset('img/accueil/chef.png') }}" alt="">
+                    </div>
+                </div>
+            </article>
+        </div>
+    </section>
+</div>
+
+{% endblock %}
+
+{% block javascripts %}
+
+	{{ parent() }}
+
+	<script src="{{ asset('js/bxslider/jquery.bxslider.min.js') }}"></script>
+	<script>
+	    $(document).ready(function () {
+	        $('.bxslider').bxSlider({
+	            captions: true
+	        });
+	    });
+	</script>
+
+{% endblock %}

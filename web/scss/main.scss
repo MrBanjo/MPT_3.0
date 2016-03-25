@@ -1,0 +1,22 @@
+// Mon Panier Toqué : SITE SCSS
+
+@import "vendor/_normalize.min.scss";
+@import "site/modules/_variables.scss";
+@import "site/partials/_fonts.scss";
+@import "site/modules/_sprites.scss";
+
+@import "site/partials/_general.scss";
+@import "site/partials/_header.scss";
+@import "site/partials/_footer.scss";
+
+// Pages
+
+@import "site/partials/_home.scss";
+@import "site/partials/_paniers.scss";
+@import "site/partials/_panier&menu.scss";
+@import "site/partials/_caddie.scss";
+@import "site/partials/_caddie_identification.scss";
+
+// Third-party
+@import "vendor/_magnific-popup.scss";
+@import "site/partials/_other.scss";

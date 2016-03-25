@@ -1,0 +1,126 @@
+/* ==========================================================================
+   FOOTER
+   ========================================================================== */
+
+footer {
+    background-color: $header_footer_background;
+    padding-top: 30px;
+    padding-bottom: 10px;
+    font-family: "aileron";
+
+    & > div {
+        text-align: center;
+    } 
+
+    section {
+        display: inline-block;
+        height: 235px;
+        width: 380px;
+        margin: 0 -2px 20px 0;
+        text-align: center;
+        border-right: 2px solid $whity;
+        border-left: 2px solid $whity;
+        vertical-align: middle;
+        box-sizing: border-box;
+
+        & > div {
+            padding: 0 50px;
+        }
+
+        p {
+            margin: 20px 30px 30px 0;
+            vertical-align: middle;
+            color: $whity;
+            font-size: 24px;
+        }
+    }
+
+    form div {
+        display: inline-block;
+    }
+
+    input[type="email"] {
+        width: 200px;
+        height: 55px;
+        background-color: white; /* Fallback */
+        background-color: rgba(255,255,255,0.77);
+        color: #28180d;
+        font-family: "aileron";
+        font-style: italic;
+        margin-top: 10px;
+    }
+
+    button[type="submit"] {
+        width: 94px;
+        height: 55px;
+        background-color: rgb(88,140,0); /* Fallback */
+        background-color: rgba(88,140,0,0.59);
+        color: white;
+        font-family: "aileron";
+        font-style: italic;
+    }
+
+    span {
+        display: inline-block;
+        margin-right: 20px;
+        vertical-align: middle; 
+    }
+}
+
+#footer_copyright {
+    display: block;
+    text-align: center;
+    font-size: 14px;
+    color: $whity;
+
+    li {
+        display: inline-block;
+        padding: 0 14px;
+        border-right: 2px solid $whity;
+
+        &:first-child {
+            font-weight: bold;
+        }
+
+        &:last-child {
+            border: none;
+        }
+    }
+}
+
+#social_footer {
+    a {
+        display: inline-block;
+        margin: 0 10px;
+        vertical-align: middle;
+    }
+}
+
+@media only screen and (max-width: 480px) {
+    footer section {
+        margin: 0 0 20px 0;
+        width: 100%;
+        border: 0;
+        position: relative;
+
+        &:nth-child(2):after {
+            content:""; 
+            background: white; 
+            position: absolute; 
+            width: 70%; 
+            height: 2px;
+            bottom: 0;
+            left: 15%;
+        }
+
+        &:nth-child(2):before {
+            content:""; 
+            background: white; 
+            position: absolute; 
+            width: 70%; 
+            height: 2px;
+            top: 0;
+            left: 15%;
+        }
+    }
+}

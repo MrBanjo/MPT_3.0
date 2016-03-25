@@ -1,0 +1,170 @@
+{% extends "base.html.twig" %}
+
+{% block body %}
+
+	<section id="caddie" class="first_section">
+		<div class="container_small">
+			<nav class="nav_caddie">
+				<label for="show-caddie_menu" class="show-caddie_menu">Etapes de votre commande:</label>
+				<input type="checkbox" id="show-caddie_menu" role="button">
+				<ul id="menu_caddie">
+					<li><a href="{{ path('cart')}}"><strong>1</strong> ma commande</a></li>
+					<li><a href="{{ path('cart_identification')}}" class="opac"><strong>2</strong> identification</a></li>
+					<li><a href="" class="opac"><strong>3</strong> livraison</a></li>
+					<li><a href="" class="opac"><strong>4</strong> paiment</a></li>
+					<li><a href="" class="opac"><strong>5</strong> récapitulatif</a></li>
+				</ul>
+			</nav>
+			<div id="box_caddie">
+				<p class="conseil_tel">Besoin d’un conseil avant de finaliser votre commande ? appelez-nous : <strong>01 63 12 16 02</strong></p>
+				<nav class="breadcrumb">
+					{{ knp_menu_render('breadcrumb',{'depth': 2,'currentAsLink':false}) }}
+				</nav>
+				<a href="{{path('paniers')}}" id="continue_achat">< Poursuivre mes achats</a>
+				<form action="" class="validate_caddie">
+					<button type="submit" id="submit_caddie" class="orange">VALIDER MA COMMANDE</button>
+				</form>
+				<div class="box_table">
+					<table class="table_caddie table-striped">
+						<thead>
+							<tr>
+								<th id="caddie_table_photo"></th>
+								<th id="caddie_table_produit">PRODUITS(S)</th>
+								<th id="caddie_table_prix">PRIX UNITAIRE</th>
+								<th id="caddie_table_quantite">QUANTITé</th>
+								<th id="caddie_table_total">total</th>
+							</tr>
+						</thead>
+						<tbody>
+
+							{% for article in articles %} <!-- Création des lignes du tableau contenant les produits -->
+
+								<tr>
+									<th><img src="{{ asset(article.photo)}}" alt=""></th>
+									<th>Menu hebdo (semaine du 8 juin) Formule Classique pour 2 personnes</th>
+									<th>{{ article.prix }} €</th>
+									<th>
+										<form method="post" action="{{ path('quantite_cart') }}" id="form-{{ article.id }}"> 
+											<button type="button" onClick="substract('quantite{{ article.id }}');" id="{{ article.id }}moins" class="quantite_cart">-</button><!--  
+											 --><input type="text" value="{{ article.quantite }}" id="quantite{{ article.id }}" size="2" maxlength="4" onkeypress="return isNumberKey(event);" name="quantite"><!-- 
+											--><button type="button" onClick="add('quantite{{ article.id }}');" id="{{ article.id }}plus" class="quantite_cart">+</button>
+											<input type="hidden" value="{{ article.id }}" name="article_id">
+											<input type="submit" class="quantite_submit"> 
+										</form>
+									</th>
+									<th><span class='test'>{{ article.prix * article.quantite }}</span> €</th>			            		
+								</tr>
+
+							{% endfor %}
+
+						</tbody>
+						<tfoot>
+							<tr class="green_light">
+								<th></th>
+								<th></th>
+								<th>Total produits TTC</th>
+								<th></th>
+								<th>{{ prix_total }} €</th>
+							</tr>
+							<tr class="green_dark"> 
+								<th></th>
+								<th></th>
+								<th>Total HT</th>
+								<th></th>
+								<th>{{ prix_total }} €</th>
+							</tr>
+							<tr class="green_light">
+								<th></th>
+								<th  id="caddie_codereduc">
+									<form action="">
+										<label for="">Code de réduction :</label>
+										<div>
+			            					<input type="text" placeholder="Saisissez votre code"><!-- 
+			            				 --><input type="submit" value="OK" class="green-button">	
+			            				</div>
+			            			</form>			            			
+			            		</th>
+			            		<th>TOTAL TTC</th>
+			            		<th></th>
+			            		<th>
+			            		<strong>{{ prix_total }} €</strong>
+			            		</th>
+			        		</tr>			            				            	
+			    		</tfoot>
+					</table>
+					<div class="recette_radio">
+						<span >Je souhaite recevoir les recettes par email :</span>	 
+						<form>
+							<input type="radio" name="sex" value="male" checked>OUI
+							<input type="radio" name="sex" value="female">NON
+						</form>					        	
+					</div>
+					<a href="{{path('paniers')}}" id="continue_achat">< Poursuivre mes achats</a>
+					<div class="validate_caddie">
+						<form action="{{ path('cart_identification')}}" method="post" >
+							<button type="submit" id="submit_caddie" class="orange">VALIDER MA COMMANDE</button>
+						</form>		        	
+					</div>			
+				</div>
+			</div>
+		</div>
+	</section>	
+	<section id="engagement_panier">
+		<div class="container_small">
+			<article id="engagements">
+				<div class="title_section">
+					<h2>NOS ENGAGEMENTS</h2>
+					<p>renouer avec les plaisirs gustatifs des produits de notre région !</p>
+				</div>
+				<img src="{{ asset('img/accueil/local.png')}}" alt="">
+				<div id="engagement">
+					<div>
+					<p>NOS PRODUITS
+						<br>Des ingrédients de qualité
+						<br> et des recettes accessibles,
+						<br>le tout livré chez vous pour
+						<br> vous simplifier la vie.</p>
+						<a href="#">Lire la suite ></a>
+						<img src="{{ asset('img/accueil/panier_garni.png')}}" alt="">
+					</div>
+					<div>
+						<img src="{{ asset('img/accueil/producteur.png')}}" alt="">
+						<p>Des produits de
+							<br> saison issus des
+							<br> PRODUCTEURS locaux.
+						</p>
+						<a href="#">Lire la suite ></a>
+					</div>
+					<div>
+						<p>Des recettes simples,
+							<br> pour tous les goûts,
+							<br> élaborées par NOS CHEFS.
+						</p>
+						<a href="#">Lire la suite ></a>
+						<img src="{{ asset('img/accueil/chef.png')}}" alt="">
+					</div>
+				</div>
+			</article>
+		</div>
+	</section>
+
+{% endblock %}
+
+{% block javascripts %}
+
+	{{ parent() }}
+
+	<script>
+	    $(document).ready(function () {
+			$('.quantite_cart').on('click', function() {
+				$(this).parent().submit();
+			});
+
+			var prix = 0;
+			for (var i=0; i < $('.test').length; i++) {
+				prix += parseFloat($('.test')[i].innerHTML);
+			}
+	    });
+	</script>
+
+{% endblock %} 

@@ -1,0 +1,111 @@
+{% extends "base.html.twig" %}
+
+{% block body %}
+
+	<section id="paniers_menu_soir" class="first_section">
+		<div class="container_small">
+			<div class="title_section">
+			    <h2>NOS PANIERS MENUS DU SOIR</h2>
+			    <p>Pour vous simplifier la vie !</p>
+			</div>
+			<nav class="breadcrumb">
+				{{ knp_menu_render('breadcrumb',{'depth': 2,'currentAsLink':false}) }}
+			</nav>
+		    <div id="box_menu">	    		   
+			    <article class="menu_soir">
+			    	<h3>Classique</h3>
+			    	<img src="{{ asset('img/menus/menu_classique.png')}}" alt="">
+			    	<img src="{{ asset('img/menus/detail.png')}}" alt="">
+			    	<div class="prix_paniers_box">
+			    		<span><strong>2</strong> pers. (59 €) | <strong>4</strong> pers. (89 €)<br><strong>4</strong> repas / semaine</span>
+			    		<div class="plus_soir"><a href="{{ path('classique') }}" class="orange">découvrir ce panier</a></div>
+			    	</div>
+			    </article>
+			    <article class="menu_soir">
+			    	<h3>Végétarien</h3>
+			    	<img src="{{ asset('img/menus/menu_veg.png')}}" alt="">
+			    	<img src="{{ asset('img/menus/detail2.png')}}" alt="">
+			    	<div class="prix_paniers_box">
+			    		<span><strong>2</strong> pers. (59 €) | <strong>4</strong> pers. (89 €) <br><strong>4</strong> repas / semaine</span>
+			    		<div class="plus_soir"><a href="#" class="orange">découvrir ce panier</a></div>
+			    	</div>
+			    </article>
+		    </div>
+	    </div>
+	</section>
+	<section id="panier_menu_autre">
+		<div class="container_small">
+			<div class="title_section">
+			    <h2>NOS PANIERS convivialité</h2>
+			    <p>Pour vous simplifier la vie !</p>
+			</div>
+		    <div id="box_menu">	    		   
+			    <article class="menu_autre">
+			    	<h3>Apéro</h3>
+			    	<img src="{{ asset('img/menus/apero.jpg')}}" alt="">
+			    	<div class="prix_paniers_box">
+			    		<span><strong>49 €</strong> le panier / <strong>4</strong> pers.</span>
+			    		<div class="plus_convi"><a href="#" class="white-button">découvrir ce panier</a></div>
+			    	</div>
+			    </article>
+			    <article class="menu_autre">
+			    	<h3>Brunch</h3>
+			    	<img src="{{ asset('img/menus/brunch.jpg')}}" alt="" id="brunch_img">
+			    	<div class="prix_paniers_box">
+			    		<span><strong>49 €</strong> le panier / <strong>4</strong> pers.</span>
+			    		<div class="plus_convi"><a href="#" class="white-button">découvrir ce panier</a></div>
+			    	</div>
+			    </article>
+		    </div>
+		</div>
+	</section>	
+	<section id="engagement_panier">
+	    <div class="container_small">
+	        <article id="engagements">
+	            <div class="title_section">
+	                <h2>NOS ENGAGEMENTS</h2>
+	                <p>renouer avec les plaisirs gustatifs des produits de notre région !</p>
+	            </div>
+	            <img src="{{ asset('img/accueil/local.png')}}" alt="">
+	            <div id="engagement">
+	                <div>
+	                    <p>NOS PRODUITS
+	                        <br>Des ingrédients de qualité
+	                        <br> et des recettes accessibles,
+	                        <br>le tout livré chez vous pour
+	                        <br> vous simplifier la vie.</p>
+	                    <a href="#">Lire la suite ></a>
+	                    <img src="{{ asset('img/accueil/panier_garni.png')}}" alt="">
+	                </div>
+	                <div>
+	                    <img src="{{ asset('img/accueil/producteur.png')}}" alt="">
+	                    <p>Des produits de
+	                        <br> saison issus des
+	                        <br> PRODUCTEURS locaux.</p>
+	                    <a href="#">Lire la suite ></a>
+	                </div>
+	                <div>
+	                    <p>Des recettes simples,
+	                        <br> pour tous les goûts,
+	                        <br> élaborées par NOS CHEFS.</p>
+	                    <a href="#">Lire la suite ></a>
+	                    <img src="{{ asset('img/accueil/chef.png')}}" alt="">
+	                </div>
+	            </div>
+	        </article>
+	    </div>
+	</section>
+
+{% endblock %} 
+
+{% block javascripts %} 
+
+	{{ parent() }}
+	<script>
+		$(document).ready(function() {
+		    
+		});
+	</script>
+
+{% endblock %}
+

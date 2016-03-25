@@ -1,0 +1,221 @@
+{% extends "base.html.twig" %}
+
+{% block body %}
+
+	<section id="panier_class" class="first_section">
+		<div class="container_small">
+			<div class="title_section">
+			    <h2>NOTRE PANIER CLASSIQUE</h2>
+			</div>
+			<nav class="breadcrumb">
+				{{ knp_menu_render('breadcrumb',{'depth': 2,'currentAsLink':false}) }}
+			</nav>
+		    <div id="box_menu">	    		   
+			    <article class="panier_type">
+			    	<p>Notre panier classique contient tous les ingrédients pour préparer vos repas. <strong>4 repas originaux</strong>, simples et équilibrés.</p>
+			    	<img src="{{ asset('img/accueil/local.png')}}" alt="" id="panier_type_local">
+			    	<img src="{{ asset('img/menus/menu_classique2.png')}}" alt="" id="panier_type_photo">
+			    	<div class="panier_what">
+			    		<img src="{{ asset('img/menus/produits.png')}}" alt="">
+			    		<div class="panier_what_trait"></div>
+			    		<img src="{{ asset('img/menus/recettes.png')}}" alt="">
+			    		<div class="panier_what_trait"></div>
+			    		<img src="{{ asset('img/menus/livreur.png')}}" alt="">
+			    	</div>
+			    </article>
+			    <article class="panier_order">
+			    	<div class="prix_paniers">
+			    		<p><strong id="update_prix">{{ menu_classique.prix }}</strong><strong> €</strong> (panier pour <strong id="update_pers">2</strong> pers.)</p>
+			    		<form action="{{ path('addtocart', { 'slug' : 'Menu' }) }}" method="post" class="submit_product">
+			    			<small>Choisissez le nombre de panier</small>
+			    			<div id="quantite_panier">
+								<button type="button" class="green-button quantite_button" onClick="substract('quantite');" formnovalidate="formnovalidate">-</button><!--  
+							 --><input type="number" value="1" id="quantite" min="1" max="9" name="quantite" size="2" maxlength="4" onkeypress="return isNumberKey(event);" required><!-- 
+							 --><button type="button" class="green-button quantite_button" onClick="add('quantite');" >+</button> 			    				
+			    			</div>
+			    			<div class="styled-select">
+								<SELECT name="fonction" id="nbre_pers">
+									<option value="2" disabled selected style='display:none;'>Choisissez le nombre de personne</option>
+									<OPTION VALUE="2">2</OPTION>
+									<OPTION VALUE="4">4</OPTION>
+								</SELECT>
+							</div>
+							<div class="styled-select">
+								<SELECT name="fonction">
+									<option value="" disabled selected style='display:none;'>Choisissez votre fréquence de livraison</option>
+									<OPTION VALUE="2">1 semaine sur 2</OPTION>
+									<OPTION VALUE="3">1 semaine sur 3</OPTION>
+									<OPTION VALUE="4">1 semaine sur 4</OPTION>
+								</SELECT>
+							</div>
+							<input type="hidden" name="id_product" value="{{ menu_classique.id }}">
+			    			<input type="date" onfocus="(this.type='date')" placeholder="Choisissez la date de votre livraison"><img id="lolol" src="{{ asset('img/menus/small_arrow_desc.png')}}" alt="">
+			    			<input type="submit" value="AJOUTER A VOTRE COMMANDE" class="orange">
+			    		</form>
+			    		<small>A commander jusqu'au 5 juin</small>
+			    	</div>
+			    </article>
+		    </div>
+	    </div>
+	</section>
+	<section id="panier_detail">
+		<div class="container_small">
+			<div class="title_section">
+			    <h2>MENU DE NOTRE PANIER</h2>
+			</div>
+			<nav class="slider_menu">	
+				<ul class="bxslider ">
+
+					{% for plat in liste_classique %}
+
+				    	<li>
+							<img src="{{ asset(plat.photo)}}" alt="" class="photo_plat">
+							<div id="plat_detail">			
+								<h3>Menu classique semaine du {{ menu_classique.date | date('d')}}</h3>
+								<h4>plat {{ loop.index }} : {{ plat.titre }}</h4>
+						    	<div class="plat_what">
+						    		<div>
+							    		<img src="{{ asset('img/menus/horloge.png')}}" alt="">
+							    		<span>Temps de préparation</br>{{ plat.temps }}</span>
+						    		</div>
+						    		<div>
+							    		<div class="plat_what_trait"></div>
+							    		<img src="{{ asset('img/menus/difficulte.png')}}" alt="">
+							    		<span>Difficulté</br>{{ plat.difficulte }}</span>
+							    	</div>
+							    	<div>
+							    		<div class="plat_what_trait"></div>
+							    		<img src="{{ asset('img/menus/consistance.png')}}" alt="">
+							    		<span>{{ plat.consistance }}</span>
+							    	</div>
+						    		<div class="plat_what_trait"></div>
+						    		<img src="{{ asset('img/menus/aliment.png')}}" alt="">
+					    		</div>
+						    	<p class="plat_accroche">{{ plat.accroche }}</p>	
+						    	<p class="plat_description">{{ plat.description }}</p>
+						    	<p class="plat_description"> {{ plat.plus }}</p>
+						    	<p class="sel_poivre"><img src="{{ asset('img/menus/sel.png')}}" alt="">Prévoir du sel, du poivre et de l’huile dans votre placard</p>		
+							</div>			    	
+				    	</li>
+
+				    {% endfor %}
+
+				</ul>	    		   
+			</nav>
+		</div>
+	</section>	
+	<section id="upsell">
+		<div class="container_small">
+			<div class="title_section">
+			    <h2>POUR COMPLéTER VOTRE PANIER</h2>
+			    <p>vous aimerez également</p>
+			</div>
+
+			{% for categorie,upsell in liste_upsell %}<!-- 
+			
+			 --><article> 
+					<img src="{{ asset( upsell.photo )}}" alt="" class="img_upsell">
+					<p class="upsell_titre">{{ upsell.titre }}</p>
+					<p class="provenance">{{ upsell.origine }} <small>({{ upsell.departement }})</small></p>
+					<span class="prix_upsell">{{ upsell.prix | localizednumber }} € <small>ttc ({{ upsell.contenance }})</small></span>
+					<form action="{{ path('addtocart', { 'slug' : 'Upsell' }) }}" method="post" class="submit_product">
+						<input type="hidden" value="1" name="quantite" >
+						<input type="hidden" name="id_product" value="{{ upsell.id }}">
+						<input type="submit" name="submit" class="upsell_add orange" value="AJOUTER A MA COMMANDE">
+					</form>
+					<p><a class="next_menu">voir notre sélection de {{ categorie | lower }}s</a><img src="{{ asset('img/menus/arrow_next.png')}}" alt=""></p>
+				</article><!--
+
+		-->{% endfor %}
+
+		</div>
+	</section>
+	<section id="plat_comment">
+		<div class="title_section">
+			<h2>nos clients témoignent</h2>
+		</div>		
+		<img src="{{ asset('img/menus/comment1.jpg')}}" alt="">
+		<img src="{{ asset('img/menus/comment2.jpg')}}" alt="">
+		<img src="{{ asset('img/menus/comment3.jpg')}}" alt="">
+	</section>
+	<a href="#popup-cart" class="open-popup-link" id="popup-link">Show inline popup</a>
+	<div id="popup-cart" class="addtocart-popup mfp-hide ">
+		<p>Vous venez d'ajouter à votre panier:</p>
+		<div id="popup-box">
+			<img id="popup-photo">
+			<span id="popup-quantite"></span>
+			<span>-</span>
+			<span id="popup-titre"></span>
+			<a href="{{ path('cart')}}" id="popup-end">Terminer ma commande ></a>
+			<a href="{{ app.request.uri }}" id="popup-continue">Poursuivre mes achats ></a>		
+		</div>
+	</div>
+
+
+{% endblock %} 
+
+{% block javascripts %} 
+
+	{{ parent() }}
+	<script src="{{ asset('js/bxslider/jquery.bxslider.min.js') }}"></script>
+	<script type="text/javascript" src="{{ asset('js/jquery.magnific-popup.js') }}"></script>
+    <script>
+	    $(document).ready(function(){
+
+	    	// Sliders + Popup plugin
+			$('.bxslider').bxSlider({
+			captions: true
+			});
+		
+		    $('.open-popup-link').magnificPopup({
+			  type:'inline',
+			  midClick: true // Allow opening popup on middle mouse click. Always set it to true if you don't provide alternative source in href.
+			});
+
+
+		    // Mis à jour du prix du panier
+			$('.quantite_button').on("click", function() {
+				if($('#nbre_pers').val() == null || $('#nbre_pers').val() == 2) {
+					$('#update_prix').html($('#quantite').val()*{{ menu_classique.prix }});
+				}
+				else {
+					$('#update_prix').html($('#quantite').val()*89);
+				}	
+			});
+			
+			$('#nbre_pers').on("change", function() {
+				if($('#nbre_pers').val() == null || $('#nbre_pers').val() == 2) {
+					$('#update_prix').html($('#quantite').val()*{{ menu_classique.prix }});
+				}
+				else {
+					$('#update_prix').html($('#quantite').val()*89);
+				}
+				$('#update_pers').html($('#nbre_pers').val());	
+			});
+
+
+			// Requete AJAX pour ajouter le produit au caddie
+			$(".submit_product").submit(function(e){
+				e.preventDefault();
+	        	$.ajax({
+	                type: 'post',
+	                url: $(this).attr('action'),
+	                data: $(this).serialize(),
+	                
+	        	})
+	        	.done(function (data) {
+	            	$('#popup-photo').attr('src', "{{ asset('') }}" + data.photo);
+	            	$('#popup-quantite').html(data.quantite);
+	            	$('#popup-titre').html(data.titre);
+	            	$('a.open-popup-link').trigger('click');
+	        	})
+	        	.fail(function (jqXHR, textStatus, errorThrown) {
+			
+				})
+			})
+
+		});
+
+	</script>
+
+{% endblock %}

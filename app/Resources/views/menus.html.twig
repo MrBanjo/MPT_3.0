@@ -1,0 +1,164 @@
+{% extends "base.html.twig" %}
+
+{% block body %}
+
+	<section  class="alter_first_section">
+		<div class="container_small" id="panier_detail">
+			<div class="title_section">
+			    <h2>NOS MENUS</h2>
+			</div>
+			<nav class="slider_menu">	
+				<ul class="bxslider ">
+					{% for plat in liste_classique %}
+				    	<li>
+							<img src="{{ asset(plat.photo)}}" alt="" class="photo_plat">
+							<div id="plat_detail">			
+								<h3>Menu classique semaine du {{ menu_classique.date | date('d')}}</h3>
+								<h4>plat {{ loop.index }} : {{ plat.titre }}</h4>
+						    	<div class="plat_what">
+						    		<div>
+							    		<img src="{{ asset('img/menus/horloge.png')}}" alt="">
+							    		<span>Temps de préparation</br>{{ plat.temps }}</span>
+						    		</div>
+						    		<div>
+							    		<div class="plat_what_trait"></div>
+							    		<img src="{{ asset('img/menus/difficulte.png')}}" alt="">
+							    		<span>Difficulté</br>{{ plat.difficulte }}</span>
+							    	</div>
+							    	<div>
+							    		<div class="plat_what_trait"></div>
+							    		<img src="{{ asset('img/menus/consistance.png')}}" alt="">
+							    		<span>{{ plat.consistance }}</span>
+							    	</div>
+						    		<div class="plat_what_trait"></div>
+						    		<img src="{{ asset('img/menus/aliment.png')}}" alt="">
+					    		</div>
+						    	<p class="plat_accroche">{{ plat.accroche }}</p>	
+						    	<p class="plat_description">{{ plat.description }}</p>
+						    	<p class="plat_description"> {{ plat.plus }}</p>
+						    	<p class="sel_poivre"><img src="{{ asset('img/menus/sel.png')}}" alt="">Prévoir du sel, du poivre et de l’huile dans votre placard</p>
+						    	<a href="{{ path('classique') }}" class="discovery orange">découvrir notre panier classique</a>		
+							</div>			    	
+				    	</li>
+				    {% endfor %}		    	
+				</ul>	    		   
+			</nav>
+		</div>
+	</section>	
+	<section id="panier_suivant">
+		<div class="container_small">
+			<div class="title_section">
+			    <h2>Les semaines à venir</h2>
+			</div>	    		   
+			<div class="plat_suivant">
+				<h3>Semaine du 15 au 21 juin</h3>
+		    	<img src="{{ asset('img/menus/semaine1.jpg')}}" alt="" class="photo_plat_suivant">
+		    	<p class="plat_titre_suivant">Tarte saumon et légumes</p>
+		    	<a class="next_menu">voir le menu</a><img src="{{ asset('img/menus/arrow_next.png')}}" alt="">			
+			</div>
+			<div class="plat_suivant">
+				<h3>Semaine du 22 au 28 juin</h3>
+		    	<img src="{{ asset('img/menus/semaine2.jpg')}}" alt="" class="photo_plat_suivant">
+		    	<p class="plat_titre_suivant">Brochettes poulet-carottes</p>
+		    	<a class="next_menu">voir le menu</a><img src="{{ asset('img/menus/arrow_next.png')}}" alt="">		
+			</div>
+		</div>
+	</section>
+	<section>
+		<div class="container_small" id="panier_detail">
+			<nav class="slider_menu">	
+				<ul class="bxslider ">
+
+				{% for plat in liste_vegan %}
+
+			    	<li>
+						<img src="{{ asset('img/menus/ratatouille.jpg')}}" alt="" class="photo_plat">
+						<div id="plat_detail">			
+							<h3>Menu végétarien semaine du 7 Juin</h3>
+							<h4>plat 1 : {{ plat.titre }}</h4>
+					    	<div class="plat_what">
+					    		<div>
+						    		<img src="{{ asset('img/menus/horloge.png')}}" alt="">
+						    		<span>Temps de préparation</br>{{ plat.temps }}</span>
+					    		</div>
+					    		<div>
+						    		<div class="plat_what_trait"></div>
+						    		<img src="{{ asset('img/menus/difficulte.png')}}" alt="">
+						    		<span>Difficulté</br>{{ plat.difficulte }}</span>
+						    	</div>
+						    	<div>
+						    		<div class="plat_what_trait"></div>
+						    		<img src="{{ asset('img/menus/consistance.png')}}" alt="">
+						    		<span>{{ plat.consistance }}</span>
+						    	</div>
+					    		<div class="plat_what_trait"></div>
+					    		<img src="{{ asset('img/menus/aliment_veg.png')}}" alt="">
+				    		</div>
+					    	<p class="plat_accroche">{{ plat.accroche }}</p>	
+					    	<p class="plat_description">{{ plat.description }}</p>
+					    	<p class="plat_description"> {{ plat.plus }}</p>
+					    	<p class="sel_poivre"><img src="{{ asset('img/menus/sel.png')}}" alt="">Prévoir du sel, du poivre et de l’huile dans votre placard</p>
+					    	<a href="{{ path('classique') }}" class="discovery orange">découvrir notre panier végétarien</a>		
+						</div>			    	
+			    	</li>
+
+			    {% endfor %}
+
+				</ul>	    		   
+			</nav>
+		</div>
+	</section>	
+	<section id="panier_suivant">
+		<div class="container_small">
+			<div class="title_section">
+			    <h2>Les semaines à venir</h2>
+			</div>	    		   
+			<div class="plat_suivant">
+				<h3>Semaine du 15 au 21 juin</h3>
+		    	<img src="{{ asset('img/menus/paella.jpg')}}" alt="" class="photo_plat_suivant">
+		    	<p class="plat_titre_suivant">Paëlla végétarienne</p>
+		    	<a class="next_menu">voir le menu</a><img src="{{ asset('img/menus/arrow_next.png')}}" alt="">			
+			</div>
+			<div class="plat_suivant">
+				<h3>Semaine du 22 au 28 juin</h3>
+		    	<img src="{{ asset('img/menus/feuillete.jpg')}}" alt="" class="photo_plat_suivant">
+		    	<p class="plat_titre_suivant">Feuilleté de légumes</p>
+		    	<a class="next_menu">voir le menu</a><img src="{{ asset('img/menus/arrow_next.png')}}" alt="">		
+			</div>
+		</div>
+	</section>
+
+{% endblock %}
+
+{% block javascripts %} 
+
+	{{ parent() }}
+	<script src="{{ asset('js/bxslider/jquery.bxslider.min.js') }}"></script>
+    <script>
+	    $(document).ready(function(){
+		  $('.bxslider').bxSlider({
+		  	captions: true
+
+		  });
+		 
+		});
+
+		function add( nom ) { 
+			document.getElementById( nom ).value ++; 
+		}
+
+		function substract( nom ) { 
+			document.getElementById( nom ).value --; 
+		} 
+
+		function isNumberKey(evt) 
+		{ 
+			var charCode = (evt.which) ? evt.which : event.keyCode 
+			if (charCode > 31 && (charCode < 48 || charCode > 57)) 
+			return false; 
+
+			return true; 
+		}
+	</script>
+	 
+{% endblock %}

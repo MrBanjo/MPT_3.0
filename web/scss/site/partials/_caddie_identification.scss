@@ -1,0 +1,182 @@
+/* ==========================================================================
+   IDENTIFICATION CADDIE
+   ========================================================================== */
+
+
+.box_subs {
+    margin: 0 20px;
+    padding-bottom: 20px;
+}
+
+.box_form_user {
+    background-color: white;
+    margin: 20px 0;
+    padding: 20px;
+    font-family: 'arialnarrow';
+    font-size: 18px;
+    color: #493f33;
+    overflow: hidden;
+}
+
+.box_form_user li {
+    list-style: none;
+    display: block;
+}
+
+.box_form_user_small {
+    width: 700px;
+    margin: 0 auto;
+}
+
+.title_box_form {
+    margin-bottom: 40px;
+    text-align: left;
+    font-size: 16px;
+    font-weight: bold;
+}
+
+.label_login_form {
+    position: absolute;
+    display: inline-block;
+    right:510px;
+    width: 300px;
+    text-align: right;
+    bottom:0;
+}
+
+.box_form_user span, .asterix {
+    color: #f18a31;
+}
+
+#asterix_reminder {
+    float: right;
+    font-size: 16px;
+    font-weight: bold;
+}
+
+.box_form_user input {
+    text-align: center;
+    display: block;
+    margin: 10px auto;
+    height: 28px;
+    width: 300px;
+    border: 1px solid #6d9a4b;
+}
+
+.row_login_form {
+    position: relative;
+    max-width: 700px;
+    margin: auto;
+    text-align: center;
+}
+
+.row_login_form input[type="radio"] {
+    width: 10px;
+    display: inline-block;
+    margin: 0 3px;
+    border : 0;
+    height: 10px;
+}
+
+/* .styled-select {
+    border: 1px solid #5f3817;
+    text-align: center;
+    width:90%;
+    height: 40px;
+    overflow: hidden;
+    margin: 10px auto;
+    background: url('../img/menus/small_arrow_desc.png') no-repeat right;
+}*/
+
+.styled-select select{
+    font-family: 'arialnarrow';
+    font-size: 18px;
+    color: #493f33;
+    text-align: center;
+    font-style: italic;
+}
+
+
+
+.row_login_form select {
+    width: 90px;
+    height: 30px;
+   background: transparent;
+   font-size: 16px;
+   outline: none;
+   border: 1px solid #6d9a4b;
+    text-align: center;
+    box-sizing: border-box;
+} 
+
+
+
+.row_login_form select:nth-child(2) {
+    margin: 0 12px;
+}
+
+#add_adresse {
+    text-align: left;
+    color: #588c31;
+    font-family: "arialnarrow";
+    font-size: 21px;
+    font-weight: bold;
+    font-style: italic;
+    text-decoration: underline;
+}
+
+#erase_adresse {
+    float: right;
+    font-family: "arialnarrow";
+    font-size: 21px;
+    font-weight: bold;
+    font-style: italic;
+    color: #588c31;
+}
+
+.box_form_user:last-child {
+    text-align: right; 
+    margin-bottom: 0;
+}
+
+.box_form_user:last-child span{
+    display: none;
+}
+
+.box_form_user:last-child button[type="submit"] {
+    text-align: center;
+    width: 235px;
+    height: 40px;
+    background-color: #f18a31;
+    color: white;   
+}
+
+@media screen and (max-width : 780px){
+    .box_form_user_small {
+        width: 100%;
+        margin: 0 auto;
+    }
+
+    .label_login_form {
+        position: static;
+        display: block;
+        width: 100%;
+        text-align: center;
+        right: auto;
+        left:0;
+    }
+
+.box_form_user input {
+    text-align: center;
+    display: block;
+    margin: 10px auto;
+    height: 28px;
+    width: 100%;
+    border: 1px solid #6d9a4b;
+    }
+
+    .box_form_user_small {
+        width: 100%;
+        margin: 0 auto;
+    }
+}

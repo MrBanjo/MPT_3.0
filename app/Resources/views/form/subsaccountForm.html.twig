@@ -1,0 +1,45 @@
+
+{% form_theme form 'form/subsaccountField.html.twig' %} 
+{{ form_start(form) }} 
+{{ form_errors(form) }}
+<div class="box_form_user">
+    <div class="box_form_user_small">
+        <p id="asterix_reminder">Champ obligatoire : <span>*</span>
+        </p>
+        <p class="title_box_form">VOS IDENTIFIANTS</p>
+        {{ form_row(form.email,{ 'attr': {'class': 'email_row'} }) }}
+        <span id="spinner"></span> 
+        {{ form_row(form.password.first) }}
+        <div class="row_login_form">
+            <div class="label_login_form">
+                <strong>{{ form_label(form.password.second) }}</strong>
+            </div>
+            {{ form_errors(form.password.second) }} 
+            {{ form_widget(form.password.second) }}
+        </div>
+    </div>
+</div>
+<div class="box_form_user">
+    <div class="box_form_user_small">
+        <p class="title_box_form">VOS INFORMATIONS PERSONELLES</p>
+        {{ form_row(form.civilite) }} 
+        {{ form_row(form.prenom) }} 
+        {{ form_row(form.nom) }}
+        <div class="row_login_form" id="birthday_form">
+            <div class="label_login_form">
+                {{ form_label(form.birthdate) }}
+            </div>
+            {{ form_errors(form.birthdate) }} 
+            {{ form_widget(form.birthdate) }}
+        </div>
+    </div>
+</div>
+
+<div class="box_form_user">
+    <div class="box_form_user_small">
+        {{ form_end(form) }}
+    </div>
+</div>
+
+
+
