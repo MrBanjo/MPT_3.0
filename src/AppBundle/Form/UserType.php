@@ -47,13 +47,13 @@ class UserType extends AbstractType
                                                     'label' => 'Date de naissance:', 
                                                     'format' => 'dd MMMM yyyy', 
                                                     'years' => range(date('Y'),1920)))
-/*            ->add('adresses', CollectionType::class , array(  
+            ->add('adresses', CollectionType::class , array(  
                                                     'entry_type' => AdresseType::class,
                                                     'allow_add'    => true,
                                                     'allow_delete' => true,
                                                     'by_reference' => false,
                                                     'label' => false
-                                                    ))*/
+                                                    ))
             ->add('VALIDER', SubmitType::class)
         ;
     }

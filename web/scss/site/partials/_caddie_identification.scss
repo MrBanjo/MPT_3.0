@@ -2,6 +2,16 @@
    IDENTIFICATION CADDIE
    ========================================================================== */
 
+.login_title {
+    font-family: 'mohave semi-bold';
+    font-size: 36px;
+    color: $font_green;
+    text-align: center;
+}
+
+.login_box {
+    margin-top: 35px;
+}
 
 .box_subs {
     margin: 0 20px;
@@ -48,7 +58,7 @@
     color: #f18a31;
 }
 
-#asterix_reminder {
+.asterix_reminder {
     float: right;
     font-size: 16px;
     font-weight: bold;
@@ -78,6 +88,14 @@
     height: 10px;
 }
 
+.row_login_form input[type="checkbox"] {
+    width: 20px;
+    height: 20px;
+    display: inline-block;
+    margin: 0;
+    border : 0;
+}
+
 /* .styled-select {
     border: 1px solid #5f3817;
     text-align: center;
@@ -96,8 +114,6 @@
     font-style: italic;
 }
 
-
-
 .row_login_form select {
     width: 90px;
     height: 30px;
@@ -108,8 +124,6 @@
     text-align: center;
     box-sizing: border-box;
 } 
-
-
 
 .row_login_form select:nth-child(2) {
     margin: 0 12px;
@@ -136,7 +150,7 @@
 
 .box_form_user:last-child {
     text-align: right; 
-    margin-bottom: 0;
+    
 }
 
 .box_form_user:last-child span{
@@ -166,13 +180,22 @@
         left:0;
     }
 
-.box_form_user input {
-    text-align: center;
-    display: block;
-    margin: 10px auto;
-    height: 28px;
-    width: 100%;
-    border: 1px solid #6d9a4b;
+    .rememberme_login {
+        display: inline-block;
+        width: auto;
+    }
+
+    .box_form_user input {
+        text-align: center;
+        display: block;
+        margin: 10px auto;
+        height: 28px;
+        width: 100%;
+        border: 1px solid #6d9a4b;
+    }
+    .row_login_form input[type="checkbox"] {
+        display: inline-block;
+        vertical-align: middle;
     }
 
     .box_form_user_small {

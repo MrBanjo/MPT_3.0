@@ -32,12 +32,4 @@ class LoginheaderType extends AbstractType
             'data_class' => 'AppBundle\Entity\User'
         ));
     }
-
-    /**
-     * @return string
-     */
-    public function getName()
-    {
-        return 'appbundle_user';
-    }
 }

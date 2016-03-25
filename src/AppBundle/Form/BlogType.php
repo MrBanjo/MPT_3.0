@@ -38,12 +38,4 @@ class BlogType extends AbstractType
             'data_class' => 'AppBundle\Entity\Blog'
         ));
     }
-
-    /**
-     * @return string
-     */
-    public function getName()
-    {
-        return 'appbundle_blog';
-    }
 }

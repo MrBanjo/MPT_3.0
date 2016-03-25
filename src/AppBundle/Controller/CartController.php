@@ -69,7 +69,7 @@ class CartController extends Controller
             $this->get("event_dispatcher")->dispatch("security.interactive_login", $event);
         }
 
-        return $this->render('cart-identification.html.twig', array(
+        return $this->render('cart_identification.html.twig', array(
               'form' => $form->createView(),
               'url' => $url,
               'referer' => $referer_url

@@ -36,12 +36,4 @@ class PlatType extends AbstractType
             'data_class' => 'AppBundle\Entity\Plat'
         ));
     }
-
-    /**
-     * @return string
-     */
-    public function getName()
-    {
-        return 'appbundle_plat';
-    }
 }

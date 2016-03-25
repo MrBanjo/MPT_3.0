@@ -34,12 +34,4 @@ class AdresseType extends AbstractType
             'data_class' => 'AppBundle\Entity\Adresse'
         ));
     }
-
-    /**
-     * @return string
-     */
-    public function getName()
-    {
-        return 'appbundle_adresse';
-    }
 }

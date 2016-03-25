@@ -57,7 +57,7 @@ class UserController extends Controller
     }
 
     /**
-     * @Route("/checkMail/{data}", name="checkMail", defaults={"data" = ""})
+     * @Route("/checkMail/{data}", name="checkMail", defaults={"data" = ""}, options={"expose"=true})
      */
     public function checkEmail($data)
     {
@@ -66,11 +66,11 @@ class UserController extends Controller
         $user = $em->getRepository('AppBundle:User')->findOneByEmail($data);
 
         if ( $user ) {
-            return new JsonResponse(array('titre' => $data , 200));
+            return new JsonResponse(array('message' => 'success' , 200));
         }
-
+        else {
+            return new JsonResponse(array('message' => 'fail' , 200));
+        }
     }
-
-
 
 }

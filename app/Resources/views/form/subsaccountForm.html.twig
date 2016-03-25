@@ -1,10 +1,9 @@
-
 {% form_theme form 'form/subsaccountField.html.twig' %} 
 {{ form_start(form) }} 
 {{ form_errors(form) }}
 <div class="box_form_user">
     <div class="box_form_user_small">
-        <p id="asterix_reminder">Champ obligatoire : <span>*</span>
+        <p class="asterix_reminder">Champ obligatoire : <span>*</span>
         </p>
         <p class="title_box_form">VOS IDENTIFIANTS</p>
         {{ form_row(form.email,{ 'attr': {'class': 'email_row'} }) }}
@@ -34,12 +33,14 @@
         </div>
     </div>
 </div>
-
+<div class="box_form_user">
+    <div class="box_form_user_small">
+        <p class="title_box_form">VOTRE ADRESSE</p>
+        {{ form_row(form.adresses) }}
+    </div>
+</div>
 <div class="box_form_user">
     <div class="box_form_user_small">
         {{ form_end(form) }}
     </div>
 </div>
-
-
-

@@ -42,12 +42,4 @@ class MenuType extends AbstractType
             'data_class' => 'AppBundle\Entity\Menu'
         ));
     }
-
-    /**
-     * @return string
-     */
-    public function getName()
-    {
-        return 'appbundle_menu';
-    }
 }

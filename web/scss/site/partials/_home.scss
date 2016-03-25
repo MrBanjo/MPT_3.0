@@ -181,11 +181,13 @@ h2 {
     background-color: $background-sand;
     flex-grow: 1;
 
+
     .bx-wrapper {
         position: relative;
         display: block;
         margin: 0 auto;
         width: 600px;
+
 
         .bx-prev {
         left: -60px;
@@ -256,7 +258,7 @@ h2 {
         right: 0;
     }
     #slider_start_nav img {
-        width:100%    
+        width:100%;  
     }
 }
 

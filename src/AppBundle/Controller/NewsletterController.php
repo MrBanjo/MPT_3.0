@@ -15,7 +15,7 @@ class NewsletterController extends Controller
 {
 
 	/**
-	 * @Route("/newsletter", name="newsletter")
+	 * @Route("/newsletter", name="newsletter", options={"expose"=true})
 	 */
 	public function newsAction(Request $request)
 	{

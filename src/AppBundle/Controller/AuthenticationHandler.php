@@ -89,8 +89,9 @@ class AuthenticationHandler implements AuthenticationSuccessHandlerInterface, Au
 			$array = array( 'success' => false, 'message' => $exception->getMessage() ); // data to return via JSON
 			$response = new Response( json_encode( $array ) );
 			$response->headers->set( 'Content-Type', 'application/json' );
- 
- 
+
+			return $response;
+ 			
 		// if form login 
 		} else {
  
