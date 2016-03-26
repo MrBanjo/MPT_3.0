@@ -1,66 +1,109 @@
 $(document).ready(function(){
 
-	var url = document.URL;
-	$(".login_form").submit(function(e){
-		e.preventDefault();
-		$.ajax({
-			type        : $(this).attr( 'method' ),
-			url         : $(this).attr( 'action' ),
-			data        : $(this).serialize(),
-			success: function (data) {
-				if ( data.success == true ) {
-					window.location.href = url;
-				}
-				else {
-					var messagefr = "Email ou mot de passe incorrect";
-	                $('#error_login_header').prepend('<div />').html(messagefr);				
-				}
-			},
-			error: function (jqXHR, textStatus, errorThrown) {
-				console.log(errorThrown);
-			}
-		})
-	});
+	// Header et footer js
+	var header_footer = (function() {
 
-	$("#newsletter_form").submit(function(e){
-		e.preventDefault();
-		$.ajax({
-			type: $("#newsletter_form").attr('method'),
-			url:  Routing.generate('newsletter'),
-			data: $("#newsletter_form").serialize(),
-			success: function (data) {
-				if ( data.message == 'Success' ) {
-					$('#error_newsletter').html('Vous êtes maintenant inscrit à la newsletter !');
+		var url = document.URL;
+		$(".login_form").submit(function(e){
+			e.preventDefault();
+			$.ajax({
+				type        : $(this).attr( 'method' ),
+				url         : $(this).attr( 'action' ),
+				data        : $(this).serialize(),
+				success: function (data) {
+					if ( data.success == true ) {
+						window.location.href = url;
+					}
+					else {
+						var messagefr = "Email ou mot de passe incorrect";
+						$('#error_login_header').prepend('<div />').html(messagefr);				
+					}
+				},
+				error: function (jqXHR, textStatus, errorThrown) {
+					console.log(errorThrown);
 				}
-				else {
+			})
+		})
+
+		$("#newsletter_form").submit(function(e){
+			e.preventDefault();
+			$.ajax({
+				type: $("#newsletter_form").attr('method'),
+				url:  Routing.generate('newsletter'),
+				data: $("#newsletter_form").serialize(),
+				success: function (data) {
+					if ( data.message == 'Success' ) {
+						$('#error_newsletter').html('Vous êtes maintenant inscrit à la newsletter !');
+					}
+					else {
+						$('#error_newsletter').html('Vous êtes déjà inscrit à la newsletter !');
+					}
+				},	
+				error: function (jqXHR, textStatus, errorThrown) {
 					$('#error_newsletter').html('Vous êtes déjà inscrit à la newsletter !');
 				}
-			},	
-			error: function (jqXHR, textStatus, errorThrown) {
-				$('#error_newsletter').html('Vous êtes déjà inscrit à la newsletter !');
-			}
+			});
 		});
 	});
 
-	var add = function ( nom ) { 
-		if(document.getElementById( nom ).value < 15) {
-			document.getElementById( nom ).value ++;
-		} 	
-	};
+	// Caddie
+	var cart = (function() {
 
-	var substract = function ( nom ) { 
-		if(document.getElementById( nom ).value > 1)
-			document.getElementById( nom ).value --; 
-	} ;
+		add = function ( nom ) { 
+			if(document.getElementById( nom ).value < 15) {
+				document.getElementById( nom ).value ++;
+			} 	
+		};
 
-	var isNumberKey = function (evt) 
-	{ 
-		var charCode = (evt.which) ? evt.which : event.keyCode; 
-		if (charCode > 31 && (charCode < 48 || charCode > 57)) 
-			return false; 
-		return true; 
-	};
+		substract = function ( nom ) { 
+			if(document.getElementById( nom ).value > 1)
+				document.getElementById( nom ).value --; 
+		} ;
 
+		isNumberKey = function (evt) 
+		{ 
+			var charCode = (evt.which) ? evt.which : event.keyCode; 
+			if (charCode > 31 && (charCode < 48 || charCode > 57)) 
+				return false; 
+			return true; 
+		};
+
+		$('.quantite_cart').on('click', function() {
+			$(this).parent().submit();
+		});
+
+		$(".cart_form").submit(function(e) {
+			e.preventDefault();
+			var form = $(this);
+			$.ajax({
+				type: 'post',
+				url:  $(this).attr('action'),
+				data: $(this).serialize(),
+				success: function (data) {
+					$("." + form.attr("id")).html(form.find("input[type='text']").val() * data.prix);
+					updatePrixTotal();
+				},	
+				error: function (jqXHR, textStatus, errorThrown) {
+					console.log("neinnienieneineinen");
+				}
+			});
+		});				
+
+		function updatePrixTotal() {
+			var prix_total = 0;
+			$(".test").each(function(index){
+				prix_total += parseFloat($(this).text());
+			});
+			$(".cart_prixtotal").html(prix_total + " €");
+		}
+
+		var prix = 0;
+		for (var i=0; i < $('.test').length; i++) {
+			prix += parseFloat($('.test')[i].innerHTML);
+		}
+	})();
+
+	// Le spinner du formulaire d'enregistrement
 	var spinnerlogin = (function () {
 		if ($('.email_row')) {
 			$('.email_row').on('change', function(){
@@ -89,6 +132,7 @@ $(document).ready(function(){
 		}
 	})();
 
+	// Permet d'afficher le formulaire inmbriqué des adresses
 	var adressloginform = (function () {
 		if (!$('div#user_adresses').length == 0) {
 

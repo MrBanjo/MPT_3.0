@@ -128,7 +128,7 @@ class CartController extends Controller
     }
 
     /**
-     * @Route("/caddie/quantite_cart", name="quantite_cart")
+     * @Route("/caddie/quantite_cart", name="quantite_cart", options={"expose"=true})
      */
     public function UpdateQuantiteAction(Request $request)
     {
@@ -148,7 +148,9 @@ class CartController extends Controller
 		    $em->flush();    		
     	}
 
-    	return new RedirectResponse($this->generateUrl('cart'));
+    	/*return new RedirectResponse($this->generateUrl('cart'));*/
+        return new JsonResponse(array( 'prix' => $commande->getPrix()), 200);
+        
     }     
 
 }

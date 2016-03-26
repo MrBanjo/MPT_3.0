@@ -44,7 +44,7 @@
 									<th>Menu hebdo (semaine du 8 juin) Formule Classique pour 2 personnes</th>
 									<th>{{ article.prix }} €</th>
 									<th>
-										<form method="post" action="{{ path('quantite_cart') }}" id="form-{{ article.id }}"> 
+										<form method="post" action="{{ path('quantite_cart') }}" id="form-{{ article.id }}" class="cart_form"> 
 											<button type="button" onClick="substract('quantite{{ article.id }}');" id="{{ article.id }}moins" class="quantite_cart">-</button><!--  
 											 --><input type="text" value="{{ article.quantite }}" id="quantite{{ article.id }}" size="2" maxlength="4" onkeypress="return isNumberKey(event);" name="quantite"><!-- 
 											--><button type="button" onClick="add('quantite{{ article.id }}');" id="{{ article.id }}plus" class="quantite_cart">+</button>
@@ -52,7 +52,7 @@
 											<input type="submit" class="quantite_submit"> 
 										</form>
 									</th>
-									<th><span class='test'>{{ article.prix * article.quantite }}</span> €</th>			            		
+									<th><span class='test form-{{ article.id }}'>{{ article.prix * article.quantite }}</span> €</th>			            		
 								</tr>
 
 							{% endfor %}
@@ -64,14 +64,14 @@
 								<th></th>
 								<th>Total produits TTC</th>
 								<th></th>
-								<th>{{ prix_total }} €</th>
+								<th class="cart_prixtotal">{{ prix_total }} €</th>
 							</tr>
 							<tr class="green_dark"> 
 								<th></th>
 								<th></th>
 								<th>Total HT</th>
 								<th></th>
-								<th>{{ prix_total }} €</th>
+								<th class="cart_prixtotal">{{ prix_total }} €</th>
 							</tr>
 							<tr class="green_light">
 								<th></th>
@@ -87,7 +87,7 @@
 			            		<th>TOTAL TTC</th>
 			            		<th></th>
 			            		<th>
-			            		<strong>{{ prix_total }} €</strong>
+			            		<strong class="cart_prixtotal">{{ prix_total }} €</strong>
 			            		</th>
 			        		</tr>			            				            	
 			    		</tfoot>
@@ -149,22 +149,3 @@
 	</section>
 
 {% endblock %}
-
-{% block javascripts %}
-
-	{{ parent() }}
-
-	<script>
-	    $(document).ready(function () {
-			$('.quantite_cart').on('click', function() {
-				$(this).parent().submit();
-			});
-
-			var prix = 0;
-			for (var i=0; i < $('.test').length; i++) {
-				prix += parseFloat($('.test')[i].innerHTML);
-			}
-	    });
-	</script>
-
-{% endblock %} 
