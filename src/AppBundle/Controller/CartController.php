@@ -15,6 +15,7 @@ use AppBundle\Form\UserType;
 use AppBundle\Entity\Role;
 use AppBundle\Entity\Caddie;
 use AppBundle\Entity\Upsell;
+use AppBundle\Entity\Commandes;
 
 class CartController extends Controller
 {
@@ -23,9 +24,10 @@ class CartController extends Controller
      */
     public function ShowCaddieAction()
     {
+        $em = $this->getDoctrine()->getManager()->getRepository('AppBundle:Caddie');
     	// Récupère la liste des articles du client ainsi que le prix total
-    	$liste_article = $this->getDoctrine()->getManager()->getRepository('AppBundle:Caddie')->findByIdentifiant(session_id());
-    	$prix_total = $this->getDoctrine()->getManager()->getRepository('AppBundle:Caddie')->getTotalPrix();
+    	$liste_article = ($this->getUser()) ? $em->findByUser($this->getUser()) : $em->findByIdentifiant(session_id());
+    	$prix_total = $em->getTotalPrix();
 
         return $this->render('cart.html.twig', array( 
         	'articles' => $liste_article, 
@@ -36,50 +38,20 @@ class CartController extends Controller
     /**
      * @Route("/caddie/identification", name="cart_identification", defaults={"title": "Identification"})
      */
-    public function ShowIdentificationAction(Request $request)
+    public function ShowIdentificationAction()
     {
-    	$url = $request->getSession()->get('_security.target_path');
-    	$referer_url = $request->headers->get('referer');
         $user = new User();
         $form = $this->createForm(UserType::class, $user);
-        
-        $form->handleRequest($request);
-
-        if ($form->isValid()) 
-        {
-            $em = $this->getDoctrine()->getManager();
-            // On donne un pseudo (le meme que l'email)
-            $user->setUsername($user->getEmail());
-            // On encode le password
-            $encoder = $this->container->get('security.password_encoder');
-            $encoded = $encoder->encodePassword($user, $user->getPassword());
-            $user->setPassword($encoded);
-            // On ajoute le role au nouvel utilisateur
-            $role = $em->getRepository('AppBundle:Role')->findOneByRole("ROLE_USER");
-            $user->addRole($role);
-            // On enregistre dans la bdd
-            $em->persist($user);
-            $em->flush();
-
-            // Création d'un nouveau token basé sur l'utilisateur qui vient de s'inscrire
-            $token = new UsernamePasswordToken($user, null, 'main', $user->getRoles());
-            // On passe le token créé au service security context afin que l'utilisateur soit authentifié
-            $this->get('security.token_storage')->setToken($token);
-            $event = new InteractiveLoginEvent($request, $token);
-            $this->get("event_dispatcher")->dispatch("security.interactive_login", $event);
-        }
 
         return $this->render('cart_identification.html.twig', array(
               'form' => $form->createView(),
-              'url' => $url,
-              'referer' => $referer_url
             ));
     }
 
     /**
      * @Route("/caddie/addtocart/{slug}", name="addtocart")
      */
-    public function AddProductAction(Request $request,$slug)
+    public function AddProductAction(Request $request, $slug)
     {
     	
     	if($request->isXmlHttpRequest() AND $request->request->get('quantite') != NULL)
@@ -91,7 +63,7 @@ class CartController extends Controller
 			$produit = $em->getRepository('AppBundle:' . $slug . '')->find($request->request->get('id_product'));
 
     		// Recherche si le produit existe dans le caddie
-    		$checkdb = $em->getRepository('AppBundle:Caddie')->getProductCaddie($request->request->get('id_product'), strtolower($slug));
+    		$checkdb = $em->getRepository('AppBundle:Caddie')->getProductCaddie($request->request->get('id_product'), strtolower($slug), $this->getUser());
     		if (!empty($checkdb)) 
     		{
     			$checkdb[0]->setQuantite($quantite + $checkdb[0]->getQuantite());
@@ -102,6 +74,7 @@ class CartController extends Controller
     		else 
     		{
 	    		$caddie->setIdentifiant(session_id());
+                $caddie->setUser($this->getUser());
 	    		$caddie->setQuantite($quantite);
 	    		$caddie->setPrix($produit->getPrix());
 	    		$caddie->setPhoto($produit->getPhoto());
@@ -122,7 +95,12 @@ class CartController extends Controller
 
     public function CountCaddieAction()
     {
-    	$liste_commande = $this->getDoctrine()->getManager()->getRepository('AppBundle:Caddie')->findByIdentifiant(session_id());
+        $identifiant = ($this->getUser()) ? 'user' : 'identifiant';
+        $identifiantvalue = ($this->getUser()) ? $this->getUser() : session_id();
+
+    	$liste_commande = $this->getDoctrine()->getManager()->getRepository('AppBundle:Caddie')->findBy(
+            array($identifiant => $identifiantvalue)
+        );
 
     	return new Response (count($liste_commande));
     }
@@ -151,6 +129,5 @@ class CartController extends Controller
     	/*return new RedirectResponse($this->generateUrl('cart'));*/
         return new JsonResponse(array( 'prix' => $commande->getPrix()), 200);
         
-    }     
-
+    }
 }

@@ -44,7 +44,7 @@ $(document).ready(function(){
 				}
 			});
 		});
-	});
+	})();
 
 	// Caddie
 	var cart = (function() {

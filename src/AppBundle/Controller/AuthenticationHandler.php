@@ -8,40 +8,55 @@ use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\Routing\RouterInterface;
 use Symfony\Component\HttpFoundation\Session\Session;
 use Symfony\Component\Security\Core\Authentication\Token\TokenInterface;
+use Symfony\Component\Security\Core\Authentication\Token\Storage\TokenStorageInterface;
 use Symfony\Component\Security\Core\Exception\AuthenticationException;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Security\Http\Authentication\AuthenticationSuccessHandlerInterface;
 use Symfony\Component\Security\Http\Authentication\AuthenticationFailureHandlerInterface;
 use Symfony\Component\Security\Core\Security;
+use Doctrine\ORM\EntityManager;
+
  
-class AuthenticationHandler implements AuthenticationSuccessHandlerInterface, AuthenticationFailureHandlerInterface
+class AuthenticationHandler implements AuthenticationSuccessHandlerInterface, AuthenticationFailureHandlerInterface 
 {
 	private $router;
 	private $session;
+	private $doctrine;
+	private $security;
  
 	/**
 	 * Constructor
-	 *
-	 * @author 	Joe Sexton <joe@webtipblog.com>
 	 * @param 	RouterInterface $router
 	 * @param 	Session $session
+	 * @param   EntityManager     $em
 	 */
-	public function __construct( RouterInterface $router, Session $session )
+	public function __construct( RouterInterface $router, Session $session, EntityManager $doctrine, TokenStorageInterface $security)
 	{
 		$this->router  = $router;
 		$this->session = $session;
+		$this->doctrine = $doctrine;
+		$this->security = $security;
 	}
  
 	/**
 	 * onAuthenticationSuccess
- 	 *
-	 * @author 	Joe Sexton <joe@webtipblog.com>
 	 * @param 	Request $request
 	 * @param 	TokenInterface $token
 	 * @return 	Response
 	 */
-	public function onAuthenticationSuccess( Request $request, TokenInterface $token )
+	public function onAuthenticationSuccess( Request $request, TokenInterface $token)
 	{
+		// Donne aux produits dans le panier un user_id si le client se connecte
+        $listecaddies = $this->doctrine->getRepository('AppBundle:Commandes')->getCommandes();
+
+        foreach ($listecaddies as $listecaddie) {
+
+            if (!$listecaddie->getUser() && $this->security->getToken()->getUser()) {
+                $listecaddie->setUser($this->security->getToken()->getUser());
+                $this->doctrine->flush();
+            }
+        }
+
 		// if AJAX login
 		if ( $request->isXmlHttpRequest() ) {
  

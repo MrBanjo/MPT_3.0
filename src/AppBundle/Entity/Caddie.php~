@@ -44,9 +44,9 @@ class Caddie
     private $quantite;
 
     /**
-     * @var string
+     * @var decimal
      *
-     * @ORM\Column(name="prix", type="decimal")
+     * @ORM\Column(name="prix", type="decimal", scale=2)
      */
     private $prix;
 

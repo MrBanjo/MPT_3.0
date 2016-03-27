@@ -81,7 +81,7 @@ class Plat
      * @ORM\ManyToMany(targetEntity="AppBundle\Entity\Menu", mappedBy="plats", cascade={"persist"})
      * @ORM\JoinColumn(nullable=true)
      */
-    private $menu;
+    private $menus;
 
     /**
      * Get id
@@ -312,7 +312,7 @@ class Plat
      *
      * @return \Doctrine\Common\Collections\Collection 
      */
-    public function getMenu()
+    public function getMenus()
     {
         return $this->menus;
     }

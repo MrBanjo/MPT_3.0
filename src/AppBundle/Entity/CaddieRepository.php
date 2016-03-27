@@ -31,12 +31,15 @@ class CaddieRepository extends EntityRepository
 		return $prixtotal;
 	}
 
-	public function getProductCaddie($id,$productType) 
+	public function getProductCaddie($id, $productType, $user) 
 	{
+		$identifiant = ($user) ? 'user' : 'identifiant';
+		$identifiantvalue = ($user) ? $user : session_id();
+
 		// Récupere tous les objets produits du type demandé (menu,upsell etc)
 		$query = $this->getEntityManager()
-		->createQuery('SELECT c FROM AppBundle:Caddie c WHERE c.identifiant = :identifiant AND c.' . $productType . ' = :' . $productType .'')
-		->setParameter('identifiant', session_id())
+		->createQuery('SELECT c FROM AppBundle:Caddie c WHERE c.' . $identifiant . ' = :identifiant AND c.' . $productType . ' = :' . $productType .'')
+		->setParameter('identifiant', $identifiantvalue)
 		->setParameter($productType, $id);
 
 		$results = $query->getResult();

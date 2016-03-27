@@ -62,12 +62,12 @@ class User implements UserInterface, \Serializable
     private $email;
 
     /**
-     * @ORM\OneToMany(targetEntity="AppBundle\Entity\Adresse", mappedBy="user", cascade={"persist"})
+     * @ORM\OneToMany(targetEntity="AppBundle\Entity\Adresse", mappedBy="user", cascade={"persist", "remove"})
      */
     private $adresses;
 
     /**
-     * @ORM\OneToMany(targetEntity="AppBundle\Entity\Caddie", mappedBy="user", cascade={"persist"})
+     * @ORM\OneToMany(targetEntity="AppBundle\Entity\Caddie", mappedBy="user", cascade={"persist", "remove"})
      */
     private $caddies;
 
@@ -320,7 +320,7 @@ class User implements UserInterface, \Serializable
      * @param \AppBundle\Entity\Adresse $adresses
      * @return User
      */
-    public function addAdress(\AppBundle\Entity\Adresse $adresses)
+    public function addAdresses(\AppBundle\Entity\Adresse $adresses)
     {
         $this->adresses[] = $adresses;
         $adresses->setUser($this);
@@ -332,7 +332,7 @@ class User implements UserInterface, \Serializable
      *
      * @param \AppBundle\Entity\Adresse $adresses
      */
-    public function removeAdress(\AppBundle\Entity\Adresse $adresses)
+    public function removeAdresses(\AppBundle\Entity\Adresse $adresses)
     {
         $this->adresses->removeElement($adresses);
     }
@@ -407,9 +407,9 @@ class User implements UserInterface, \Serializable
         return $this->civilite;
     }
 
-   public function setAdresses(ArrayCollection $Adresses)
+   public function setAdresses(ArrayCollection $adresses)
     {
-        $this->Adresses = $Adresses;
+        $this->adresses = $adresses;
         foreach ($adresses as $adresse) {
             $adresse->setUser($this);
         }
@@ -420,8 +420,6 @@ class User implements UserInterface, \Serializable
     {
         return (string) $this->getId();
     }
-
-
 
     /**
      * Add caddies
@@ -454,5 +452,29 @@ class User implements UserInterface, \Serializable
     public function getCaddies()
     {
         return $this->caddies;
+    }
+
+    /**
+     * Add adress
+     *
+     * @param \AppBundle\Entity\Adresse $adress
+     *
+     * @return User
+     */
+    public function addAdress(\AppBundle\Entity\Adresse $adress)
+    {
+        $this->adresses[] = $adress;
+
+        return $this;
+    }
+
+    /**
+     * Remove adress
+     *
+     * @param \AppBundle\Entity\Adresse $adress
+     */
+    public function removeAdress(\AppBundle\Entity\Adresse $adress)
+    {
+        $this->adresses->removeElement($adress);
     }
 }

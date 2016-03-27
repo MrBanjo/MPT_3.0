@@ -1,5 +1,5 @@
 {% form_theme form 'form/subsaccountField.html.twig' %} 
-{{ form_start(form) }} 
+{{ form_start(form, {'action': path('register_user')}) }} 
 {{ form_errors(form) }}
 <div class="box_form_user">
     <div class="box_form_user_small">

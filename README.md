@@ -1,4 +1,8 @@
-mpt_3.0
+Mon Panier Toqué 3.0
 =======
 
-A Symfony project created on March 22, 2016, 2:32 am.
+An updated version of my final school project that I've done in 2015.
+
+-Symfony 3.0
+-Stylesheets with Sass and Compass
+-Account page

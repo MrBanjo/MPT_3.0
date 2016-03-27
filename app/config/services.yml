@@ -10,6 +10,8 @@ services:
             arguments: 
                 - "@router"
                 - "@session"
+                - "@doctrine.orm.entity_manager"
+                - "@security.token_storage"
         twig.extension.intl:
             class: Twig_Extensions_Extension_Intl
             tags:

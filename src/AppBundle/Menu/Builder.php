@@ -38,9 +38,10 @@
         var_dump($request->getUri());
         preg_match('/.*?:\/\//', $request->getPathInfo(), $matches);
         var_dump($matches);*/
+        $request = Request::createFromGlobals();
 
         // crée le menu en fonction de la route
-        switch($_SERVER["PATH_INFO"]){
+        switch($request->getPathInfo()){
             case '/caddie/ma-commande':
                 $menu
                     ->addChild('Ma commande', array('route' => 'cart'))

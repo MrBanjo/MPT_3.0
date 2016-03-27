@@ -1,7 +1,7 @@
 # To get started with security, check out the documentation:
 # http://symfony.com/doc/current/book/security.html
 security:
-
+    session_fixation_strategy: none
     # http://symfony.com/doc/current/book/security.html#where-do-users-come-from-user-providers
     providers:
         users:
@@ -9,8 +9,9 @@ security:
                 class: AppBundle:User
 
     encoders:
-        Symfony\Component\Security\Core\User\User: plaintext
-        AppBundle\Entity\User: plaintext 
+        AppBundle\Entity\User: 
+            algorithm: bcrypt
+            cost: 6
 
     # http://symfony.com/doc/current/book/security.html#hierarchical-roles
     role_hierarchy:

@@ -36,9 +36,9 @@ class Upsell
     private $description;
 
     /**
-     * @var string
+     * @var decimal
      *
-     * @ORM\Column(name="prix", type="string", length=20)
+     * @ORM\Column(name="prix", type="decimal", scale=2)
      */
     private $prix;
 
