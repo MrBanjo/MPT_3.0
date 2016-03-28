@@ -57,6 +57,12 @@ class Caddie
      */
     private $photo;
 
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="titre", type="string", length=255, nullable=true)
+     */
+    private $titre;
 
     /**
      * @ORM\ManyToOne(targetEntity="AppBundle\Entity\Menu", inversedBy="caddies")

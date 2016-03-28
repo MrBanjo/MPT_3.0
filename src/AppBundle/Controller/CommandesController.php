@@ -2,42 +2,41 @@
 
 namespace AppBundle\Controller;
 
-use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpFoundation\RedirectResponse;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
-use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
-use Symfony\Component\HttpFoundation\JsonResponse;
-use Symfony\Component\Security\Core\Authentication\Token\UsernamePasswordToken;
-use Symfony\Component\Security\Http\Event\InteractiveLoginEvent;
 use AppBundle\Entity\Commandes;
 
-class CommandesController extends Controller
+class CommandesController extends BaseController
 {
-
     /**
-    * @Route("/dzqdzqdqzd/fesfesfes", name="addcommandes")
+    * @Route("/caddie/validatecommande", name="addcommandes")
     */     
-    public function AddCommandes(Request $request)
+    public function createCommandes(Request $request)
     {
-        $em = $this->getDoctrine()->getManager();
-        $listecommandes = $em->getRepository('AppBundle:Commandes')->getCommandes();
+        if ($this->getUser()) {
+            $user = $this->getUser();
+            $listecommandes = $this->getRepo('AppBundle:Caddie')->getAllProducts($user);
+            $ref = time() . rand(10*45, 100*98);
 
-        foreach ($listecommandes as $listecommande) {
+            foreach ($listecommandes as $listecommande) {
 
-            $commandes = new Commandes();
-            $produitname = ($listecommande->getUpsell()) ? $listecommande->getUpsell()->getTitre() : $listecommande->getMenu()->getTitre();
-            $commandes->setQuantite($listecommande->getQuantite());
-            $commandes->setUser(66);
-            $commandes->setReference("5555");
-            $commandes->setStatus("En cours");
-            $commandes->setPrix($listecommande->getPrix());
-            $commandes->setDate(new \DateTime('now'));
-            $commandes->setProduit($produitname);
-            $em->persist($commandes);
-            $em->flush();
+                $commandes = new Commandes();
+                $produitname = ($listecommande->getUpsell()) ? $listecommande->getUpsell()->getTitre() : $listecommande->getMenu()->getTitre();
+                $commandes->setQuantite($listecommande->getQuantite());
+                $commandes->setUser($user);
+                $commandes->setReference($ref);
+                $commandes->setStatus("En cours");
+                $commandes->setPrix($listecommande->getPrix());
+                $commandes->setDate(new \DateTime('now'));
+                $commandes->setProduit($produitname);
+                $this->save($commandes); 
+                $this->remove($listecommande); // remove product from cart
+            }
+
+            return new RedirectResponse($this->generateUrl('cart'));           
         }
 
-        return new RedirectResponse($this->generateUrl('cart'));
+        return new RedirectResponse($this->generateUrl('cart_identification'));
     }
 }

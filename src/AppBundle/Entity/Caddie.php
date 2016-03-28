@@ -57,6 +57,12 @@ class Caddie
      */
     private $photo;
 
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="titre", type="string", length=255, nullable=true)
+     */
+    private $titre;
 
     /**
      * @ORM\ManyToOne(targetEntity="AppBundle\Entity\Menu", inversedBy="caddies")
@@ -300,5 +306,29 @@ class Caddie
     public function getUpsell()
     {
         return $this->upsell;
+    }
+
+    /**
+     * Set titre
+     *
+     * @param string $titre
+     *
+     * @return Caddie
+     */
+    public function setTitre($titre)
+    {
+        $this->titre = $titre;
+
+        return $this;
+    }
+
+    /**
+     * Get titre
+     *
+     * @return string
+     */
+    public function getTitre()
+    {
+        return $this->titre;
     }
 }

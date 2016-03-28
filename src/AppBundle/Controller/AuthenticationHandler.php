@@ -47,15 +47,8 @@ class AuthenticationHandler implements AuthenticationSuccessHandlerInterface, Au
 	public function onAuthenticationSuccess( Request $request, TokenInterface $token)
 	{
 		// Donne aux produits dans le panier un user_id si le client se connecte
-        $listecaddies = $this->doctrine->getRepository('AppBundle:Commandes')->getCommandes();
-
-        foreach ($listecaddies as $listecaddie) {
-
-            if (!$listecaddie->getUser() && $this->security->getToken()->getUser()) {
-                $listecaddie->setUser($this->security->getToken()->getUser());
-                $this->doctrine->flush();
-            }
-        }
+        $user = $this->security->getToken()->getUser();
+        $this->doctrine->getRepository('AppBundle:Caddie')->switchSessionToUserProduct($user);
 
 		// if AJAX login
 		if ( $request->isXmlHttpRequest() ) {

@@ -51,6 +51,8 @@ class UserController extends BaseController
             $event = new InteractiveLoginEvent($request, $token);
             $this->get("event_dispatcher")->dispatch("security.interactive_login", $event);
 
+            $this->getRepo('AppBundle:Caddie')->switchSessionToUserProduct($this->getUser());
+
             return new RedirectResponse($referer_url);
         }
 

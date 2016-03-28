@@ -2525,37 +2525,38 @@ h2 {
 /* line 111, ../scss/site/partials/_caddie.scss */
 .table_caddie th {
   text-align: center;
+  padding: 0;
 }
 
-/* line 115, ../scss/site/partials/_caddie.scss */
+/* line 116, ../scss/site/partials/_caddie.scss */
 #caddie_table_quantite, #caddie_table_total {
   width: 100px;
 }
 
-/* line 119, ../scss/site/partials/_caddie.scss */
+/* line 120, ../scss/site/partials/_caddie.scss */
 #caddie_table_prix {
   width: 150px;
 }
 
-/* line 123, ../scss/site/partials/_caddie.scss */
+/* line 124, ../scss/site/partials/_caddie.scss */
 .table_caddie tbody tr {
   background-color: #dee8d6;
   min-height: 100px;
 }
 
-/* line 128, ../scss/site/partials/_caddie.scss */
+/* line 129, ../scss/site/partials/_caddie.scss */
 .table_caddie tbody tr th:first-child,
 .table_caddie tfoot tr th:first-child {
   background-color: white;
   max-width: 250px;
 }
 
-/* line 134, ../scss/site/partials/_caddie.scss */
+/* line 135, ../scss/site/partials/_caddie.scss */
 .table_caddie tbody tr th:first-child img {
   max-width: 250px;
 }
 
-/* line 138, ../scss/site/partials/_caddie.scss */
+/* line 139, ../scss/site/partials/_caddie.scss */
 .table_caddie tbody th {
   color: #4d4135;
   font-size: 18px;
@@ -2564,7 +2565,7 @@ h2 {
   height: 100px;
 }
 
-/* line 146, ../scss/site/partials/_caddie.scss */
+/* line 147, ../scss/site/partials/_caddie.scss */
 .table_caddie tbody form {
   border: 1px solid #588c31;
   border-radius: 2px;
@@ -2574,7 +2575,7 @@ h2 {
   display: inline-block;
 }
 
-/* line 155, ../scss/site/partials/_caddie.scss */
+/* line 156, ../scss/site/partials/_caddie.scss */
 .table_caddie tbody form input[type='text'] {
   width: 28px;
   height: 28px;
@@ -2585,7 +2586,7 @@ h2 {
   vertical-align: middle;
 }
 
-/* line 165, ../scss/site/partials/_caddie.scss */
+/* line 166, ../scss/site/partials/_caddie.scss */
 .table_caddie tbody form button {
   display: inline-block;
   height: 27px;
@@ -2597,7 +2598,7 @@ h2 {
   text-align: center;
 }
 
-/* line 176, ../scss/site/partials/_caddie.scss */
+/* line 177, ../scss/site/partials/_caddie.scss */
 .table_caddie tfoot th {
   color: #4d4135;
   font-size: 16px;
@@ -2606,17 +2607,17 @@ h2 {
   height: 50px;
 }
 
-/* line 184, ../scss/site/partials/_caddie.scss */
+/* line 185, ../scss/site/partials/_caddie.scss */
 .green_light {
   background-color: #f7f9f5;
 }
 
-/* line 188, ../scss/site/partials/_caddie.scss */
+/* line 189, ../scss/site/partials/_caddie.scss */
 .green_dark {
   background-color: #dee8d6;
 }
 
-/* line 192, ../scss/site/partials/_caddie.scss */
+/* line 193, ../scss/site/partials/_caddie.scss */
 .recette_radio {
   text-align: center;
   color: #4d4135;
@@ -2624,12 +2625,12 @@ h2 {
   margin: 30px 0;
 }
 
-/* line 199, ../scss/site/partials/_caddie.scss */
+/* line 200, ../scss/site/partials/_caddie.scss */
 .recette_radio form, .recette_radio form {
   display: inline-block;
 }
 
-/* line 203, ../scss/site/partials/_caddie.scss */
+/* line 204, ../scss/site/partials/_caddie.scss */
 #continue_achat {
   color: #588c31;
   font-size: 21px;
@@ -2638,21 +2639,21 @@ h2 {
   margin-left: 10px;
 }
 
-/* line 211, ../scss/site/partials/_caddie.scss */
+/* line 212, ../scss/site/partials/_caddie.scss */
 .validate_caddie {
   text-align: right;
   display: block;
   float: right;
 }
 
-/* line 218, ../scss/site/partials/_caddie.scss */
+/* line 219, ../scss/site/partials/_caddie.scss */
 .validate_caddie:after {
   content: ".";
   display: table;
   clear: both;
 }
 
-/* line 225, ../scss/site/partials/_caddie.scss */
+/* line 226, ../scss/site/partials/_caddie.scss */
 .validate_caddie button {
   font-family: "arial";
   font-size: 21px;
@@ -2662,18 +2663,18 @@ h2 {
   padding: 5px;
 }
 
-/* line 234, ../scss/site/partials/_caddie.scss */
+/* line 235, ../scss/site/partials/_caddie.scss */
 #caddie_codereduc div {
   position: relative;
   display: inline-block;
 }
 
-/* line 239, ../scss/site/partials/_caddie.scss */
+/* line 240, ../scss/site/partials/_caddie.scss */
 #caddie_codereduc input {
   font-size: 16px;
 }
 
-/* line 244, ../scss/site/partials/_caddie.scss */
+/* line 245, ../scss/site/partials/_caddie.scss */
 #caddie_codereduc input[type="text"] {
   background-color: white;
   height: 31px;
@@ -2681,7 +2682,7 @@ h2 {
   width: 200px;
 }
 
-/* line 251, ../scss/site/partials/_caddie.scss */
+/* line 252, ../scss/site/partials/_caddie.scss */
 #caddie_codereduc input[type="submit"] {
   position: absolute;
   background-color: #588c31;
@@ -2691,23 +2692,23 @@ h2 {
   right: 0;
 }
 
-/* line 260, ../scss/site/partials/_caddie.scss */
+/* line 261, ../scss/site/partials/_caddie.scss */
 #caddie_codereduc input[type="submit"]:hover {
   background-color: #557a0c;
 }
 
-/* line 264, ../scss/site/partials/_caddie.scss */
+/* line 265, ../scss/site/partials/_caddie.scss */
 .quantite_submit {
   display: none;
 }
 
 @media screen and (max-width: 1050px) {
-  /* line 269, ../scss/site/partials/_caddie.scss */
+  /* line 270, ../scss/site/partials/_caddie.scss */
   .nav_caddie {
     margin-right: 0;
   }
 
-  /* line 272, ../scss/site/partials/_caddie.scss */
+  /* line 273, ../scss/site/partials/_caddie.scss */
   .nav_caddie ul {
     display: inherit;
     height: 0;
@@ -2719,36 +2720,36 @@ h2 {
     overflow: hidden;
   }
 
-  /* line 282, ../scss/site/partials/_caddie.scss */
+  /* line 283, ../scss/site/partials/_caddie.scss */
   .nav_caddie li a {
     color: white;
     text-align: center;
   }
 
   /*Make all menu links full width*/
-  /* line 287, ../scss/site/partials/_caddie.scss */
+  /* line 288, ../scss/site/partials/_caddie.scss */
   .nav_caddie ul li {
     width: 100%;
     background-color: #493f33;
   }
 
   /*Display 'show menu' link*/
-  /* line 293, ../scss/site/partials/_caddie.scss */
+  /* line 294, ../scss/site/partials/_caddie.scss */
   .show-caddie_menu {
     display: block;
   }
 
-  /* line 299, ../scss/site/partials/_caddie.scss */
+  /* line 300, ../scss/site/partials/_caddie.scss */
   .nav_caddie input[type=checkbox]:checked ~ #menu_caddie {
     height: 250px;
   }
 
-  /* line 303, ../scss/site/partials/_caddie.scss */
+  /* line 304, ../scss/site/partials/_caddie.scss */
   #box_caddie {
     margin: 0;
   }
 
-  /* line 306, ../scss/site/partials/_caddie.scss */
+  /* line 307, ../scss/site/partials/_caddie.scss */
   .conseil_tel {
     text-align: center;
     color: #4d4135;
@@ -2757,19 +2758,19 @@ h2 {
   }
 }
 @media screen and (max-width: 680px) {
-  /* line 315, ../scss/site/partials/_caddie.scss */
+  /* line 316, ../scss/site/partials/_caddie.scss */
   .table_caddie tbody tr th:first-child img {
     max-width: 0;
   }
 }
 @media screen and (max-width: 580px) {
-  /* line 321, ../scss/site/partials/_caddie.scss */
+  /* line 322, ../scss/site/partials/_caddie.scss */
   .validate_caddie {
     float: none;
     width: 100%;
   }
 
-  /* line 325, ../scss/site/partials/_caddie.scss */
+  /* line 326, ../scss/site/partials/_caddie.scss */
   .validate_caddie button {
     width: 100%;
     display: block;

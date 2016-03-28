@@ -41,7 +41,7 @@
 
 								<tr>
 									<th><img src="{{ asset(article.photo)}}" alt=""></th>
-									<th>Menu hebdo (semaine du 8 juin) Formule Classique pour 2 personnes</th>
+									<th>{{ article.titre }}</th>
 									<th>{{ article.prix }} €</th>
 									<th>
 										<form method="post" action="{{ path('quantite_cart') }}" id="form-{{ article.id }}" class="cart_form"> 

@@ -21,7 +21,7 @@ class CartController extends BaseController
     {
         $em = $this->getRepo('AppBundle:Caddie');
     	// Récupère la liste des articles du client ainsi que le prix total
-    	$liste_article = ($this->getUser()) ? $em->findByUser($this->getUser()) : $em->findByIdentifiant(session_id());
+    	$liste_article = $em->getAllProducts($this->getUser());
     	$prix_total = $em->getTotalPrix($this->getUser());
 
         return $this->render(
@@ -64,6 +64,7 @@ class CartController extends BaseController
     		else 
     		{
 	    		$caddie->setIdentifiant(session_id());
+                $caddie->setTitre($produit->getTitre());
                 $caddie->setUser($this->getUser());
 	    		$caddie->setQuantite($quantite);
 	    		$caddie->setPrix($produit->getPrix());
@@ -93,20 +94,23 @@ class CartController extends BaseController
     {
     	if($request->request->get('article_id')) // Checking post 
     	{
-	    	$commande = $this->getRepo('AppBundle:Caddie')->findOneById($request->request->get('article_id'));
+	    	$article = $this->getRepo('AppBundle:Caddie')->findOneById($request->request->get('article_id'));
+            $html = false;
 
 		    if ($request->request->get('quantite') == 0) {
-		    	$this->remove($commande); // Supprime le produit du caddie si sa quantité est 0
+		    	$this->remove($article); // Supprime le produit du caddie si sa quantité est 0
+                $html = true;
 		    }
 		    else {
-		    	$commande->setQuantite($request->request->get('quantite'));
-		    	$this->save($commande);
+		    	$article->setQuantite($request->request->get('quantite'));
+		    	$this->save($article);
 		    }
 
             return new JsonResponse(
                 [
-                    'prix' => $commande->getPrix(),
-                    'countcaddie' => $this->countCart()
+                    'prix' => $article->getPrix(),
+                    'countcaddie' => $this->countCart(),
+                    'html' => $html
                 ], 200
             );    		
     	}

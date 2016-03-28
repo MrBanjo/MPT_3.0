@@ -89,6 +89,9 @@ $(document).ready(function(){
 					$("." + form.attr("id")).html(form.find("input[type='text']").val() * data.prix);
 					updatePrixTotal();
 					$('#count_caddie').html(data.countcaddie);
+					if (data.html) {
+						$("." + form.attr("id")).parent().parent().remove();
+					}
 				},	
 				error: function (jqXHR, textStatus, errorThrown) {
 					console.log("neinnienieneineinen");
