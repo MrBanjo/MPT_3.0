@@ -1,3 +1,5 @@
-{{ form_start(newsform) }}
-{{ form_widget(newsform) }}
-{{ form_end(newsform) }}
+<form action="{{ path('newsletter') }}" method="post" id="newsletter_form">
+	<input type="email" name="newsletter[email]"/><input type="submit" value="Envoyer" name="newsletter[Envoyer]"></input>
+	<input type="hidden" id="newsletter__token" name="newsletter[_token]" value="{{ csrf_token('news_item') }}">
+</form>
+

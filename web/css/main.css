@@ -1039,7 +1039,7 @@ footer input[type="email"] {
   margin-top: 10px;
 }
 /* line 53, ../scss/site/partials/_footer.scss */
-footer button[type="submit"] {
+footer button[type="submit"], footer input[type="submit"] {
   width: 94px;
   height: 55px;
   background-color: #588c00;
@@ -2364,35 +2364,34 @@ h2 {
 }
 
 /* line 601, ../scss/site/partials/_panier&menu.scss */
-.addtocart-popup a {
+.addtocart-popup a, #popup-continue {
   font-family: 'arialnarrow';
   font-size: 22px;
   color: #558f29;
   font-style: italic;
   text-decoration: underline;
   font-weight: bold;
+  position: absolute;
+  bottom: 0;
 }
 
-/* line 609, ../scss/site/partials/_panier&menu.scss */
+/* line 611, ../scss/site/partials/_panier&menu.scss */
 #popup-link {
   display: none;
 }
 
-/* line 612, ../scss/site/partials/_panier&menu.scss */
+/* line 614, ../scss/site/partials/_panier&menu.scss */
 #popup-continue {
-  position: absolute;
-  bottom: 0;
-  left: 0;
+  left: 5px;
+  line-height: 1.4;
 }
 
-/* line 618, ../scss/site/partials/_panier&menu.scss */
+/* line 619, ../scss/site/partials/_panier&menu.scss */
 #popup-end {
-  position: absolute;
-  bottom: 0;
-  right: 0;
+  right: 5px;
 }
 
-/* line 624, ../scss/site/partials/_panier&menu.scss */
+/* line 623, ../scss/site/partials/_panier&menu.scss */
 #popup-photo {
   display: inline-block;
   width: 100px;

@@ -17,7 +17,6 @@ class NewsletterType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->setAction('newsletter')
             ->add('email', EmailType::class, array('attr' => array( 'placeholder' => 'Email'), 'label' => false))
             ->add('Envoyer', SubmitType::class)
         ;
@@ -30,7 +29,10 @@ class NewsletterType extends AbstractType
     {
         $resolver->setDefaults(array(
             'data_class' => 'AppBundle\Entity\Newsletter',
-            'attr' => ['id' => 'newsletter_form']
+            'attr' => ['id' => 'newsletter_form'],
+            'csrf_protection' => true,
+            'csrf_field_name' => '_token',
+            'csrf_token_id'   => 'news_item',
         ));
     }
 }

@@ -3,28 +3,20 @@
 namespace AppBundle\Controller;
 
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
-use Symfony\Bundle\FrameworkBundle\Controller\Controller;
-use Symfony\Component\HttpFoundation\Request;
 
-class PanierController extends Controller
+class PanierController extends BaseController
 {
     /**
-     * @Route("/paniers/classique", 
-     *	defaults={"title": "Panier classique"},
-     *	name="classique")
+     * @Route("/paniers/classique", defaults={"title": "Panier classique"}, name="classique")
      */
     public function showCurrentMenuAction()
     {
-		$curClassique = $this->getDoctrine()->getManager()->getRepository('AppBundle:Menu')->getCurrentMenuClassique();
-		$curUpsell = $this->getDoctrine()->getManager()->getRepository('AppBundle:Upsell')->getCurrentUpsell();
+		$curClassique = $this->getRepo('AppBundle:Menu')->getCurrentMenuClassique();
+		$curUpsell = $this->getRepo('AppBundle:Upsell')->getCurrentUpsell();
 
-		$menuvide = array (
-				'titre' => '', 
-				'prix' => '',
-				'date' => ''
-				);
-
-		$platvide = array( array (
+		$menuvide = ['titre' => '', 'prix' => '', 'date' => ''];
+		$platvide = [
+			[
 				'titre' => '', 
 				'temps' => '',
 				'difficulte' => '',
@@ -33,7 +25,8 @@ class PanierController extends Controller
 				'description' => '',
 				'plus' => '',
 				'photo' => ''
-				));
+			]
+		];
 
 		if ( isset($curClassique[0]) ) {
 			$menuClassique = $curClassique[0];
@@ -44,15 +37,13 @@ class PanierController extends Controller
 			$platsClassique = $platvide;
 		}
 
-
-        $params = array (
-        	'liste_classique' => $platsClassique,
-        	'menu_classique' => $menuClassique,
-        	'liste_upsell' => $curUpsell
-        	);
-        return $this->render('classique.html.twig', $params);
+        return $this->render(
+        	'classique',
+        	[
+        		'liste_classique' => $platsClassique,
+	        	'menu_classique' => $menuClassique,
+	        	'liste_upsell' => $curUpsell
+        	]
+        );
     }
-
-    
-
 }

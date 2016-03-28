@@ -3,28 +3,20 @@
 namespace AppBundle\Controller;
 
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
-use Symfony\Bundle\FrameworkBundle\Controller\Controller;
-use Symfony\Component\HttpFoundation\Request;
-use AppBundle\Entity\Menu; // notre entité
-use AppBundle\Entity\Categorie; // notre entité
 
-class MenusController extends Controller
+class MenusController extends BaseController
 {
     /**
      * @Route("/menus", name="menus", defaults={"title": "Nos menus"})
      */
     public function showCurrentMenuAction()
     {
-		$curClassique = $this->getDoctrine()->getManager()->getRepository('AppBundle:Menu')->getCurrentMenuClassique();
-		$curVegan = $this->getDoctrine()->getManager()->getRepository('AppBundle:Menu')->getCurrentMenuVegan();
+		$curClassique = $this->getRepo('AppBundle:Menu')->getCurrentMenuClassique();
+		$curVegan = $this->getRepo('AppBundle:Menu')->getCurrentMenuVegan();
 
-		$menuvide = array (
-				'titre' => '', 
-				'prix' => '',
-				'date' => ''
-				);
+		$menuvide = ['titre' => '', 'prix' => '', 'date' => ''];
 
-		$platvide = array( array (
+		$platvide = [[
 				'titre' => '', 
 				'temps' => '',
 				'difficulte' => '',
@@ -33,7 +25,7 @@ class MenusController extends Controller
 				'description' => '',
 				'plus' => '',
 				'photo' => ''
-				));
+		]];
 
 		if ( isset($curClassique[0]) ) {
 			$menuClassique = $curClassique[0];
@@ -53,13 +45,14 @@ class MenusController extends Controller
 			$platsVegan = $menuvide;
 		}
 
-        $params = array (
-        	'liste_classique' => $platsClassique,
-        	'liste_vegan' => $platsVegan,
-        	'menu_classique' => $menuClassique,
-        	'menu_vegan' => $menuVegan
-        	);
-
-        return $this->render('menus.html.twig', $params);
+        return $this->render(
+        	'menus', 
+        	[
+	        	'liste_classique' => $platsClassique,
+	        	'liste_vegan' => $platsVegan,
+	        	'menu_classique' => $menuClassique,
+	        	'menu_vegan' => $menuVegan
+        	]
+        );
     }
 }

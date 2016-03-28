@@ -3,18 +3,15 @@
 namespace AppBundle\Controller;
 
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
-use Symfony\Bundle\FrameworkBundle\Controller\Controller;
- use Symfony\Component\HttpFoundation\Request;
 
-class PaniersController extends Controller
+class PaniersController extends BaseController
 {
     /**
      * @Route("/paniers", name="paniers", defaults={"title": "Nos paniers"})
      * @Route("/paniers/")
      */
-    public function indexAction(Request $request)
+    public function indexAction()
     {
-    	var_dump($request->get('_route'));
-        return $this->render('paniers.html.twig');
+        return $this->render('paniers');
     }
 }

@@ -28,7 +28,7 @@ class AuthenticationHandler implements AuthenticationSuccessHandlerInterface, Au
 	 * Constructor
 	 * @param 	RouterInterface $router
 	 * @param 	Session $session
-	 * @param   EntityManager     $em
+	 * @param   EntityManager $em
 	 */
 	public function __construct( RouterInterface $router, Session $session, EntityManager $doctrine, TokenStorageInterface $security)
 	{
@@ -91,12 +91,11 @@ class AuthenticationHandler implements AuthenticationSuccessHandlerInterface, Au
 	/**
 	 * onAuthenticationFailure
 	 *
-	 * @author 	Joe Sexton <joe@webtipblog.com>
 	 * @param 	Request $request
 	 * @param 	AuthenticationException $exception
 	 * @return 	Response
 	 */
-	 public function onAuthenticationFailure( Request $request, AuthenticationException $exception )
+	public function onAuthenticationFailure( Request $request, AuthenticationException $exception )
 	{
 		// if AJAX login
 		if ( $request->isXmlHttpRequest() ) {

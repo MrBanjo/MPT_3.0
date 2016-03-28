@@ -598,27 +598,26 @@
     vertical-align: middle;
 }
 
-.addtocart-popup a {
+.addtocart-popup a, #popup-continue {
     font-family: 'arialnarrow';
     font-size: 22px;
     color: #558f29;
     font-style: italic;
     text-decoration: underline;
     font-weight: bold;
+    position:absolute;
+    bottom: 0;
 }
 #popup-link {
 	display: none;
 }
 #popup-continue {
-    position:absolute;
-    bottom:0;
-    left:0;
+    left: 5px;
+    line-height: 1.4;
 }
 
 #popup-end {
-    position:absolute;
-    bottom:0;
-    right:0;
+    right: 5px;  
 }
 
 #popup-photo {

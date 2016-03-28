@@ -147,7 +147,7 @@
 			<span>-</span>
 			<span id="popup-titre"></span>
 			<a href="{{ path('cart')}}" id="popup-end">Terminer ma commande ></a>
-			<a href="{{ app.request.uri }}" id="popup-continue">Poursuivre mes achats ></a>		
+			<button id="popup-continue">Poursuivre mes achats ></button>		
 		</div>
 	</div>
 
@@ -157,19 +157,20 @@
 {% block javascripts %} 
 
 	{{ parent() }}
-	<script src="{{ asset('js/bxslider/jquery.bxslider.min.js') }}"></script>
 	<script type="text/javascript" src="{{ asset('js/jquery.magnific-popup.js') }}"></script>
     <script>
 	    $(document).ready(function(){
 
-	    	// Sliders + Popup plugin
-			$('.bxslider').bxSlider({
-			captions: true
-			});
-		
+	    	// Popup plugin
+
 		    $('.open-popup-link').magnificPopup({
 			  type:'inline',
+			  closeBtnInside: true,
 			  midClick: true // Allow opening popup on middle mouse click. Always set it to true if you don't provide alternative source in href.
+			});
+
+			$('#popup-continue').on('click', function() {
+				$.magnificPopup.close();
 			});
 
 
@@ -193,7 +194,6 @@
 				$('#update_pers').html($('#nbre_pers').val());	
 			});
 
-
 			// Requete AJAX pour ajouter le produit au caddie
 			$(".submit_product").submit(function(e){
 				e.preventDefault();
@@ -201,21 +201,18 @@
 	                type: 'post',
 	                url: $(this).attr('action'),
 	                data: $(this).serialize(),
-	                
-	        	})
-	        	.done(function (data) {
-	            	$('#popup-photo').attr('src', "{{ asset('') }}" + data.photo);
-	            	$('#popup-quantite').html(data.quantite);
-	            	$('#popup-titre').html(data.titre);
-	            	$('a.open-popup-link').trigger('click');
-	        	})
-	        	.fail(function (jqXHR, textStatus, errorThrown) {
-			
+	                success: function (data) {
+		            	$('#popup-photo').attr('src', "{{ asset('') }}" + data.photo);
+		            	$('#popup-quantite').html(data.quantite);
+		            	$('#popup-titre').html(data.titre);
+		            	$('a.open-popup-link').trigger('click');
+		            	$('#count_caddie').html(data.countcaddie);
+	        		},
+	        		error: function (jqXHR, textStatus, errorThrown) {
+	        		}
 				})
 			})
-
 		});
-
 	</script>
 
 {% endblock %}

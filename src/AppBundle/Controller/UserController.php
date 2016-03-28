@@ -3,32 +3,23 @@
 namespace AppBundle\Controller;
 
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
-use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\Security\Core\SecurityContext;
 use Symfony\Component\Security\Core\Authentication\Token\UsernamePasswordToken;
 use Symfony\Component\Security\Http\Event\InteractiveLoginEvent;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\RedirectResponse;
-use Symfony\Component\HttpFoundation\JsonResponse;
-use AppBundle\Form\UserType;
 use AppBundle\Entity\User;
-use AppBundle\Entity\Role;
 
-
-class UserController extends Controller
+class UserController extends BaseController
 {
+    protected $type = 'AppBundle\Form\UserType';
 
     /**
      * @Route("/login", name="login")
      */
     public function loginAction()
     {   
-        $user = new User();
-        $form = $this->createForm(UserType::class, $user);
-
-        return $this->render('login.html.twig', array(
-              'form' => $form->createView()
-            ));
+        return $this->render('login', ['form' => $this->getForm(new User)->createView()]);
     }
 
     /**
@@ -36,16 +27,11 @@ class UserController extends Controller
      */
     public function registerAction(Request $request)
     {   
-        $url = $request->getSession()->get('_security.target_path');
         $referer_url = $request->headers->get('referer');
         $user = new User();
-        $form = $this->createForm(UserType::class, $user);
-        
-        $form->handleRequest($request);
+        $saveform = $this->getForm($user);
 
-        if ($form->isValid()) 
-        {
-            $em = $this->getDoctrine()->getManager();
+        if ($saveform->handleRequest($request)->isValid()) {
             // On donne un pseudo (le meme que l'email)
             $user->setUsername($user->getEmail());
             // On encode le password
@@ -53,11 +39,10 @@ class UserController extends Controller
             $encoded = $encoder->encodePassword($user, $user->getPassword());
             $user->setPassword($encoded);
             // On ajoute le role au nouvel utilisateur
-            $role = $em->getRepository('AppBundle:Role')->findOneByRole("ROLE_USER");
+            $role = $this->getRepo('AppBundle:Role')->findOneByRole("ROLE_USER");
             $user->addRole($role);
             // On enregistre dans la bdd
-            $em->persist($user);
-            $em->flush();
+            $this->save($user);
 
             // Création d'un nouveau token basé sur l'utilisateur qui vient de s'inscrire
             $token = new UsernamePasswordToken($user, null, 'main', $user->getRoles());
@@ -67,11 +52,9 @@ class UserController extends Controller
             $this->get("event_dispatcher")->dispatch("security.interactive_login", $event);
 
             return new RedirectResponse($referer_url);
-
         }
 
-        return new RedirectResponse($referer_url);
-    
+        return new RedirectResponse($referer_url);   
     }
 
     /**
@@ -79,16 +62,8 @@ class UserController extends Controller
      */
     public function checkEmail($data)
     {
-        $em = $this->getDoctrine()->getManager();
+        $user = $this->getRepo('AppBundle:User')->findOneByEmail($data);
 
-        $user = $em->getRepository('AppBundle:User')->findOneByEmail($data);
-
-        if ( $user ) {
-            return new JsonResponse(array('message' => 'success' , 200));
-        }
-        else {
-            return new JsonResponse(array('message' => 'fail' , 200));
-        }
+        return ( $user ) ? $this->jsonSuccess() : $this->jsonFail();
     }
-
 }

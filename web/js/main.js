@@ -32,7 +32,7 @@ $(document).ready(function(){
 				url:  Routing.generate('newsletter'),
 				data: $("#newsletter_form").serialize(),
 				success: function (data) {
-					if ( data.message == 'Success' ) {
+					if ( data.message == 'success' ) {
 						$('#error_newsletter').html('Vous êtes maintenant inscrit à la newsletter !');
 					}
 					else {
@@ -40,10 +40,16 @@ $(document).ready(function(){
 					}
 				},	
 				error: function (jqXHR, textStatus, errorThrown) {
-					$('#error_newsletter').html('Vous êtes déjà inscrit à la newsletter !');
+					console.log("neinenienienenineinei");
 				}
 			});
 		});
+	})();
+
+	var bxslider = (function() {
+	 	$('.bxslider').bxSlider({
+	            captions: true
+	    });
 	})();
 
 	// Caddie
@@ -82,6 +88,7 @@ $(document).ready(function(){
 				success: function (data) {
 					$("." + form.attr("id")).html(form.find("input[type='text']").val() * data.prix);
 					updatePrixTotal();
+					$('#count_caddie').html(data.countcaddie);
 				},	
 				error: function (jqXHR, textStatus, errorThrown) {
 					console.log("neinnienieneineinen");
@@ -97,10 +104,13 @@ $(document).ready(function(){
 			$(".cart_prixtotal").html(prix_total + " €");
 		}
 
+		updatePrixTotal();
+
 		var prix = 0;
 		for (var i=0; i < $('.test').length; i++) {
 			prix += parseFloat($('.test')[i].innerHTML);
 		}
+
 	})();
 
 	// Le spinner du formulaire d'enregistrement
@@ -202,5 +212,6 @@ $(document).ready(function(){
 	        }
     	}
 	})();
+
 
 });

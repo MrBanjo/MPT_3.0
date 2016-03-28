@@ -13,12 +13,14 @@ use Doctrine\ORM\EntityRepository;
 class CaddieRepository extends EntityRepository
 {
 
-	public function getTotalPrix() 
+	public function getTotalPrix($user) 
 	{
+		$identifiant = ($user) ? 'user' : 'identifiant';
+		$identifiantvalue = ($user) ? $user : session_id();
 		// Récupere tous les objets produits de l'utilisateur
 		$results = $this->getEntityManager()
-		->createQuery('SELECT c FROM AppBundle:Caddie c WHERE c.identifiant = :identifiant')
-		->setParameter('identifiant', session_id())
+		->createQuery('SELECT c FROM AppBundle:Caddie c WHERE c.' . $identifiant . ' = :identifiant')
+		->setParameter('identifiant', $identifiantvalue)
 		->getResult();
 
 		// Additionne les prix de chaque produits avec leur quantité
@@ -46,6 +48,19 @@ class CaddieRepository extends EntityRepository
 
 		return $results;
 	}
+
+	public function CountCaddie($user)
+    {
+        $identifiant = ($user) ? 'user' : 'identifiant';
+        $identifiantvalue = ($user) ? $user : session_id();
+
+        $results = $this->getEntityManager()
+		->createQuery('SELECT c FROM AppBundle:Caddie c WHERE c.' . $identifiant . ' = :identifiant')
+		->setParameter('identifiant', $identifiantvalue)
+		->getResult();
+
+    	return count($results);
+    }
 
 
 }

@@ -72,7 +72,7 @@
                 <div id="caddie_header">
                     <a href="{{ path('cart') }}">
                         <div id="count_caddie">
-                            {{ render(controller('AppBundle:Cart:CountCaddie')) }}
+                            {{ showCountCart(app.user) }}
                         </div>
                         <img src="{{ asset('img/header/panier.png')}}" alt="">
                     </a>                         
@@ -88,7 +88,8 @@
                     <div id="newsletter_footer">
                         <p><span class="footer-picto_partenaire"></span>Inscrivez-vous !</p>
                     </div>
-                    {{ render(controller('AppBundle:Newsletter:showform')) }}
+                    {# render(controller('AppBundle:Newsletter:showform')) #}
+                    {{ include ("form/newsletterForm.html.twig") }}
                     <div>
                         <p id="error_newsletter"></p>
                     </div>
@@ -122,6 +123,7 @@
         <script src="{{ asset('js/vendor/jquery-1.11.2.min.js') }}"></script>
         <script src="{{ asset('bundles/fosjsrouting/js/router.js') }}"></script>
         <script src="{{ path('fos_js_routing_js', {'callback': 'fos.Router.setData'}) }}"></script>
+        <script src="{{ asset('js/bxslider/jquery.bxslider.min.js') }}"></script>
         <script src="{{ asset('js/main.js') }}"></script>
 
     {% endblock %}

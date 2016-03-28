@@ -140,18 +140,3 @@
 </div>
 
 {% endblock %}
-
-{% block javascripts %}
-
-	{{ parent() }}
-
-	<script src="{{ asset('js/bxslider/jquery.bxslider.min.js') }}"></script>
-	<script>
-	    $(document).ready(function () {
-	        $('.bxslider').bxSlider({
-	            captions: true
-	        });
-	    });
-	</script>
-
-{% endblock %}
