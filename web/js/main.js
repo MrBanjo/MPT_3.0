@@ -104,10 +104,11 @@ $(document).ready(function(){
 			$(".test").each(function(index){
 				prix_total += parseFloat($(this).text());
 			});
-			$(".cart_prixtotal").html(prix_total + " €");
+			$(".cart_prixtotal").html(prix_total + " €")
+			$(".cart_prixhttotal").html((prix_total * 0.945).toFixed(2) + " €");
 		}
 
-		updatePrixTotal();
+		
 
 		var prix = 0;
 		for (var i=0; i < $('.test').length; i++) {

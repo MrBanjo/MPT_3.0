@@ -1,0 +1,48 @@
+{% extends "base.html.twig" %}
+
+{% block body %}
+
+<section class="first_section">
+	<div class="container_small">
+		<div id="account-wrapper">
+			<nav class="breadcrumb">
+				{{ knp_menu_render('breadcrumb',{'depth': 2,'currentAsLink':false}) }}
+			</nav>
+			<div class="green_header">
+				<h1>Mon compte</h1>			
+			</div>
+			<div id="account_welcome">
+				<p >Bienvenue sur votre page d’acceuil.<br>
+				Vous pouvez gérer vos informations personnelles,<br> 
+				vos commandes ainsi que vos adresses.
+				</p>		
+			</div>
+			<div id="account_content" class="green_content">
+				<section id="account_sidebar">
+					<nav>
+						<ul>
+							<li><button><span class="account-historique"></span>Historique et détails de mes commandes</button></li>
+							<li><button><span class="account-adresses"></span>Mes adresses de livraison</button></li>
+							<li><button><span class="account-informations"></span>Mes informations personelles</button></li>
+							<li><button><span class="account-fidelite"></span>Mes points de fidélité</button></li>
+							<li><button><span class="account-parrainage"></span>Parrainage</button></li>
+						</ul>
+					</nav>
+				</section>
+				<section>
+					<article></article>
+					<article></article>
+					<article></article>
+					<article></article>
+					<article></article>
+				</section>
+			</div>
+		</div>
+		
+	</div>
+</section>
+
+{% endblock %}
+
+
+

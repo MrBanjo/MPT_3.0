@@ -1,4 +1,6 @@
 @import "compass/utilities/sprites";
 $footer-layout: smart;
 @import "sprites/footer/*.png";
+@import "sprites/account/*.png";
 @include all-footer-sprites(true);
+@include all-account-sprites(true);

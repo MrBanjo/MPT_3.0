@@ -38,7 +38,34 @@ class CartController extends BaseController
      */
     public function ShowIdentificationAction()
     {
+        if ($this->getUser()) {
+            return $this->redirectToRoute('cart_summary');
+        }
+
         return $this->render('cart_identification', ['form' => $this->getForm(new User())->createView()]);
+    }
+
+    /**
+     * @Route("/caddie/recapitulatif", name="cart_summary", defaults={"title": "Récapitulatif de la commande"})
+     */
+    public function ShowSummaryAction()
+    {
+        if (!$this->getUser()) {
+            return $this->redirectToRoute('cart_identification');
+        }
+
+        $em = $this->getRepo('AppBundle:Caddie');
+        // Récupère la liste des articles du client ainsi que le prix total
+        $liste_article = $em->getAllProducts($this->getUser());
+        $prix_total = $em->getTotalPrix($this->getUser());
+
+        return $this->render(
+            'cart_summary', 
+            [ 
+                'articles' => $liste_article, 
+                'prix_total' => $prix_total
+            ]
+        );
     }
 
     /**

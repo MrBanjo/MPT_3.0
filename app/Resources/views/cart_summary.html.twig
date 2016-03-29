@@ -8,11 +8,11 @@
 				<label for="show-caddie_menu" class="show-caddie_menu">Etapes de votre commande:</label>
 				<input type="checkbox" id="show-caddie_menu" role="button">
 				<ul id="menu_caddie">
-					<li><a href="{{ path('cart')}}"><strong>1</strong> ma commande</a></li>
-					<li><a href="{{ path('cart_identification')}}" class="opac"><strong>2</strong> identification</a></li>
+					<li><a href="{{ path('cart') }}" class="opac"><strong>1</strong> ma commande</a></li>
+					<li><a href="{{ path('cart_identification') }}" class="opac"><strong>2</strong> identification</a></li>
 					<li><a href="" class="opac"><strong>3</strong> livraison</a></li>
 					<li><a href="" class="opac"><strong>4</strong> paiment</a></li>
-					<li><a href="{{ (app.user) ? path('cart_summary') : path('cart_identification')}}" class="opac"><strong>5</strong> récapitulatif</a></li>
+					<li><a href="{{ path('cart_summary') }}"><strong>5</strong> récapitulatif</a></li>
 				</ul>
 			</nav>
 			<div id="box_caddie">
@@ -21,7 +21,7 @@
 					{{ knp_menu_render('breadcrumb',{'depth': 2,'currentAsLink':false}) }}
 				</nav>
 				<a href="{{path('paniers')}}" id="continue_achat">< Poursuivre mes achats</a>
-				<form action="{{ (app.user) ? path('cart_summary') : path('cart_identification') }}" class="validate_caddie">
+				<form action="{{ (app.user) ? path('addcommandes') : path('cart_identification') }}" class="validate_caddie">
 					<button type="submit" id="submit_caddie" class="orange">VALIDER MA COMMANDE</button>
 				</form>
 				<div class="box_table">
@@ -43,15 +43,7 @@
 									<th><img src="{{ asset(article.photo)}}" alt=""></th>
 									<th>{{ article.titre }}</th>
 									<th>{{ article.prix }} €</th>
-									<th>
-										<form method="post" action="{{ path('quantite_cart') }}" id="form-{{ article.id }}" class="cart_form"> 
-											<button type="button" onClick="substract('quantite{{ article.id }}');" id="{{ article.id }}moins" class="quantite_cart">-</button><!--  
-											 --><input type="text" value="{{ article.quantite }}" id="quantite{{ article.id }}" size="2" maxlength="4" onkeypress="return isNumberKey(event);" name="quantite"><!-- 
-											--><button type="button" onClick="add('quantite{{ article.id }}');" id="{{ article.id }}plus" class="quantite_cart">+</button>
-											<input type="hidden" value="{{ article.id }}" name="article_id">
-											<input type="submit" class="quantite_submit"> 
-										</form>
-									</th>
+									<th>{{ article.quantite }}</th>
 									<th><span class='test form-{{ article.id }}'>{{ article.prix * article.quantite }}</span> €</th>			            		
 								</tr>
 
@@ -69,20 +61,13 @@
 							<tr class="green_dark"> 
 								<th></th>
 								<th></th>
-								<th>Total HT</th>
+								<th>Livraison</th>
 								<th></th>
-								<th class="cart_prixhttotal"><span>{{ prix_total * 0.945 }} €</span></th>
+								<th class="cart_prixtotal"> €</th>
 							</tr>
 							<tr class="green_light">
 								<th></th>
-								<th  id="caddie_codereduc">
-									<form action="">
-										<label for="">Code de réduction :</label>
-										<div>
-			            					<input type="text" placeholder="Saisissez votre code"><!-- 
-			            				 --><input type="submit" value="OK" class="green-button">	
-			            				</div>
-			            			</form>			            			
+								<th  id="caddie_codereduc">		            			
 			            		</th>
 			            		<th>TOTAL TTC</th>
 			            		<th></th>

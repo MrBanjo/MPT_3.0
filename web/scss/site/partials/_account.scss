@@ -1,0 +1,78 @@
+/* ==========================================================================
+   CADDIE
+   ========================================================================== */
+
+.green_header {
+    background-color: $green_dark_account;
+}
+
+.green_content {
+    background-color: $green_medium_account;
+}
+
+
+#account-wrapper {
+    margin-top: 50px;
+    font-family: "arialnarrow", sans-serif;
+    color: $font_brown;
+    font-size: 18px;
+
+    .green_header {
+        height: 54px;
+
+        h1 {
+            text-align: center;
+            font-family: "Kraftstoff", sans-serif;
+            color: white;
+            font-size: 36px;
+            font-weight: normal;
+            margin: auto;
+        }
+
+    }    
+}
+
+#account_welcome {
+    text-align: center;
+    background-color: white;
+    p {
+        margin: auto;
+        font-style: italic;
+    }
+}
+
+#account_sidebar {
+    padding: 50px 0 0 50px;
+
+    button {
+        font-family: "arialnarrow", sans-serif;
+        color: $font_brown;
+        font-size: 18px;
+        text-decoration: underline;
+        margin: 5px 0;
+        position: relative;
+        border: none;
+        &:focus {
+            outline:none;
+        }
+    }
+    
+    span {
+        display: inline-block;
+        position: absolute;
+        vertical-align: middle; 
+        left: -30px;
+    }
+
+    .account-adresses {
+        left: -40px;
+    }
+
+
+}
+
+@media only screen and (max-width: 1280px) {
+    #account-wrapper {
+        padding: 0;
+    }
+}

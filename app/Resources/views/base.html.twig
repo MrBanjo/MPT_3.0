@@ -50,6 +50,7 @@
                     <div id="account_header">
                         <div class="form_header">
                             {% if (is_granted('ROLE_USER') or is_granted('ROLE_ADMIN')) %}
+                                <a href="{{ path('account') }}">Mon compte</a>
                                 <a href="{{ path('logout') }}">Se déconnecter</a>
                             {% else %}
                                 <div>

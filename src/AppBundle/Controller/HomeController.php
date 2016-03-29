@@ -4,7 +4,7 @@ namespace AppBundle\Controller;
 
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 
-class DefaultController extends BaseController
+class HomeController extends BaseController
 {
     /**
      * @Route("/accueil", name="accueil", defaults={"title": "Accueil"})

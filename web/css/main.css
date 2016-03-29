@@ -332,6 +332,12 @@ table {
   background-repeat: no-repeat;
 }
 
+/* line 80, sprites/account/*.png */
+.account-sprite, .account-adresses, .account-fidelite, .account-historique, .account-informations, .account-parrainage {
+  background-image: url('../img/sprites/account-sc97dbe6431.png');
+  background-repeat: no-repeat;
+}
+
 /* line 84, ../../../../../Ruby22-x64/lib/ruby/gems/2.2.0/gems/compass-core-1.0.3/stylesheets/compass/utilities/sprites/_base.scss */
 .footer-blog {
   background-position: 0 -146px;
@@ -379,6 +385,41 @@ table {
   background-position: 0 -59px;
   height: 41px;
   width: 53px;
+}
+
+/* line 84, ../../../../../Ruby22-x64/lib/ruby/gems/2.2.0/gems/compass-core-1.0.3/stylesheets/compass/utilities/sprites/_base.scss */
+.account-adresses {
+  background-position: 0 0;
+  height: 16px;
+  width: 31px;
+}
+
+/* line 84, ../../../../../Ruby22-x64/lib/ruby/gems/2.2.0/gems/compass-core-1.0.3/stylesheets/compass/utilities/sprites/_base.scss */
+.account-fidelite {
+  background-position: 0 -16px;
+  height: 14px;
+  width: 15px;
+}
+
+/* line 84, ../../../../../Ruby22-x64/lib/ruby/gems/2.2.0/gems/compass-core-1.0.3/stylesheets/compass/utilities/sprites/_base.scss */
+.account-historique {
+  background-position: 0 -30px;
+  height: 20px;
+  width: 11px;
+}
+
+/* line 84, ../../../../../Ruby22-x64/lib/ruby/gems/2.2.0/gems/compass-core-1.0.3/stylesheets/compass/utilities/sprites/_base.scss */
+.account-informations {
+  background-position: 0 -50px;
+  height: 17px;
+  width: 15px;
+}
+
+/* line 84, ../../../../../Ruby22-x64/lib/ruby/gems/2.2.0/gems/compass-core-1.0.3/stylesheets/compass/utilities/sprites/_base.scss */
+.account-parrainage {
+  background-position: 0 -67px;
+  height: 21px;
+  width: 20px;
 }
 
 /* ==========================================================================
@@ -2562,7 +2603,7 @@ h2 {
   font-size: 18px;
   font-weight: normal;
   font-family: "arialnarrow";
-  height: 100px;
+  height: 50px;
 }
 
 /* line 147, ../scss/site/partials/_caddie.scss */
@@ -3006,6 +3047,87 @@ h2 {
   .box_form_user_small {
     width: 100%;
     margin: 0 auto;
+  }
+}
+/* ==========================================================================
+   CADDIE
+   ========================================================================== */
+/* line 5, ../scss/site/partials/_account.scss */
+.green_header {
+  background-color: #9bba83;
+}
+
+/* line 9, ../scss/site/partials/_account.scss */
+.green_content {
+  background-color: #dee8d6;
+}
+
+/* line 14, ../scss/site/partials/_account.scss */
+#account-wrapper {
+  margin-top: 50px;
+  font-family: "arialnarrow", sans-serif;
+  color: #493f33;
+  font-size: 18px;
+}
+/* line 20, ../scss/site/partials/_account.scss */
+#account-wrapper .green_header {
+  height: 54px;
+}
+/* line 23, ../scss/site/partials/_account.scss */
+#account-wrapper .green_header h1 {
+  text-align: center;
+  font-family: "Kraftstoff", sans-serif;
+  color: white;
+  font-size: 36px;
+  font-weight: normal;
+  margin: auto;
+}
+
+/* line 35, ../scss/site/partials/_account.scss */
+#account_welcome {
+  text-align: center;
+  background-color: white;
+}
+/* line 38, ../scss/site/partials/_account.scss */
+#account_welcome p {
+  margin: auto;
+  font-style: italic;
+}
+
+/* line 44, ../scss/site/partials/_account.scss */
+#account_sidebar {
+  padding: 50px 0 0 50px;
+}
+/* line 47, ../scss/site/partials/_account.scss */
+#account_sidebar button {
+  font-family: "arialnarrow", sans-serif;
+  color: #493f33;
+  font-size: 18px;
+  text-decoration: underline;
+  margin: 5px 0;
+  position: relative;
+  border: none;
+}
+/* line 55, ../scss/site/partials/_account.scss */
+#account_sidebar button:focus {
+  outline: none;
+}
+/* line 60, ../scss/site/partials/_account.scss */
+#account_sidebar span {
+  display: inline-block;
+  position: absolute;
+  vertical-align: middle;
+  left: -30px;
+}
+/* line 67, ../scss/site/partials/_account.scss */
+#account_sidebar .account-adresses {
+  left: -40px;
+}
+
+@media only screen and (max-width: 1280px) {
+  /* line 75, ../scss/site/partials/_account.scss */
+  #account-wrapper {
+    padding: 0;
   }
 }
 /* Magnific Popup CSS */

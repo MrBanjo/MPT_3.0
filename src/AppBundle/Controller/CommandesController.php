@@ -34,7 +34,7 @@ class CommandesController extends BaseController
                 $this->remove($listecommande); // remove product from cart
             }
 
-            return new RedirectResponse($this->generateUrl('cart'));           
+            return new RedirectResponse($this->generateUrl('account'));           
         }
 
         return new RedirectResponse($this->generateUrl('cart_identification'));
