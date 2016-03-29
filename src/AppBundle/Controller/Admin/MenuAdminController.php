@@ -2,14 +2,11 @@
 
 namespace AppBundle\Controller\Admin;
 
-use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpFoundation\RedirectResponse;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
-use Symfony\Component\HttpFoundation\JsonResponse;
-use Symfony\Component\Security\Core\Authentication\Token\UsernamePasswordToken;
-use AppBundle\Form\MenuType;
+use AppBundle\Form\Type\MenuType;
 use AppBundle\Entity\Menu;
 
 
@@ -38,7 +35,7 @@ class MenuAdminController extends Controller
         $menu = $this->getDoctrine()->getManager()->getRepository('AppBundle:Menu')->find($id);
         $message = '';
 
-        if($menu == null) 
+        if($menu === null) 
         {
             $menu = new Menu();
         }

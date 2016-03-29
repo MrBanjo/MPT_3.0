@@ -3,8 +3,7 @@
   namespace AppBundle\Menu;
 
   use Knp\Menu\FactoryInterface;
-  use Symfony\Component\HttpFoundation\Request;
-  use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
+  use Symfony\Component\HttpFoundation\RequestStack;
 
   class Builder
   {
@@ -12,13 +11,15 @@
      * @var FactoryInterface
      */   
     private $factory;
+    private $requestStack;
 
     /**
      * @param FactoryInterface $factory
      */
-    public function __construct(FactoryInterface $factory)
+    public function __construct(FactoryInterface $factory, RequestStack $requestStack)
     {
         $this->factory = $factory;
+        $this->requestStack = $requestStack;
     }
 
     /**
@@ -26,7 +27,7 @@
      *
      * @return \Knp\Menu\ItemInterface
      */
-    public function createMainMenu(array $options)
+    public function createMainMenu()
     {
         $menu = $this->factory->createItem('Accueil', ['route' => 'accueil']);
         // cet item sera toujours affiché
@@ -38,10 +39,10 @@
         var_dump($request->getUri());
         preg_match('/.*?:\/\//', $request->getPathInfo(), $matches);
         var_dump($matches);*/
-        $request = Request::createFromGlobals();
+        /*$request = Request::createFromGlobals();*/
 
         // crée le menu en fonction de la route
-        switch($request->getPathInfo()){
+        switch($this->requestStack->getCurrentRequest()->getPathInfo()){
             case '/caddie/ma-commande':
                 $menu
                     ->addChild('Ma commande', array('route' => 'cart'))

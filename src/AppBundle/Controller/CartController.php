@@ -2,7 +2,6 @@
 
 namespace AppBundle\Controller;
 
-use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
@@ -12,12 +11,12 @@ use AppBundle\Entity\Caddie;
 
 class CartController extends BaseController
 {
-    protected $type = 'AppBundle\Form\UserType';
+    protected $type = 'AppBundle\Form\Type\UserType';
 
     /**
      * @Route("/caddie/ma-commande", name="cart", defaults={"title": "Ma commande"})
      */
-    public function ShowCaddieAction()
+    public function showCaddieAction()
     {
         $em = $this->getRepo('AppBundle:Caddie');
     	// Récupère la liste des articles du client ainsi que le prix total
@@ -36,7 +35,7 @@ class CartController extends BaseController
     /**
      * @Route("/caddie/identification", name="cart_identification", defaults={"title": "Identification"})
      */
-    public function ShowIdentificationAction()
+    public function showIdentificationAction()
     {
         if ($this->getUser()) {
             return $this->redirectToRoute('cart_summary');
@@ -48,7 +47,7 @@ class CartController extends BaseController
     /**
      * @Route("/caddie/recapitulatif", name="cart_summary", defaults={"title": "Récapitulatif de la commande"})
      */
-    public function ShowSummaryAction()
+    public function showSummaryAction()
     {
         if (!$this->getUser()) {
             return $this->redirectToRoute('cart_identification');
@@ -71,10 +70,10 @@ class CartController extends BaseController
     /**
      * @Route("/caddie/addtocart/{slug}", name="addtocart")
      */
-    public function AddProductAction(Request $request, $slug)
+    public function addProductAction(Request $request, $slug)
     {
     	
-    	if($request->isXmlHttpRequest() AND $request->request->get('quantite') != NULL)
+    	if($request->isXmlHttpRequest() && $request->request->get('quantite') != NULL)
     	{
     		$caddie = new Caddie();
     		$quantite = $request->request->get('quantite');
@@ -117,7 +116,7 @@ class CartController extends BaseController
     /**
      * @Route("/caddie/quantite_cart", name="quantite_cart", options={"expose"=true})
      */
-    public function UpdateQuantiteAction(Request $request)
+    public function updateQuantiteAction(Request $request)
     {
     	if($request->request->get('article_id')) // Checking post 
     	{

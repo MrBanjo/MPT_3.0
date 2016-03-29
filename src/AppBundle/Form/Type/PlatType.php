@@ -1,12 +1,12 @@
 <?php
 
-namespace AppBundle\Form;
+namespace AppBundle\Form\Type;
 
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolverInterface;
 
-class MenuType extends AbstractType
+class PlatType extends AbstractType
 {
     /**
      * @param FormBuilderInterface $builder
@@ -16,19 +16,13 @@ class MenuType extends AbstractType
     {
         $builder
             ->add('titre')
-            ->add('prix')
+            ->add('accroche')
+            ->add('description')
+            ->add('temps')
+            ->add('difficulte')
+            ->add('consistance')
             ->add('photo')
-            ->add('date')
-            ->add('active')
-            ->add('categorie', 'entity',array(
-                'class' => 'AppBundle:Categorie',
-                'property' => 'nom',
-            ))
-            ->add('plats', 'entity', array(
-                'class' => 'AppBundle:Plat',
-                'property' => 'titre',
-                'multiple' => 'true'
-            ))
+            ->add('plus')
             ->add('Ajouter', 'submit', array( 'attr' => array("class" => "btn btn-default")))
         ;
     }
@@ -39,7 +33,7 @@ class MenuType extends AbstractType
     public function setDefaultOptions(OptionsResolverInterface $resolver)
     {
         $resolver->setDefaults(array(
-            'data_class' => 'AppBundle\Entity\Menu'
+            'data_class' => 'AppBundle\Entity\Plat'
         ));
     }
 }

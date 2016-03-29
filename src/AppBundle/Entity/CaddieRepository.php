@@ -23,8 +23,9 @@ class CaddieRepository extends EntityRepository
 	public function getAllProducts($user) 
 	{
 		$results = $this->getEntityManager()
-		->createQuery('SELECT c FROM AppBundle:Caddie c WHERE c.' . $this->getUserOrSession($user)["id"] . ' = :identifiant')
-		->setParameter('identifiant', $this->getUserOrSession($user)["value"])
+		->createQuery('SELECT c FROM AppBundle:Caddie c WHERE (c.user = :name1 OR c.identifiant = :name2)')
+		->setParameter('name1', $user)
+		->setParameter('name2', session_id())
 		->getResult();
 
 		return $results;
@@ -41,9 +42,11 @@ class CaddieRepository extends EntityRepository
 
             if (!$listecaddie->getUser() && $user) {
                 $listecaddie->setUser($user);
-                $this->getEntityManager()->flush();
+                $this->getEntityManager()->persist($listecaddie);
             }
         }
+        
+        $this->getEntityManager()->flush();
 	}
 
 	public function getTotalPrix($user) 

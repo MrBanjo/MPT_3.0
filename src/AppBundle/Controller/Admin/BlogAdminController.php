@@ -2,17 +2,14 @@
 
 namespace AppBundle\Controller\Admin;
 
-use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpFoundation\RedirectResponse;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
-use Symfony\Component\HttpFoundation\JsonResponse;
-use Symfony\Component\Security\Core\Authentication\Token\UsernamePasswordToken;
 use AppBundle\Entity\Blog;
-use AppBundle\Form\BlogType;
+use AppBundle\Form\Type\BlogType;
 use AppBundle\Entity\Rubriqueblog;
-use AppBundle\Form\RubriqueblogType; 
+use AppBundle\Form\Type\RubriqueblogType; 
 
 class BlogAdminController extends Controller
 {
@@ -39,7 +36,7 @@ class BlogAdminController extends Controller
 
       $message = '';
 
-    	if($blog == null) {
+    	if($blog === null) {
     		$blog = new Blog();
     	}
 

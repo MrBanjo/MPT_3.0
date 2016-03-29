@@ -3,7 +3,6 @@
 namespace AppBundle\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
-use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpFoundation\JsonResponse;
 
@@ -13,12 +12,12 @@ class BaseController extends Controller
     protected $basePath = 'base_path_here';
     protected $type = 'type_here';
 
-    public function getForm($data = null, array $options = [])
+    protected function getForm($data = null, array $options = [])
     {
         return parent::createForm($this->type, $data, $options);
     }
 
-    public function render($view, array $parameters = [], Response $response = null)
+    protected function render($view, array $parameters = [], Response $response = null)
     {
         return parent::render($view.'.html.twig', $parameters);
     }
@@ -53,7 +52,7 @@ class BaseController extends Controller
         return $this->getRepo($handle)->findAll();
     }
  
-    public function save($object, $flush = true)
+    protected function save($object, $flush = true)
     {
         $this->getDoctrine()->getManager()->persist($object);
         if ($flush) {
@@ -61,7 +60,7 @@ class BaseController extends Controller
         }
     }
  
-    public function remove($object, $flush = true)
+    protected function remove($object, $flush = true)
     {
         $this->getDoctrine()->getManager()->remove($object);
         if ($flush) {
@@ -69,27 +68,27 @@ class BaseController extends Controller
         }
     }
 
-    protected function createEntity(object $entity)
+    protected function createEntity(Object $entity)
     {
         return new $entity;
     }
 
-    public function redirectTo($path, array $params = [])
+    protected function redirectTo($path, array $params = [])
     {
         return $this->redirect($this->generateUrl($path, $params));
     }
 
-    public function jsonSuccess()
+    protected function jsonSuccess()
     {
         return new JsonResponse(['message' => 'success'], 200);
     }
 
-    public function jsonFail()
+    protected function jsonFail()
     {
         return new JsonResponse(['message' => 'fail'], 200);
     }
 
-    public function countCart()
+    protected function countCart()
     {
         $cartExtension = $this->container->get('app.twig.cart_extension');
         $countCart =  $cartExtension->countCart($this->getUser());

@@ -1,12 +1,12 @@
 <?php
 
-namespace AppBundle\Form;
+namespace AppBundle\Form\Type;
 
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolverInterface;
 
-class PlatType extends AbstractType
+class BlogType extends AbstractType
 {
     /**
      * @param FormBuilderInterface $builder
@@ -16,13 +16,15 @@ class PlatType extends AbstractType
     {
         $builder
             ->add('titre')
-            ->add('accroche')
             ->add('description')
-            ->add('temps')
-            ->add('difficulte')
-            ->add('consistance')
-            ->add('photo')
-            ->add('plus')
+            ->add('article')
+            ->add('image')
+            ->add('date','birthday', array( 'widget' => 'choice', 'label' => 'Date de parution:', 'format' => 'dd MMMM yyyy', 'years' => range(date('Y'),1920)))
+            ->add('rubriqueblog', 'entity',array(
+                'class' => 'AppBundle:Rubriqueblog',
+                'property' => 'nom',
+                'label' => 'Rubrique du blog:'
+            ))
             ->add('Ajouter', 'submit', array( 'attr' => array("class" => "btn btn-default")))
         ;
     }
@@ -33,7 +35,7 @@ class PlatType extends AbstractType
     public function setDefaultOptions(OptionsResolverInterface $resolver)
     {
         $resolver->setDefaults(array(
-            'data_class' => 'AppBundle\Entity\Plat'
+            'data_class' => 'AppBundle\Entity\Blog'
         ));
     }
 }

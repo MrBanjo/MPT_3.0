@@ -3,7 +3,6 @@
 namespace AppBundle\Controller;
 
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
-use Symfony\Component\Security\Core\SecurityContext;
 use Symfony\Component\Security\Core\Authentication\Token\UsernamePasswordToken;
 use Symfony\Component\Security\Http\Event\InteractiveLoginEvent;
 use Symfony\Component\HttpFoundation\Request;
@@ -12,7 +11,7 @@ use AppBundle\Entity\User;
 
 class UserController extends BaseController
 {
-    protected $type = 'AppBundle\Form\UserType';
+    protected $type = 'AppBundle\Form\Type\UserType';
 
     /**
      * @Route("/login", name="login")

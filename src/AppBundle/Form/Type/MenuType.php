@@ -1,12 +1,12 @@
 <?php
 
-namespace AppBundle\Form;
+namespace AppBundle\Form\Type;
 
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolverInterface;
 
-class BlogType extends AbstractType
+class MenuType extends AbstractType
 {
     /**
      * @param FormBuilderInterface $builder
@@ -16,14 +16,18 @@ class BlogType extends AbstractType
     {
         $builder
             ->add('titre')
-            ->add('description')
-            ->add('article')
-            ->add('image')
-            ->add('date','birthday', array( 'widget' => 'choice', 'label' => 'Date de parution:', 'format' => 'dd MMMM yyyy', 'years' => range(date('Y'),1920)))
-            ->add('rubriqueblog', 'entity',array(
-                'class' => 'AppBundle:Rubriqueblog',
+            ->add('prix')
+            ->add('photo')
+            ->add('date')
+            ->add('active')
+            ->add('categorie', 'entity',array(
+                'class' => 'AppBundle:Categorie',
                 'property' => 'nom',
-                'label' => 'Rubrique du blog:'
+            ))
+            ->add('plats', 'entity', array(
+                'class' => 'AppBundle:Plat',
+                'property' => 'titre',
+                'multiple' => 'true'
             ))
             ->add('Ajouter', 'submit', array( 'attr' => array("class" => "btn btn-default")))
         ;
@@ -35,7 +39,7 @@ class BlogType extends AbstractType
     public function setDefaultOptions(OptionsResolverInterface $resolver)
     {
         $resolver->setDefaults(array(
-            'data_class' => 'AppBundle\Entity\Blog'
+            'data_class' => 'AppBundle\Entity\Menu'
         ));
     }
 }

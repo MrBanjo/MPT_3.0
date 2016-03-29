@@ -1,14 +1,14 @@
 <?php
 
-namespace AppBundle\Form;
+namespace AppBundle\Form\Type;
 
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
+use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 
-
-class AdresseType extends AbstractType
+class LoginheaderType extends AbstractType
 {
     /**
      * @param FormBuilderInterface $builder
@@ -17,11 +17,9 @@ class AdresseType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('voie', TextType::class, array('label' => 'N°, nom de la voie:'))
-            ->add('complement', TextType::class, array('label' => "Bâtiment, code d'accès:", 'required' => false))
-            ->add('postal', TextType::class, array('label' => 'Code Postal:'))
-            ->add('ville', TextType::class, array('label' => 'Ville:'))
-            ->add('titre', TextType::class, array('label' => 'Donnez un titre à cette adresse :'))
+            ->add('username', TextType::class, array('attr' => array( 'label' => 'Identifiant', 'name' => '_username')))
+            ->add('password', TextType::class, array('attr' => array( 'label' => 'Mot de passe', 'name' => '_password')))
+            ->add('Envoyer', SubmitType::class)
         ;
     }
     
@@ -31,7 +29,7 @@ class AdresseType extends AbstractType
     public function configureOptions(OptionsResolver $resolver)
     {
         $resolver->setDefaults(array(
-            'data_class' => 'AppBundle\Entity\Adresse'
+            'data_class' => 'AppBundle\Entity\User'
         ));
     }
 }

@@ -3,13 +3,12 @@
 namespace AppBundle\Controller;
 
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
-use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 use Symfony\Component\HttpFoundation\Request;
 use AppBundle\Entity\Newsletter;
 
 class NewsletterController extends BaseController
 {
-	protected $type = 'AppBundle\Form\NewsletterType';
+	protected $type = 'AppBundle\Form\Type\NewsletterType';
 
 	/**
 	 * @Route("/newsletter", name="newsletter", options={"expose"=true})
@@ -36,10 +35,10 @@ class NewsletterController extends BaseController
 		}
 	}
 
-	public function showformAction() // Leave here for performance test purpose
+/*	public function showformAction() // Leave here for performance test purpose
 	{
 		$news = new Newsletter();
 		$newsform = $this->createForm(NewsletterType::class, $news);
 		return $this->render('form/newsletterformtest.html.twig', array('newsform' => $newsform->createView()));
-	}
+	}*/
 }

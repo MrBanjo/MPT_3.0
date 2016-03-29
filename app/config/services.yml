@@ -25,6 +25,7 @@ services:
             class: AppBundle\Menu\Builder
             arguments:
                 - '@knp_menu.factory'
+                - '@request_stack'
             tags:
                 - { name: knp_menu.menu_builder, method: createMainMenu, alias: breadcrumb }
 

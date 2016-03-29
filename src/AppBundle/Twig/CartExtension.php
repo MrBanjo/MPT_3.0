@@ -31,12 +31,10 @@ class CartExtension extends \Twig_Extension
 
     public function countCart($user)
     {
-        $identifiant = ($user) ? 'user' : 'identifiant';
-        $identifiantvalue = ($user) ? $user : session_id();
-
         $results = $this->doctrine
-        ->createQuery('SELECT c FROM AppBundle:Caddie c WHERE c.' . $identifiant . ' = :identifiant')
-        ->setParameter('identifiant', $identifiantvalue)
+        ->createQuery('SELECT c FROM AppBundle:Caddie c WHERE (c.user = :name1 OR c.identifiant = :name2)')
+        ->setParameter('name1', $user)
+        ->setParameter('name2', session_id())
         ->getResult();
 
         return count($results);

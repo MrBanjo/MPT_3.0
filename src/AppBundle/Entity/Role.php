@@ -127,7 +127,4 @@ class Role implements RoleInterface
     {
         return $this->users;
     }
-
-
-
 }

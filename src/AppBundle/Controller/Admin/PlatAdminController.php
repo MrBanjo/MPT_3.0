@@ -2,14 +2,11 @@
 
 namespace AppBundle\Controller\Admin;
 
-use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpFoundation\RedirectResponse;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
-use Symfony\Component\HttpFoundation\JsonResponse;
-use Symfony\Component\Security\Core\Authentication\Token\UsernamePasswordToken;
-use AppBundle\Form\PlatType;
+use AppBundle\Form\Type\PlatType;
 use AppBundle\Entity\Plat;
 
 
@@ -38,7 +35,7 @@ class PlatAdminController extends Controller
         $plat = $this->getDoctrine()->getManager()->getRepository('AppBundle:Plat')->find($id);
         $message = '';
 
-        if($plat == null) 
+        if($plat === null) 
         {
             $plat = new Plat();
         }
