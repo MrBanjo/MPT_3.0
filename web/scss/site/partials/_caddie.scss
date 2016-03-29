@@ -5,6 +5,10 @@
 #caddie {
     padding-bottom: 60px;
     overflow: hidden;
+
+    button:focus {
+        outline: 0;
+    }
 }
 
 .nav_caddie {
@@ -123,7 +127,6 @@
 
 .table_caddie tbody tr {
     background-color: #dee8d6;
-    min-height: 100px;
 }
 
 .table_caddie tbody tr th:first-child,
@@ -141,7 +144,8 @@
     font-size: 18px;
     font-weight: normal;
     font-family: "arialnarrow";
-    height: 50px;
+    height: 100px;
+    position: relative;
 }
 
 .table_caddie tbody form {
@@ -180,6 +184,15 @@
     font-weight: normal;
     font-family: "arialnarrow";
     height: 50px;
+}
+
+.garbage {
+   position: absolute;
+   bottom: 10%;
+   left: 0;
+   right: 0;
+   width: 17px;
+   margin: auto;
 }
 
 .green_light {
@@ -265,6 +278,9 @@
 .quantite_submit {
     display: none;
 }
+
+
+
 
 @media screen and (max-width : 1050px){
     .nav_caddie {

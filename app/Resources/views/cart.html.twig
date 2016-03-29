@@ -49,8 +49,9 @@
 											 --><input type="text" value="{{ article.quantite }}" id="quantite{{ article.id }}" size="2" maxlength="4" onkeypress="return isNumberKey(event);" name="quantite"><!-- 
 											--><button type="button" onClick="add('quantite{{ article.id }}');" id="{{ article.id }}plus" class="quantite_cart">+</button>
 											<input type="hidden" value="{{ article.id }}" name="article_id">
-											<input type="submit" class="quantite_submit"> 
+											<input type="submit" class="quantite_submit">
 										</form>
+										<button class="garbage" onClick="erase('quantite{{ article.id }}');"><img src="{{ asset('img/sprites/garbage.png') }}" alt=""></button> 
 									</th>
 									<th><span class='test form-{{ article.id }}'>{{ article.prix * article.quantite }}</span> €</th>			            		
 								</tr>

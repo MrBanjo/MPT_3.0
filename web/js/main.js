@@ -66,6 +66,10 @@ $(document).ready(function(){
 				document.getElementById( nom ).value --; 
 		} ;
 
+		erase = function ( nom ) { 
+			document.getElementById( nom ).value = 0; 
+		} ;
+
 		isNumberKey = function (evt) 
 		{ 
 			var charCode = (evt.which) ? evt.which : event.keyCode; 
@@ -76,6 +80,10 @@ $(document).ready(function(){
 
 		$('.quantite_cart').on('click', function() {
 			$(this).parent().submit();
+		});
+
+		$('.garbage').on('click', function() {
+			$(this).prev().submit();
 		});
 
 		$(".cart_form").submit(function(e) {

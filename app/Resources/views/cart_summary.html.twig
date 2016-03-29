@@ -22,7 +22,7 @@
 				</nav>
 				<a href="{{path('paniers')}}" id="continue_achat">< Poursuivre mes achats</a>
 				<form action="{{ (app.user) ? path('addcommandes') : path('cart_identification') }}" class="validate_caddie">
-					<button type="submit" id="submit_caddie" class="orange">VALIDER MA COMMANDE</button>
+					<button type="submit" id="submit_caddie" class="orange">PROCÉDER AU PAIEMENT</button>
 				</form>
 				<div class="box_table">
 					<table class="table_caddie table-striped">
@@ -87,7 +87,7 @@
 					<a href="{{path('paniers')}}" id="continue_achat">< Poursuivre mes achats</a>
 					<div class="validate_caddie">
 						<form action="{{ path('addcommandes')}}" method="post" >
-							<button type="submit" id="submit_caddie" class="orange">VALIDER MA COMMANDE</button>
+							<button type="submit" id="submit_caddie" class="orange">PROCÉDER AU PAIEMENT</button>
 						</form>		        	
 					</div>			
 				</div>

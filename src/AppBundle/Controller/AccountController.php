@@ -11,6 +11,9 @@ class AccountController extends BaseController
      */
     public function indexAction()
     {
+    	if (!$this->get('security.authorization_checker')->isGranted('IS_AUTHENTICATED_FULLY')) {
+        	throw $this->createAccessDeniedException();
+    	}
 	
         return $this->render('account');
     }
