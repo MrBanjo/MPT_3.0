@@ -68,7 +68,7 @@ class BaseController extends Controller
         }
     }
 
-    protected function createEntity(Object $entity)
+    protected function createEntity($entity)
     {
         return new $entity;
     }

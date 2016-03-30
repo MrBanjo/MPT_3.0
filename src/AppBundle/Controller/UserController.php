@@ -61,7 +61,7 @@ class UserController extends BaseController
     /**
      * @Route("/checkMail/{data}", name="checkMail", defaults={"data" = ""}, options={"expose"=true})
      */
-    public function checkEmail($data)
+    public function checkEmailAction($data)
     {
         $user = $this->getRepo('AppBundle:User')->findOneByEmail($data);
 

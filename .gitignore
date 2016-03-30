@@ -1,6 +1,8 @@
 /app/config/parameters.yml
 /build/
-/phpunit.xml
+/phpunit.xml.dist
+/insight-pmd.xml
+/insight.phar
 /var/*
 !/var/cache
 /var/cache/*
@@ -12,7 +14,6 @@
 /var/sessions/*
 !var/sessions/.gitkeep
 !var/SymfonyRequirements.php
-/vendor/
 /web/bundles/
 /web/.sass-cache
 /web/config.php

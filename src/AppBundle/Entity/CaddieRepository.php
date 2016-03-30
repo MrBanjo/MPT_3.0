@@ -62,7 +62,7 @@ class CaddieRepository extends EntityRepository
 		return $prixtotal;
 	}
 
-	public function getProductCaddie($id, $productType, $user) 
+/*	public function getProductCaddie($id, $productType, $user) 
 	{
 		// Récupere tous les objets produits du type demandé (menu,upsell etc)
 		$results = $this->getEntityManager()
@@ -72,5 +72,37 @@ class CaddieRepository extends EntityRepository
 		->getResult();
 
 		return $results;
+	}*/
+
+/*public function getProductCaddie($id, $productType, $user) 
+	{
+		// Récupere tous les objets produits du type demandé (menu,upsell etc)
+		$em = $this->getEntityManager();
+		if ($productType = "menu") {
+			$query = $em->createQuery('SELECT c FROM AppBundle:Caddie c WHERE (c.user = :name1 OR c.identifiant = :name2) AND c.menu = :id');
+		}
+		elseif ($productType = "upsell") {
+			$query = $em->createQuery('SELECT c FROM AppBundle:Caddie c WHERE (c.user = :name1 OR c.identifiant = :name2) AND c.upsell = :id');
+		}
+		$results = $query
+		->setParameter('name1', $user)
+		->setParameter('name2', session_id())
+		->setParameter('id', $id)
+		->getResult();		
+		return $results;
+	}*/
+
+	public function getProductCaddie($id, $productType, $user) 
+	{
+		$qb = $this->createQueryBuilder('a');
+		$qb
+		->where('a.' . $this->getUserOrSession($user)["id"] . ' = :identifiant')
+			->setParameter('identifiant', $this->getUserOrSession($user)["value"])
+		->andwhere('a.' . $productType . ' = :id')
+			->setParameter('id', $id)
+		;
+
+		return $qb->getQuery()->getResult();
 	}
+
 }

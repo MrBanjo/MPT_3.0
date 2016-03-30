@@ -12,7 +12,7 @@ class CommandesController extends BaseController
     /**
     * @Route("/caddie/validatecommande", name="addcommandes")
     */     
-    public function createCommandes(Request $request)
+    public function createCommandesAction(Request $request)
     {
         if ($this->getUser()) {
             $user = $this->getUser();

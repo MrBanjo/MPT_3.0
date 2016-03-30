@@ -33,14 +33,6 @@
         // cet item sera toujours affiché
         $menu->addChild('Accueil', ['route' => 'accueil']);
 
-/*        $request = Request::createFromGlobals();
-        var_dump($request->getPathInfo());
-        var_dump($request->getRequestUri());
-        var_dump($request->getUri());
-        preg_match('/.*?:\/\//', $request->getPathInfo(), $matches);
-        var_dump($matches);*/
-        /*$request = Request::createFromGlobals();*/
-
         // crée le menu en fonction de la route
         switch($this->requestStack->getCurrentRequest()->getPathInfo()){
             case '/caddie/ma-commande':
