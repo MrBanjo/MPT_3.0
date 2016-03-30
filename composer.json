@@ -14,7 +14,7 @@
     },
     "autoload-dev": {
         "psr-4": {
-            "Tests\\": "tests/AppBundle"
+            "AppBundle\\tests\\": "tests/AppBundle"
         }
     },
     "require": {
