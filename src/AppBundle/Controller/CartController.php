@@ -6,6 +6,7 @@ use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\HttpFoundation\Session\Session;
 use AppBundle\Entity\User;
 use AppBundle\Entity\Caddie;
 
@@ -79,6 +80,8 @@ class CartController extends BaseController
     		$quantite = $request->request->get('quantite');
 			$produit = $this->find('AppBundle:' . $slug, $request->request->get('id_product'));
 
+            $session = new Session();
+
     		// Recherche si le produit existe dans le caddie
     		$checkdb = $this->getRepo('AppBundle:Caddie')->getProductCaddie($request->request->get('id_product'), strtolower($slug), $this->getUser());
     		if (!empty($checkdb)) 
@@ -89,7 +92,7 @@ class CartController extends BaseController
     		// Création du produit dans le caddie
     		else 
     		{
-	    		$caddie->setIdentifiant(session_id());
+	    		$caddie->setIdentifiant($session->getId());
                 $caddie->setTitre($produit->getTitre());
                 $caddie->setUser($this->getUser());
 	    		$caddie->setQuantite($quantite);
