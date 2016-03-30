@@ -41,6 +41,7 @@ services:
             class: AppBundle\Twig\CartExtension
             arguments:
                 - "@doctrine.orm.entity_manager"
+                - "@session"
             tags: 
                 - { name: twig.extension }
 

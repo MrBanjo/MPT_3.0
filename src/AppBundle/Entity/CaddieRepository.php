@@ -3,6 +3,7 @@
 namespace AppBundle\Entity;
 
 use Doctrine\ORM\EntityRepository;
+use Symfony\Component\HttpFoundation\Session\Session;
 
 /**
  * CaddieRepository
@@ -14,18 +15,20 @@ class CaddieRepository extends EntityRepository
 {
 	public function getUserOrSession($user) 
 	{
+		$session = new Session;
 		$identifiant = ($user) ? 'user' : 'identifiant';
-		$identifiantvalue = ($user) ? $user : session_id();
+		$identifiantvalue = ($user) ? $user : $session->getId();
 
 		return ["id" => $identifiant, "value" => $identifiantvalue];
 	}
 
 	public function getAllProducts($user) 
 	{
-		$results = $this->getEntityManager()
-		->createQuery('SELECT c FROM AppBundle:Caddie c WHERE (c.user = :name1 OR c.identifiant = :name2)')
-		->setParameter('name1', $user)
-		->setParameter('name2', session_id())
+		$qb = $this->createQueryBuilder('a');
+		$results = $qb
+		->where('a.' . $this->getUserOrSession($user)["id"] . ' = :identifiant')
+		->setParameter('identifiant', $this->getUserOrSession($user)["value"])
+		->getQuery()
 		->getResult();
 
 		return $results;
@@ -33,19 +36,20 @@ class CaddieRepository extends EntityRepository
 
 	public function switchSessionToUserProduct($user)
 	{
+		$session = new Session;
 		$listecaddies = $this->getEntityManager()
 		->createQuery('SELECT c From AppBundle:Caddie c WHERE c.identifiant = :identifiant')
-		->setParameter('identifiant', session_id())
+		->setParameter('identifiant', $session->getId())
 		->getResult();
 
-		foreach ($listecaddies as $listecaddie) {
-
+		foreach ($listecaddies as $listecaddie) 
+		{
             if (!$listecaddie->getUser() && $user) {
                 $listecaddie->setUser($user);
                 $this->getEntityManager()->persist($listecaddie);
             }
         }
-        
+      
         $this->getEntityManager()->flush();
 	}
 
@@ -74,33 +78,14 @@ class CaddieRepository extends EntityRepository
 		return $results;
 	}*/
 
-/*public function getProductCaddie($id, $productType, $user) 
-	{
-		// Récupere tous les objets produits du type demandé (menu,upsell etc)
-		$em = $this->getEntityManager();
-		if ($productType = "menu") {
-			$query = $em->createQuery('SELECT c FROM AppBundle:Caddie c WHERE (c.user = :name1 OR c.identifiant = :name2) AND c.menu = :id');
-		}
-		elseif ($productType = "upsell") {
-			$query = $em->createQuery('SELECT c FROM AppBundle:Caddie c WHERE (c.user = :name1 OR c.identifiant = :name2) AND c.upsell = :id');
-		}
-		$results = $query
-		->setParameter('name1', $user)
-		->setParameter('name2', session_id())
-		->setParameter('id', $id)
-		->getResult();		
-		return $results;
-	}*/
-
 	public function getProductCaddie($id, $productType, $user) 
 	{
 		$qb = $this->createQueryBuilder('a');
 		$qb
 		->where('a.' . $this->getUserOrSession($user)["id"] . ' = :identifiant')
-			->setParameter('identifiant', $this->getUserOrSession($user)["value"])
+		->setParameter('identifiant', $this->getUserOrSession($user)["value"])
 		->andwhere('a.' . $productType . ' = :id')
-			->setParameter('id', $id)
-		;
+		->setParameter('id', $id);
 
 		return $qb->getQuery()->getResult();
 	}

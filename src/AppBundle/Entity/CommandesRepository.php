@@ -3,6 +3,7 @@
 namespace AppBundle\Entity;
 
 use Doctrine\ORM\EntityRepository;
+use Symfony\Component\HttpFoundation\Session\Session;
 
 /**
  * CommandesRepository
@@ -14,9 +15,10 @@ class CommandesRepository extends EntityRepository
 {
 	public function getCommandes()
 	{
+		$session = new Session;
 		$commandes = $this->getEntityManager()
 		->createQuery('SELECT c From AppBundle:Caddie c WHERE c.identifiant = :identifiant')
-		->setParameter('identifiant', session_id())
+		->setParameter('identifiant', $session->getId())
 		->getResult();
 
 		return $commandes;
