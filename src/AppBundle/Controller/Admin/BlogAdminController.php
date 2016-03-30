@@ -99,7 +99,9 @@ class BlogAdminController extends Controller
           $em->persist($rubrique);
           $em->flush();
 
-          $message = 'La nouvelle catégorie a été créée !';     
+          $message = 'La nouvelle catégorie a été créée !';
+
+          return $this->redirectToRoute('categorie_blog_admin');     
       }
 
       return $this->render('admin/edit.html.twig', array(
