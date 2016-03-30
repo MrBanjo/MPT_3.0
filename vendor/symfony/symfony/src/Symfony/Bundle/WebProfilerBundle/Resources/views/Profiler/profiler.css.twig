@@ -7,9 +7,6 @@
     'subtle_border_and_shadow': 'background: #FFF; border: 1px solid #E0E0E0; box-shadow: 0px 0px 1px rgba(128, 128, 128, .2);'
 } %}
 
-{# when updating any of these colors, do the same in toolbar.css.twig #}
-{% set colors = { 'success': '#4F805D', 'warning': '#A46A1F', 'error': '#B0413E' } %}
-
 {# Normalization
    (normalize.css v3.0.3 | MIT License | github.com/necolas/normalize.css)
    ========================================================================= #}
@@ -116,7 +113,6 @@ button {
 }
 .btn-sm svg {
     height: 16px;
-    width: 16px;
     vertical-align: middle;
 }
 .btn-link {
@@ -236,9 +232,9 @@ table tbody ul {
     padding: 3px 7px;
     white-space: nowrap;
 }
-.label.status-success { background: {{ colors.success|raw }}; color: #FFF; }
-.label.status-warning { background: {{ colors.warning|raw }}; color: #FFF; }
-.label.status-error   { background: {{ colors.error|raw }}; color: #FFF; }
+.label.status-success { background: #5E976E; color: #FFF; }
+.label.status-warning { background: #BC8034; color: #FFF; }
+.label.status-error   { background: #B0413E; color: #FFF; }
 
 {# Metrics
    ------------------------------------------------------------------------- #}
@@ -280,8 +276,8 @@ table tbody ul {
 }
 
 .metrics-horizontal .metric {
-    min-height: 0;
-    min-width: 0;
+    min-height: auto;
+    min-width: auto;
 }
 .metrics-horizontal .metric .value,
 .metrics-horizontal .metric .label {
@@ -345,11 +341,11 @@ tr.status-warning td {
     border-top: 1px solid #FAFAFA;
 }
 
-.status-warning .colored {
-    color: {{ colors.warning|raw }};
+.status-warning .colored  {
+    color: #BC8034;
 }
 .status-error .colored  {
-    color: {{ colors.error|raw }};
+    color: #B0413E;
 }
 
 {# Syntax highlighting
@@ -437,7 +433,6 @@ tr.status-warning td {
 }
 #header h1 svg {
     height: 40px;
-    width: 40px;
     margin-top: -4px;
     vertical-align: middle;
 }
@@ -474,9 +469,9 @@ tr.status-warning td {
     text-decoration: underline;
 }
 
-#summary .status-success { background: {{ colors.success|raw }}; }
-#summary .status-warning { background: {{ colors.warning|raw }}; }
-#summary .status-error   { background: {{ colors.error|raw }};   }
+#summary .status-success { background: #5E976E; }
+#summary .status-warning { background: #BC8034; }
+#summary .status-error   { background: #B0413E; }
 
 #summary .status-success h2,
 #summary .status-success h2 a,
@@ -546,7 +541,7 @@ tr.status-warning td {
     margin-left: 5px;
 }
 #sidebar #sidebar-shortcuts .btn {
-    padding: .5em;
+    padding: .5em .6em;
 }
 
 {# Sidebar Search
@@ -590,7 +585,6 @@ tr.status-warning td {
 #menu-profiler {
     margin: 0;
     padding: 0;
-    list-style-type: none;
 }
 #menu-profiler li {
     position: relative;
@@ -621,11 +615,6 @@ tr.status-warning td {
     top: 8px;
     width: 50px;
     text-align: center;
-}
-#menu-profiler .label .icon img,
-#menu-profiler .label .icon svg {
-    height: 24px;
-    max-width: 24px;
 }
 #menu-profiler li a .label .icon svg path {
     fill: #DDD;
@@ -681,10 +670,10 @@ tr.status-warning td {
 }
 
 #menu-profiler .label-status-warning .count {
-    background: {{ colors.warning|raw }};
+    background: #BC8034;
 }
 #menu-profiler .label-status-error .count {
-    background: {{ colors.error|raw }};
+    background: #B0413E;
 }
 
 {# Timeline panel

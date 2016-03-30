@@ -187,7 +187,6 @@ class DateTypeTest extends TestCase
             'model_timezone' => 'UTC',
             'view_timezone' => 'UTC',
             'widget' => 'choice',
-            'years' => array(2010),
         ));
 
         $text = array(
@@ -487,7 +486,7 @@ class DateTypeTest extends TestCase
         $view = $form->createView();
 
         $this->assertEquals(array(
-            new ChoiceView(1, '1', 'Jän.'),
+            new ChoiceView(1, '1', 'Jän'),
             new ChoiceView(4, '4', 'Apr.'),
         ), $view['month']->vars['choices']);
     }

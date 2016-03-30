@@ -62,6 +62,8 @@ class ProfilerControllerTest extends \PHPUnit_Framework_TestCase
                 if ('found' == $token) {
                     return new Profile($token);
                 }
+
+                return;
             }))
         ;
 

@@ -71,20 +71,13 @@ class AutowirePass implements CompilerPassInterface
 
         $arguments = $definition->getArguments();
         foreach ($constructor->getParameters() as $index => $parameter) {
-            if (array_key_exists($index, $arguments) && '' !== $arguments[$index]) {
+            $argumentExists = array_key_exists($index, $arguments);
+            if ($argumentExists && '' !== $arguments[$index]) {
                 continue;
             }
 
             try {
                 if (!$typeHint = $parameter->getClass()) {
-                    // no default value? Then fail
-                    if (!$parameter->isOptional()) {
-                        throw new RuntimeException(sprintf('Unable to autowire argument index %d ($%s) for the service "%s". If this is an object, give it a type-hint. Otherwise, specify this argument\'s value explicitly.', $index, $parameter->name, $id));
-                    }
-
-                    // specifically pass the default value
-                    $arguments[$index] = $parameter->getDefaultValue();
-
                     continue;
                 }
 
@@ -117,13 +110,12 @@ class AutowirePass implements CompilerPassInterface
                 $value = $parameter->getDefaultValue();
             }
 
-            $arguments[$index] = $value;
+            if ($argumentExists) {
+                $definition->replaceArgument($index, $value);
+            } else {
+                $definition->addArgument($value);
+            }
         }
-
-        // it's possible index 1 was set, then index 0, then 2, etc
-        // make sure that we re-order so they're injected as expected
-        ksort($arguments);
-        $definition->setArguments($arguments);
     }
 
     /**
@@ -156,17 +148,45 @@ class AutowirePass implements CompilerPassInterface
             $this->types[$type] = $id;
         }
 
-        if (!$reflectionClass = $this->getReflectionClass($id, $definition)) {
+        // Cannot use reflection if the class isn't set
+        if (!$definition->getClass()) {
             return;
         }
 
-        foreach ($reflectionClass->getInterfaces() as $reflectionInterface) {
-            $this->set($reflectionInterface->name, $id);
+        if ($reflectionClass = $this->getReflectionClass($id, $definition)) {
+            $this->extractInterfaces($id, $reflectionClass);
+            $this->extractAncestors($id, $reflectionClass);
         }
+    }
 
-        do {
-            $this->set($reflectionClass->name, $id);
-        } while ($reflectionClass = $reflectionClass->getParentClass());
+    /**
+     * Extracts the list of all interfaces implemented by a class.
+     *
+     * @param string           $id
+     * @param \ReflectionClass $reflectionClass
+     */
+    private function extractInterfaces($id, \ReflectionClass $reflectionClass)
+    {
+        foreach ($reflectionClass->getInterfaces() as $interfaceName => $reflectionInterface) {
+            $this->set($interfaceName, $id);
+
+            $this->extractInterfaces($id, $reflectionInterface);
+        }
+    }
+
+    /**
+     * Extracts all inherited types of a class.
+     *
+     * @param string           $id
+     * @param \ReflectionClass $reflectionClass
+     */
+    private function extractAncestors($id, \ReflectionClass $reflectionClass)
+    {
+        $this->set($reflectionClass->name, $id);
+
+        if ($reflectionParentClass = $reflectionClass->getParentClass()) {
+            $this->extractAncestors($id, $reflectionParentClass);
+        }
     }
 
     /**
@@ -236,7 +256,6 @@ class AutowirePass implements CompilerPassInterface
             return $this->reflectionClasses[$id];
         }
 
-        // Cannot use reflection if the class isn't set
         if (!$class = $definition->getClass()) {
             return;
         }

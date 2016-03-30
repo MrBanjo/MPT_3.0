@@ -168,7 +168,7 @@ class TimeType extends AbstractType
     public function configureOptions(OptionsResolver $resolver)
     {
         $compound = function (Options $options) {
-            return 'single_text' !== $options['widget'];
+            return $options['widget'] !== 'single_text';
         };
 
         $placeholderDefault = function (Options $options) {

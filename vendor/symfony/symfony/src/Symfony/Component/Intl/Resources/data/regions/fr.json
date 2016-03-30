@@ -1,5 +1,5 @@
 {
-    "Version": "2.1.13.46",
+    "Version": "2.1.8.9",
     "Names": {
         "AC": "Île de l’Ascension",
         "AD": "Andorre",
@@ -92,7 +92,7 @@
         "GP": "Guadeloupe",
         "GQ": "Guinée équatoriale",
         "GR": "Grèce",
-        "GS": "Géorgie du Sud et îles Sandwich du Sud",
+        "GS": "Îles Géorgie du Sud et Sandwich du Sud",
         "GT": "Guatemala",
         "GU": "Guam",
         "GW": "Guinée-Bissau",
@@ -143,7 +143,7 @@
         "MC": "Monaco",
         "MD": "Moldavie",
         "ME": "Monténégro",
-        "MF": "Saint-Martin",
+        "MF": "Saint-Martin (partie française)",
         "MG": "Madagascar",
         "MH": "Îles Marshall",
         "MK": "Macédoine",
@@ -183,7 +183,7 @@
         "PK": "Pakistan",
         "PL": "Pologne",
         "PM": "Saint-Pierre-et-Miquelon",
-        "PN": "Îles Pitcairn",
+        "PN": "Pitcairn",
         "PR": "Porto Rico",
         "PS": "Territoires palestiniens",
         "PT": "Portugal",

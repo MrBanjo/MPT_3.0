@@ -58,7 +58,7 @@ class RouterDebugCommand extends ContainerAwareCommand
                 new InputOption('raw', null, InputOption::VALUE_NONE, 'To output raw route(s)'),
             ))
             ->setDescription('Displays current routes for an application')
-            ->setHelp(<<<'EOF'
+            ->setHelp(<<<EOF
 The <info>%command.name%</info> displays the configured routes:
 
   <info>php %command.full_name%</info>
@@ -75,7 +75,8 @@ EOF
      */
     protected function execute(InputInterface $input, OutputInterface $output)
     {
-        $io = new SymfonyStyle($input, $output);
+        $output = new SymfonyStyle($input, $output);
+
         $name = $input->getArgument('name');
         $helper = new DescriptorHelper();
 
@@ -87,11 +88,11 @@ EOF
 
             $this->convertController($route);
 
-            $helper->describe($io, $route, array(
+            $helper->describe($output, $route, array(
                 'format' => $input->getOption('format'),
                 'raw_text' => $input->getOption('raw'),
                 'name' => $name,
-                'output' => $io,
+                'output' => $output,
             ));
         } else {
             $routes = $this->getContainer()->get('router')->getRouteCollection();
@@ -100,11 +101,11 @@ EOF
                 $this->convertController($route);
             }
 
-            $helper->describe($io, $routes, array(
+            $helper->describe($output, $routes, array(
                 'format' => $input->getOption('format'),
                 'raw_text' => $input->getOption('raw'),
                 'show_controllers' => $input->getOption('show-controllers'),
-                'output' => $io,
+                'output' => $output,
             ));
         }
     }

@@ -26,7 +26,7 @@ class SerializerExtractorTest extends \PHPUnit_Framework_TestCase
      */
     private $extractor;
 
-    protected function setUp()
+    public function setUp()
     {
         $classMetadataFactory = new ClassMetadataFactory(new AnnotationLoader(new AnnotationReader()));
         $this->extractor = new SerializerExtractor($classMetadataFactory);

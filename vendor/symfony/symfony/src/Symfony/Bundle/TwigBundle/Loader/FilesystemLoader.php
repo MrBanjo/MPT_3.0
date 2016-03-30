@@ -76,18 +76,19 @@ class FilesystemLoader extends \Twig_Loader_Filesystem
         try {
             $file = parent::findTemplate($logicalName);
         } catch (\Twig_Error_Loader $e) {
-            $twigLoaderException = $e;
+            $previous = $e;
 
             // for BC
             try {
                 $template = $this->parser->parse($template);
                 $file = $this->locator->locate($template);
             } catch (\Exception $e) {
+                $previous = $e;
             }
         }
 
         if (false === $file || null === $file) {
-            throw $twigLoaderException;
+            throw new \Twig_Error_Loader(sprintf('Unable to find template "%s".', $logicalName), -1, null, $previous);
         }
 
         return $this->cache[$logicalName] = $file;

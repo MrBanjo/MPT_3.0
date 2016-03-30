@@ -59,13 +59,13 @@ EOF
      */
     protected function execute(InputInterface $input, OutputInterface $output)
     {
-        $io = new SymfonyStyle($input, $output);
+        $output = new SymfonyStyle($input, $output);
         $dispatcher = $this->getEventDispatcher();
 
         $options = array();
         if ($event = $input->getArgument('event')) {
             if (!$dispatcher->hasListeners($event)) {
-                $io->warning(sprintf('The event "%s" does not have any registered listeners.', $event));
+                $output->warning(sprintf('The event "%s" does not have any registered listeners.', $event));
 
                 return;
             }
@@ -76,8 +76,8 @@ EOF
         $helper = new DescriptorHelper();
         $options['format'] = $input->getOption('format');
         $options['raw_text'] = $input->getOption('raw');
-        $options['output'] = $io;
-        $helper->describe($io, $dispatcher, $options);
+        $options['output'] = $output;
+        $helper->describe($output, $dispatcher, $options);
     }
 
     /**

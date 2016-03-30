@@ -42,7 +42,7 @@ class Client extends BaseClient
     /**
      * Returns the container.
      *
-     * @return ContainerInterface|null Returns null when the Kernel has been shutdown or not started yet
+     * @return ContainerInterface
      */
     public function getContainer()
     {
@@ -185,7 +185,7 @@ class Client extends BaseClient
         $code = <<<EOF
 <?php
 
-error_reporting($errorReporting);
+error_reporting($errorReporting & ~E_USER_DEPRECATED);
 
 if ('$autoloader') {
     require_once '$autoloader';

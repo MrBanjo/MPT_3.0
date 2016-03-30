@@ -85,7 +85,7 @@ class Entity extends EntityParent implements EntityInterface
     }
 
     /**
-     * @Assert\Callback(payload="foo")
+     * @Assert\Callback
      */
     public function validateMe(ExecutionContextInterface $context)
     {

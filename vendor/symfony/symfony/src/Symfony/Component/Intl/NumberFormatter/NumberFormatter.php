@@ -233,18 +233,24 @@ class NumberFormatter
     );
 
     /**
-     * The maximum value of the integer type in 32 bit platforms.
+     * The maximum values of the integer type in 32 bit platforms.
      *
-     * @var int
+     * @var array
      */
-    private static $int32Max = 2147483647;
+    private static $int32Range = array(
+        'positive' => 2147483647,
+        'negative' => -2147483648,
+    );
 
     /**
-     * The maximum value of the integer type in 64 bit platforms.
+     * The maximum values of the integer type in 64 bit platforms.
      *
-     * @var int|float
+     * @var array
      */
-    private static $int64Max = 9223372036854775807;
+    private static $int64Range = array(
+        'positive' => 9223372036854775807,
+        'negative' => -9223372036854775808,
+    );
 
     private static $enSymbols = array(
         self::DECIMAL => array('.', ',', ';', '%', '0', '#', '-', '+', '¤', '¤¤', '.', 'E', '‰', '*', '∞', 'NaN', '@', ','),
@@ -253,7 +259,7 @@ class NumberFormatter
 
     private static $enTextAttributes = array(
         self::DECIMAL => array('', '', '-', '', '*', '', ''),
-        self::CURRENCY => array('¤', '', '-¤', '', '*', ''),
+        self::CURRENCY => array('¤', '', '(¤', ')', '*', ''),
     );
 
     /**
@@ -351,7 +357,7 @@ class NumberFormatter
 
         $ret = $symbol.$value;
 
-        return $negative ? '-'.$ret : $ret;
+        return $negative ? '('.$ret.')' : $ret;
     }
 
     /**
@@ -522,7 +528,7 @@ class NumberFormatter
      * @param int    $type     Type of the formatting, one of the format type constants. NumberFormatter::TYPE_DOUBLE by default
      * @param int    $position Offset to begin the parsing on return this value will hold the offset at which the parsing ended
      *
-     * @return int|float|false The parsed value of false on error
+     * @return bool|string The parsed value of false on error
      *
      * @see http://www.php.net/manual/en/numberformatter.parse.php
      */
@@ -831,7 +837,7 @@ class NumberFormatter
      */
     private function getInt32Value($value)
     {
-        if ($value > self::$int32Max || $value < -self::$int32Max - 1) {
+        if ($value > self::$int32Range['positive'] || $value < self::$int32Range['negative']) {
             return false;
         }
 
@@ -844,14 +850,16 @@ class NumberFormatter
      * @param mixed $value The value to be converted
      *
      * @return int|float|false The converted value
+     *
+     * @see https://bugs.php.net/bug.php?id=59597 Bug #59597
      */
     private function getInt64Value($value)
     {
-        if ($value > self::$int64Max || $value < -self::$int64Max - 1) {
+        if ($value > self::$int64Range['positive'] || $value < self::$int64Range['negative']) {
             return false;
         }
 
-        if (PHP_INT_SIZE !== 8 && ($value > self::$int32Max || $value <= -self::$int32Max - 1)) {
+        if (PHP_INT_SIZE !== 8 && ($value > self::$int32Range['positive'] || $value < self::$int32Range['negative'])) {
             return (float) $value;
         }
 

@@ -38,6 +38,8 @@ class CheckReferenceValidityPass implements CompilerPassInterface
     {
         $this->container = $container;
 
+        $ancestors = array();
+
         foreach ($container->getDefinitions() as $id => $definition) {
             if ($definition->isSynthetic() || $definition->isAbstract()) {
                 continue;

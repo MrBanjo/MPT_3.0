@@ -13,6 +13,7 @@ namespace Symfony\Component\Validator\Tests\Constraints;
 
 use Symfony\Component\Validator\Constraints\IsFalse;
 use Symfony\Component\Validator\Constraints\IsFalseValidator;
+use Symfony\Component\Validator\Validation;
 
 class IsFalseValidatorTest extends AbstractConstraintValidatorTest
 {

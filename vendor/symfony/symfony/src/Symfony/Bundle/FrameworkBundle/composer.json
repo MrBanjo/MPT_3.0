@@ -26,7 +26,6 @@
         "symfony/http-kernel": "~2.8|~3.0",
         "symfony/polyfill-mbstring": "~1.0",
         "symfony/filesystem": "~2.8|~3.0",
-        "symfony/finder": "~2.8|~3.0",
         "symfony/routing": "~3.0",
         "symfony/security-core": "~2.8|~3.0",
         "symfony/security-csrf": "~2.8|~3.0",
@@ -41,6 +40,7 @@
         "symfony/console": "~2.8|~3.0",
         "symfony/css-selector": "~2.8|~3.0",
         "symfony/dom-crawler": "~2.8|~3.0",
+        "symfony/finder": "~2.8|~3.0",
         "symfony/polyfill-intl-icu": "~1.0",
         "symfony/security": "~2.8|~3.0",
         "symfony/form": "~2.8|~3.0",
@@ -49,17 +49,16 @@
         "symfony/validator": "~2.8|~3.0",
         "symfony/yaml": "~2.8|~3.0",
         "symfony/property-info": "~2.8|~3.0",
-        "phpdocumentor/reflection": "^1.0.7",
-        "twig/twig": "~1.23|~2.0"
+        "phpdocumentor/reflection": "^1.0.7"
     },
     "suggest": {
         "symfony/console": "For using the console commands",
+        "symfony/finder": "For using the translation loader and cache warmer",
         "symfony/form": "For using forms",
         "symfony/serializer": "For using the serializer service",
         "symfony/validator": "For using validation",
         "symfony/yaml": "For using the debug:config and lint:yaml commands",
-        "symfony/property-info": "For using the property_info service",
-        "symfony/process": "For using the server:run, server:start, server:stop, and server:status commands"
+        "symfony/property-info": "For using the property_info_extractor service"
     },
     "autoload": {
         "psr-4": { "Symfony\\Bundle\\FrameworkBundle\\": "" },

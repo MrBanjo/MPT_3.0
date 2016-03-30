@@ -189,7 +189,7 @@ class PhpDocExtractor implements PropertyDescriptionExtractorInterface, Property
                 break;
 
             default:
-                $data = array(null, null, null);
+                $data = array(null, null);
         }
 
         return $this->docBlocks[$propertyHash] = $data;

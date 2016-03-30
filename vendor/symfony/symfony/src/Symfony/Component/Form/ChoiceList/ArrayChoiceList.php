@@ -70,7 +70,7 @@ class ArrayChoiceList implements ChoiceListInterface
 
         if (null === $value && $this->castableToString($choices)) {
             $value = function ($choice) {
-                return false === $choice ? '0' : (string) $choice;
+                return (string) $choice;
             };
         }
 
@@ -135,7 +135,7 @@ class ArrayChoiceList implements ChoiceListInterface
         $choices = array();
 
         foreach ($values as $i => $givenValue) {
-            if (array_key_exists($givenValue, $this->choices)) {
+            if (isset($this->choices[$givenValue])) {
                 $choices[$i] = $this->choices[$givenValue];
             }
         }
@@ -229,11 +229,11 @@ class ArrayChoiceList implements ChoiceListInterface
                 continue;
             } elseif (!is_scalar($choice)) {
                 return false;
-            } elseif (isset($cache[$choice])) {
+            } elseif (isset($cache[(string) $choice])) {
                 return false;
             }
 
-            $cache[$choice] = true;
+            $cache[(string) $choice] = true;
         }
 
         return true;

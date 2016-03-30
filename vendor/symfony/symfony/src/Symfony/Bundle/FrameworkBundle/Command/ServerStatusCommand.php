@@ -43,7 +43,7 @@ class ServerStatusCommand extends ServerCommand
      */
     protected function execute(InputInterface $input, OutputInterface $output)
     {
-        $io = new SymfonyStyle($input, $output);
+        $output = new SymfonyStyle($input, $output);
         $address = $input->getArgument('address');
 
         // remove an orphaned lock file
@@ -52,9 +52,9 @@ class ServerStatusCommand extends ServerCommand
         }
 
         if (file_exists($this->getLockFile($address))) {
-            $io->success(sprintf('Web server still listening on http://%s', $address));
+            $output->success(sprintf('Web server still listening on http://%s', $address));
         } else {
-            $io->warning(sprintf('No web server is listening on http://%s', $address));
+            $output->warning(sprintf('No web server is listening on http://%s', $address));
         }
     }
 

@@ -82,6 +82,8 @@ class ParameterBag implements \IteratorAggregate, \Countable
      * @param mixed  $default The default value if the parameter key does not exist
      *
      * @return mixed
+     *
+     * @throws \InvalidArgumentException
      */
     public function get($key, $default = null)
     {

@@ -66,7 +66,6 @@ class ConfigurationTest extends \PHPUnit_Framework_TestCase
             array(array(), array()),
             array(array('10.0.0.0/8'), array('10.0.0.0/8')),
             array(array('::ffff:0:0/96'), array('::ffff:0:0/96')),
-            array(array('0.0.0.0/0'), array('0.0.0.0/0')),
         );
     }
 
@@ -163,7 +162,7 @@ class ConfigurationTest extends \PHPUnit_Framework_TestCase
             'annotations' => array(
                 'cache' => 'file',
                 'file_cache_dir' => '%kernel.cache_dir%/annotations',
-                'debug' => true,
+                'debug' => '%kernel.debug%',
             ),
             'serializer' => array(
                 'enabled' => false,

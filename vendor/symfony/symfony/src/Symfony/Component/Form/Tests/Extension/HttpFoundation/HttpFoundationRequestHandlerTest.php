@@ -28,7 +28,6 @@ class HttpFoundationRequestHandlerTest extends AbstractRequestHandlerTest
     {
         $this->requestHandler->handleRequest($this->getMockForm('name', 'GET'));
     }
-
     /**
      * @expectedException \Symfony\Component\Form\Exception\UnexpectedTypeException
      */

@@ -26,7 +26,7 @@ use Symfony\Component\Serializer\NameConverter\NameConverterInterface;
  */
 class ObjectNormalizer extends AbstractNormalizer
 {
-    private $attributesCache = array();
+    private static $attributesCache = array();
 
     /**
      * @var PropertyAccessorInterface
@@ -55,9 +55,6 @@ class ObjectNormalizer extends AbstractNormalizer
      */
     public function normalize($object, $format = null, array $context = array())
     {
-        if (!isset($context['cache_key'])) {
-            $context['cache_key'] = $this->getCacheKey($context);
-        }
         if ($this->isCircularReference($object, $context)) {
             return $this->handleCircularReference($object);
         }
@@ -107,9 +104,6 @@ class ObjectNormalizer extends AbstractNormalizer
      */
     public function denormalize($data, $class, $format = null, array $context = array())
     {
-        if (!isset($context['cache_key'])) {
-            $context['cache_key'] = $this->getCacheKey($context);
-        }
         $allowedAttributes = $this->getAllowedAttributes($class, $context, true);
         $normalizedData = $this->prepareForDenormalization($data);
 
@@ -136,59 +130,28 @@ class ObjectNormalizer extends AbstractNormalizer
         return $object;
     }
 
-    private function getCacheKey(array $context)
-    {
-        try {
-            return md5(serialize($context));
-        } catch (\Exception $exception) {
-            // The context cannot be serialized, skip the cache
-            return false;
-        }
-    }
-
     /**
      * Gets and caches attributes for this class and context.
      *
      * @param object $object
      * @param array  $context
      *
-     * @return string[]
+     * @return array
      */
     private function getAttributes($object, array $context)
     {
-        $class = get_class($object);
-        $key = $class.'-'.$context['cache_key'];
+        $key = sprintf('%s-%s', get_class($object), serialize($context));
 
-        if (isset($this->attributesCache[$key])) {
-            return $this->attributesCache[$key];
+        if (isset(self::$attributesCache[$key])) {
+            return self::$attributesCache[$key];
         }
 
         $allowedAttributes = $this->getAllowedAttributes($object, $context, true);
 
         if (false !== $allowedAttributes) {
-            if ($context['cache_key']) {
-                $this->attributesCache[$key] = $allowedAttributes;
-            }
-
-            return $allowedAttributes;
+            return self::$attributesCache[$key] = $allowedAttributes;
         }
 
-        if (isset($this->attributesCache[$class])) {
-            return $this->attributesCache[$class];
-        }
-
-        return $this->attributesCache[$class] = $this->extractAttributes($object);
-    }
-
-    /**
-     * Extracts attributes for this class and context.
-     *
-     * @param object $object
-     *
-     * @return string[]
-     */
-    private function extractAttributes($object)
-    {
         // If not using groups, detect manually
         $attributes = array();
 
@@ -204,9 +167,9 @@ class ObjectNormalizer extends AbstractNormalizer
                 continue;
             }
 
-            $name = $reflMethod->name;
+            $name = $reflMethod->getName();
 
-            if (0 === strpos($name, 'get') || 0 === strpos($name, 'has')) {
+            if (strpos($name, 'get') === 0 || strpos($name, 'has') === 0) {
                 // getters and hassers
                 $attributes[lcfirst(substr($name, 3))] = true;
             } elseif (strpos($name, 'is') === 0) {
@@ -221,9 +184,9 @@ class ObjectNormalizer extends AbstractNormalizer
                 continue;
             }
 
-            $attributes[$reflProperty->name] = true;
+            $attributes[$reflProperty->getName()] = true;
         }
 
-        return array_keys($attributes);
+        return self::$attributesCache[$key] = array_keys($attributes);
     }
 }

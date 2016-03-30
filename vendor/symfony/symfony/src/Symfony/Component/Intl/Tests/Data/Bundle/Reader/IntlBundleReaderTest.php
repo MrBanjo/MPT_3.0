@@ -12,6 +12,7 @@
 namespace Symfony\Component\Intl\Tests\Data\Bundle\Reader;
 
 use Symfony\Component\Intl\Data\Bundle\Reader\IntlBundleReader;
+use Symfony\Component\Intl\Intl;
 
 /**
  * @author Bernhard Schussek <bschussek@gmail.com>

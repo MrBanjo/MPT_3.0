@@ -1,5 +1,5 @@
 {
-    "Version": "2.1.12.94",
+    "Version": "2.1.8.95",
     "Names": {
         "AC": "Wyspa Wniebowstąpienia",
         "AD": "Andora",
@@ -83,7 +83,7 @@
         "GD": "Grenada",
         "GE": "Gruzja",
         "GF": "Gujana Francuska",
-        "GG": "Guernsey",
+        "GG": "Wyspa Guernsey",
         "GH": "Ghana",
         "GI": "Gibraltar",
         "GL": "Grenlandia",
@@ -113,7 +113,7 @@
         "IR": "Iran",
         "IS": "Islandia",
         "IT": "Włochy",
-        "JE": "Jersey",
+        "JE": "Wyspa Jersey",
         "JM": "Jamajka",
         "JO": "Jordania",
         "JP": "Japonia",
@@ -219,7 +219,7 @@
         "TA": "Tristan da Cunha",
         "TC": "Turks i Caicos",
         "TD": "Czad",
-        "TF": "Francuskie Terytoria Południowe i Antarktyczne",
+        "TF": "Francuskie Terytoria Południowe",
         "TG": "Togo",
         "TH": "Tajlandia",
         "TJ": "Tadżykistan",

@@ -13,6 +13,7 @@ namespace Symfony\Component\Validator\Tests\Constraints;
 
 use Symfony\Component\Validator\Constraints\Uuid;
 use Symfony\Component\Validator\Constraints\UuidValidator;
+use Symfony\Component\Validator\Validation;
 
 /**
  * @author Colin O'Dell <colinodell@gmail.com>

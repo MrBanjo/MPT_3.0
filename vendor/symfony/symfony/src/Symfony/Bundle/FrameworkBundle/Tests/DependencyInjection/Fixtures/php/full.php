@@ -56,7 +56,7 @@ $container->loadFromExtension('framework', array(
     ),
     'validation' => array(
         'enabled' => true,
-        'cache' => 'validator.mapping.cache.doctrine.apc',
+        'cache' => 'apc',
     ),
     'annotations' => array(
         'cache' => 'file',

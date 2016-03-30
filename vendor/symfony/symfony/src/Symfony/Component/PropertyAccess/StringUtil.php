@@ -39,9 +39,6 @@ class StringUtil
         // nebulae (nebula)
         array('ea', 2, true, true, 'a'),
 
-        // services (service)
-        array('secivres', 8, true, true, 'service'),
-
         // mice (mouse), lice (louse)
         array('eci', 3, false, true, 'ouse'),
 
@@ -68,12 +65,6 @@ class StringUtil
 
         // movies (movie)
         array('seivom', 6, true, true, 'movie'),
-
-        // news (news)
-        array('swen', 4, true, true, 'news'),
-
-        // series (series)
-        array('seires', 6, true, true, 'series'),
 
         // babies (baby)
         array('sei', 3, false, true, 'y'),

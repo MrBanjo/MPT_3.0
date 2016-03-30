@@ -1,5 +1,5 @@
 {
-    "Version": "2.1.12.94",
+    "Version": "2.1.8.9",
     "Names": {
         "Arab": "árabe",
         "Armi": "armi",
@@ -66,8 +66,8 @@
         "Latn": "latim",
         "Lepc": "lepcha",
         "Limb": "limbu",
-        "Lina": "linear A",
-        "Linb": "linear B",
+        "Lina": "A linear",
+        "Linb": "B linear",
         "Lisu": "lisu",
         "Lyci": "lício",
         "Lydi": "lídio",

@@ -89,7 +89,7 @@ EOF
      */
     protected function execute(InputInterface $input, OutputInterface $output)
     {
-        $io = new SymfonyStyle($input, $output);
+        $output = new SymfonyStyle($input, $output);
 
         $locale = $input->getArgument('locale');
         $domain = $input->getOption('domain');
@@ -145,7 +145,7 @@ EOF
                 $outputMessage .= sprintf(' and domain "%s"', $domain);
             }
 
-            $io->warning($outputMessage);
+            $output->warning($outputMessage);
 
             return;
         }
@@ -195,7 +195,7 @@ EOF
             }
         }
 
-        $io->table($headers, $rows);
+        $output->table($headers, $rows);
     }
 
     private function formatState($state)

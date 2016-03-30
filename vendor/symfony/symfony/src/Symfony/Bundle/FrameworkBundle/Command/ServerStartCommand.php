@@ -74,15 +74,15 @@ EOF
      */
     protected function execute(InputInterface $input, OutputInterface $output)
     {
-        $io = new SymfonyStyle($input, $cliOutput = $output);
+        $output = new SymfonyStyle($input, $cliOutput = $output);
 
         if (!extension_loaded('pcntl')) {
-            $io->error(array(
+            $output->error(array(
                 'This command needs the pcntl extension to run.',
                 'You can either install it or use the "server:run" command instead to run the built-in web server.',
             ));
 
-            if ($io->ask('Do you want to execute <info>server:run</info> immediately? [Yn] ', true)) {
+            if ($output->ask('Do you want to execute <info>server:run</info> immediately? [Yn] ', true)) {
                 $command = $this->getApplication()->find('server:run');
 
                 return $command->run($input, $cliOutput);
@@ -98,14 +98,14 @@ EOF
         }
 
         if (!is_dir($documentRoot)) {
-            $io->error(sprintf('The given document root directory "%s" does not exist.', $documentRoot));
+            $output->error(sprintf('The given document root directory "%s" does not exist.', $documentRoot));
 
             return 1;
         }
 
         $env = $this->getContainer()->getParameter('kernel.environment');
 
-        if (false === $router = $this->determineRouterScript($input->getOption('router'), $env, $io)) {
+        if (false === $router = $this->determineRouterScript($input->getOption('router'), $env, $output)) {
             return 1;
         }
 
@@ -116,7 +116,7 @@ EOF
         }
 
         if (!$input->getOption('force') && $this->isOtherServerProcessRunning($address)) {
-            $io->error(array(
+            $output->error(array(
                 sprintf('A process is already listening on http://%s.', $address),
                 'Use the --force option if the server process terminated unexpectedly to start a new web server process.',
             ));
@@ -125,30 +125,30 @@ EOF
         }
 
         if ('prod' === $env) {
-            $io->error('Running PHP built-in server in production environment is NOT recommended!');
+            $output->error('Running PHP built-in server in production environment is NOT recommended!');
         }
 
         $pid = pcntl_fork();
 
         if ($pid < 0) {
-            $io->error('Unable to start the server process.');
+            $output->error('Unable to start the server process.');
 
             return 1;
         }
 
         if ($pid > 0) {
-            $io->success(sprintf('Web server listening on http://%s', $address));
+            $output->success(sprintf('Web server listening on http://%s', $address));
 
             return;
         }
 
         if (posix_setsid() < 0) {
-            $io->error('Unable to set the child process as session leader');
+            $output->error('Unable to set the child process as session leader');
 
             return 1;
         }
 
-        if (null === $process = $this->createServerProcess($io, $address, $documentRoot, $router)) {
+        if (null === $process = $this->createServerProcess($output, $address, $documentRoot, $router)) {
             return 1;
         }
 
@@ -158,7 +158,7 @@ EOF
         touch($lockFile);
 
         if (!$process->isRunning()) {
-            $io->error('Unable to start the server process');
+            $output->error('Unable to start the server process');
             unlink($lockFile);
 
             return 1;
@@ -180,11 +180,11 @@ EOF
      *
      * @param string|null  $router File path of the custom router script, if set by the user; otherwise null
      * @param string       $env    The application environment
-     * @param SymfonyStyle $io     An SymfonyStyle instance
+     * @param SymfonyStyle $output An SymfonyStyle instance
      *
      * @return string|bool The absolute file path of the router script, or false on failure
      */
-    private function determineRouterScript($router, $env, SymfonyStyle $io)
+    private function determineRouterScript($router, $env, SymfonyStyle $output)
     {
         if (null === $router) {
             $router = $this
@@ -195,7 +195,7 @@ EOF
         }
 
         if (false === $path = realpath($router)) {
-            $io->error(sprintf('The given router script "%s" does not exist.', $router));
+            $output->error(sprintf('The given router script "%s" does not exist.', $router));
 
             return false;
         }
@@ -206,18 +206,18 @@ EOF
     /**
      * Creates a process to start PHP's built-in web server.
      *
-     * @param SymfonyStyle $io           A SymfonyStyle instance
+     * @param SymfonyStyle $output       A SymfonyStyle instance
      * @param string       $address      IP address and port to listen to
      * @param string       $documentRoot The application's document root
      * @param string       $router       The router filename
      *
      * @return Process The process
      */
-    private function createServerProcess(SymfonyStyle $io, $address, $documentRoot, $router)
+    private function createServerProcess(SymfonyStyle $output, $address, $documentRoot, $router)
     {
         $finder = new PhpExecutableFinder();
         if (false === $binary = $finder->find()) {
-            $io->error('Unable to find PHP binary to start server.');
+            $output->error('Unable to find PHP binary to start server.');
 
             return;
         }

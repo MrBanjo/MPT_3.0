@@ -17,41 +17,34 @@ use Symfony\Component\Form\Extension\Core\DataTransformer\ChoiceToValueTransform
 class ChoiceToValueTransformerTest extends \PHPUnit_Framework_TestCase
 {
     protected $transformer;
-    protected $transformerWithNull;
 
     protected function setUp()
     {
-        $list = new ArrayChoiceList(array('', false, 'X', true));
-        $listWithNull = new ArrayChoiceList(array('', false, 'X', null));
+        $list = new ArrayChoiceList(array('', false, 'X'));
 
         $this->transformer = new ChoiceToValueTransformer($list);
-        $this->transformerWithNull = new ChoiceToValueTransformer($listWithNull);
     }
 
     protected function tearDown()
     {
         $this->transformer = null;
-        $this->transformerWithNull = null;
     }
 
     public function transformProvider()
     {
         return array(
             // more extensive test set can be found in FormUtilTest
-            array('', '', '', '0'),
-            array(false, '0', false, '1'),
-            array('X', 'X', 'X', '2'),
-            array(true, '1', null, '3'),
+            array('', '0'),
+            array(false, '1'),
         );
     }
 
     /**
      * @dataProvider transformProvider
      */
-    public function testTransform($in, $out, $inWithNull, $outWithNull)
+    public function testTransform($in, $out)
     {
         $this->assertSame($out, $this->transformer->transform($in));
-        $this->assertSame($outWithNull, $this->transformerWithNull->transform($inWithNull));
     }
 
     public function reverseTransformProvider()
@@ -59,38 +52,25 @@ class ChoiceToValueTransformerTest extends \PHPUnit_Framework_TestCase
         return array(
             // values are expected to be valid choice keys already and stay
             // the same
-            array('', '', '0', ''),
-            array('0', false, '1', false),
-            array('X', 'X', '2', 'X'),
-            array('1', true, '3', null),
+            array('0', ''),
+            array('1', false),
+            array('2', 'X'),
         );
     }
 
     /**
      * @dataProvider reverseTransformProvider
      */
-    public function testReverseTransform($in, $out, $inWithNull, $outWithNull)
+    public function testReverseTransform($in, $out)
     {
         $this->assertSame($out, $this->transformer->reverseTransform($in));
-        $this->assertSame($outWithNull, $this->transformerWithNull->reverseTransform($inWithNull));
-    }
-
-    public function reverseTransformExpectsStringOrNullProvider()
-    {
-        return array(
-            array(0),
-            array(true),
-            array(false),
-            array(array()),
-        );
     }
 
     /**
-     * @dataProvider reverseTransformExpectsStringOrNullProvider
      * @expectedException \Symfony\Component\Form\Exception\TransformationFailedException
      */
-    public function testReverseTransformExpectsStringOrNull($value)
+    public function testReverseTransformExpectsScalar()
     {
-        $this->transformer->reverseTransform($value);
+        $this->transformer->reverseTransform(array());
     }
 }

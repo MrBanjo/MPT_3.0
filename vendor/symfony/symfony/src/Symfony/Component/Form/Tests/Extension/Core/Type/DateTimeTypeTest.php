@@ -29,7 +29,6 @@ class DateTimeTypeTest extends TestCase
             'model_timezone' => 'UTC',
             'view_timezone' => 'UTC',
             'date_widget' => 'choice',
-            'years' => array(2010),
             'time_widget' => 'choice',
             'input' => 'datetime',
         ));
@@ -58,7 +57,6 @@ class DateTimeTypeTest extends TestCase
             'view_timezone' => 'UTC',
             'input' => 'string',
             'date_widget' => 'choice',
-            'years' => array(2010),
             'time_widget' => 'choice',
         ));
 
@@ -84,7 +82,6 @@ class DateTimeTypeTest extends TestCase
             'view_timezone' => 'UTC',
             'input' => 'timestamp',
             'date_widget' => 'choice',
-            'years' => array(2010),
             'time_widget' => 'choice',
         ));
 
@@ -111,13 +108,12 @@ class DateTimeTypeTest extends TestCase
             'model_timezone' => 'UTC',
             'view_timezone' => 'UTC',
             'date_widget' => 'choice',
-            'years' => array(2010),
             'time_widget' => 'choice',
             'input' => 'datetime',
             'with_minutes' => false,
         ));
 
-        $form->setData(new \DateTime());
+        $form->setData(new \DateTime('2010-06-02 03:04:05 UTC'));
 
         $input = array(
             'date' => array(
@@ -141,13 +137,12 @@ class DateTimeTypeTest extends TestCase
             'model_timezone' => 'UTC',
             'view_timezone' => 'UTC',
             'date_widget' => 'choice',
-            'years' => array(2010),
             'time_widget' => 'choice',
             'input' => 'datetime',
             'with_seconds' => true,
         ));
 
-        $form->setData(new \DateTime());
+        $form->setData(new \DateTime('2010-06-02 03:04:05 UTC'));
 
         $input = array(
             'date' => array(
@@ -173,7 +168,6 @@ class DateTimeTypeTest extends TestCase
             'model_timezone' => 'America/New_York',
             'view_timezone' => 'Pacific/Tahiti',
             'date_widget' => 'choice',
-            'years' => array(2010),
             'time_widget' => 'choice',
             'input' => 'string',
             'with_seconds' => true,

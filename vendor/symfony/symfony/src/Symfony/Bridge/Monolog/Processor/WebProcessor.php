@@ -31,7 +31,6 @@ class WebProcessor extends BaseWebProcessor
     {
         if ($event->isMasterRequest()) {
             $this->serverData = $event->getRequest()->server->all();
-            $this->serverData['REMOTE_ADDR'] = $event->getRequest()->getClientIp();
         }
     }
 }

@@ -57,7 +57,7 @@ class RouterMatchCommand extends ContainerAwareCommand
                 new InputOption('host', null, InputOption::VALUE_REQUIRED, 'Sets the URI host'),
             ))
             ->setDescription('Helps debug routes by simulating a path info match')
-            ->setHelp(<<<'EOF'
+            ->setHelp(<<<EOF
 The <info>%command.name%</info> shows which routes match a given request and which don't and for what reason:
 
   <info>php %command.full_name% /foo</info>
@@ -76,7 +76,7 @@ EOF
      */
     protected function execute(InputInterface $input, OutputInterface $output)
     {
-        $io = new SymfonyStyle($input, $output);
+        $output = new SymfonyStyle($input, $output);
 
         $router = $this->getContainer()->get('router');
         $context = $router->getContext();
@@ -94,26 +94,26 @@ EOF
 
         $traces = $matcher->getTraces($input->getArgument('path_info'));
 
-        $io->newLine();
+        $output->newLine();
 
         $matches = false;
         foreach ($traces as $trace) {
             if (TraceableUrlMatcher::ROUTE_ALMOST_MATCHES == $trace['level']) {
-                $io->text(sprintf('Route <info>"%s"</> almost matches but %s', $trace['name'], lcfirst($trace['log'])));
+                $output->text(sprintf('Route <info>"%s"</> almost matches but %s', $trace['name'], lcfirst($trace['log'])));
             } elseif (TraceableUrlMatcher::ROUTE_MATCHES == $trace['level']) {
-                $io->success(sprintf('Route "%s" matches', $trace['name']));
+                $output->success(sprintf('Route "%s" matches', $trace['name']));
 
                 $routerDebugCommand = $this->getApplication()->find('debug:router');
                 $routerDebugCommand->run(new ArrayInput(array('name' => $trace['name'])), $output);
 
                 $matches = true;
             } elseif ($input->getOption('verbose')) {
-                $io->text(sprintf('Route "%s" does not match: %s', $trace['name'], $trace['log']));
+                $output->text(sprintf('Route "%s" does not match: %s', $trace['name'], $trace['log']));
             }
         }
 
         if (!$matches) {
-            $io->error(sprintf('None of the routes match the path "%s"', $input->getArgument('path_info')));
+            $output->error(sprintf('None of the routes match the path "%s"', $input->getArgument('path_info')));
 
             return 1;
         }

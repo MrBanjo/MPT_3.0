@@ -1,5 +1,5 @@
 {
-    "Version": "2.1.13.48",
+    "Version": "2.1.8.87",
     "Names": {
         "aa": "Afar",
         "ab": "Abkhazian",
@@ -100,7 +100,7 @@
         "chp": "Chipewyan",
         "chr": "Cherokee",
         "chy": "Cheyenne",
-        "ckb": "Central Kurdish",
+        "ckb": "Sorani Kurdish",
         "co": "Corsican",
         "cop": "Coptic",
         "cps": "Capiznon",
@@ -582,7 +582,6 @@
         "wal": "Wolaytta",
         "war": "Waray",
         "was": "Washo",
-        "wbp": "Warlpiri",
         "wo": "Wolof",
         "wuu": "Wu Chinese",
         "xal": "Kalmyk",

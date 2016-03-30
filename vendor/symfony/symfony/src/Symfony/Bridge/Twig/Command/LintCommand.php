@@ -84,10 +84,13 @@ EOF
 
     protected function execute(InputInterface $input, OutputInterface $output)
     {
-        $io = new SymfonyStyle($input, $output);
+        $stdout = $output;
+        $output = new SymfonyStyle($input, $output);
 
-        if (null === $twig = $this->getTwigEnvironment()) {
-            $io->error('The Twig environment needs to be set.');
+        $twig = $this->getTwigEnvironment();
+
+        if (null === $twig) {
+            $output->error('The Twig environment needs to be set.');
 
             return 1;
         }
@@ -104,12 +107,12 @@ EOF
                 $template .= fread(STDIN, 1024);
             }
 
-            return $this->display($input, $output, $io, array($this->validate($twig, $template, uniqid('sf_'))));
+            return $this->display($input, $stdout, $output, array($this->validate($twig, $template, uniqid('sf_'))));
         }
 
         $filesInfo = $this->getFilesInfo($twig, $filenames);
 
-        return $this->display($input, $output, $io, $filesInfo);
+        return $this->display($input, $stdout, $output, $filesInfo);
     }
 
     private function getFilesInfo(\Twig_Environment $twig, array $filenames)
@@ -153,35 +156,35 @@ EOF
         return array('template' => $template, 'file' => $file, 'valid' => true);
     }
 
-    private function display(InputInterface $input, OutputInterface $output, SymfonyStyle $io, $files)
+    private function display(InputInterface $input, OutputInterface $stdout, $output, $files)
     {
         switch ($input->getOption('format')) {
             case 'txt':
-                return $this->displayTxt($output, $io, $files);
+                return $this->displayTxt($stdout, $output, $files);
             case 'json':
-                return $this->displayJson($output, $files);
+                return $this->displayJson($stdout, $files);
             default:
                 throw new \InvalidArgumentException(sprintf('The format "%s" is not supported.', $input->getOption('format')));
         }
     }
 
-    private function displayTxt(OutputInterface $output, SymfonyStyle $io, $filesInfo)
+    private function displayTxt(OutputInterface $stdout, $output, $filesInfo)
     {
         $errors = 0;
 
         foreach ($filesInfo as $info) {
-            if ($info['valid'] && $output->isVerbose()) {
-                $io->comment('<info>OK</info>'.($info['file'] ? sprintf(' in %s', $info['file']) : ''));
+            if ($info['valid'] && $stdout->isVerbose()) {
+                $output->comment('<info>OK</info>'.($info['file'] ? sprintf(' in %s', $info['file']) : ''));
             } elseif (!$info['valid']) {
                 ++$errors;
-                $this->renderException($io, $info['template'], $info['exception'], $info['file']);
+                $this->renderException($output, $info['template'], $info['exception'], $info['file']);
             }
         }
 
         if ($errors === 0) {
-            $io->success(sprintf('All %d Twig files contain valid syntax.', count($filesInfo)));
+            $output->success(sprintf('All %d Twig files contain valid syntax.', count($filesInfo)));
         } else {
-            $io->warning(sprintf('%d Twig files have valid syntax and %d contain errors.', count($filesInfo) - $errors, $errors));
+            $output->warning(sprintf('%d Twig files have valid syntax and %d contain errors.', count($filesInfo) - $errors, $errors));
         }
 
         return min($errors, 1);

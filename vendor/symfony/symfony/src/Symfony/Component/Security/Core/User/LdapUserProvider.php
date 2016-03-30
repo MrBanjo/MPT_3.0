@@ -105,4 +105,5 @@ class LdapUserProvider implements UserProviderInterface
     {
         return $class === 'Symfony\Component\Security\Core\User\User';
     }
+
 }

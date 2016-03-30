@@ -28,7 +28,7 @@ class PhpFrameworkExtensionTest extends FrameworkExtensionTest
      */
     public function testAssetsCannotHavePathAndUrl()
     {
-        $this->createContainerFromClosure(function ($container) {
+        $container = $this->createContainerFromClosure(function ($container) {
             $container->loadFromExtension('framework', array(
                 'assets' => array(
                     'base_urls' => 'http://cdn.example.com',
@@ -43,7 +43,7 @@ class PhpFrameworkExtensionTest extends FrameworkExtensionTest
      */
     public function testAssetPackageCannotHavePathAndUrl()
     {
-        $this->createContainerFromClosure(function ($container) {
+        $container = $this->createContainerFromClosure(function ($container) {
             $container->loadFromExtension('framework', array(
                 'assets' => array(
                     'packages' => array(

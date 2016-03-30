@@ -620,7 +620,8 @@ class IntlDateFormatter
         if (self::NONE !== $this->timetype) {
             $patternParts[] = $this->defaultTimeFormats[$this->timetype];
         }
+        $pattern = implode(', ', $patternParts);
 
-        return implode(', ', $patternParts);
+        return $pattern;
     }
 }

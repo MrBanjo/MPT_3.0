@@ -377,7 +377,7 @@ class TextDescriptor extends Descriptor
     /**
      * @param array $array
      */
-    private function renderEventListenerTable(EventDispatcherInterface $eventDispatcher, $event, array $eventListeners, SymfonyStyle $io)
+    private function renderEventListenerTable(EventDispatcherInterface $eventDispatcher, $event, array $eventListeners, SymfonyStyle $renderer)
     {
         $tableHeaders = array('Order', 'Callable', 'Priority');
         $tableRows = array();
@@ -387,7 +387,7 @@ class TextDescriptor extends Descriptor
             $tableRows[] = array(sprintf('#%d', $order + 1), $this->formatCallable($listener), $eventDispatcher->getListenerPriority($event, $listener));
         }
 
-        $io->table($tableHeaders, $tableRows);
+        $renderer->table($tableHeaders, $tableRows);
     }
 
     /**
@@ -409,6 +409,17 @@ class TextDescriptor extends Descriptor
         }
 
         return trim($configAsString);
+    }
+
+    /**
+     * @param string $section
+     * @param string $message
+     *
+     * @return string
+     */
+    private function formatSection($section, $message)
+    {
+        return sprintf('<info>[%s]</info> %s', $section, $message);
     }
 
     /**

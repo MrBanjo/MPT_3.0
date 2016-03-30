@@ -462,7 +462,7 @@ class FinderTest extends Iterator\RealIteratorTestCase
      * Searching in multiple locations involves AppendIterator which does an unnecessary rewind which leaves FilterIterator
      * with inner FilesystemIterator in an invalid state.
      *
-     * @see https://bugs.php.net/68557
+     * @see https://bugs.php.net/bug.php?id=49104
      */
     public function testMultipleLocations()
     {
@@ -472,12 +472,8 @@ class FinderTest extends Iterator\RealIteratorTestCase
         );
 
         // it is expected that there are test.py test.php in the tmpDir
-        $finder = new Finder();
-        $finder->in($locations)
-            // the default flag IGNORE_DOT_FILES fixes the problem indirectly
-            // so we set it to false for better isolation
-            ->ignoreDotFiles(false)
-            ->depth('< 1')->name('test.php');
+        $finder = $this->buildFinder();
+        $finder->in($locations)->depth('< 1')->name('test.php');
 
         $this->assertCount(1, $finder);
     }
@@ -487,7 +483,7 @@ class FinderTest extends Iterator\RealIteratorTestCase
      * AppendIterator which does an unnecessary rewind which leaves
      * FilterIterator with inner FilesystemIterator in an invalid state.
      *
-     * @see https://bugs.php.net/68557
+     * @see https://bugs.php.net/bug.php?id=49104
      */
     public function testMultipleLocationsWithSubDirectories()
     {
@@ -525,7 +521,8 @@ class FinderTest extends Iterator\RealIteratorTestCase
         $finder->in(__DIR__.DIRECTORY_SEPARATOR.'Fixtures'.DIRECTORY_SEPARATOR.'r+e.gex[c]a(r)s')
             ->path('/^dir/');
 
-        $expected = array('r+e.gex[c]a(r)s'.DIRECTORY_SEPARATOR.'dir', 'r+e.gex[c]a(r)s'.DIRECTORY_SEPARATOR.'dir'.DIRECTORY_SEPARATOR.'bar.dat');
+        $expected = array('r+e.gex[c]a(r)s'.DIRECTORY_SEPARATOR.'dir',
+            'r+e.gex[c]a(r)s'.DIRECTORY_SEPARATOR.'dir'.DIRECTORY_SEPARATOR.'bar.dat',);
         $this->assertIterator($this->toAbsoluteFixtures($expected), $finder);
     }
 

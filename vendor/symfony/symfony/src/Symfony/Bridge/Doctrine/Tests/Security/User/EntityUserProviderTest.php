@@ -125,7 +125,7 @@ class EntityUserProviderTest extends \PHPUnit_Framework_TestCase
     private function getManager($em, $name = null)
     {
         $manager = $this->getMock('Doctrine\Common\Persistence\ManagerRegistry');
-        $manager->expects($this->any())
+        $manager->expects($this->once())
             ->method('getManager')
             ->with($this->equalTo($name))
             ->will($this->returnValue($em));

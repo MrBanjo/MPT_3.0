@@ -40,7 +40,7 @@ class ConfigDumpReferenceCommand extends AbstractConfigCommand
                 new InputOption('format', null, InputOption::VALUE_REQUIRED, 'The output format (yaml or xml)', 'yaml'),
             ))
             ->setDescription('Dumps the default configuration for an extension')
-            ->setHelp(<<<'EOF'
+            ->setHelp(<<<EOF
 The <info>%command.name%</info> command dumps the default configuration for an
 extension/bundle.
 
@@ -67,12 +67,12 @@ EOF
      */
     protected function execute(InputInterface $input, OutputInterface $output)
     {
-        $io = new SymfonyStyle($input, $output);
+        $output = new SymfonyStyle($input, $output);
         $name = $input->getArgument('name');
 
         if (empty($name)) {
-            $io->comment('Provide the name of a bundle as the first argument of this command to dump its default configuration.');
-            $io->newLine();
+            $output->comment('Provide the name of a bundle as the first argument of this command to dump its default configuration.');
+            $output->newLine();
             $this->listBundles($output);
 
             return;
@@ -92,18 +92,18 @@ EOF
 
         switch ($input->getOption('format')) {
             case 'yaml':
-                $io->writeln(sprintf('# %s', $message));
+                $output->writeln(sprintf('# %s', $message));
                 $dumper = new YamlReferenceDumper();
                 break;
             case 'xml':
-                $io->writeln(sprintf('<!-- %s -->', $message));
+                $output->writeln(sprintf('<!-- %s -->', $message));
                 $dumper = new XmlReferenceDumper();
                 break;
             default:
-                $io->writeln($message);
+                $output->writeln($message);
                 throw new \InvalidArgumentException('Only the yaml and xml formats are supported.');
         }
 
-        $io->writeln($dumper->dump($configuration, $extension->getNamespace()));
+        $output->writeln($dumper->dump($configuration, $extension->getNamespace()));
     }
 }

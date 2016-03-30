@@ -29,6 +29,18 @@ class ServerRunCommand extends ServerCommand
     /**
      * {@inheritdoc}
      */
+    public function isEnabled()
+    {
+        if (defined('HHVM_VERSION')) {
+            return false;
+        }
+
+        return parent::isEnabled();
+    }
+
+    /**
+     * {@inheritdoc}
+     */
     protected function configure()
     {
         $this
@@ -40,7 +52,7 @@ class ServerRunCommand extends ServerCommand
             ))
             ->setName('server:run')
             ->setDescription('Runs PHP built-in web server')
-            ->setHelp(<<<'EOF'
+            ->setHelp(<<<EOF
 The <info>%command.name%</info> runs PHP built-in web server:
 
   <info>%command.full_name%</info>
@@ -73,7 +85,8 @@ EOF
      */
     protected function execute(InputInterface $input, OutputInterface $output)
     {
-        $io = new SymfonyStyle($input, $output);
+        $stdout = $output;
+        $output = new SymfonyStyle($input, $output);
         $documentRoot = $input->getOption('docroot');
 
         if (null === $documentRoot) {
@@ -81,7 +94,7 @@ EOF
         }
 
         if (!is_dir($documentRoot)) {
-            $io->error(sprintf('The given document root directory "%s" does not exist', $documentRoot));
+            $output->error(sprintf('The given document root directory "%s" does not exist', $documentRoot));
 
             return 1;
         }
@@ -94,19 +107,19 @@ EOF
         }
 
         if ($this->isOtherServerProcessRunning($address)) {
-            $io->error(sprintf('A process is already listening on http://%s.', $address));
+            $output->error(sprintf('A process is already listening on http://%s.', $address));
 
             return 1;
         }
 
         if ('prod' === $env) {
-            $io->error('Running PHP built-in server in production environment is NOT recommended!');
+            $output->error('Running PHP built-in server in production environment is NOT recommended!');
         }
 
-        $io->success(sprintf('Server running on http://%s', $address));
-        $io->comment('Quit the server with CONTROL-C.');
+        $output->success(sprintf('Server running on http://%s', $address));
+        $output->comment('Quit the server with CONTROL-C.');
 
-        if (null === $builder = $this->createPhpProcessBuilder($io, $address, $input->getOption('router'), $env)) {
+        if (null === $builder = $this->createPhpProcessBuilder($output, $address, $input->getOption('router'), $env)) {
             return 1;
         }
 
@@ -114,13 +127,13 @@ EOF
         $builder->setTimeout(null);
         $process = $builder->getProcess();
 
-        if (OutputInterface::VERBOSITY_VERBOSE > $output->getVerbosity()) {
+        if (OutputInterface::VERBOSITY_VERBOSE > $stdout->getVerbosity()) {
             $process->disableOutput();
         }
 
         $this
             ->getHelper('process')
-            ->run($output, $process, null, null, OutputInterface::VERBOSITY_VERBOSE);
+            ->run($stdout, $process, null, null, OutputInterface::VERBOSITY_VERBOSE);
 
         if (!$process->isSuccessful()) {
             $errorMessages = array('Built-in server terminated unexpectedly.');
@@ -129,13 +142,13 @@ EOF
                 $errorMessages[] = 'Run the command again with -v option for more details.';
             }
 
-            $io->error($errorMessages);
+            $output->error($errorMessages);
         }
 
         return $process->getExitCode();
     }
 
-    private function createPhpProcessBuilder(SymfonyStyle $io, $address, $router, $env)
+    private function createPhpProcessBuilder(SymfonyStyle $output, $address, $router, $env)
     {
         $router = $router ?: $this
             ->getContainer()
@@ -144,7 +157,7 @@ EOF
         ;
 
         if (!file_exists($router)) {
-            $io->error(sprintf('The given router script "%s" does not exist.', $router));
+            $output->error(sprintf('The given router script "%s" does not exist.', $router));
 
             return;
         }
@@ -153,7 +166,7 @@ EOF
         $finder = new PhpExecutableFinder();
 
         if (false === $binary = $finder->find()) {
-            $io->error('Unable to find PHP binary to run server.');
+            $output->error('Unable to find PHP binary to run server.');
 
             return;
         }

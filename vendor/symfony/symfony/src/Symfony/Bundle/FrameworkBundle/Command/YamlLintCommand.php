@@ -62,7 +62,8 @@ EOF
 
     protected function execute(InputInterface $input, OutputInterface $output)
     {
-        $io = new SymfonyStyle($input, $output);
+        $stdout = $output;
+        $output = new SymfonyStyle($input, $output);
         $filename = $input->getArgument('filename');
 
         if (!$filename) {
@@ -75,7 +76,7 @@ EOF
                 $content .= fread(STDIN, 1024);
             }
 
-            return $this->display($input, $output, $io, array($this->validate($content)));
+            return $this->display($input, $stdout, $output, array($this->validate($content)));
         }
 
         if (0 !== strpos($filename, '@') && !is_readable($filename)) {
@@ -97,7 +98,7 @@ EOF
             $filesInfo[] = $this->validate(file_get_contents($file), $file);
         }
 
-        return $this->display($input, $output, $io, $filesInfo);
+        return $this->display($input, $stdout, $output, $filesInfo);
     }
 
     private function validate($content, $file = null)
@@ -112,36 +113,36 @@ EOF
         return array('file' => $file, 'valid' => true);
     }
 
-    private function display(InputInterface $input, OutputInterface $output, SymfonyStyle $io, $files)
+    private function display(InputInterface $input, OutputInterface $stdout, $output, $files)
     {
         switch ($input->getOption('format')) {
             case 'txt':
-                return $this->displayTxt($output, $io, $files);
+                return $this->displayTxt($stdout, $output, $files);
             case 'json':
-                return $this->displayJson($io, $files);
+                return $this->displayJson($output, $files);
             default:
                 throw new \InvalidArgumentException(sprintf('The format "%s" is not supported.', $input->getOption('format')));
         }
     }
 
-    private function displayTxt(OutputInterface $output, SymfonyStyle $io, $filesInfo)
+    private function displayTxt(OutputInterface $stdout, $output, $filesInfo)
     {
         $errors = 0;
 
         foreach ($filesInfo as $info) {
-            if ($info['valid'] && $output->isVerbose()) {
-                $io->comment('<info>OK</info>'.($info['file'] ? sprintf(' in %s', $info['file']) : ''));
+            if ($info['valid'] && $stdout->isVerbose()) {
+                $output->comment('<info>OK</info>'.($info['file'] ? sprintf(' in %s', $info['file']) : ''));
             } elseif (!$info['valid']) {
                 ++$errors;
-                $io->text(sprintf('<error> ERROR </error> in %s', $info['file']));
-                $io->text(sprintf('<error> >> %s</error>', $info['message']));
+                $output->text(sprintf('<error> ERROR </error> in %s', $info['file']));
+                $output->text(sprintf('<error> >> %s</error>', $info['message']));
             }
         }
 
         if ($errors === 0) {
-            $io->success(sprintf('All %d YAML files contain valid syntax.', count($filesInfo)));
+            $output->success(sprintf('All %d YAML files contain valid syntax.', count($filesInfo)));
         } else {
-            $io->warning(sprintf('%d YAML files have valid syntax and %d contain errors.', count($filesInfo) - $errors, $errors));
+            $output->warning(sprintf('%d YAML files have valid syntax and %d contain errors.', count($filesInfo) - $errors, $errors));
         }
 
         return min($errors, 1);

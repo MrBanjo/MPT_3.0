@@ -83,11 +83,11 @@ EOF
 
     protected function execute(InputInterface $input, OutputInterface $output)
     {
-        $io = new SymfonyStyle($input, $output);
+        $output = new SymfonyStyle($input, $output);
         $twig = $this->getTwigEnvironment();
 
         if (null === $twig) {
-            $io->error('The Twig environment needs to be set.');
+            $output->error('The Twig environment needs to be set.');
 
             return 1;
         }
@@ -102,7 +102,7 @@ EOF
                 }
             }
             $data['tests'] = array_keys($data['tests']);
-            $io->writeln(json_encode($data));
+            $output->writeln(json_encode($data));
 
             return 0;
         }
@@ -121,10 +121,10 @@ EOF
                 continue;
             }
 
-            $io->section(ucfirst($type));
+            $output->section(ucfirst($type));
 
             ksort($items);
-            $io->listing($items);
+            $output->listing($items);
         }
 
         return 0;

@@ -46,10 +46,9 @@ class TranslationUpdateCommand extends ContainerAwareCommand
                 new InputOption('clean', null, InputOption::VALUE_NONE, 'Should clean not found messages'),
             ))
             ->setDescription('Updates the translation file')
-            ->setHelp(<<<'EOF'
-The <info>%command.name%</info> command extracts translation strings from templates
+            ->setHelp(<<<EOF
+The <info>%command.name%</info> command extract translation strings from templates
 of a given bundle or the app folder. It can display them or merge the new ones into the translation files.
-
 When new translation strings are found it can automatically add a prefix to the translation
 message.
 
@@ -70,11 +69,11 @@ EOF
      */
     protected function execute(InputInterface $input, OutputInterface $output)
     {
-        $io = new SymfonyStyle($input, $output);
+        $output = new SymfonyStyle($input, $output);
 
         // check presence of force or dump-message
         if ($input->getOption('force') !== true && $input->getOption('dump-messages') !== true) {
-            $io->error('You must choose one of --force or --dump-messages');
+            $output->error('You must choose one of --force or --dump-messages');
 
             return 1;
         }
@@ -83,7 +82,7 @@ EOF
         $writer = $this->getContainer()->get('translation.writer');
         $supportedFormats = $writer->getFormats();
         if (!in_array($input->getOption('output-format'), $supportedFormats)) {
-            $io->error(array('Wrong output format', 'Supported formats are: '.implode(', ', $supportedFormats).'.'));
+            $output->error(array('Wrong output format', 'Supported formats are: '.implode(', ', $supportedFormats).'.'));
 
             return 1;
         }
@@ -113,12 +112,12 @@ EOF
             }
         }
 
-        $io->title('Translation Messages Extractor and Dumper');
-        $io->comment(sprintf('Generating "<info>%s</info>" translation files for "<info>%s</info>"', $input->getArgument('locale'), $currentName));
+        $output->title('Translation Messages Extractor and Dumper');
+        $output->comment(sprintf('Generating "<info>%s</info>" translation files for "<info>%s</info>"', $input->getArgument('locale'), $currentName));
 
         // load any messages from templates
         $extractedCatalogue = new MessageCatalogue($input->getArgument('locale'));
-        $io->comment('Parsing templates...');
+        $output->comment('Parsing templates...');
         $extractor = $this->getContainer()->get('translation.extractor');
         $extractor->setPrefix($input->getOption('prefix'));
         foreach ($transPaths as $path) {
@@ -130,7 +129,7 @@ EOF
 
         // load any existing messages from the translation files
         $currentCatalogue = new MessageCatalogue($input->getArgument('locale'));
-        $io->comment('Loading translation files...');
+        $output->comment('Loading translation files...');
         $loader = $this->getContainer()->get('translation.loader');
         foreach ($transPaths as $path) {
             $path .= 'translations';
@@ -146,25 +145,23 @@ EOF
 
         // Exit if no messages found.
         if (!count($operation->getDomains())) {
-            $io->warning('No translation messages were found.');
+            $output->warning('No translation messages were found.');
 
             return;
         }
 
-        $resultMessage = 'Translation files were successfully updated';
-
         // show compiled list of messages
         if (true === $input->getOption('dump-messages')) {
             $extractedMessagesCount = 0;
-            $io->newLine();
+            $output->newLine();
             foreach ($operation->getDomains() as $domain) {
                 $newKeys = array_keys($operation->getNewMessages($domain));
                 $allKeys = array_keys($operation->getMessages($domain));
                 $domainMessagesCount = count($newKeys) + count($allKeys);
 
-                $io->section(sprintf('Messages extracted for domain "<info>%s</info>" (%d messages)', $domain, $domainMessagesCount));
+                $output->section(sprintf('Messages extracted for domain "<info>%s</info>" (%d messages)', $domain, $domainMessagesCount));
 
-                $io->listing(array_merge(
+                $output->listing(array_merge(
                     array_diff($allKeys, $newKeys),
                     array_map(function ($id) {
                         return sprintf('<fg=green>%s</>', $id);
@@ -178,7 +175,7 @@ EOF
             }
 
             if ($input->getOption('output-format') == 'xlf') {
-                $io->comment('Xliff output version is <info>1.2</info>');
+                $output->comment('Xliff output version is <info>1.2</info>');
             }
 
             $resultMessage = sprintf('%d messages were successfully extracted', $extractedMessagesCount);
@@ -190,7 +187,7 @@ EOF
 
         // save the files
         if ($input->getOption('force') === true) {
-            $io->comment('Writing files...');
+            $output->comment('Writing files...');
 
             $bundleTransPath = false;
             foreach ($transPaths as $path) {
@@ -200,17 +197,17 @@ EOF
                 }
             }
 
-            if (!$bundleTransPath) {
-                $bundleTransPath = end($transPaths).'translations';
+            if ($bundleTransPath) {
+                $writer->writeTranslations($operation->getResult(), $input->getOption('output-format'), array('path' => $bundleTransPath, 'default_locale' => $this->getContainer()->getParameter('kernel.default_locale')));
             }
 
-            $writer->writeTranslations($operation->getResult(), $input->getOption('output-format'), array('path' => $bundleTransPath, 'default_locale' => $this->getContainer()->getParameter('kernel.default_locale')));
-
             if (true === $input->getOption('dump-messages')) {
-                $resultMessage .= ' and translation files were updated';
+                $resultMessage .= ' and translation files were updated.';
+            } else {
+                $resultMessage = 'Translation files were successfully updated.';
             }
         }
 
-        $io->success($resultMessage.'.');
+        $output->success($resultMessage);
     }
 }

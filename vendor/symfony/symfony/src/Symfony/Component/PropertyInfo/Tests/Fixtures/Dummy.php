@@ -47,11 +47,6 @@ class Dummy extends ParentDummy
     public $collection;
 
     /**
-     * @var ParentDummy
-     */
-    public $B;
-
-    /**
      * A.
      *
      * @return int
@@ -66,15 +61,6 @@ class Dummy extends ParentDummy
      * @param ParentDummy|null $parent
      */
     public function setB(ParentDummy $parent = null)
-    {
-    }
-
-    /**
-     * Date of Birth.
-     *
-     * @return \DateTime
-     */
-    public function getDOB()
     {
     }
 }

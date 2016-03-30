@@ -11,7 +11,6 @@
 
 namespace Symfony\Bridge\Doctrine\PropertyInfo\Tests;
 
-use Doctrine\DBAL\Types\Type as DBALType;
 use Doctrine\ORM\EntityManager;
 use Doctrine\ORM\Tools\Setup;
 use Symfony\Bridge\Doctrine\PropertyInfo\DoctrineExtractor;
@@ -27,15 +26,10 @@ class DoctrineExtractorTest extends \PHPUnit_Framework_TestCase
      */
     private $extractor;
 
-    protected function setUp()
+    public function setUp()
     {
         $config = Setup::createAnnotationMetadataConfiguration(array(__DIR__.DIRECTORY_SEPARATOR.'Fixtures'), true);
         $entityManager = EntityManager::create(array('driver' => 'pdo_sqlite'), $config);
-
-        if (!DBALType::hasType('foo')) {
-            DBALType::addType('foo', 'Symfony\Bridge\Doctrine\Tests\PropertyInfo\Fixtures\DoctrineFooType');
-            $entityManager->getConnection()->getDatabasePlatform()->registerDoctrineTypeMapping('custom_foo', 'foo');
-        }
 
         $this->extractor = new DoctrineExtractor($entityManager->getMetadataFactory());
     }
@@ -51,7 +45,6 @@ class DoctrineExtractorTest extends \PHPUnit_Framework_TestCase
                 'simpleArray',
                 'bool',
                 'binary',
-                'customFoo',
                 'foo',
                 'bar',
             ),
@@ -85,18 +78,7 @@ class DoctrineExtractorTest extends \PHPUnit_Framework_TestCase
                 new Type(Type::BUILTIN_TYPE_OBJECT, false, 'Symfony\Bridge\Doctrine\Tests\PropertyInfo\Fixtures\DoctrineRelation')
             ))),
             array('simpleArray', array(new Type(Type::BUILTIN_TYPE_ARRAY, false, null, true, new Type(Type::BUILTIN_TYPE_INT), new Type(Type::BUILTIN_TYPE_STRING)))),
-            array('customFoo', null),
             array('notMapped', null),
         );
-    }
-
-    public function testGetPropertiesCatchException()
-    {
-        $this->assertNull($this->extractor->getProperties('Not\Exist'));
-    }
-
-    public function testGetTypesCatchException()
-    {
-        $this->assertNull($this->extractor->getTypes('Not\Exist', 'baz'));
     }
 }

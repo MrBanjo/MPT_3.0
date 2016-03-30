@@ -1,5 +1,5 @@
 {
-    "Version": "2.1.12.94",
+    "Version": "2.1.8.9",
     "Names": {
         "AED": [
             "AED",
@@ -227,7 +227,7 @@
         ],
         "GBP": [
             "£",
-            "Lielbritānijas mārciņa"
+            "Lielbritānijas sterliņu mārciņa"
         ],
         "GEL": [
             "GEL",
