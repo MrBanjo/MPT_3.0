@@ -7,6 +7,7 @@ use Symfony\Component\HttpFoundation\JsonResponse;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Session\Session;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 use AppBundle\Entity\User;
 use AppBundle\Entity\Caddie;
 
@@ -16,6 +17,7 @@ class CartController extends BaseController
 
     /**
      * @Route("/caddie/ma-commande", name="cart", defaults={"title": "Ma commande"})
+     * @Method({"GET","HEAD"})
      */
     public function showCaddieAction()
     {
@@ -35,6 +37,7 @@ class CartController extends BaseController
 
     /**
      * @Route("/caddie/identification", name="cart_identification", defaults={"title": "Identification"})
+     * @Method({"GET","HEAD"})
      */
     public function showIdentificationAction()
     {
@@ -47,6 +50,7 @@ class CartController extends BaseController
 
     /**
      * @Route("/caddie/recapitulatif", name="cart_summary", defaults={"title": "Récapitulatif de la commande"})
+     * @Method({"GET","HEAD"})
      */
     public function showSummaryAction()
     {
@@ -70,10 +74,10 @@ class CartController extends BaseController
 
     /**
      * @Route("/caddie/addtocart/{slug}", name="addtocart")
+     * @Method({"POST"})
      */
     public function addProductAction(Request $request, $slug)
     {
-    	
     	if($request->isXmlHttpRequest() && $request->request->get('quantite') != NULL)
     	{
     		$caddie = new Caddie();
@@ -118,6 +122,7 @@ class CartController extends BaseController
 
     /**
      * @Route("/caddie/quantite_cart", name="quantite_cart", options={"expose"=true})
+     * @Method({"POST"})
      */
     public function updateQuantiteAction(Request $request)
     {

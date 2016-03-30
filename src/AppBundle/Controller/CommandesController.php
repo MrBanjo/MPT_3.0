@@ -4,6 +4,7 @@ namespace AppBundle\Controller;
 
 use Symfony\Component\HttpFoundation\RedirectResponse;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 use Symfony\Component\HttpFoundation\Request;
 use AppBundle\Entity\Commandes;
 
@@ -11,6 +12,7 @@ class CommandesController extends BaseController
 {
     /**
     * @Route("/caddie/validatecommande", name="addcommandes")
+    * @Method({"POST","GET","HEAD"})
     */     
     public function createCommandesAction(Request $request)
     {

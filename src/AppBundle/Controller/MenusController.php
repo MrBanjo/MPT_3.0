@@ -3,11 +3,13 @@
 namespace AppBundle\Controller;
 
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 
 class MenusController extends BaseController
 {
     /**
      * @Route("/menus", name="menus", defaults={"title": "Nos menus"})
+     * @Method({"GET","HEAD"})
      */
     public function showCurrentMenuAction()
     {

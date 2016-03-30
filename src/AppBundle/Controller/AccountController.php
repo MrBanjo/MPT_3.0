@@ -3,11 +3,13 @@
 namespace AppBundle\Controller;
 
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 
 class AccountController extends BaseController
 {
     /**
      * @Route("/account", name="account", defaults={"title": "Votre compte"})
+     * @Method({"GET","HEAD"})
      */
     public function indexAction()
     {

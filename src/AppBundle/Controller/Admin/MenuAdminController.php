@@ -4,6 +4,7 @@ namespace AppBundle\Controller\Admin;
 
 use Symfony\Component\HttpFoundation\RedirectResponse;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 use AppBundle\Form\Type\MenuType;
@@ -14,6 +15,7 @@ class MenuAdminController extends Controller
 {
     /**
      * @Route("/admin/menu", name="menu_admin")
+     * @Method({"GET","HEAD"})
      */
     public function indexAction()
     {
@@ -28,6 +30,7 @@ class MenuAdminController extends Controller
 
     /**
      * @Route("/admin/menu/edit/{id}", name="edit_menu_admin")
+     * @Method({"GET","HEAD","POST"})
      */
     public function editAction(Request $request,$id)
     {
@@ -61,6 +64,7 @@ class MenuAdminController extends Controller
 
     /**
      * @Route("/admin/menu/erase", name="menu_erase")
+     * @Method({"POST"})
      */
     public function eraseAction(Request $request)
     {

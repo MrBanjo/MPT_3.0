@@ -4,6 +4,7 @@ namespace AppBundle\Controller\Admin;
 
 use Symfony\Component\HttpFoundation\RedirectResponse;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 use AppBundle\Form\Type\PlatType;
@@ -14,6 +15,7 @@ class PlatAdminController extends Controller
 {
     /**
      * @Route("/admin/plat", name="plat_admin")
+     * @Method({"GET","HEAD"})
      */
     public function indexAction()
     {
@@ -28,6 +30,7 @@ class PlatAdminController extends Controller
 
     /**
      * @Route("/admin/plat/edit/{id}", name="edit_plat_admin")
+     * @Method({"GET","HEAD","POST"})
      */
     public function editAction(Request $request,$id)
     {
@@ -61,6 +64,7 @@ class PlatAdminController extends Controller
 
     /**
      * @Route("/admin/plat/erase", name="plat_erase")
+     * @Method({"POST"})
      */
     public function eraseAction(Request $request)
     {

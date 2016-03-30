@@ -29,7 +29,7 @@ class AuthenticationHandler implements AuthenticationSuccessHandlerInterface, Au
 	 * @param 	Session $session
 	 * @param   EntityManager $em
 	 */
-	public function __construct( RouterInterface $router, Session $session, EntityManager $doctrine, TokenStorageInterface $security)
+	public function __construct(RouterInterface $router, Session $session, EntityManager $doctrine, TokenStorageInterface $security)
 	{
 		$this->router  = $router;
 		$this->session = $session;
@@ -43,14 +43,14 @@ class AuthenticationHandler implements AuthenticationSuccessHandlerInterface, Au
 	 * @param 	TokenInterface $token
 	 * @return 	Response
 	 */
-	public function onAuthenticationSuccess( Request $request, TokenInterface $token)
+	public function onAuthenticationSuccess(Request $request, TokenInterface $token)
 	{
 		// Donne aux produits dans le panier un user_id si le client se connecte
         $user = $this->security->getToken()->getUser();
         $this->doctrine->getRepository('AppBundle:Caddie')->switchSessionToUserProduct($user);
 
 		// if AJAX login
-		if ( $request->isXmlHttpRequest() ) {
+		if ($request->isXmlHttpRequest()) {
  
 			$array = array( 'success' => true ); // data to return via JSON
 			$response = new Response( json_encode( $array ) );
@@ -61,11 +61,11 @@ class AuthenticationHandler implements AuthenticationSuccessHandlerInterface, Au
 		// if form login 
 		} else {
  
-			if ( $this->session->get('_security.main.target_path' ) ) {
+			if ($this->session->get('_security.main.target_path')) {
  
-				$url = $this->session->get( '_security.main.target_path' );
+				$url = $this->session->get('_security.main.target_path');
  
-			} else if ( $request->headers->get('referer') ) {
+			} else if ($request->headers->get('referer')) {
 
 				$url = $request->headers->get('referer');
 
@@ -75,7 +75,7 @@ class AuthenticationHandler implements AuthenticationSuccessHandlerInterface, Au
  
 			} // end if
  
-			return new RedirectResponse( $url );
+			return new RedirectResponse($url);
  
 		}
 	}
@@ -87,7 +87,7 @@ class AuthenticationHandler implements AuthenticationSuccessHandlerInterface, Au
 	 * @param 	AuthenticationException $exception
 	 * @return 	Response
 	 */
-	public function onAuthenticationFailure( Request $request, AuthenticationException $exception )
+	public function onAuthenticationFailure(Request $request, AuthenticationException $exception)
 	{
 		// if AJAX login
 		if ( $request->isXmlHttpRequest() ) {

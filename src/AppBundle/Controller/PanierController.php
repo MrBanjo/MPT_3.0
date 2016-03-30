@@ -3,11 +3,13 @@
 namespace AppBundle\Controller;
 
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 
 class PanierController extends BaseController
 {
     /**
      * @Route("/paniers/classique", defaults={"title": "Panier classique"}, name="classique")
+     * @Method({"GET","HEAD"})
      */
     public function showCurrentMenuAction()
     {

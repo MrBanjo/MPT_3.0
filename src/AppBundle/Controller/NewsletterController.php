@@ -3,6 +3,7 @@
 namespace AppBundle\Controller;
 
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 use Symfony\Component\HttpFoundation\Request;
 use AppBundle\Entity\Newsletter;
 
@@ -12,6 +13,7 @@ class NewsletterController extends BaseController
 
 	/**
 	 * @Route("/newsletter", name="newsletter", options={"expose"=true})
+     * @Method({"POST"})
 	 */
 	public function newsAction(Request $request)
 	{

@@ -4,6 +4,7 @@ namespace AppBundle\Controller\Admin;
 
 use Symfony\Component\HttpFoundation\RedirectResponse;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 use AppBundle\Entity\Blog;
@@ -15,6 +16,7 @@ class BlogAdminController extends Controller
 {
     /**
      * @Route("/admin/blog", name="blog_admin")
+     * @Method({"GET","HEAD"})
      */
     public function indexAction()
     {
@@ -28,6 +30,7 @@ class BlogAdminController extends Controller
 
     /**
      * @Route("/admin/blog/edit/{id}", name="edit_blog_admin")
+     * @Method({"GET","HEAD","POST"})
      */
     public function editAction(Request $request,$id)
     {
@@ -61,6 +64,7 @@ class BlogAdminController extends Controller
 
     /**
      * @Route("/admin/blog/erase", name="blog_erase")
+     * @Method({"POST"})
      */
     public function eraseAction(Request $request)
     {
@@ -80,6 +84,7 @@ class BlogAdminController extends Controller
 
     /**
      * @Route("/admin/blog/categorie", name="categorie_blog_admin")
+     * @Method({"GET","HEAD","POST"})
      */
     public function categorieAction(Request $request)
     {

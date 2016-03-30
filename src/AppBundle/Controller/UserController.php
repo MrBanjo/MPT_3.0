@@ -3,6 +3,7 @@
 namespace AppBundle\Controller;
 
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 use Symfony\Component\Security\Core\Authentication\Token\UsernamePasswordToken;
 use Symfony\Component\Security\Http\Event\InteractiveLoginEvent;
 use Symfony\Component\HttpFoundation\Request;
@@ -15,6 +16,7 @@ class UserController extends BaseController
 
     /**
      * @Route("/login", name="login")
+     * @Method({"GET","HEAD","POST"})
      */
     public function loginAction()
     {   
@@ -23,6 +25,7 @@ class UserController extends BaseController
 
     /**
      * @Route("/account/register", name="register_user")
+     * @Method({"POST"})
      */
     public function registerAction(Request $request)
     {   
@@ -60,6 +63,7 @@ class UserController extends BaseController
 
     /**
      * @Route("/checkMail/{data}", name="checkMail", defaults={"data" = ""}, options={"expose"=true})
+     * @Method({"POST"})
      */
     public function checkEmailAction($data)
     {
