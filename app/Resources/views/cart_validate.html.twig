@@ -1,0 +1,25 @@
+{% extends 'base.html.twig' %}
+
+{% block meta %}
+    <meta http-equiv="refresh" content="15; {{ path('accueil') }}">
+{% endblock %}
+
+{% block body %}
+    <div class="first_section">     
+        <div class="container_small errorpage">
+            <div class="title_section">
+                <h2>Commande acceptée</h2>
+
+                {# example security usage, see below #}
+                {% if is_granted('IS_AUTHENTICATED_FULLY') %}
+                    {# ... #}
+                {% endif %}
+
+                <p>Votre commande d'un montant de <strong>{{ prix }}</strong> € vient d'être accepter et sera traiter très prochainement par notre service. Merci de votre confiance.
+                </p><br />
+                <p>Vous allez être rediriger vers la page d'accueil.</p>
+
+            </div>
+        </div>
+    </div>
+{% endblock %}

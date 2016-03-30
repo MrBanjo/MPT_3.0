@@ -53,30 +53,17 @@ class CaddieRepository extends EntityRepository
         $this->getEntityManager()->flush();
 	}
 
-	public function getTotalPrix($user) 
+	public function getTotalPrix($list) 
 	{
-		$results = $this->getAllProducts($user);
 		// Additionne les prix de chaque produits avec leur quantité
 		$prixtotal = 0;	
-		foreach($results as $result)
+		foreach($list as $result)
 		{
 			$prixtotal += ($result->getPrix())*($result->getQuantite());
 		}
 
 		return $prixtotal;
 	}
-
-/*	public function getProductCaddie($id, $productType, $user) 
-	{
-		// Récupere tous les objets produits du type demandé (menu,upsell etc)
-		$results = $this->getEntityManager()
-		->createQuery('SELECT c FROM AppBundle:Caddie c WHERE c.' . $this->getUserOrSession($user)["id"] . ' = :identifiant AND c.' . $productType . ' = :' . $productType .'')
-		->setParameter('identifiant', $this->getUserOrSession($user)["value"])
-		->setParameter($productType, $id)
-		->getResult();
-
-		return $results;
-	}*/
 
 	public function getProductCaddie($id, $productType, $user) 
 	{
@@ -89,5 +76,4 @@ class CaddieRepository extends EntityRepository
 
 		return $qb->getQuery()->getResult();
 	}
-
 }

@@ -11,14 +11,21 @@ use AppBundle\Entity\Commandes;
 class CommandesController extends BaseController
 {
     /**
-    * @Route("/caddie/validatecommande", name="addcommandes")
+    * @Route("/caddie/commande-validée", name="addcommandes")
     * @Method({"POST","GET","HEAD"})
     */     
     public function createCommandesAction(Request $request)
     {
-        if ($this->getUser()) {
+        if ($this->getUser()) 
+        {
             $user = $this->getUser();
             $listecommandes = $this->getRepo('AppBundle:Caddie')->getAllProducts($user);
+
+            if (empty($listecommandes)) {
+                return new RedirectResponse($this->generateUrl('cart'));
+            }
+
+            $totalPrix = $this->getRepo('AppBundle:Caddie')->getTotalPrix($listecommandes);
             $ref = time() . rand(10*45, 100*98);
 
             foreach ($listecommandes as $listecommande) {
@@ -36,7 +43,7 @@ class CommandesController extends BaseController
                 $this->remove($listecommande); // remove product from cart
             }
 
-            return new RedirectResponse($this->generateUrl('account'));           
+            return $this->render('cart_validate', ['prix' => $totalPrix]);           
         }
 
         return new RedirectResponse($this->generateUrl('cart_identification'));

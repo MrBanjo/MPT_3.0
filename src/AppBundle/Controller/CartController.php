@@ -21,18 +21,15 @@ class CartController extends BaseController
      */
     public function showCaddieAction()
     {
-        $em = $this->getRepo('AppBundle:Caddie');
+        $repo = $this->getRepo('AppBundle:Caddie');
     	// Récupère la liste des articles du client ainsi que le prix total
-    	$liste_article = $em->getAllProducts($this->getUser());
-    	$prix_total = $em->getTotalPrix($this->getUser());
+    	$articles = $repo->getAllProducts($this->getUser());
+    	$totalPrix = $repo->getTotalPrix($articles);
 
-        return $this->render(
-            'cart', 
-            [ 
-            	'articles' => $liste_article, 
-            	'prix_total' => $prix_total
-        	]
-        );
+        return $this->render('cart', [ 
+            'articles' => $articles, 
+            'prix_total' => $totalPrix
+        ]);
     }
 
     /**
@@ -49,27 +46,28 @@ class CartController extends BaseController
     }
 
     /**
-     * @Route("/caddie/recapitulatif", name="cart_summary", defaults={"title": "Récapitulatif de la commande"})
-     * @Method({"GET","HEAD"})
-     */
+    * @Route("/caddie/recapitulatif", name="cart_summary", defaults={"title": "Récapitulatif de la commande"})
+    * @Method({"GET","HEAD"})
+    */
     public function showSummaryAction()
     {
         if (!$this->getUser()) {
             return $this->redirectToRoute('cart_identification');
         }
 
-        $em = $this->getRepo('AppBundle:Caddie');
+        $repo = $this->getRepo('AppBundle:Caddie');
         // Récupère la liste des articles du client ainsi que le prix total
-        $liste_article = $em->getAllProducts($this->getUser());
-        $prix_total = $em->getTotalPrix($this->getUser());
+        $articles = $repo->getAllProducts($this->getUser());
+        $totalPrix = $repo->getTotalPrix($articles);
 
-        return $this->render(
-            'cart_summary', 
-            [ 
-                'articles' => $liste_article, 
-                'prix_total' => $prix_total
-            ]
-        );
+        if (empty($articles)) {
+            return new RedirectResponse($this->generateUrl('cart'));
+        }
+
+        return $this->render('cart_summary', [ 
+            'articles' => $articles, 
+            'prix_total' => $totalPrix
+        ]);
     }
 
     /**
@@ -84,8 +82,6 @@ class CartController extends BaseController
     		$quantite = $request->request->get('quantite');
 			$produit = $this->find('AppBundle:' . $slug, $request->request->get('id_product'));
 
-            $session = new Session();
-
     		// Recherche si le produit existe dans le caddie
     		$checkdb = $this->getRepo('AppBundle:Caddie')->getProductCaddie($request->request->get('id_product'), strtolower($slug), $this->getUser());
     		if (!empty($checkdb)) 
@@ -96,6 +92,7 @@ class CartController extends BaseController
     		// Création du produit dans le caddie
     		else 
     		{
+                $session = new Session();
 	    		$caddie->setIdentifiant($session->getId());
                 $caddie->setTitre($produit->getTitre());
                 $caddie->setUser($this->getUser());
@@ -106,18 +103,16 @@ class CartController extends BaseController
 	    		$this->save($caddie);		
     		}
 
-    		return new JsonResponse(
-                [
-        			'titre' => $produit->getTitre(),
-        			'idi' => $produit->getId(),
-        			'photo' => $produit->getPhoto(),
-        			'quantite' => $quantite,
-                    'countcaddie' => $this->countCart()
-                ], 200
-            );
+    		return new JsonResponse([
+        		'titre' => $produit->getTitre(),
+        		'idi' => $produit->getId(),
+        		'photo' => $produit->getPhoto(),
+        		'quantite' => $quantite,
+                'countcaddie' => $this->countCart()
+            ], 200);
     	}
 
-    	return new RedirectResponse($this->generateUrl('cart'));
+    	return $this->redirectToRoute('cart');
     }
 
     /**
@@ -126,29 +121,26 @@ class CartController extends BaseController
      */
     public function updateQuantiteAction(Request $request)
     {
-    	if($request->request->get('article_id')) // Checking post 
-    	{
-	    	$article = $this->getRepo('AppBundle:Caddie')->findOneById($request->request->get('article_id'));
+        if ($request->isXmlHttpRequest()) {
+            $article = $this->getRepo('AppBundle:Caddie')->findOneById($request->request->get('article_id'));
             $html = false;
 
-		    if ($request->request->get('quantite') == 0) {
-		    	$this->remove($article); // Supprime le produit du caddie si sa quantité est 0
+            if ($request->request->get('quantite') == 0) {
+                $this->remove($article); // Supprime le produit du caddie si sa quantité est 0
                 $html = true;
-		    }
-		    else {
-		    	$article->setQuantite($request->request->get('quantite'));
-		    	$this->save($article);
-		    }
+            }
+            else {
+                $article->setQuantite($request->request->get('quantite'));
+                $this->save($article);
+            }
 
-            return new JsonResponse(
-                [
-                    'prix' => $article->getPrix(),
-                    'countcaddie' => $this->countCart(),
-                    'html' => $html
-                ], 200
-            );    		
-    	}
-        
-    	return new RedirectResponse($this->generateUrl('cart'));
+            return new JsonResponse([
+                'prix' => $article->getPrix(),
+                'countcaddie' => $this->countCart(),
+                'html' => $html
+            ], 200);             
+        }
+
+   		return $this->redirectToRoute('cart');
     }
 }
