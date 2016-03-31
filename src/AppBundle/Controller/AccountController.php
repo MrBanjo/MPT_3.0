@@ -13,10 +13,16 @@ class AccountController extends BaseController
      */
     public function indexAction()
     {
-    	if (!$this->get('security.authorization_checker')->isGranted('IS_AUTHENTICATED_FULLY')) {
-        	throw $this->createAccessDeniedException();
-    	}
-	
-        return $this->render('account');
+        if (!$this->get('security.authorization_checker')->isGranted('IS_AUTHENTICATED_FULLY')) {
+            throw $this->createAccessDeniedException();
+        }
+
+        $commandes = $this->findBy('AppBundle:Commandes', ['user' => $this->getUser()]);
+        $price = $this->getRepo('AppBundle:Caddie')->getTotalPrix($commandes);
+
+        return $this->render('account', [
+            'commandes' => $commandes,
+            'price' => $price
+        ]);
     }
 }

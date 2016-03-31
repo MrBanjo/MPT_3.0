@@ -12,16 +12,16 @@ class NewsletterType extends AbstractType
 {
     /**
      * @param FormBuilderInterface $builder
-     * @param array $options
+     * @param array                $options
      */
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('email', EmailType::class, array('attr' => array( 'placeholder' => 'Email'), 'label' => false))
+            ->add('email', EmailType::class, array('attr' => array('placeholder' => 'Email'), 'label' => false))
             ->add('Envoyer', SubmitType::class)
         ;
     }
-    
+
     /**
      * @param OptionsResolver $resolver
      */
@@ -32,7 +32,7 @@ class NewsletterType extends AbstractType
             'attr' => ['id' => 'newsletter_form'],
             'csrf_protection' => true,
             'csrf_field_name' => '_token',
-            'csrf_token_id'   => 'news_item',
+            'csrf_token_id' => 'news_item',
         ));
     }
 }

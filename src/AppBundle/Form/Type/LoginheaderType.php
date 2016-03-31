@@ -12,24 +12,24 @@ class LoginheaderType extends AbstractType
 {
     /**
      * @param FormBuilderInterface $builder
-     * @param array $options
+     * @param array                $options
      */
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('username', TextType::class, array('attr' => array( 'label' => 'Identifiant', 'name' => '_username')))
-            ->add('password', TextType::class, array('attr' => array( 'label' => 'Mot de passe', 'name' => '_password')))
+            ->add('username', TextType::class, array('attr' => array('label' => 'Identifiant', 'name' => '_username')))
+            ->add('password', TextType::class, array('attr' => array('label' => 'Mot de passe', 'name' => '_password')))
             ->add('Envoyer', SubmitType::class)
         ;
     }
-    
+
     /**
      * @param OptionsResolverInterface $resolver
      */
     public function configureOptions(OptionsResolver $resolver)
     {
         $resolver->setDefaults(array(
-            'data_class' => 'AppBundle\Entity\User'
+            'data_class' => 'AppBundle\Entity\User',
         ));
     }
 }

@@ -50,9 +50,9 @@ class Role implements RoleInterface
     // ... getters and setters for each property
 
     /**
-     * Get id
+     * Get id.
      *
-     * @return integer 
+     * @return int
      */
     public function getId()
     {
@@ -60,9 +60,10 @@ class Role implements RoleInterface
     }
 
     /**
-     * Set name
+     * Set name.
      *
      * @param string $name
+     *
      * @return Role
      */
     public function setName($name)
@@ -73,9 +74,9 @@ class Role implements RoleInterface
     }
 
     /**
-     * Get name
+     * Get name.
      *
-     * @return string 
+     * @return string
      */
     public function getName()
     {
@@ -83,9 +84,10 @@ class Role implements RoleInterface
     }
 
     /**
-     * Set role
+     * Set role.
      *
      * @param string $role
+     *
      * @return Role
      */
     public function setRole($role)
@@ -96,9 +98,10 @@ class Role implements RoleInterface
     }
 
     /**
-     * Add users
+     * Add users.
      *
      * @param \AppBundle\Entity\User $users
+     *
      * @return Role
      */
     public function addUser(\AppBundle\Entity\User $users)
@@ -109,7 +112,7 @@ class Role implements RoleInterface
     }
 
     /**
-     * Remove users
+     * Remove users.
      *
      * @param \AppBundle\Entity\User $users
      */
@@ -119,9 +122,9 @@ class Role implements RoleInterface
     }
 
     /**
-     * Get users
+     * Get users.
      *
-     * @return \Doctrine\Common\Collections\Collection 
+     * @return \Doctrine\Common\Collections\Collection
      */
     public function getUsers()
     {

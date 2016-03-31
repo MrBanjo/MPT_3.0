@@ -125,6 +125,14 @@ $(document).ready(function(){
 
 	})();
 
+	var account = (function() {
+		$('.ref-commandes').on('click', function() {
+			var ref = $(this).text();
+			$('.button-ref').addClass('table-hide');
+			$('#button-' + ref).removeClass('table-hide');
+		});
+	})();
+
 	// Le spinner du formulaire d'enregistrement
 	var spinnerlogin = (function () {
 		if ($('.email_row')) {

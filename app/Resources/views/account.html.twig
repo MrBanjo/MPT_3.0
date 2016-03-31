@@ -5,9 +5,6 @@
 <section class="first_section">
 	<div class="container_small">
 		<div id="account-wrapper">
-			<nav class="breadcrumb">
-				{{ knp_menu_render('breadcrumb',{'depth': 2,'currentAsLink':false}) }}
-			</nav>
 			<div class="green_header">
 				<h1>Mon compte</h1>			
 			</div>
@@ -29,9 +26,66 @@
 						</ul>
 					</nav>
 				</section>
-				<section>
-					<article></article>
-					<article></article>
+				<section id="account_box">
+					<article id="account_commandes">
+						<h2>Mes commandes</h2>
+						<div class="box_table">
+						<table class="table_caddie table-striped">
+						<thead>
+							<tr>
+								<th id="caddie_table_photo">Numéro de la commande</th>
+								<th id="caddie_table_produit">Date de commande</th>
+								<th id="caddie_table_prix">Articles</th>
+								<th id="caddie_table_quantite">État de la commande</th>
+								<th id="caddie_table_total">Coût</th>
+							</tr>
+						</thead>
+						<tbody>
+
+							{% for commande in commandes %} <!-- Création des lignes du tableau contenant les produits -->
+
+								<tr>
+									<th><button class="ref-commandes">{{ commande.reference }}</button></th>
+									<th>{{ commande.date|localizeddate('medium', 'none', 'fr') }}</th>
+									<th>{{ commandes|length }}</th>
+									<th>En cours</th>
+									<th><span class='test'>{{ commande.prix }}</span> €</th>			            		
+								</tr>
+
+							{% endfor %}
+
+						</tbody>
+					</table>
+					</div>
+							{% for commande in commandes %} <!-- Création des lignes du tableau contenant les produits -->
+
+						<table class="table_caddie table-striped table-hide button-ref" id="button-{{commande.reference}}">
+						<caption>Détails de la commande {{commande.reference}}</caption>
+
+						<thead>
+							<tr>
+								<th id="caddie_table_photo">Produit</th>
+								<th id="caddie_table_produit">Quantité</th>
+								<th id="caddie_table_prix">Prix</th>
+							</tr>
+						</thead>
+						<tbody>
+
+								{% for liste in commande.produit %}
+								<tr>
+									<th>{{ liste.titre }}</th>
+									<th>{{ liste.quantite }}</th>
+									<th>{{ liste.prix }} €</th>		            		
+								</tr>
+								{% endfor %}
+						
+						</tbody>
+					</table>
+					{% endfor %}						
+					</article>
+					<article>
+						
+					</article>
 					<article></article>
 					<article></article>
 					<article></article>

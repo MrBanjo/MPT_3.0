@@ -13,7 +13,7 @@ class HomeController extends BaseController
      */
     public function indexAction()
     {
-		$blogs = $this->getRepo('AppBundle:Blog')->getBlogAccueil();
+        $blogs = $this->getRepo('AppBundle:Blog')->getBlogAccueil();
 
         return $this->render('accueil', ['liste_blog' => $blogs]);
     }

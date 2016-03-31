@@ -5,7 +5,7 @@ namespace AppBundle\Entity;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * Caddie
+ * Caddie.
  *
  * @ORM\Table()
  * @ORM\Entity(repositoryClass="AppBundle\Entity\CaddieRepository")
@@ -13,7 +13,7 @@ use Doctrine\ORM\Mapping as ORM;
 class Caddie
 {
     /**
-     * @var integer
+     * @var int
      *
      * @ORM\Column(name="id", type="integer")
      * @ORM\Id
@@ -24,9 +24,9 @@ class Caddie
     /**
      * @var string
      *
-     * @ORM\Column(name="identifiant", type="string", length=255)
+     * @ORM\Column(name="session", type="string", length=255)
      */
-    private $identifiant;
+    private $session;
 
     /**
      * @var string
@@ -37,7 +37,7 @@ class Caddie
     private $user;
 
     /**
-     * @var integer
+     * @var int
      *
      * @ORM\Column(name="quantite", type="integer")
      */
@@ -75,9 +75,9 @@ class Caddie
     private $upsell;
 
     /**
-     * Get id
+     * Get id.
      *
-     * @return integer 
+     * @return int
      */
     public function getId()
     {
@@ -85,55 +85,10 @@ class Caddie
     }
 
     /**
-     * Set identifiant
+     * Set quantite.
      *
-     * @param string $identifiant
-     * @return Caddie
-     */
-    public function setIdentifiant($identifiant)
-    {
-        $this->identifiant = $identifiant;
-
-        return $this;
-    }
-
-    /**
-     * Get identifiant
+     * @param int $quantite
      *
-     * @return string 
-     */
-    public function getIdentifiant()
-    {
-        return $this->identifiant;
-    }
-
-    /**
-     * Set description
-     *
-     * @param string $description
-     * @return Caddie
-     */
-    public function setDescription($description)
-    {
-        $this->description = $description;
-
-        return $this;
-    }
-
-    /**
-     * Get description
-     *
-     * @return string 
-     */
-    public function getDescription()
-    {
-        return $this->description;
-    }
-
-    /**
-     * Set quantite
-     *
-     * @param integer $quantite
      * @return Caddie
      */
     public function setQuantite($quantite)
@@ -144,9 +99,9 @@ class Caddie
     }
 
     /**
-     * Get quantite
+     * Get quantite.
      *
-     * @return integer 
+     * @return int
      */
     public function getQuantite()
     {
@@ -154,9 +109,10 @@ class Caddie
     }
 
     /**
-     * Set prix
+     * Set prix.
      *
      * @param string $prix
+     *
      * @return Caddie
      */
     public function setPrix($prix)
@@ -167,9 +123,9 @@ class Caddie
     }
 
     /**
-     * Get prix
+     * Get prix.
      *
-     * @return string 
+     * @return string
      */
     public function getPrix()
     {
@@ -177,9 +133,10 @@ class Caddie
     }
 
     /**
-     * Set photo
+     * Set photo.
      *
      * @param string $photo
+     *
      * @return Caddie
      */
     public function setPhoto($photo)
@@ -190,16 +147,16 @@ class Caddie
     }
 
     /**
-     * Get photo
+     * Get photo.
      *
-     * @return string 
+     * @return string
      */
     public function getPhoto()
     {
         return $this->photo;
     }
     /**
-     * Constructor
+     * Constructor.
      */
     public function __construct()
     {
@@ -207,9 +164,10 @@ class Caddie
     }
 
     /**
-     * Set user
+     * Set user.
      *
      * @param \AppBundle\Entity\User $user
+     *
      * @return Caddie
      */
     public function setUser(\AppBundle\Entity\User $user = null)
@@ -220,9 +178,9 @@ class Caddie
     }
 
     /**
-     * Get user
+     * Get user.
      *
-     * @return \AppBundle\Entity\User 
+     * @return \AppBundle\Entity\User
      */
     public function getUser()
     {
@@ -230,9 +188,10 @@ class Caddie
     }
 
     /**
-     * Add menus
+     * Add menus.
      *
      * @param \AppBundle\Entity\Menu $menus
+     *
      * @return Caddie
      */
     public function addMenu(\AppBundle\Entity\Menu $menus)
@@ -243,7 +202,7 @@ class Caddie
     }
 
     /**
-     * Remove menus
+     * Remove menus.
      *
      * @param \AppBundle\Entity\Menu $menus
      */
@@ -253,9 +212,9 @@ class Caddie
     }
 
     /**
-     * Get menus
+     * Get menus.
      *
-     * @return \Doctrine\Common\Collections\Collection 
+     * @return \Doctrine\Common\Collections\Collection
      */
     public function getMenus()
     {
@@ -263,9 +222,10 @@ class Caddie
     }
 
     /**
-     * Set menu
+     * Set menu.
      *
      * @param \AppBundle\Entity\Menu $menu
+     *
      * @return Caddie
      */
     public function setMenu(\AppBundle\Entity\Menu $menu = null)
@@ -276,9 +236,9 @@ class Caddie
     }
 
     /**
-     * Get menu
+     * Get menu.
      *
-     * @return \AppBundle\Entity\Menu 
+     * @return \AppBundle\Entity\Menu
      */
     public function getMenu()
     {
@@ -286,9 +246,10 @@ class Caddie
     }
 
     /**
-     * Set upsell
+     * Set upsell.
      *
      * @param \AppBundle\Entity\Upsell $upsell
+     *
      * @return Caddie
      */
     public function setUpsell(\AppBundle\Entity\Upsell $upsell = null)
@@ -299,9 +260,9 @@ class Caddie
     }
 
     /**
-     * Get upsell
+     * Get upsell.
      *
-     * @return \AppBundle\Entity\Upsell 
+     * @return \AppBundle\Entity\Upsell
      */
     public function getUpsell()
     {
@@ -309,7 +270,7 @@ class Caddie
     }
 
     /**
-     * Set titre
+     * Set titre.
      *
      * @param string $titre
      *
@@ -323,12 +284,36 @@ class Caddie
     }
 
     /**
-     * Get titre
+     * Get titre.
      *
      * @return string
      */
     public function getTitre()
     {
         return $this->titre;
+    }
+
+    /**
+     * Set session
+     *
+     * @param string $session
+     *
+     * @return Caddie
+     */
+    public function setSession($session)
+    {
+        $this->session = $session;
+
+        return $this;
+    }
+
+    /**
+     * Get session
+     *
+     * @return string
+     */
+    public function getSession()
+    {
+        return $this->session;
     }
 }

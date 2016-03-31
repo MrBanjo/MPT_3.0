@@ -22,27 +22,27 @@ class BaseController extends Controller
         return parent::render($view.'.html.twig', $parameters);
     }
 
-    protected function persist($entity) 
+    protected function persist($entity)
     {
         $this->getDoctrine()->getManager()->persist($entity);
     }
 
-    protected function flush() 
+    protected function flush()
     {
         $this->getDoctrine()->getManager()->flush();
     }
 
-    protected function getRepo($entity) 
+    protected function getRepo($entity)
     {
         return $this->getDoctrine()->getRepository($entity);
     }
 
-     protected function find($handle, $id)
+    protected function find($handle, $id)
     {
         return $this->getRepo($handle)->find($id);
     }
 
-    protected function findBy($handle, array $champs, array $order = [], $limit  = null, $offset = null)
+    protected function findBy($handle, array $champs, array $order = [], $limit = null, $offset = null)
     {
         return $this->getRepo($handle)->findBy($champs, $order, $limit, $offset);
     }
@@ -51,7 +51,7 @@ class BaseController extends Controller
     {
         return $this->getRepo($handle)->findAll();
     }
- 
+
     protected function save($object, $flush = true)
     {
         $this->getDoctrine()->getManager()->persist($object);
@@ -59,7 +59,7 @@ class BaseController extends Controller
             $this->getDoctrine()->getManager()->flush();
         }
     }
- 
+
     protected function remove($object, $flush = true)
     {
         $this->getDoctrine()->getManager()->remove($object);
@@ -70,7 +70,7 @@ class BaseController extends Controller
 
     protected function createEntity($entity)
     {
-        return new $entity;
+        return new $entity();
     }
 
     protected function redirectTo($path, array $params = [])
@@ -91,7 +91,8 @@ class BaseController extends Controller
     protected function countCart()
     {
         $cartExtension = $this->container->get('app.twig.cart_extension');
-        $countCart =  $cartExtension->countCart($this->getUser());
+        $countCart = $cartExtension->countCart($this->getUser());
+
         return $countCart;
     }
 }

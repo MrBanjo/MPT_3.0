@@ -5,7 +5,7 @@ namespace AppBundle\Entity;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * Menu
+ * Menu.
  *
  * @ORM\Table()
  * @ORM\Entity(repositoryClass="AppBundle\Entity\MenuRepository")
@@ -13,7 +13,7 @@ use Doctrine\ORM\Mapping as ORM;
 class Menu
 {
     /**
-     * @var integer
+     * @var int
      *
      * @ORM\Column(name="id", type="integer")
      * @ORM\Id
@@ -74,9 +74,9 @@ class Menu
     private $caddies;
 
     /**
-     * Get id
+     * Get id.
      *
-     * @return integer 
+     * @return int
      */
     public function getId()
     {
@@ -84,9 +84,10 @@ class Menu
     }
 
     /**
-     * Set titre
+     * Set titre.
      *
      * @param string $titre
+     *
      * @return Menu
      */
     public function setTitre($titre)
@@ -97,9 +98,9 @@ class Menu
     }
 
     /**
-     * Get titre
+     * Get titre.
      *
-     * @return string 
+     * @return string
      */
     public function getTitre()
     {
@@ -107,9 +108,10 @@ class Menu
     }
 
     /**
-     * Set prix
+     * Set prix.
      *
      * @param string $prix
+     *
      * @return Menu
      */
     public function setPrix($prix)
@@ -120,9 +122,9 @@ class Menu
     }
 
     /**
-     * Get prix
+     * Get prix.
      *
-     * @return string 
+     * @return string
      */
     public function getPrix()
     {
@@ -130,9 +132,10 @@ class Menu
     }
 
     /**
-     * Set date
+     * Set date.
      *
      * @param \DateTime $date
+     *
      * @return Menu
      */
     public function setDate($date)
@@ -143,9 +146,9 @@ class Menu
     }
 
     /**
-     * Get date
+     * Get date.
      *
-     * @return \DateTime 
+     * @return \DateTime
      */
     public function getDate()
     {
@@ -153,9 +156,10 @@ class Menu
     }
 
     /**
-     * Set categorie
+     * Set categorie.
      *
      * @param \AppBundle\Entity\Categorie $categorie
+     *
      * @return Menu
      */
     public function setCategorie(\AppBundle\Entity\Categorie $categorie)
@@ -166,16 +170,16 @@ class Menu
     }
 
     /**
-     * Get categorie
+     * Get categorie.
      *
-     * @return \AppBundle\Entity\Categorie 
+     * @return \AppBundle\Entity\Categorie
      */
     public function getCategorie()
     {
         return $this->categorie;
     }
     /**
-     * Constructor
+     * Constructor.
      */
     public function __construct()
     {
@@ -183,9 +187,10 @@ class Menu
     }
 
     /**
-     * Add plats
+     * Add plats.
      *
      * @param \AppBundle\Entity\Plat $plats
+     *
      * @return Menu
      */
     public function addPlat(\AppBundle\Entity\Plat $plats)
@@ -197,7 +202,7 @@ class Menu
     }
 
     /**
-     * Remove plats
+     * Remove plats.
      *
      * @param \AppBundle\Entity\Plat $plats
      */
@@ -207,9 +212,9 @@ class Menu
     }
 
     /**
-     * Get plats
+     * Get plats.
      *
-     * @return \Doctrine\Common\Collections\Collection 
+     * @return \Doctrine\Common\Collections\Collection
      */
     public function getPlats()
     {
@@ -217,9 +222,10 @@ class Menu
     }
 
     /**
-     * Set active
+     * Set active.
      *
      * @param string $active
+     *
      * @return Menu
      */
     public function setActive($active)
@@ -230,9 +236,9 @@ class Menu
     }
 
     /**
-     * Get active
+     * Get active.
      *
-     * @return string 
+     * @return string
      */
     public function getActive()
     {
@@ -240,9 +246,10 @@ class Menu
     }
 
     /**
-     * Set caddie
+     * Set caddie.
      *
      * @param \AppBundle\Entity\Caddie $caddie
+     *
      * @return Menu
      */
     public function setCaddie(\AppBundle\Entity\Caddie $caddie)
@@ -253,9 +260,9 @@ class Menu
     }
 
     /**
-     * Get caddie
+     * Get caddie.
      *
-     * @return \AppBundle\Entity\Caddie 
+     * @return \AppBundle\Entity\Caddie
      */
     public function getCaddie()
     {
@@ -263,9 +270,10 @@ class Menu
     }
 
     /**
-     * Add caddies
+     * Add caddies.
      *
      * @param \AppBundle\Entity\Caddie $caddies
+     *
      * @return Menu
      */
     public function addCaddy(\AppBundle\Entity\Caddie $caddies)
@@ -276,7 +284,7 @@ class Menu
     }
 
     /**
-     * Remove caddies
+     * Remove caddies.
      *
      * @param \AppBundle\Entity\Caddie $caddies
      */
@@ -286,9 +294,9 @@ class Menu
     }
 
     /**
-     * Get caddies
+     * Get caddies.
      *
-     * @return \Doctrine\Common\Collections\Collection 
+     * @return \Doctrine\Common\Collections\Collection
      */
     public function getCaddies()
     {
@@ -296,9 +304,10 @@ class Menu
     }
 
     /**
-     * Set photo
+     * Set photo.
      *
      * @param string $photo
+     *
      * @return Menu
      */
     public function setPhoto($photo)
@@ -309,9 +318,9 @@ class Menu
     }
 
     /**
-     * Get photo
+     * Get photo.
      *
-     * @return string 
+     * @return string
      */
     public function getPhoto()
     {

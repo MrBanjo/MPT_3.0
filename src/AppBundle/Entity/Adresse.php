@@ -5,7 +5,7 @@ namespace AppBundle\Entity;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * Adresse
+ * Adresse.
  *
  * @ORM\Table()
  * @ORM\Entity(repositoryClass="AppBundle\Entity\AdresseRepository")
@@ -13,7 +13,7 @@ use Doctrine\ORM\Mapping as ORM;
 class Adresse
 {
     /**
-     * @var integer
+     * @var int
      *
      * @ORM\Column(name="id", type="integer")
      * @ORM\Id
@@ -63,9 +63,9 @@ class Adresse
     private $titre;
 
     /**
-     * Get id
+     * Get id.
      *
-     * @return integer 
+     * @return int
      */
     public function getId()
     {
@@ -73,9 +73,10 @@ class Adresse
     }
 
     /**
-     * Set voie
+     * Set voie.
      *
      * @param string $voie
+     *
      * @return Adresse
      */
     public function setVoie($voie)
@@ -86,9 +87,9 @@ class Adresse
     }
 
     /**
-     * Get voie
+     * Get voie.
      *
-     * @return string 
+     * @return string
      */
     public function getVoie()
     {
@@ -96,9 +97,10 @@ class Adresse
     }
 
     /**
-     * Set ville
+     * Set ville.
      *
      * @param string $ville
+     *
      * @return Adresse
      */
     public function setVille($ville)
@@ -109,9 +111,9 @@ class Adresse
     }
 
     /**
-     * Get ville
+     * Get ville.
      *
-     * @return string 
+     * @return string
      */
     public function getVille()
     {
@@ -119,9 +121,10 @@ class Adresse
     }
 
     /**
-     * Set postal
+     * Set postal.
      *
      * @param string $postal
+     *
      * @return Adresse
      */
     public function setPostal($postal)
@@ -132,9 +135,9 @@ class Adresse
     }
 
     /**
-     * Get postal
+     * Get postal.
      *
-     * @return string 
+     * @return string
      */
     public function getPostal()
     {
@@ -142,9 +145,10 @@ class Adresse
     }
 
     /**
-     * Set complement
+     * Set complement.
      *
      * @param string $complement
+     *
      * @return Adresse
      */
     public function setComplement($complement)
@@ -155,9 +159,9 @@ class Adresse
     }
 
     /**
-     * Get complement
+     * Get complement.
      *
-     * @return string 
+     * @return string
      */
     public function getComplement()
     {
@@ -165,9 +169,10 @@ class Adresse
     }
 
     /**
-     * Set user
+     * Set user.
      *
      * @param \AppBundle\Entity\User $user
+     *
      * @return Adresse
      */
     public function setUser(\AppBundle\Entity\User $user)
@@ -179,9 +184,9 @@ class Adresse
     }
 
     /**
-     * Get user
+     * Get user.
      *
-     * @return \AppBundle\Entity\User 
+     * @return \AppBundle\Entity\User
      */
     public function getUser()
     {
@@ -189,9 +194,10 @@ class Adresse
     }
 
     /**
-     * Set user_id
+     * Set user_id.
      *
-     * @param integer $userId
+     * @param int $userId
+     *
      * @throws \Exception
      */
     public function setUserId($userId)
@@ -200,9 +206,10 @@ class Adresse
     }
 
     /**
-     * Set titre
+     * Set titre.
      *
      * @param string $titre
+     *
      * @return Adresse
      */
     public function setTitre($titre)
@@ -213,9 +220,9 @@ class Adresse
     }
 
     /**
-     * Get titre
+     * Get titre.
      *
-     * @return string 
+     * @return string
      */
     public function getTitre()
     {

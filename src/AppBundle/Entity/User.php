@@ -9,7 +9,7 @@ use Doctrine\Common\Collections\ArrayCollection;
 use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 
 /**
- * User
+ * User.
  *
  * @ORM\Table()
  * @ORM\Entity(repositoryClass="AppBundle\Entity\UserRepository")
@@ -18,7 +18,7 @@ use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 class User implements UserInterface, \Serializable
 {
     /**
-     * @var integer
+     * @var int
      *
      * @ORM\Column(name="id", type="integer")
      * @ORM\Id
@@ -92,22 +92,21 @@ class User implements UserInterface, \Serializable
     private $subscribedate;
 
     /**
-     * 
      * @ORM\ManyToMany(targetEntity="Role", inversedBy="users", cascade={"persist"})
      */
     private $roles;
-    
+
     /**
-     * @inheritDoc
+     * {@inheritdoc}
      */
     public function getPassword()
     {
         return $this->password;
     }
     /**
-     * Get id
+     * Get id.
      *
-     * @return integer 
+     * @return int
      */
     public function getId()
     {
@@ -115,7 +114,7 @@ class User implements UserInterface, \Serializable
     }
 
     /**
-     * @inheritDoc
+     * {@inheritdoc}
      */
     public function getUsername()
     {
@@ -123,7 +122,7 @@ class User implements UserInterface, \Serializable
     }
 
     /**
-     * @inheritDoc
+     * {@inheritdoc}
      */
     public function getRoles()
     {
@@ -131,22 +130,22 @@ class User implements UserInterface, \Serializable
     }
 
     /**
-     * @inheritDoc
+     * {@inheritdoc}
      */
     public function getSalt()
     {
         // you *may* need a real salt depending on your encoder
         // see section on salt below
-        return null;
+        return;
     }
 
     /**
-     * @inheritDoc
+     * {@inheritdoc}
      */
     public function eraseCredentials()
     {
     }
-    
+
     /**
      * @see \Serializable::serialize()
      */
@@ -166,7 +165,7 @@ class User implements UserInterface, \Serializable
      */
     public function unserialize($serialized)
     {
-        list (
+        list(
             $this->id,
             $this->username,
             $this->password,
@@ -176,9 +175,10 @@ class User implements UserInterface, \Serializable
     }
 
     /**
-     * Set nom
+     * Set nom.
      *
      * @param string $nom
+     *
      * @return User
      */
     public function setNom($nom)
@@ -189,9 +189,9 @@ class User implements UserInterface, \Serializable
     }
 
     /**
-     * Get nom
+     * Get nom.
      *
-     * @return string 
+     * @return string
      */
     public function getNom()
     {
@@ -199,9 +199,10 @@ class User implements UserInterface, \Serializable
     }
 
     /**
-     * Set prenom
+     * Set prenom.
      *
      * @param string $prenom
+     *
      * @return User
      */
     public function setPrenom($prenom)
@@ -212,9 +213,9 @@ class User implements UserInterface, \Serializable
     }
 
     /**
-     * Get prenom
+     * Get prenom.
      *
-     * @return string 
+     * @return string
      */
     public function getPrenom()
     {
@@ -222,9 +223,10 @@ class User implements UserInterface, \Serializable
     }
 
     /**
-     * Set password
+     * Set password.
      *
      * @param string $password
+     *
      * @return User
      */
     public function setPassword($password)
@@ -235,9 +237,10 @@ class User implements UserInterface, \Serializable
     }
 
     /**
-     * Set email
+     * Set email.
      *
      * @param string $email
+     *
      * @return User
      */
     public function setEmail($email)
@@ -248,9 +251,9 @@ class User implements UserInterface, \Serializable
     }
 
     /**
-     * Get email
+     * Get email.
      *
-     * @return string 
+     * @return string
      */
     public function getEmail()
     {
@@ -258,9 +261,10 @@ class User implements UserInterface, \Serializable
     }
 
     /**
-     * Set birthdate
+     * Set birthdate.
      *
      * @param \DateTime $birthdate
+     *
      * @return User
      */
     public function setBirthdate($birthdate)
@@ -271,9 +275,9 @@ class User implements UserInterface, \Serializable
     }
 
     /**
-     * Get birthdate
+     * Get birthdate.
      *
-     * @return \DateTime 
+     * @return \DateTime
      */
     public function getBirthdate()
     {
@@ -281,9 +285,10 @@ class User implements UserInterface, \Serializable
     }
 
     /**
-     * Set subscribedate
+     * Set subscribedate.
      *
      * @param \DateTime $subscribedate
+     *
      * @return User
      */
     public function setSubscribedate($subscribedate)
@@ -294,40 +299,41 @@ class User implements UserInterface, \Serializable
     }
 
     /**
-     * Get subscribedate
+     * Get subscribedate.
      *
-     * @return \DateTime 
+     * @return \DateTime
      */
     public function getSubscribedate()
     {
         return $this->subscribedate;
     }
     /**
-     * Constructor
+     * Constructor.
      */
     public function __construct()
     {
         $this->adresses = new ArrayCollection();
         $this->subscribedate = new \datetime();
         $this->roles = new ArrayCollection();
-        
     }
 
     /**
-     * Add adresses
+     * Add adresses.
      *
      * @param \AppBundle\Entity\Adresse $adresses
+     *
      * @return User
      */
     public function addAdress(\AppBundle\Entity\Adresse $adresses)
     {
         $this->adresses[] = $adresses;
         $adresses->setUser($this);
+
         return $this;
     }
 
     /**
-     * Remove adresses
+     * Remove adresses.
      *
      * @param \AppBundle\Entity\Adresse $adresses
      */
@@ -337,9 +343,9 @@ class User implements UserInterface, \Serializable
     }
 
     /**
-     * Get adresses
+     * Get adresses.
      *
-     * @return \Doctrine\Common\Collections\Collection 
+     * @return \Doctrine\Common\Collections\Collection
      */
     public function getAdresses()
     {
@@ -347,9 +353,10 @@ class User implements UserInterface, \Serializable
     }
 
     /**
-     * Set username
+     * Set username.
      *
      * @param string $username
+     *
      * @return User
      */
     public function setUsername($username)
@@ -360,9 +367,10 @@ class User implements UserInterface, \Serializable
     }
 
     /**
-     * Add roles
+     * Add roles.
      *
      * @param \AppBundle\Entity\Role $roles
+     *
      * @return User
      */
     public function addRole(\AppBundle\Entity\Role $roles)
@@ -374,7 +382,7 @@ class User implements UserInterface, \Serializable
     }
 
     /**
-     * Remove roles
+     * Remove roles.
      *
      * @param \AppBundle\Entity\Role $roles
      */
@@ -384,9 +392,10 @@ class User implements UserInterface, \Serializable
     }
 
     /**
-     * Set civilite
+     * Set civilite.
      *
      * @param string $civilite
+     *
      * @return User
      */
     public function setCivilite($civilite)
@@ -397,22 +406,23 @@ class User implements UserInterface, \Serializable
     }
 
     /**
-     * Get civilite
+     * Get civilite.
      *
-     * @return string 
+     * @return string
      */
     public function getCivilite()
     {
         return $this->civilite;
     }
 
-   public function setAdresses(ArrayCollection $Adresses)
+    public function setAdresses(ArrayCollection $Adresses)
     {
         $this->Adresses = $Adresses;
         foreach ($adresses as $adresse) {
             $adresse->setUser($this);
         }
-        return $this; 
+
+        return $this;
     }
 
     public function __toString()
@@ -421,9 +431,10 @@ class User implements UserInterface, \Serializable
     }
 
     /**
-     * Add caddies
+     * Add caddies.
      *
      * @param \AppBundle\Entity\Caddie $caddies
+     *
      * @return User
      */
     public function addCaddy(\AppBundle\Entity\Caddie $caddies)
@@ -434,7 +445,7 @@ class User implements UserInterface, \Serializable
     }
 
     /**
-     * Remove caddies
+     * Remove caddies.
      *
      * @param \AppBundle\Entity\Caddie $caddies
      */
@@ -444,9 +455,9 @@ class User implements UserInterface, \Serializable
     }
 
     /**
-     * Get caddies
+     * Get caddies.
      *
-     * @return \Doctrine\Common\Collections\Collection 
+     * @return \Doctrine\Common\Collections\Collection
      */
     public function getCaddies()
     {

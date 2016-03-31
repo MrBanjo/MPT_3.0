@@ -10,7 +10,7 @@ class MenuType extends AbstractType
 {
     /**
      * @param FormBuilderInterface $builder
-     * @param array $options
+     * @param array                $options
      */
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
@@ -20,26 +20,26 @@ class MenuType extends AbstractType
             ->add('photo')
             ->add('date')
             ->add('active')
-            ->add('categorie', 'entity',array(
+            ->add('categorie', 'entity', array(
                 'class' => 'AppBundle:Categorie',
                 'property' => 'nom',
             ))
             ->add('plats', 'entity', array(
                 'class' => 'AppBundle:Plat',
                 'property' => 'titre',
-                'multiple' => 'true'
+                'multiple' => 'true',
             ))
-            ->add('Ajouter', 'submit', array( 'attr' => array("class" => "btn btn-default")))
+            ->add('Ajouter', 'submit', array('attr' => array('class' => 'btn btn-default')))
         ;
     }
-    
+
     /**
      * @param OptionsResolverInterface $resolver
      */
     public function setDefaultOptions(OptionsResolverInterface $resolver)
     {
         $resolver->setDefaults(array(
-            'data_class' => 'AppBundle\Entity\Menu'
+            'data_class' => 'AppBundle\Entity\Menu',
         ));
     }
 }

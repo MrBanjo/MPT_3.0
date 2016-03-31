@@ -5,7 +5,7 @@ namespace AppBundle\Entity;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * Blog
+ * Blog.
  *
  * @ORM\Table()
  * @ORM\Entity(repositoryClass="AppBundle\Entity\BlogRepository")
@@ -13,7 +13,7 @@ use Doctrine\ORM\Mapping as ORM;
 class Blog
 {
     /**
-     * @var integer
+     * @var int
      *
      * @ORM\Column(name="id", type="integer")
      * @ORM\Id
@@ -65,9 +65,9 @@ class Blog
     private $rubriqueblog;
 
     /**
-     * Get id
+     * Get id.
      *
-     * @return integer 
+     * @return int
      */
     public function getId()
     {
@@ -75,9 +75,10 @@ class Blog
     }
 
     /**
-     * Set titre
+     * Set titre.
      *
      * @param string $titre
+     *
      * @return Blog
      */
     public function setTitre($titre)
@@ -88,9 +89,9 @@ class Blog
     }
 
     /**
-     * Get titre
+     * Get titre.
      *
-     * @return string 
+     * @return string
      */
     public function getTitre()
     {
@@ -98,9 +99,10 @@ class Blog
     }
 
     /**
-     * Set description
+     * Set description.
      *
      * @param string $description
+     *
      * @return Blog
      */
     public function setDescription($description)
@@ -111,9 +113,9 @@ class Blog
     }
 
     /**
-     * Get description
+     * Get description.
      *
-     * @return string 
+     * @return string
      */
     public function getDescription()
     {
@@ -121,9 +123,10 @@ class Blog
     }
 
     /**
-     * Set article
+     * Set article.
      *
      * @param string $article
+     *
      * @return Blog
      */
     public function setArticle($article)
@@ -134,9 +137,9 @@ class Blog
     }
 
     /**
-     * Get article
+     * Get article.
      *
-     * @return string 
+     * @return string
      */
     public function getArticle()
     {
@@ -144,9 +147,10 @@ class Blog
     }
 
     /**
-     * Set image
+     * Set image.
      *
      * @param string $image
+     *
      * @return Blog
      */
     public function setImage($image)
@@ -157,9 +161,9 @@ class Blog
     }
 
     /**
-     * Get image
+     * Get image.
      *
-     * @return string 
+     * @return string
      */
     public function getImage()
     {
@@ -167,9 +171,10 @@ class Blog
     }
 
     /**
-     * Set date
+     * Set date.
      *
      * @param \DateTime $date
+     *
      * @return Blog
      */
     public function setDate($date)
@@ -180,9 +185,9 @@ class Blog
     }
 
     /**
-     * Get date
+     * Get date.
      *
-     * @return \DateTime 
+     * @return \DateTime
      */
     public function getDate()
     {
@@ -190,9 +195,10 @@ class Blog
     }
 
     /**
-     * Set rubriqueblog
+     * Set rubriqueblog.
      *
      * @param \AppBundle\Entity\Rubriqueblog $rubriqueblog
+     *
      * @return Blog
      */
     public function setRubriqueblog(\AppBundle\Entity\Rubriqueblog $rubriqueblog)
@@ -203,9 +209,9 @@ class Blog
     }
 
     /**
-     * Get rubriqueblog
+     * Get rubriqueblog.
      *
-     * @return \AppBundle\Entity\Rubriqueblog 
+     * @return \AppBundle\Entity\Rubriqueblog
      */
     public function getRubriqueblog()
     {

@@ -14,12 +14,11 @@ use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\Extension\Core\Type\CollectionType;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 
-
 class UserType extends AbstractType
 {
     /**
      * @param FormBuilderInterface $builder
-     * @param array $options
+     * @param array                $options
      */
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
@@ -29,36 +28,36 @@ class UserType extends AbstractType
                         'type' => PasswordType::class,
                         'invalid_message' => 'Les mots de passe doivent correspondre.',
                         'options' => array('required' => true),
-                        'first_options'  => array('label' => 'Mot de passe:'),
+                        'first_options' => array('label' => 'Mot de passe:'),
                         'second_options' => array('label' => 'Confirmer ce mot de passe:'),
                         ))
             ->add('civilite', ChoiceType::class, array(
                             'choices' => array(
-                                'Mademoiselle' => 'Mademoiselle', 
+                                'Mademoiselle' => 'Mademoiselle',
                                 'Madame' => 'Madame',
-                                'Monsieur' => 'Monsieur'
+                                'Monsieur' => 'Monsieur',
                                 ),
                             'multiple' => false,
                             'expanded' => true,
-                            'label' => 'Civilité:'))
+                            'label' => 'Civilité:', ))
             ->add('prenom', TextType::class, array('label' => 'Prénom:'))
             ->add('nom', TextType::class, array('label' => 'Nom:'))
-            ->add('birthdate' , BirthdayType::class, array( 
-                                                    'widget' => 'choice', 
-                                                    'label' => 'Date de naissance:', 
-                                                    'format' => 'dd MMMM yyyy', 
-                                                    'years' => range(date('Y'),1920)))
-            ->add('adresses', CollectionType::class , array(  
+            ->add('birthdate', BirthdayType::class, array(
+                                                    'widget' => 'choice',
+                                                    'label' => 'Date de naissance:',
+                                                    'format' => 'dd MMMM yyyy',
+                                                    'years' => range(date('Y'), 1920), ))
+            ->add('adresses', CollectionType::class, array(
                                                     'entry_type' => AdresseType::class,
-                                                    'allow_add'    => true,
+                                                    'allow_add' => true,
                                                     'allow_delete' => true,
                                                     'by_reference' => false,
-                                                    'label' => false
+                                                    'label' => false,
                                                     ))
             ->add('VALIDER', SubmitType::class)
         ;
     }
-    
+
     /**
      * @param OptionsResolver $resolver
      */
@@ -66,7 +65,7 @@ class UserType extends AbstractType
     {
         $resolver->setDefaults(array(
             'data_class' => 'AppBundle\Entity\User',
-            'cascade_validation' => true
+            'cascade_validation' => true,
         ));
     }
 }

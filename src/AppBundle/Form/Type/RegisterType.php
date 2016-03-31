@@ -16,7 +16,7 @@ class RegisterType extends AbstractType
 {
     /**
      * @param FormBuilderInterface $builder
-     * @param array $options
+     * @param array                $options
      */
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
@@ -28,21 +28,21 @@ class RegisterType extends AbstractType
                         'type' => PasswordType::class,
                         'invalid_message' => 'Les mots de passe doivent correspondre',
                         'options' => array('required' => true),
-                        'first_options'  => array('label' => 'Mot de passe'),
+                        'first_options' => array('label' => 'Mot de passe'),
                         'second_options' => array('label' => 'Validation du Mot de passe'),
                         ))
-            ->add('birthdate', BirthdayType::class, array( 'widget' => 'choice', 'label' => 'Date de naissance'))
+            ->add('birthdate', BirthdayType::class, array('widget' => 'choice', 'label' => 'Date de naissance'))
             ->add('Inscription', SubmitType::class)
         ;
     }
-    
+
     /**
      * @param OptionsResolverInterface $resolver
      */
     public function configureOptions(OptionsResolver $resolver)
     {
         $resolver->setDefaults(array(
-            'data_class' => 'AppBundle\Entity\User'
+            'data_class' => 'AppBundle\Entity\User',
         ));
     }
 }

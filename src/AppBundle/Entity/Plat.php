@@ -5,7 +5,7 @@ namespace AppBundle\Entity;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * Plat
+ * Plat.
  *
  * @ORM\Table()
  * @ORM\Entity(repositoryClass="AppBundle\Entity\PlatRepository")
@@ -13,7 +13,7 @@ use Doctrine\ORM\Mapping as ORM;
 class Plat
 {
     /**
-     * @var integer
+     * @var int
      *
      * @ORM\Column(name="id", type="integer")
      * @ORM\Id
@@ -84,9 +84,9 @@ class Plat
     private $menus;
 
     /**
-     * Get id
+     * Get id.
      *
-     * @return integer 
+     * @return int
      */
     public function getId()
     {
@@ -94,9 +94,10 @@ class Plat
     }
 
     /**
-     * Set titre
+     * Set titre.
      *
      * @param string $titre
+     *
      * @return Plat
      */
     public function setTitre($titre)
@@ -107,9 +108,9 @@ class Plat
     }
 
     /**
-     * Get titre
+     * Get titre.
      *
-     * @return string 
+     * @return string
      */
     public function getTitre()
     {
@@ -117,9 +118,10 @@ class Plat
     }
 
     /**
-     * Set accroche
+     * Set accroche.
      *
      * @param string $accroche
+     *
      * @return Plat
      */
     public function setAccroche($accroche)
@@ -130,9 +132,9 @@ class Plat
     }
 
     /**
-     * Get accroche
+     * Get accroche.
      *
-     * @return string 
+     * @return string
      */
     public function getAccroche()
     {
@@ -140,9 +142,10 @@ class Plat
     }
 
     /**
-     * Set description
+     * Set description.
      *
      * @param string $description
+     *
      * @return Plat
      */
     public function setDescription($description)
@@ -153,9 +156,9 @@ class Plat
     }
 
     /**
-     * Get description
+     * Get description.
      *
-     * @return string 
+     * @return string
      */
     public function getDescription()
     {
@@ -163,9 +166,10 @@ class Plat
     }
 
     /**
-     * Set temps
+     * Set temps.
      *
      * @param string $temps
+     *
      * @return Plat
      */
     public function setTemps($temps)
@@ -176,9 +180,9 @@ class Plat
     }
 
     /**
-     * Get temps
+     * Get temps.
      *
-     * @return string 
+     * @return string
      */
     public function getTemps()
     {
@@ -186,9 +190,10 @@ class Plat
     }
 
     /**
-     * Set difficulte
+     * Set difficulte.
      *
      * @param string $difficulte
+     *
      * @return Plat
      */
     public function setDifficulte($difficulte)
@@ -199,9 +204,9 @@ class Plat
     }
 
     /**
-     * Get difficulte
+     * Get difficulte.
      *
-     * @return string 
+     * @return string
      */
     public function getDifficulte()
     {
@@ -209,9 +214,10 @@ class Plat
     }
 
     /**
-     * Set consistance
+     * Set consistance.
      *
      * @param string $consistance
+     *
      * @return Plat
      */
     public function setConsistance($consistance)
@@ -222,9 +228,9 @@ class Plat
     }
 
     /**
-     * Get consistance
+     * Get consistance.
      *
-     * @return string 
+     * @return string
      */
     public function getConsistance()
     {
@@ -232,9 +238,10 @@ class Plat
     }
 
     /**
-     * Set photo
+     * Set photo.
      *
      * @param string $photo
+     *
      * @return Plat
      */
     public function setPhoto($photo)
@@ -245,9 +252,9 @@ class Plat
     }
 
     /**
-     * Get photo
+     * Get photo.
      *
-     * @return string 
+     * @return string
      */
     public function getPhoto()
     {
@@ -255,9 +262,10 @@ class Plat
     }
 
     /**
-     * Set plus
+     * Set plus.
      *
      * @param string $plus
+     *
      * @return Plat
      */
     public function setPlus($plus)
@@ -268,16 +276,16 @@ class Plat
     }
 
     /**
-     * Get plus
+     * Get plus.
      *
-     * @return string 
+     * @return string
      */
     public function getPlus()
     {
         return $this->plus;
     }
     /**
-     * Constructor
+     * Constructor.
      */
     public function __construct()
     {
@@ -285,9 +293,10 @@ class Plat
     }
 
     /**
-     * Add menus
+     * Add menus.
      *
      * @param \AppBundle\Entity\Menu $menus
+     *
      * @return Plat
      */
     public function addMenu(\AppBundle\Entity\Menu $menus)
@@ -298,7 +307,7 @@ class Plat
     }
 
     /**
-     * Remove menus
+     * Remove menus.
      *
      * @param \AppBundle\Entity\Menu $menus
      */
@@ -308,9 +317,9 @@ class Plat
     }
 
     /**
-     * Get menus
+     * Get menus.
      *
-     * @return \Doctrine\Common\Collections\Collection 
+     * @return \Doctrine\Common\Collections\Collection
      */
     public function getMenus()
     {

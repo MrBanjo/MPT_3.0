@@ -5,7 +5,7 @@ namespace AppBundle\Entity;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * Upsell
+ * Upsell.
  *
  * @ORM\Table()
  * @ORM\Entity(repositoryClass="AppBundle\Entity\UpsellRepository")
@@ -13,7 +13,7 @@ use Doctrine\ORM\Mapping as ORM;
 class Upsell
 {
     /**
-     * @var integer
+     * @var int
      *
      * @ORM\Column(name="id", type="integer")
      * @ORM\Id
@@ -91,9 +91,9 @@ class Upsell
     private $caddies;
 
     /**
-     * Get id
+     * Get id.
      *
-     * @return integer 
+     * @return int
      */
     public function getId()
     {
@@ -101,9 +101,10 @@ class Upsell
     }
 
     /**
-     * Set titre
+     * Set titre.
      *
      * @param string $titre
+     *
      * @return Upsell
      */
     public function setTitre($titre)
@@ -114,9 +115,9 @@ class Upsell
     }
 
     /**
-     * Get titre
+     * Get titre.
      *
-     * @return string 
+     * @return string
      */
     public function getTitre()
     {
@@ -124,9 +125,10 @@ class Upsell
     }
 
     /**
-     * Set description
+     * Set description.
      *
      * @param string $description
+     *
      * @return Upsell
      */
     public function setDescription($description)
@@ -137,9 +139,9 @@ class Upsell
     }
 
     /**
-     * Get description
+     * Get description.
      *
-     * @return string 
+     * @return string
      */
     public function getDescription()
     {
@@ -147,9 +149,10 @@ class Upsell
     }
 
     /**
-     * Set prix
+     * Set prix.
      *
      * @param string $prix
+     *
      * @return Upsell
      */
     public function setPrix($prix)
@@ -160,9 +163,9 @@ class Upsell
     }
 
     /**
-     * Get prix
+     * Get prix.
      *
-     * @return string 
+     * @return string
      */
     public function getPrix()
     {
@@ -170,9 +173,10 @@ class Upsell
     }
 
     /**
-     * Set origine
+     * Set origine.
      *
      * @param string $origine
+     *
      * @return Upsell
      */
     public function setOrigine($origine)
@@ -183,9 +187,9 @@ class Upsell
     }
 
     /**
-     * Get origine
+     * Get origine.
      *
-     * @return string 
+     * @return string
      */
     public function getOrigine()
     {
@@ -193,9 +197,10 @@ class Upsell
     }
 
     /**
-     * Set photo
+     * Set photo.
      *
      * @param string $photo
+     *
      * @return Upsell
      */
     public function setPhoto($photo)
@@ -206,9 +211,9 @@ class Upsell
     }
 
     /**
-     * Get photo
+     * Get photo.
      *
-     * @return string 
+     * @return string
      */
     public function getPhoto()
     {
@@ -216,9 +221,10 @@ class Upsell
     }
 
     /**
-     * Set departement
+     * Set departement.
      *
      * @param string $departement
+     *
      * @return Upsell
      */
     public function setDepartement($departement)
@@ -229,9 +235,9 @@ class Upsell
     }
 
     /**
-     * Get departement
+     * Get departement.
      *
-     * @return string 
+     * @return string
      */
     public function getDepartement()
     {
@@ -239,9 +245,10 @@ class Upsell
     }
 
     /**
-     * Set contenance
+     * Set contenance.
      *
      * @param string $contenance
+     *
      * @return Upsell
      */
     public function setContenance($contenance)
@@ -252,9 +259,9 @@ class Upsell
     }
 
     /**
-     * Get contenance
+     * Get contenance.
      *
-     * @return string 
+     * @return string
      */
     public function getContenance()
     {
@@ -262,9 +269,10 @@ class Upsell
     }
 
     /**
-     * Set actif
+     * Set actif.
      *
      * @param string $actif
+     *
      * @return Upsell
      */
     public function setActif($actif)
@@ -275,9 +283,9 @@ class Upsell
     }
 
     /**
-     * Get actif
+     * Get actif.
      *
-     * @return string 
+     * @return string
      */
     public function getActif()
     {
@@ -285,9 +293,10 @@ class Upsell
     }
 
     /**
-     * Set categorie
+     * Set categorie.
      *
      * @param \AppBundle\Entity\Categorie $categorie
+     *
      * @return Upsell
      */
     public function setCategorie(\AppBundle\Entity\Categorie $categorie)
@@ -298,16 +307,16 @@ class Upsell
     }
 
     /**
-     * Get categorie
+     * Get categorie.
      *
-     * @return \AppBundle\Entity\Categorie 
+     * @return \AppBundle\Entity\Categorie
      */
     public function getCategorie()
     {
         return $this->categorie;
     }
     /**
-     * Constructor
+     * Constructor.
      */
     public function __construct()
     {
@@ -315,9 +324,10 @@ class Upsell
     }
 
     /**
-     * Add caddies
+     * Add caddies.
      *
      * @param \AppBundle\Entity\Caddie $caddies
+     *
      * @return Upsell
      */
     public function addCaddy(\AppBundle\Entity\Caddie $caddies)
@@ -328,7 +338,7 @@ class Upsell
     }
 
     /**
-     * Remove caddies
+     * Remove caddies.
      *
      * @param \AppBundle\Entity\Caddie $caddies
      */
@@ -338,9 +348,9 @@ class Upsell
     }
 
     /**
-     * Get caddies
+     * Get caddies.
      *
-     * @return \Doctrine\Common\Collections\Collection 
+     * @return \Doctrine\Common\Collections\Collection
      */
     public function getCaddies()
     {

@@ -24,6 +24,5 @@ class AdminController extends Controller
     public function editAction()
     {
         return $this->render('admin/adminbase.html.twig');
-    } 
-
+    }
 }

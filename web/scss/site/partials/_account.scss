@@ -10,9 +10,8 @@
     background-color: $green_medium_account;
 }
 
-
 #account-wrapper {
-    margin-top: 50px;
+    margin-top: 35px;
     font-family: "arialnarrow", sans-serif;
     color: $font_brown;
     font-size: 18px;
@@ -41,8 +40,60 @@
     }
 }
 
+#account_content {
+    display: flex;
+    justify-content: center;
+
+    flex-wrap: wrap;
+    padding: 20px 0;
+
+    .box_table {
+        padding: 0;
+    }
+
+    .table_caddie th {
+        padding: 0 5px;
+    }
+
+    .table_caddie tbody th {
+        height: auto;
+        background-color: #eef4ea;
+    }
+
+    caption {
+        margin-top: 20px;
+        font-family: 'Kraftstoff';
+        font-size: 30px;
+        color: #4d4135;
+    }
+
+    .table-hide {
+        display: none;
+    }
+
+    .table_caddie button {
+        font-family: "arialnarrow", sans-serif;
+        color: $font_brown;
+        font-size: 18px;
+        margin: 5px 0;
+        position: relative;
+        border: none;
+        font-weight: bold;
+        &:focus {
+            outline:none;
+        }
+    }
+}
+
+#account_box {
+    margin: auto;
+    h2 {
+        text-align: center;
+    }
+}
+
 #account_sidebar {
-    padding: 50px 0 0 50px;
+    padding: 0px 0 0 50px;
 
     button {
         font-family: "arialnarrow", sans-serif;
@@ -67,8 +118,6 @@
     .account-adresses {
         left: -40px;
     }
-
-
 }
 
 @media only screen and (max-width: 1280px) {

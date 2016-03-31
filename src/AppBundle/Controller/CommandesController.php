@@ -7,17 +7,17 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 use Symfony\Component\HttpFoundation\Request;
 use AppBundle\Entity\Commandes;
+use Doctrine\Common\Collections\ArrayCollection;
 
 class CommandesController extends BaseController
 {
     /**
-    * @Route("/caddie/commande-validée", name="addcommandes")
-    * @Method({"POST","GET","HEAD"})
-    */     
-    public function createCommandesAction(Request $request)
+     * @Route("/caddie/commande-validée", name="addcommandes")
+     * @Method({"POST","GET","HEAD"})
+     */
+    public function createCommandesAction()
     {
-        if ($this->getUser()) 
-        {
+        if ($this->getUser()) {
             $user = $this->getUser();
             $listecommandes = $this->getRepo('AppBundle:Caddie')->getAllProducts($user);
 
@@ -26,24 +26,25 @@ class CommandesController extends BaseController
             }
 
             $totalPrix = $this->getRepo('AppBundle:Caddie')->getTotalPrix($listecommandes);
-            $ref = time() . rand(10*45, 100*98);
+            $ref = time().rand(10 * 45, 100 * 98);
+
+            $collections = new ArrayCollection($listecommandes);
+            $commande = new Commandes();
+            $commande->setReference($ref);
+            $commande->setStatus(1);
+            $commande->setPrix($totalPrix);
+            $commande->setDate(new \DateTime('now'));
+            $commande->setUser($user);
+            $commande->setQuantite(count($listecommandes));
 
             foreach ($listecommandes as $listecommande) {
-
-                $commandes = new Commandes();
-                $produitname = ($listecommande->getUpsell()) ? $listecommande->getUpsell()->getTitre() : $listecommande->getMenu()->getTitre();
-                $commandes->setQuantite($listecommande->getQuantite());
-                $commandes->setUser($user);
-                $commandes->setReference($ref);
-                $commandes->setStatus("En cours");
-                $commandes->setPrix($listecommande->getPrix());
-                $commandes->setDate(new \DateTime('now'));
-                $commandes->setProduit($produitname);
-                $this->save($commandes); 
-                $this->remove($listecommande); // remove product from cart
+                $this->remove($listecommande, false);
             }
+            $commande->setProduit($collections);
+            $this->persist($commande);
+            $this->flush();
 
-            return $this->render('cart_validate', ['prix' => $totalPrix]);           
+            return $this->render('cart_validate', ['prix' => $totalPrix]);
         }
 
         return new RedirectResponse($this->generateUrl('cart_identification'));

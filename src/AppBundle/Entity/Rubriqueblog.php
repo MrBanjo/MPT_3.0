@@ -5,7 +5,7 @@ namespace AppBundle\Entity;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * Rubriqueblog
+ * Rubriqueblog.
  *
  * @ORM\Table()
  * @ORM\Entity(repositoryClass="AppBundle\Entity\RubriqueblogRepository")
@@ -13,7 +13,7 @@ use Doctrine\ORM\Mapping as ORM;
 class Rubriqueblog
 {
     /**
-     * @var integer
+     * @var int
      *
      * @ORM\Column(name="id", type="integer")
      * @ORM\Id
@@ -36,9 +36,9 @@ class Rubriqueblog
     private $blogs;
 
     /**
-     * Get id
+     * Get id.
      *
-     * @return integer 
+     * @return int
      */
     public function getId()
     {
@@ -46,9 +46,10 @@ class Rubriqueblog
     }
 
     /**
-     * Set nom
+     * Set nom.
      *
      * @param string $nom
+     *
      * @return Rubriqueblog
      */
     public function setNom($nom)
@@ -59,16 +60,16 @@ class Rubriqueblog
     }
 
     /**
-     * Get nom
+     * Get nom.
      *
-     * @return string 
+     * @return string
      */
     public function getNom()
     {
         return $this->nom;
     }
     /**
-     * Constructor
+     * Constructor.
      */
     public function __construct()
     {
@@ -76,9 +77,10 @@ class Rubriqueblog
     }
 
     /**
-     * Add blogs
+     * Add blogs.
      *
      * @param \AppBundle\Entity\Blog $blogs
+     *
      * @return Rubriqueblog
      */
     public function addBlog(\AppBundle\Entity\Blog $blogs)
@@ -89,7 +91,7 @@ class Rubriqueblog
     }
 
     /**
-     * Remove blogs
+     * Remove blogs.
      *
      * @param \AppBundle\Entity\Blog $blogs
      */
@@ -99,9 +101,9 @@ class Rubriqueblog
     }
 
     /**
-     * Get blogs
+     * Get blogs.
      *
-     * @return \Doctrine\Common\Collections\Collection 
+     * @return \Doctrine\Common\Collections\Collection
      */
     public function getBlogs()
     {

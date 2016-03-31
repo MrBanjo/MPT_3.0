@@ -35,7 +35,7 @@ class CartExtension extends \Twig_Extension
     public function countCart($user)
     {
         $results = $this->doctrine
-        ->createQuery('SELECT c FROM AppBundle:Caddie c WHERE (c.user = :name1 OR c.identifiant = :name2)')
+        ->createQuery('SELECT c FROM AppBundle:Caddie c WHERE (c.user = :name1 OR c.session = :name2)')
         ->setParameter('name1', $user)
         ->setParameter('name2', $this->session->getId())
         ->getResult();

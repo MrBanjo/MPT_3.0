@@ -5,7 +5,7 @@ namespace AppBundle\Entity;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * Categorie
+ * Categorie.
  *
  * @ORM\Table()
  * @ORM\Entity(repositoryClass="AppBundle\Entity\CategorieRepository")
@@ -13,7 +13,7 @@ use Doctrine\ORM\Mapping as ORM;
 class Categorie
 {
     /**
-     * @var integer
+     * @var int
      *
      * @ORM\Column(name="id", type="integer")
      * @ORM\Id
@@ -50,9 +50,9 @@ class Categorie
     private $upsells;
 
     /**
-     * Get id
+     * Get id.
      *
-     * @return integer 
+     * @return int
      */
     public function getId()
     {
@@ -60,9 +60,10 @@ class Categorie
     }
 
     /**
-     * Set nom
+     * Set nom.
      *
      * @param string $nom
+     *
      * @return Categorie
      */
     public function setNom($nom)
@@ -73,9 +74,9 @@ class Categorie
     }
 
     /**
-     * Get nom
+     * Get nom.
      *
-     * @return string 
+     * @return string
      */
     public function getNom()
     {
@@ -83,9 +84,10 @@ class Categorie
     }
 
     /**
-     * Set description
+     * Set description.
      *
      * @param string $description
+     *
      * @return Categorie
      */
     public function setDescription($description)
@@ -96,16 +98,16 @@ class Categorie
     }
 
     /**
-     * Get description
+     * Get description.
      *
-     * @return string 
+     * @return string
      */
     public function getDescription()
     {
         return $this->description;
     }
     /**
-     * Constructor
+     * Constructor.
      */
     public function __construct()
     {
@@ -113,9 +115,10 @@ class Categorie
     }
 
     /**
-     * Add menus
+     * Add menus.
      *
      * @param \AppBundle\Entity\Menu $menus
+     *
      * @return Categorie
      */
     public function addMenu(\AppBundle\Entity\Menu $menus)
@@ -126,7 +129,7 @@ class Categorie
     }
 
     /**
-     * Remove menus
+     * Remove menus.
      *
      * @param \AppBundle\Entity\Menu $menus
      */
@@ -136,9 +139,9 @@ class Categorie
     }
 
     /**
-     * Get menus
+     * Get menus.
      *
-     * @return \Doctrine\Common\Collections\Collection 
+     * @return \Doctrine\Common\Collections\Collection
      */
     public function getMenus()
     {
@@ -146,9 +149,10 @@ class Categorie
     }
 
     /**
-     * Add upsells
+     * Add upsells.
      *
      * @param \AppBundle\Entity\Upsell $upsells
+     *
      * @return Categorie
      */
     public function addUpsell(\AppBundle\Entity\Upsell $upsells)
@@ -159,7 +163,7 @@ class Categorie
     }
 
     /**
-     * Remove upsells
+     * Remove upsells.
      *
      * @param \AppBundle\Entity\Upsell $upsells
      */
@@ -169,9 +173,9 @@ class Categorie
     }
 
     /**
-     * Get upsells
+     * Get upsells.
      *
-     * @return \Doctrine\Common\Collections\Collection 
+     * @return \Doctrine\Common\Collections\Collection
      */
     public function getUpsells()
     {

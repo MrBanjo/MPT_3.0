@@ -19,8 +19,8 @@ class UserController extends BaseController
      * @Method({"GET","HEAD","POST"})
      */
     public function loginAction()
-    {   
-        return $this->render('login', ['form' => $this->getForm(new User)->createView()]);
+    {
+        return $this->render('login', ['form' => $this->getForm(new User())->createView()]);
     }
 
     /**
@@ -28,7 +28,7 @@ class UserController extends BaseController
      * @Method({"POST"})
      */
     public function registerAction(Request $request)
-    {   
+    {
         $referer_url = $request->headers->get('referer');
         $user = new User();
         $saveform = $this->getForm($user);
@@ -41,7 +41,7 @@ class UserController extends BaseController
             $encoded = $encoder->encodePassword($user, $user->getPassword());
             $user->setPassword($encoded);
             // On ajoute le role au nouvel utilisateur
-            $role = $this->getRepo('AppBundle:Role')->findOneByRole("ROLE_USER");
+            $role = $this->getRepo('AppBundle:Role')->findOneByRole('ROLE_USER');
             $user->addRole($role);
             // On enregistre dans la bdd
             $this->save($user);
@@ -51,14 +51,14 @@ class UserController extends BaseController
             // On passe le token créé au service security context afin que l'utilisateur soit authentifié
             $this->get('security.token_storage')->setToken($token);
             $event = new InteractiveLoginEvent($request, $token);
-            $this->get("event_dispatcher")->dispatch("security.interactive_login", $event);
+            $this->get('event_dispatcher')->dispatch('security.interactive_login', $event);
 
             $this->getRepo('AppBundle:Caddie')->switchSessionToUserProduct($this->getUser());
 
             return new RedirectResponse($referer_url);
         }
 
-        return new RedirectResponse($referer_url);   
+        return new RedirectResponse($referer_url);
     }
 
     /**
@@ -69,6 +69,6 @@ class UserController extends BaseController
     {
         $user = $this->getRepo('AppBundle:User')->findOneByEmail($data);
 
-        return ( $user ) ? $this->jsonSuccess() : $this->jsonFail();
+        return ($user) ? $this->jsonSuccess() : $this->jsonFail();
     }
 }

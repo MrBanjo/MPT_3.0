@@ -3082,18 +3082,18 @@ h2 {
   background-color: #dee8d6;
 }
 
-/* line 14, ../scss/site/partials/_account.scss */
+/* line 13, ../scss/site/partials/_account.scss */
 #account-wrapper {
-  margin-top: 50px;
+  margin-top: 35px;
   font-family: "arialnarrow", sans-serif;
   color: #493f33;
   font-size: 18px;
 }
-/* line 20, ../scss/site/partials/_account.scss */
+/* line 19, ../scss/site/partials/_account.scss */
 #account-wrapper .green_header {
   height: 54px;
 }
-/* line 23, ../scss/site/partials/_account.scss */
+/* line 22, ../scss/site/partials/_account.scss */
 #account-wrapper .green_header h1 {
   text-align: center;
   font-family: "Kraftstoff", sans-serif;
@@ -3103,22 +3103,77 @@ h2 {
   margin: auto;
 }
 
-/* line 35, ../scss/site/partials/_account.scss */
+/* line 34, ../scss/site/partials/_account.scss */
 #account_welcome {
   text-align: center;
   background-color: white;
 }
-/* line 38, ../scss/site/partials/_account.scss */
+/* line 37, ../scss/site/partials/_account.scss */
 #account_welcome p {
   margin: auto;
   font-style: italic;
 }
 
-/* line 44, ../scss/site/partials/_account.scss */
-#account_sidebar {
-  padding: 50px 0 0 50px;
+/* line 43, ../scss/site/partials/_account.scss */
+#account_content {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  padding: 20px 0;
 }
-/* line 47, ../scss/site/partials/_account.scss */
+/* line 50, ../scss/site/partials/_account.scss */
+#account_content .box_table {
+  padding: 0;
+}
+/* line 54, ../scss/site/partials/_account.scss */
+#account_content .table_caddie th {
+  padding: 0 5px;
+}
+/* line 58, ../scss/site/partials/_account.scss */
+#account_content .table_caddie tbody th {
+  height: auto;
+  background-color: #eef4ea;
+}
+/* line 63, ../scss/site/partials/_account.scss */
+#account_content caption {
+  margin-top: 20px;
+  font-family: 'Kraftstoff';
+  font-size: 30px;
+  color: #4d4135;
+}
+/* line 70, ../scss/site/partials/_account.scss */
+#account_content .table-hide {
+  display: none;
+}
+/* line 74, ../scss/site/partials/_account.scss */
+#account_content .table_caddie button {
+  font-family: "arialnarrow", sans-serif;
+  color: #493f33;
+  font-size: 18px;
+  margin: 5px 0;
+  position: relative;
+  border: none;
+  font-weight: bold;
+}
+/* line 82, ../scss/site/partials/_account.scss */
+#account_content .table_caddie button:focus {
+  outline: none;
+}
+
+/* line 88, ../scss/site/partials/_account.scss */
+#account_box {
+  margin: auto;
+}
+/* line 90, ../scss/site/partials/_account.scss */
+#account_box h2 {
+  text-align: center;
+}
+
+/* line 95, ../scss/site/partials/_account.scss */
+#account_sidebar {
+  padding: 0px 0 0 50px;
+}
+/* line 98, ../scss/site/partials/_account.scss */
 #account_sidebar button {
   font-family: "arialnarrow", sans-serif;
   color: #493f33;
@@ -3128,24 +3183,24 @@ h2 {
   position: relative;
   border: none;
 }
-/* line 55, ../scss/site/partials/_account.scss */
+/* line 106, ../scss/site/partials/_account.scss */
 #account_sidebar button:focus {
   outline: none;
 }
-/* line 60, ../scss/site/partials/_account.scss */
+/* line 111, ../scss/site/partials/_account.scss */
 #account_sidebar span {
   display: inline-block;
   position: absolute;
   vertical-align: middle;
   left: -30px;
 }
-/* line 67, ../scss/site/partials/_account.scss */
+/* line 118, ../scss/site/partials/_account.scss */
 #account_sidebar .account-adresses {
   left: -40px;
 }
 
 @media only screen and (max-width: 1280px) {
-  /* line 75, ../scss/site/partials/_account.scss */
+  /* line 124, ../scss/site/partials/_account.scss */
   #account-wrapper {
     padding: 0;
   }

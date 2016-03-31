@@ -5,7 +5,7 @@ namespace AppBundle\Entity;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * Commandes
+ * Commandes.
  *
  * @ORM\Table(name="commandes")
  * @ORM\Entity(repositoryClass="AppBundle\Entity\CommandesRepository")
@@ -64,15 +64,14 @@ class Commandes
     private $date;
 
     /**
-     * @var string
+     * @var ArrayCollection
      *
-     * @ORM\Column(name="produit", type="string", length=255)
+     * @ORM\Column(name="produit", type="object")
      */
     private $produit;
 
-
     /**
-     * Get id
+     * Get id.
      *
      * @return int
      */
@@ -82,9 +81,9 @@ class Commandes
     }
 
     /**
-     * Set user
+     * Set user.
      *
-     * @param integer $user
+     * @param int $user
      *
      * @return Commandes
      */
@@ -96,7 +95,7 @@ class Commandes
     }
 
     /**
-     * Get user
+     * Get user.
      *
      * @return int
      */
@@ -106,7 +105,7 @@ class Commandes
     }
 
     /**
-     * Set reference
+     * Set reference.
      *
      * @param string $reference
      *
@@ -120,7 +119,7 @@ class Commandes
     }
 
     /**
-     * Get reference
+     * Get reference.
      *
      * @return string
      */
@@ -130,9 +129,9 @@ class Commandes
     }
 
     /**
-     * Set status
+     * Set status.
      *
-     * @param integer $status
+     * @param int $status
      *
      * @return Commandes
      */
@@ -144,7 +143,7 @@ class Commandes
     }
 
     /**
-     * Get status
+     * Get status.
      *
      * @return int
      */
@@ -154,9 +153,9 @@ class Commandes
     }
 
     /**
-     * Set quantite
+     * Set quantite.
      *
-     * @param integer $quantite
+     * @param int $quantite
      *
      * @return Commandes
      */
@@ -168,7 +167,7 @@ class Commandes
     }
 
     /**
-     * Get quantite
+     * Get quantite.
      *
      * @return int
      */
@@ -178,7 +177,7 @@ class Commandes
     }
 
     /**
-     * Set prix
+     * Set prix.
      *
      * @param float $prix
      *
@@ -192,7 +191,7 @@ class Commandes
     }
 
     /**
-     * Get prix
+     * Get prix.
      *
      * @return float
      */
@@ -202,7 +201,7 @@ class Commandes
     }
 
     /**
-     * Set date
+     * Set date.
      *
      * @param \DateTime $date
      *
@@ -216,7 +215,7 @@ class Commandes
     }
 
     /**
-     * Get date
+     * Get date.
      *
      * @return \DateTime
      */
@@ -226,7 +225,7 @@ class Commandes
     }
 
     /**
-     * Set produit
+     * Set produit.
      *
      * @param string $produit
      *
@@ -240,7 +239,7 @@ class Commandes
     }
 
     /**
-     * Get produit
+     * Get produit.
      *
      * @return string
      */

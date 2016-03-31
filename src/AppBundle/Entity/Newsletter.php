@@ -6,7 +6,7 @@ use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * Newsletter
+ * Newsletter.
  *
  * @ORM\Table()
  * @ORM\Entity(repositoryClass="AppBundle\Entity\NewsletterRepository")
@@ -15,7 +15,7 @@ use Doctrine\ORM\Mapping as ORM;
 class Newsletter
 {
     /**
-     * @var integer
+     * @var int
      *
      * @ORM\Column(name="id", type="integer")
      * @ORM\Id
@@ -30,11 +30,10 @@ class Newsletter
      */
     private $email;
 
-
     /**
-     * Get id
+     * Get id.
      *
-     * @return integer 
+     * @return int
      */
     public function getId()
     {
@@ -42,9 +41,10 @@ class Newsletter
     }
 
     /**
-     * Set email
+     * Set email.
      *
      * @param string $email
+     *
      * @return Newsletter
      */
     public function setEmail($email)
@@ -55,9 +55,9 @@ class Newsletter
     }
 
     /**
-     * Get email
+     * Get email.
      *
-     * @return string 
+     * @return string
      */
     public function getEmail()
     {
