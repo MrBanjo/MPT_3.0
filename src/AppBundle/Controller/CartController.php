@@ -76,7 +76,7 @@ class CartController extends BaseController
      */
     public function addProductAction(Request $request, $slug)
     {
-        if ($request->isXmlHttpRequest() && $request->request->get('quantite') != null) {
+        if ($request->isXmlHttpRequest() && $request->request->get('quantite') !== null) {
             $caddie = new Caddie();
             $quantite = $request->request->get('quantite');
             $produit = $this->find('AppBundle:'.$slug, $request->request->get('id_product'));

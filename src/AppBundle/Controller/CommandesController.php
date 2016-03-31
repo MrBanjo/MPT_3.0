@@ -5,7 +5,6 @@ namespace AppBundle\Controller;
 use Symfony\Component\HttpFoundation\RedirectResponse;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
-use Symfony\Component\HttpFoundation\Request;
 use AppBundle\Entity\Commandes;
 use Doctrine\Common\Collections\ArrayCollection;
 
