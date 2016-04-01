@@ -9,9 +9,11 @@
         <title>{% block title %}{{ app.request.attributes.get('title') }}{% endblock %}</title>
 
         {% block stylesheets %}
-
+            {% if app.environment == "dev" %}
+                <link rel="stylesheet" type="text/css" href="{{ asset('css/main.css') }}" />
+            {% elseif app.environment == 'prod' %}
                 <link rel="stylesheet" type="text/css" href="{{ asset('css/main.min.css') }}" />
-
+            {% endif %}
         {% endblock %}
 
         <link rel="icon" type="image/x-icon" href="{{ asset('favicon-32x32.png') }}" />
@@ -123,11 +125,17 @@
 
     {% block javascripts %}
 
-
-
+        {% if app.environment == "dev" %}
+            <script src="{{ asset('js/vendor/jquery-1.11.2.min.js') }}"></script>
+            <script src="{{ asset('bundles/fosjsrouting/js/router.js') }}"></script>
+            <script src="{{ path('fos_js_routing_js', {'callback': 'fos.Router.setData'}) }}"></script>
+            <script src="{{ asset('js/vendor/bxslider/jquery.bxslider.min.js') }}"></script>
+            <script src="{{ asset('js/vendor/jquery.magnific-popup.min.js') }}"></script>
+            <script src="{{ asset('js/main.js') }}"></script>
+        {% elseif app.environment == 'prod' %}
             <script src="{{ asset('js/main.min.js') }}"></script>
             <script src="{{ path('fos_js_routing_js', {'callback': 'fos.Router.setData'}) }}"></script>
-
+        {% endif %}
         
     {% endblock %}
 
