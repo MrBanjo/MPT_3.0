@@ -25,7 +25,7 @@
 			    </article>
 			    <article class="panier_order">
 			    	<div class="prix_paniers">
-			    		<p><strong id="update_prix">{{ menu_classique.prix }}</strong><strong> €</strong> (panier pour <strong id="update_pers">2</strong> pers.)</p>
+			    		<p><strong id="update_prix" data-prix="{{ menu_classique.prix }}">{{ menu_classique.prix }}</strong><strong> €</strong> (panier pour <strong id="update_pers">2</strong> pers.)</p>
 			    		<form action="{{ path('addtocart', { 'slug' : 'Menu' }) }}" method="post" class="submit_product">
 			    			<small>Choisissez le nombre de panier</small>
 			    			<div id="quantite_panier">
@@ -142,7 +142,7 @@
 	<div id="popup-cart" class="addtocart-popup mfp-hide ">
 		<p>Vous venez d'ajouter à votre panier:</p>
 		<div id="popup-box">
-			<img id="popup-photo">
+			<img id="popup-photo" data-src="{{ asset('') }}">
 			<span id="popup-quantite"></span>
 			<span>-</span>
 			<span id="popup-titre"></span>
@@ -151,68 +151,4 @@
 		</div>
 	</div>
 
-
 {% endblock %} 
-
-{% block javascripts %} 
-
-	{{ parent() }}
-	<script type="text/javascript" src="{{ asset('js/jquery.magnific-popup.min.js') }}"></script>
-    <script>
-	    $(document).ready(function(){
-
-	    	// Popup plugin
-
-		    $('.open-popup-link').magnificPopup({
-			  type:'inline',
-			  closeBtnInside: true,
-			  midClick: true // Allow opening popup on middle mouse click. Always set it to true if you don't provide alternative source in href.
-			});
-
-			$('#popup-continue').on('click', function() {
-				$.magnificPopup.close();
-			});
-
-
-		    // Mis à jour du prix du panier
-			$('.quantite_button').on("click", function() {
-				if($('#nbre_pers').val() == null || $('#nbre_pers').val() == 2) {
-					$('#update_prix').html($('#quantite').val()*{{ menu_classique.prix }});
-				}
-				else {
-					$('#update_prix').html($('#quantite').val()*89);
-				}	
-			});
-			
-			$('#nbre_pers').on("change", function() {
-				if($('#nbre_pers').val() == null || $('#nbre_pers').val() == 2) {
-					$('#update_prix').html($('#quantite').val()*{{ menu_classique.prix }});
-				}
-				else {
-					$('#update_prix').html($('#quantite').val()*89);
-				}
-				$('#update_pers').html($('#nbre_pers').val());	
-			});
-
-			// Requete AJAX pour ajouter le produit au caddie
-			$(".submit_product").submit(function(e){
-				e.preventDefault();
-	        	$.ajax({
-	                type: 'post',
-	                url: $(this).attr('action'),
-	                data: $(this).serialize(),
-	                success: function (data) {
-		            	$('#popup-photo').attr('src', "{{ asset('') }}" + data.photo);
-		            	$('#popup-quantite').html(data.quantite);
-		            	$('#popup-titre').html(data.titre);
-		            	$('a.open-popup-link').trigger('click');
-		            	$('#count_caddie').html(data.countcaddie);
-	        		},
-	        		error: function (jqXHR, textStatus, errorThrown) {
-	        		}
-				})
-			})
-		});
-	</script>
-
-{% endblock %}

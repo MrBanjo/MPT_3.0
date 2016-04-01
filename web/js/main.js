@@ -1,7 +1,7 @@
 $(document).ready(function(){
 
 	// Header et footer js
-	var header_footer = (function() {
+	(function() {
 
 		var url = document.URL;
 		$(".login_form").submit(function(e){
@@ -11,7 +11,7 @@ $(document).ready(function(){
 				url         : $(this).attr( 'action' ),
 				data        : $(this).serialize(),
 				success: function (data) {
-					if ( data.success == true ) {
+					if ( data.success === true ) {
 						window.location.href = url;
 					}
 					else {
@@ -20,10 +20,9 @@ $(document).ready(function(){
 					}
 				},
 				error: function (jqXHR, textStatus, errorThrown) {
-					console.log(errorThrown);
 				}
-			})
-		})
+			});
+		});
 
 		$("#newsletter_form").submit(function(e){
 			e.preventDefault();
@@ -40,37 +39,36 @@ $(document).ready(function(){
 					}
 				},	
 				error: function (jqXHR, textStatus, errorThrown) {
-					console.log("neinenienienenineinei");
 				}
 			});
 		});
 	})();
 
-	var bxslider = (function() {
-	 	$('.bxslider').bxSlider({
-	            captions: true
-	    });
+	(function() {
+		$('.bxslider').bxSlider({
+			captions: true
+		});
 	})();
 
 	// Caddie
-	var cart = (function() {
+	(function() {
 
-		add = function ( nom ) { 
-			if(document.getElementById( nom ).value < 15) {
-				document.getElementById( nom ).value ++;
+		window.add = function add(nom) { 
+			if(document.getElementById(nom).value < 15) {
+				document.getElementById(nom).value ++;
 			} 	
 		};
 
-		substract = function ( nom ) { 
-			if(document.getElementById( nom ).value > 1)
-				document.getElementById( nom ).value --; 
-		} ;
+		window.substract = function (nom) { 
+			if(document.getElementById(nom).value > 1)
+				document.getElementById(nom).value --; 
+		};
 
-		erase = function ( nom ) { 
-			document.getElementById( nom ).value = 0; 
-		} ;
+		window.erase = function (nom) { 
+			document.getElementById(nom ).value = 0; 
+		};
 
-		isNumberKey = function (evt) 
+		window.isNumberKey = function (evt) 
 		{ 
 			var charCode = (evt.which) ? evt.which : event.keyCode; 
 			if (charCode > 31 && (charCode < 48 || charCode > 57)) 
@@ -102,7 +100,6 @@ $(document).ready(function(){
 					}
 				},	
 				error: function (jqXHR, textStatus, errorThrown) {
-					console.log("neinnienieneineinen");
 				}
 			});
 		});				
@@ -112,11 +109,9 @@ $(document).ready(function(){
 			$(".test").each(function(index){
 				prix_total += parseFloat($(this).text());
 			});
-			$(".cart_prixtotal").html(prix_total + " €")
+			$(".cart_prixtotal").html(prix_total + " €");
 			$(".cart_prixhttotal").html((prix_total * 0.945).toFixed(2) + " €");
 		}
-
-		
 
 		var prix = 0;
 		for (var i=0; i < $('.test').length; i++) {
@@ -125,7 +120,62 @@ $(document).ready(function(){
 
 	})();
 
-	var account = (function() {
+	// classique page
+	(function() {
+		$('.open-popup-link').magnificPopup({
+			type:'inline',
+			closeBtnInside: true,
+			midClick: true // Allow opening popup on middle mouse click. Always set it to true if you don't provide alternative source in href.
+		});
+
+		$('#popup-continue').on('click', function() {
+			$.magnificPopup.close();
+		});
+
+
+		// Mis à jour du prix du panier
+		$('.quantite_button').on("click", function() {
+			if($('#nbre_pers').val() === null || $('#nbre_pers').val() == 2) {
+				$('#update_prix').html($('#quantite').val()*($('#update_prix').data('prix')));
+			}
+			else {
+				$('#update_prix').html($('#quantite').val()*89);
+			}	
+		});
+
+		$('#nbre_pers').on("change", function() {
+			if($('#nbre_pers').val() === null || $('#nbre_pers').val() == 2) {
+				$('#update_prix').html($('#quantite').val()*($('#update_prix').data('prix')));
+			}
+			else {
+				$('#update_prix').html($('#quantite').val()*89);
+			}
+			$('#update_pers').html($('#nbre_pers').val());	
+		});
+
+		// Requete AJAX pour ajouter le produit au caddie
+		$(".submit_product").submit(function(e){
+			e.preventDefault();
+			$.ajax({
+				type: 'post',
+				url: $(this).attr('action'),
+				data: $(this).serialize(),
+				success: function (data) {
+					$('#popup-photo').attr('src', $('#popup-photo').data('src') + data.photo);
+					$('#popup-quantite').html(data.quantite);
+					$('#popup-titre').html(data.titre);
+					$('a.open-popup-link').trigger('click');
+					$('#count_caddie').html(data.countcaddie);
+				},
+				error: function (jqXHR, textStatus, errorThrown) {
+				}
+			});
+		});		
+	})();
+
+	// ACCOUNT SECTION
+
+	(function() {
 		$('.ref-commandes').on('click', function() {
 			var ref = $(this).text();
 			$('.button-ref').addClass('table-hide');
@@ -134,11 +184,11 @@ $(document).ready(function(){
 	})();
 
 	// Le spinner du formulaire d'enregistrement
-	var spinnerlogin = (function () {
+	(function () {
 		if ($('.email_row')) {
 			$('.email_row').on('change', function(){
 
-			    var $this = $(this);
+				var $this = $(this);
 			    var delay = 2000; // 2 seconds delay after last input
 
 			    clearTimeout($this.data('timer'));
@@ -149,59 +199,31 @@ $(document).ready(function(){
 			    	url: Routing.generate('checkMail') + "/" + $(this).val(),
 			    	data: $(this).val(),
 			    	beforeSend: function() {
-			       		$('#spinner').html('encours');
-			     	},
-			   		success: function (data) {
-			      		data.message == 'success' ? $('#spinner').html('Deja pris') : $('#spinner').html('libre');
+			    		$('#spinner').html('encours');
 			    	},
-			    	error: function (jqXHR, textStatus, errorThrown, data) {
-			      		console.log(errorThrown);
+			    	success: function (data) {
+			    		$('#spinner').html((data.message == 'success') ? 'Deja pris' : 'libre');
+			    	},
+			    	error: function (jqXHR, textStatus, errorThrown) {
 			    	}   
-			  	});	
+			    });	
 			});
 		}
 	})();
 
 	// Permet d'afficher le formulaire inmbriqué des adresses
-	var adressloginform = (function () {
-		if (!$('div#user_adresses').length == 0) {
+	(function () {
 
-			$('#user_roles option:nth-child(2)').attr('selected', 'selected');
-	        // On récupère la balise <div> en question qui contient l'attribut « data-prototype » qui nous intéresse.
-	        var $container = $('div#user_adresses');
-
-	        // On ajoute un lien pour ajouter une nouvelle catégorie
-	        var $addLink = $('<a href="#" id="add_adresse" class="btn btn-default">Ajouter une autre adresse de livraison</a>');
-	        $container.after($addLink);
-
-	        // On ajoute un nouveau champ à chaque clic sur le lien d'ajout.
-	        $addLink.click(function(e) {
-	          addAdresse($container);
-	          e.preventDefault(); // évite qu'un # apparaisse dans l'URL
-	          return false;
-	        });
-
-	        // On définit un compteur unique pour nommer les champs qu'on va ajouter dynamiquement
-	        var index = $container.find(':input').length;
-
-	        // On ajoute un premier champ automatiquement s'il n'en existe pas déjà un (cas d'une nouvelle annonce par exemple).
-	        if (index == 0) {
-	          addAdresse($container);
-	        } else {
-	          // Pour chaque catégorie déjà existante, on ajoute un lien de suppression
-	          $container.children('div').each(function() {
-	            addDeleteLink($(this));
-	          }); 
-	        }
+		if ($('div#user_adresses').length !== 0) {
 
 	        // La fonction qui ajoute un formulaire Categorie
-	        function addAdresse($container) 
+	        var addAdresse = function($container) 
 	        {
 	          // Dans le contenu de l'attribut « data-prototype », on remplace :
 	          // - le texte "__name__label__" qu'il contient par le label du champ
 	          // - le texte "__name__" qu'il contient par le numéro du champ
 	          var $prototype = $($container.attr('data-prototype').replace(/__name__label__/g, ''));
-	            
+
 
 	          // On ajoute au prototype un lien pour pouvoir supprimer la catégorie
 	          addDeleteLink($prototype);
@@ -211,10 +233,10 @@ $(document).ready(function(){
 
 	          // Enfin, on incrémente le compteur pour que le prochain ajout se fasse avec un autre numéro
 	          index++;
-	        }
+	      };
 
 	        // La fonction qui ajoute un lien de suppression d'une catégorie
-	        function addDeleteLink($prototype) 
+	        var addDeleteLink = function($prototype) 
 	        {
 	          // Création du lien
 	          $deleteLink = $('<a href="#" id="erase_adresse" class="btn btn-danger">Supprimer l\'adresse</a>');
@@ -225,13 +247,40 @@ $(document).ready(function(){
 	          // Ajout du listener sur le clic du lien
 	          $deleteLink.click(function(e) 
 	          {
-	            $prototype.remove();
+	          	$prototype.remove();
 	            e.preventDefault(); // évite qu'un # apparaisse dans l'URL
 	            return false;
-	          });
-	        }
-    	}
-	})();
+	        });
+	      };
 
+	      $('#user_roles option:nth-child(2)').attr('selected', 'selected');
+	        // On récupère la balise <div> en question qui contient l'attribut « data-prototype » qui nous intéresse.
+	        var $container = $('div#user_adresses');
+
+	        // On ajoute un lien pour ajouter une nouvelle catégorie
+	        var $addLink = $('<a href="#" id="add_adresse" class="btn btn-default">Ajouter une autre adresse de livraison</a>');
+	        $container.after($addLink);
+
+	        // On ajoute un nouveau champ à chaque clic sur le lien d'ajout.
+	        $addLink.click(function(e) {
+	        	addAdresse($container);
+	          e.preventDefault(); // évite qu'un # apparaisse dans l'URL
+	          return false;
+	      });
+
+	        // On définit un compteur unique pour nommer les champs qu'on va ajouter dynamiquement
+	        var index = $container.find(':input').length;
+
+	        // On ajoute un premier champ automatiquement s'il n'en existe pas déjà un (cas d'une nouvelle annonce par exemple).
+	        if (index === 0) {
+	        	addAdresse($container);
+	        } else {
+	          // Pour chaque catégorie déjà existante, on ajoute un lien de suppression
+	          $container.children('div').each(function() {
+	          	addDeleteLink($(this));
+	          }); 
+	      }
+	  }
+	})();
 
 });

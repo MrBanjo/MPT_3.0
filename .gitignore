@@ -18,3 +18,4 @@
 !/web/bundles/fosjsrouting/*
 /web/.sass-cache
 /web/config.php
+/node_modules/
