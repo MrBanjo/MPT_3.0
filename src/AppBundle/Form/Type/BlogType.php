@@ -4,7 +4,11 @@ namespace AppBundle\Form\Type;
 
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
-use Symfony\Component\OptionsResolver\OptionsResolverInterface;
+use Symfony\Component\OptionsResolver\OptionsResolver;
+use Symfony\Bridge\Doctrine\Form\Type\EntityType;
+use Symfony\Component\Form\Extension\Core\Type\BirthdayType;
+use Symfony\Component\Form\Extension\Core\Type\TextType;
+use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 
 class BlogType extends AbstractType
 {
@@ -16,23 +20,28 @@ class BlogType extends AbstractType
     {
         $builder
             ->add('titre')
-            ->add('description')
+            ->add('description', TextType::class)
             ->add('article')
             ->add('image')
-            ->add('date', 'birthday', array('widget' => 'choice', 'label' => 'Date de parution:', 'format' => 'dd MMMM yyyy', 'years' => range(date('Y'), 1920)))
-            ->add('rubriqueblog', 'entity', array(
+            ->add('date', BirthdayType::class, [
+                'widget' => 'choice', 
+                'label' => 'Date de parution:', 
+                'format' => 'dd MMMM yyyy', 
+                'years' => range(date('Y'), 1920)
+            ])
+            ->add('rubriqueblog', EntityType::class, [
                 'class' => 'AppBundle:Rubriqueblog',
-                'property' => 'nom',
+                'choice_label' => 'nom',
                 'label' => 'Rubrique du blog:',
-            ))
-            ->add('Ajouter', 'submit', array('attr' => array('class' => 'btn btn-default')))
+            ])
+            ->add('Ajouter', SubmitType::class, ['attr' => ['class' => 'btn btn-default']])
         ;
     }
 
     /**
-     * @param OptionsResolverInterface $resolver
+     * @param OptionsResolver $resolver
      */
-    public function setDefaultOptions(OptionsResolverInterface $resolver)
+    public function configureOptions(OptionsResolver $resolver)
     {
         $resolver->setDefaults(array(
             'data_class' => 'AppBundle\Entity\Blog',

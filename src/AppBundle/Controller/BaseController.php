@@ -70,7 +70,7 @@ class BaseController extends Controller
 
     protected function createEntity($entity)
     {
-        return new $entity();
+        return new $this->class;
     }
 
     protected function redirectTo($path, array $params = [])

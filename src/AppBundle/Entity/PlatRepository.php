@@ -12,13 +12,4 @@ use Doctrine\ORM\EntityRepository;
  */
 class PlatRepository extends EntityRepository
 {
-    public function getPlatAdmin()
-    {
-        $query = $this->getEntityManager()
-        ->createQuery('SELECT u FROM AppBundle:Plat u ORDER BY u.titre DESC');
-
-        $results = $query->getResult();
-
-        return $results;
-    }
 }

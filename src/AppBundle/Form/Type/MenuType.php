@@ -4,7 +4,9 @@ namespace AppBundle\Form\Type;
 
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
-use Symfony\Component\OptionsResolver\OptionsResolverInterface;
+use Symfony\Component\OptionsResolver\OptionsResolver;
+use Symfony\Bridge\Doctrine\Form\Type\EntityType;
+use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 
 class MenuType extends AbstractType
 {
@@ -20,23 +22,23 @@ class MenuType extends AbstractType
             ->add('photo')
             ->add('date')
             ->add('active')
-            ->add('categorie', 'entity', array(
+            ->add('categorie', EntityType::class, [
                 'class' => 'AppBundle:Categorie',
-                'property' => 'nom',
-            ))
-            ->add('plats', 'entity', array(
+                'choice_label' => 'nom',
+            ])
+            ->add('plats', EntityType::class, [
                 'class' => 'AppBundle:Plat',
-                'property' => 'titre',
+                'choice_label' => 'titre',
                 'multiple' => 'true',
-            ))
-            ->add('Ajouter', 'submit', array('attr' => array('class' => 'btn btn-default')))
+            ])
+            ->add('Ajouter', SubmitType::class, ['attr' => ['class' => 'btn btn-default']])
         ;
     }
 
     /**
-     * @param OptionsResolverInterface $resolver
+     * @param OptionsResolver $resolver
      */
-    public function setDefaultOptions(OptionsResolverInterface $resolver)
+    public function configureOptions(OptionsResolver $resolver)
     {
         $resolver->setDefaults(array(
             'data_class' => 'AppBundle\Entity\Menu',

@@ -35,14 +35,4 @@ class MenuRepository extends EntityRepository
 
         return $results;
     }
-
-    public function getMenuAdmin()
-    {
-        $query = $this->getEntityManager()
-        ->createQuery('SELECT u FROM AppBundle:Menu u ORDER BY u.titre DESC');
-
-        $results = $query->getResult();
-
-        return $results;
-    }
 }

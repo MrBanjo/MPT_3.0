@@ -22,14 +22,4 @@ class BlogRepository extends EntityRepository
 
         return $results;
     }
-
-    public function getBlogAdmin()
-    {
-        $query = $this->getEntityManager()
-        ->createQuery('SELECT u FROM AppBundle:Blog u ORDER BY u.date DESC');
-
-        $results = $query->getResult();
-
-        return $results;
-    }
 }

@@ -12,7 +12,8 @@ module.exports = function(grunt){
 			dist: {
 				src: [
 					'web/js/vendor/jquery-1.11.2.min.js', 
-					'web/bundles/fosjsrouting/js/router.js', 
+					'web/bundles/fosjsrouting/js/router.js',
+					'web/bundles/fosjsrouting/js/fos_js_routes.js', 
 					'web/js/vendor/bxslider/jquery.bxslider.min.js',
 					'web/js/vendor/jquery.magnific-popup.min.js', 
 					'web/js/main.js'

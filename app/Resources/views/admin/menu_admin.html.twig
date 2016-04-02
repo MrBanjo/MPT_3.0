@@ -3,7 +3,7 @@
 {% block sidebar_admin %}
 
 <li class="menu_side menu_side_down">
-    <a href="{{ path('edit_menu_admin', {'id': 'nouveau'})}}">Nouveau menu</a>
+    <a href="{{ path('menu_new', {'id': 'nouveau'})}}">Nouveau menu</a>
 </li>
 
 {% endblock %}
@@ -24,14 +24,13 @@
             </tr>
         </thead>
         <tbody>
-            {% for menu in liste_menu %}
+            {% for menu in entities %}
             <tr>
                 <td>{{ menu.id }}</td>
                 <td>{{ menu.titre }}</td>
                 <td>{{ menu.categorie.nom }}</td>
                 <td>
-                    <form action="{{ path('menu_erase')}}" method="post" onSubmit="return confirm('Êtes-vous sûr de vouloir supprimer ce menu ?');">
-                        <input type="hidden" value="{{ menu.id }}" name="erase" >
+                    <form action="{{ path('menu_delete', { 'id' : menu.id })}}" method="post" onSubmit="return confirm('Êtes-vous sûr de vouloir supprimer ce menu ?');">
                         <input type="submit" class="btn btn-danger" value="supprimer" name="supprimer" />
                     </form>
                 </td>

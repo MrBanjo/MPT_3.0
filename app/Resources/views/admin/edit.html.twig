@@ -6,10 +6,15 @@
 
 <h1 class="page-header">Dashboard</h1>
 <h2 class="sub-header">Edition</h2>
-{% if message != '' %}
-    <p>{{ message }}</p>
-{% endif %}
-{{form(form)}}
 
+{% for flashMessage in app.session.flashbag.get('info') %}
+
+<div class="alert alert-success">
+    {{ flashMessage }}
+</div>
+
+{% endfor %}
+
+{{form(form)}}
 
 {% endblock %}

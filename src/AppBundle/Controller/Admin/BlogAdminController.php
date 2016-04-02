@@ -2,102 +2,130 @@
 
 namespace AppBundle\Controller\Admin;
 
-use Symfony\Component\HttpFoundation\RedirectResponse;
+use AppBundle\Controller\BaseController;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
-use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 use AppBundle\Entity\Blog;
-use AppBundle\Form\Type\BlogType;
 use AppBundle\Entity\Rubriqueblog;
 use AppBundle\Form\Type\RubriqueblogType;
 
-class BlogAdminController extends Controller
+/**
+ * Caddie controller.
+ *
+ * @Route("/admin/blog")
+ */
+class BlogAdminController extends BaseController
 {
+    protected $type = 'AppBundle\Form\Type\BlogType';
+    protected $class = 'AppBundle\Entity\Blog';
+    protected $handle = 'AppBundle:Blog';
+    protected $basePath = 'blog_admin';
+    protected $editPath = 'edit_blog_admin';
+
     /**
-     * @Route("/admin/blog", name="blog_admin")
+     * Lists all Blog entities.
+     *
+     * @Route("/", name="blog_admin")
      * @Method({"GET","HEAD"})
      */
     public function indexAction()
     {
-        $liste_blog = $this->getDoctrine()->getManager()->getRepository('AppBundle:Blog')->getBlogAdmin();
+        $entities = $this->getRepo($this->handle)->findBy([], ['id' => 'desc']);
 
-        $params = array('liste_blog' => $liste_blog);
-
-        return $this->render('admin/blog_admin.html.twig', $params);
+        return $this->render('admin/blog_admin', ['entities' => $entities]);
     }
 
     /**
-     * @Route("/admin/blog/edit/{id}", name="edit_blog_admin")
-     * @Method({"GET","HEAD","POST"})
+     * Creates a new Blog entity.
+     *
+     * @Route("/new", name="blog_new")
+     * @Method({"GET", "POST"})
      */
-    public function editAction(Request $request, $id)
+    public function newAction(Request $request)
     {
-        $blog = $this->getDoctrine()->getManager()->getRepository('AppBundle:Blog')->find($id);
+        $entity = $this->createEntity($this->class);
+        $form = $this->getForm($entity);
+        $form->handleRequest($request);
 
-        $message = '';
+        if ($form->isSubmitted() && $form->isValid()) {
+            $this->save($entity);
+            $this->addFlash('info', 'Création réussie');
 
-        if ($blog === null) {
-            $blog = new Blog();
+            return $this->redirectToRoute($this->basePath);
         }
 
-        $form = $this->createForm(new BlogType(), $blog);
+        return $this->render('admin/edit', ['form' => $form->createView()]);
+    }
+
+    /**
+     * Displays a form to edit an existing Caddie entity.
+     *
+     * @Route("/edit/{id}", name="edit_blog_admin")
+     * @Method({"GET","POST"})
+     */
+    public function editAction(Request $request, Blog $entity)
+    {
+        $form = $this->getForm($entity);
 
         if ($form->handleRequest($request)->isValid()) {
-            $em = $this->getDoctrine()->getManager();
-            $em->persist($blog);
-            $em->flush();
+            $this->save($entity);
+            $this->addFlash('info', 'Modification réussie.');
 
-            $message = 'Le nouveau blog a été créer !';
+            return $this->redirectToRoute($this->editPath, ['id' => $entity->getId(),]);
         }
 
-        return $this->render('admin/edit.html.twig', array(
+        return $this->render('admin/edit', [
               'form' => $form->createView(),
-              'id' => $blog->getId(),
-              'message' => $message,
-            ));
+              'id' => $entity->getId()
+            ]);
     }
 
     /**
-     * @Route("/admin/blog/erase", name="blog_erase")
-     * @Method({"POST"})
-     */
-    public function eraseAction(Request $request)
-    {
-        if ($request->request->get('erase')) {
-            $blog = $this->getDoctrine()->getManager()->getRepository('AppBundle:Blog')->find($request->request->get('erase'));
-
-            $em = $this->getDoctrine()->getManager();
-            $em->remove($blog);
-            $em->flush();
-        }
-
-        return new RedirectResponse($this->generateUrl('blog_admin'));
-    }
-
-    /**
-     * @Route("/admin/blog/categorie", name="categorie_blog_admin")
+     * @Route("/categorie", name="categorie_blog_admin")
      * @Method({"GET","HEAD","POST"})
      */
     public function categorieAction(Request $request)
     {
         $rubrique = new Rubriqueblog();
-        $message = '';
-        $form = $this->createForm(new RubriqueblogType(), $rubrique);
+        $form = $this->createForm(RubriqueblogType::class, $rubrique);
 
         if ($form->handleRequest($request)->isValid()) {
-            $em = $this->getDoctrine()->getManager();
-            $em->persist($rubrique);
-            $em->flush();
-
-            $message = 'La nouvelle catégorie a été créée !';
+            $this->save($rubrique);
+            $this->addFlash('info', 'La nouvelle catégorie a été créée !');
 
             return $this->redirectToRoute('categorie_blog_admin');
         }
 
-        return $this->render('admin/edit.html.twig', array(
-              'form' => $form->createView(),
-              'message' => $message,
-            ));
+        return $this->render('admin/edit', ['form' => $form->createView()]);
+    }
+
+    /**
+     * Deletes a Blog entity.
+     *
+     * @Route("/delete/{id}", name="blog_delete")
+     * @Method("POST")
+     */
+    public function deleteAction(Blog $entity)
+    {
+        $this->remove($entity);
+
+        return $this->redirectToRoute($this->basePath);
+    }
+
+    /**
+     * Creates a form to delete a Blog entity.
+     *
+     * @param Blog $blog The Blog entity
+     *
+     * @return \Symfony\Component\Form\Form The form
+     */
+    private function createDeleteForm($entity)
+    {
+        return $this->createFormBuilder()
+            ->setAction($this->generateUrl('blog_delete', ['id' => $entity->getId()]))
+            ->setMethod('DELETE')
+            ->getForm()
+        ;
     }
 }

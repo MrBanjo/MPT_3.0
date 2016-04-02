@@ -4,7 +4,8 @@ namespace AppBundle\Form\Type;
 
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
-use Symfony\Component\OptionsResolver\OptionsResolverInterface;
+use Symfony\Component\OptionsResolver\OptionsResolver;
+use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 
 class RubriqueblogType extends AbstractType
 {
@@ -16,25 +17,17 @@ class RubriqueblogType extends AbstractType
     {
         $builder
             ->add('nom')
-            ->add('Ajouter', 'submit')
+            ->add('Ajouter', SubmitType::class)
         ;
     }
 
     /**
-     * @param OptionsResolverInterface $resolver
+     * @param OptionsResolver $resolver
      */
-    public function setDefaultOptions(OptionsResolverInterface $resolver)
+    public function configureOptions(OptionsResolver $resolver)
     {
         $resolver->setDefaults(array(
             'data_class' => 'AppBundle\Entity\Rubriqueblog',
         ));
-    }
-
-    /**
-     * @return string
-     */
-    public function getName()
-    {
-        return 'appbundle_rubriqueblog';
     }
 }

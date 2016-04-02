@@ -2,73 +2,91 @@
 
 namespace AppBundle\Controller\Admin;
 
-use Symfony\Component\HttpFoundation\RedirectResponse;
+use AppBundle\Controller\BaseController;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
-use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
-use AppBundle\Form\Type\MenuType;
 use AppBundle\Entity\Menu;
 
-class MenuAdminController extends Controller
+/**
+ * Menu controller.
+ *
+ * @Route("/admin/menu")
+ */
+class MenuAdminController extends BaseController
 {
+    protected $type = 'AppBundle\Form\Type\MenuType';
+    protected $class = 'AppBundle\Entity\Menu';
+    protected $handle = 'AppBundle:Menu';
+    protected $basePath = 'menu_admin';
+    protected $editPath = 'edit_menu_admin';
+
     /**
-     * @Route("/admin/menu", name="menu_admin")
+     * @Route("/", name="menu_admin")
      * @Method({"GET","HEAD"})
      */
     public function indexAction()
     {
-        $liste_menu = $this->getDoctrine()->getManager()->getRepository('AppBundle:Menu')->getMenuAdmin();
+        $entities = $this->getRepo($this->handle)->findBy([], ['id' => 'desc']);
 
-        $params = array('liste_menu' => $liste_menu);
-
-        return $this->render('admin/menu_admin.html.twig', $params);
+        return $this->render('admin/menu_admin', ['entities' => $entities]);
     }
 
     /**
-     * @Route("/admin/menu/edit/{id}", name="edit_menu_admin")
-     * @Method({"GET","HEAD","POST"})
+     * Creates a new Menu entity.
+     *
+     * @Route("/new", name="menu_new")
+     * @Method({"GET", "POST"})
      */
-    public function editAction(Request $request, $id)
+    public function newAction(Request $request)
     {
-        $menu = $this->getDoctrine()->getManager()->getRepository('AppBundle:Menu')->find($id);
-        $message = '';
+        $entity = $this->createEntity($this->class);
+        $form = $this->getForm($entity);
+        $form->handleRequest($request);
 
-        if ($menu === null) {
-            $menu = new Menu();
+        if ($form->isSubmitted() && $form->isValid()) {
+            $this->save($entity);
+            $this->addFlash('info', 'Création réussie');
+
+            return $this->redirectToRoute($this->basePath);
         }
 
-        $form = $this->createForm(new MenuType(), $menu);
+        return $this->render('admin/edit', ['form' => $form->createView()]);
+    }
+
+    /**
+     * Displays a form to edit an existing Menu entity.
+     *
+     * @Route("/edit/{id}", name="edit_menu_admin")
+     * @Method({"GET","POST"})
+     */
+    public function editAction(Request $request, Menu $entity)
+    {
+        $form = $this->getForm($entity);
 
         if ($form->handleRequest($request)->isValid()) {
-            $em = $this->getDoctrine()->getManager();
-            $em->persist($menu);
-            $em->flush();
+            $this->save($entity);
+            $this->addFlash('info', 'Modification réussie.');
 
-            $message = 'Le menu a été créé !';
+            return $this->redirectToRoute($this->editPath, ['id' => $entity->getId(),]);
         }
 
-        return $this->render('admin/edit.html.twig', array(
+        return $this->render('admin/edit', [
               'form' => $form->createView(),
-              'id' => $menu->getId(),
-              'message' => $message,
-            ));
+              'id' => $entity->getId()
+            ]);
     }
 
     /**
-     * @Route("/admin/menu/erase", name="menu_erase")
-     * @Method({"POST"})
+     * Deletes a Menu entity.
+     *
+     * @Route("/delete/{id}", name="menu_delete")
+     * @Method("POST")
      */
-    public function eraseAction(Request $request)
+    public function deleteAction(Menu $entity)
     {
-        if ($request->request->get('erase')) {
-            $menu = $this->getDoctrine()->getManager()->getRepository('AppBundle:Menu')->find($request->request->get('erase'));
+        $this->remove($entity);
 
-            $em = $this->getDoctrine()->getManager();
-            $em->remove($menu);
-            $em->flush();
-        }
-
-        return new RedirectResponse($this->generateUrl('menu_admin'));
+        return $this->redirectToRoute($this->basePath);
     }
 }
