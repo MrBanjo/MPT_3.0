@@ -1,8 +1,6 @@
 {% extends "admin/adminbase.html.twig" %}
 
-
 {% block body_admin %}
-
 
 <h1 class="page-header">Dashboard</h1>
 <h2 class="sub-header">Edition</h2>
@@ -15,6 +13,7 @@
 
 {% endfor %}
 
+{% form_theme form 'bootstrap_3_horizontal_layout.html.twig' %}
 {{form(form)}}
 
 {% endblock %}

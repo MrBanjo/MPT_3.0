@@ -71,6 +71,11 @@ class User implements UserInterface, \Serializable
     private $caddies;
 
     /**
+     * @ORM\OneToMany(targetEntity="AppBundle\Entity\Commandes", mappedBy="user", cascade={"persist", "remove"})
+     */
+    private $commandes;
+
+    /**
      * @var \DateTime
      *
      * @ORM\Column(name="birthdate", type="date")
@@ -462,5 +467,39 @@ class User implements UserInterface, \Serializable
     public function getCaddies()
     {
         return $this->caddies;
+    }
+
+    /**
+     * Add commande
+     *
+     * @param \AppBundle\Entity\Commandes $commande
+     *
+     * @return User
+     */
+    public function addCommande(\AppBundle\Entity\Commandes $commande)
+    {
+        $this->commandes[] = $commande;
+
+        return $this;
+    }
+
+    /**
+     * Remove commande
+     *
+     * @param \AppBundle\Entity\Commandes $commande
+     */
+    public function removeCommande(\AppBundle\Entity\Commandes $commande)
+    {
+        $this->commandes->removeElement($commande);
+    }
+
+    /**
+     * Get commandes
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getCommandes()
+    {
+        return $this->commandes;
     }
 }

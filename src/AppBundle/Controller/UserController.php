@@ -3,6 +3,7 @@
 namespace AppBundle\Controller;
 
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
+use Symfony\Component\Routing\Generator\UrlGeneratorInterface;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 use Symfony\Component\Security\Core\Authentication\Token\UsernamePasswordToken;
 use Symfony\Component\Security\Http\Event\InteractiveLoginEvent;
@@ -18,8 +19,12 @@ class UserController extends BaseController
      * @Route("/login", name="login")
      * @Method({"GET","HEAD","POST"})
      */
-    public function loginAction()
+    public function loginAction(Request $request)
     {
+        if ($request->headers->get('referer') != $this->generateURL('login', [], UrlGeneratorInterface::ABSOLUTE_URL)) {
+            $this->get('session')->set('old_referer', $request->headers->get('referer'));
+        }
+
         return $this->render('login', ['form' => $this->getForm(new User())->createView()]);
     }
 
@@ -29,7 +34,6 @@ class UserController extends BaseController
      */
     public function registerAction(Request $request)
     {
-        $referer_url = $request->headers->get('referer');
         $user = new User();
         $saveform = $this->getForm($user);
 
@@ -53,12 +57,13 @@ class UserController extends BaseController
             $event = new InteractiveLoginEvent($request, $token);
             $this->get('event_dispatcher')->dispatch('security.interactive_login', $event);
 
-            $this->getRepo('AppBundle:Caddie')->switchSessionToUserProduct($this->getUser());
-
-            return new RedirectResponse($referer_url);
+            return $this->container->get('login_handler')->onAuthenticationSuccess($request, $token);
         }
 
-        return new RedirectResponse($referer_url);
+        $flashbag = preg_replace(['/ERROR/'], ['ERREUR'], (string) $saveform->getErrors(true, false));
+        $this->get('session')->getFlashBag()->add('errora', $flashbag);
+        
+        return new RedirectResponse($request->headers->get('referer'));
     }
 
     /**

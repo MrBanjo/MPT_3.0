@@ -24,9 +24,9 @@ class BlogType extends AbstractType
             ->add('article')
             ->add('image')
             ->add('date', BirthdayType::class, [
-                'widget' => 'choice', 
-                'label' => 'Date de parution:', 
-                'format' => 'dd MMMM yyyy', 
+                'widget' => 'choice',
+                'label' => 'Date de parution:',
+                'format' => 'dd MMMM yyyy',
                 'years' => range(date('Y'), 1920)
             ])
             ->add('rubriqueblog', EntityType::class, [

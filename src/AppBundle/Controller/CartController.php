@@ -86,9 +86,7 @@ class CartController extends BaseController
             if (!empty($checkdb)) {
                 $checkdb[0]->setQuantite($quantite + $checkdb[0]->getQuantite());
                 $this->save($checkdb[0]);
-            }
-            // Création du produit dans le caddie
-            else {
+            } else {
                 $session = new Session();
                 $caddie->setSession($session->getId());
                 $caddie->setTitre($produit->getTitre());

@@ -4,7 +4,8 @@ namespace AppBundle\Form\Type;
 
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
-use Symfony\Component\OptionsResolver\OptionsResolverInterface;
+use Symfony\Component\OptionsResolver\OptionsResolver;
+use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 
 class PlatType extends AbstractType
 {
@@ -23,14 +24,14 @@ class PlatType extends AbstractType
             ->add('consistance')
             ->add('photo')
             ->add('plus')
-            ->add('Ajouter', 'submit', array('attr' => array('class' => 'btn btn-default')))
+            ->add('Ajouter', SubmitType::class, ['attr' => ['class' => 'btn btn-default']])
         ;
     }
 
     /**
      * @param OptionsResolverInterface $resolver
      */
-    public function setDefaultOptions(OptionsResolverInterface $resolver)
+    public function configureOptions(OptionsResolver $resolver)
     {
         $resolver->setDefaults(array(
             'data_class' => 'AppBundle\Entity\Plat',

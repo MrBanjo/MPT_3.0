@@ -36,9 +36,19 @@ module.exports = function(grunt){
 					'web/js/main.min.js': ['web/js/main.min.js']
 				}
 			}
+		},
+
+		phpcs: {
+		    application: {
+		        src: ['src/AppBundle/**/*.php']
+		    },
+		    options: {
+		        bin: 'phpcs',
+		        standard: 'PSR2'
+		    }
 		}
 
 	});
 
-	grunt.registerTask('default', ['jshint', 'concat', 'cssmin', 'uglify']);
+	grunt.registerTask('default', ['jshint', 'concat', 'cssmin', 'uglify', 'phpcs']);
 };

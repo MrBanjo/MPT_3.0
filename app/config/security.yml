@@ -30,10 +30,13 @@ security:
             form_login:
                 check_path: login
                 login_path: login
-                use_referer: true
+                use_referer: false
                 success_handler: authentication_handler
                 failure_handler: authentication_handler
                 csrf_token_generator: security.csrf.token_manager
+                always_use_default_target_path: false
+                default_target_path: default_security_target
+                target_path_parameter: _target_path
             logout:
                 path:   /logout
                 target: /accueil

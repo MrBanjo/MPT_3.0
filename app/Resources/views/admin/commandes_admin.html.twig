@@ -1,0 +1,47 @@
+{% extends "admin/adminbase.html.twig" %}
+
+{% block sidebar_admin %}
+
+{% endblock %}
+
+{% block body_admin %}
+
+<h1 class="page-header">Dashboard</h1>
+<h2 class="sub-header">Commandes</h2>
+<div class="table-responsive">
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>Réference</th>
+                <th>Utlisateur</th>
+                <th>Date</th>
+                <th>Prix</th>
+                <th>Status</th>
+                <th>Supprimer</th>
+                <th>Editer</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for commandes in entities %}
+            <tr>
+                <td>{{ commandes.reference }}</td>
+                <td>{{ commandes.user.email }}</td>
+                <td>{{ commandes.date | date('d-m-Y') }}</td>
+                <td>{{ commandes.prix }}</td>
+                <td>{{ commandes.status }}</td>
+                <td>
+                    <form action="{{ path('commandes_delete', {'id' : commandes.id })}}" method="POST" onSubmit="return confirm('Êtes-vous sûr de vouloir supprimer ce commandes ?');">
+                        <input type="submit" class="btn btn-danger" value="supprimer" name="supprimer" />
+                    </form>
+                </td>
+                <td>
+                    <a class="btn btn-primary" href="{{ path('edit_commandes_admin', {'id': commandes.id }) }}">Editer</a>
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+</div>
+
+{% endblock %}

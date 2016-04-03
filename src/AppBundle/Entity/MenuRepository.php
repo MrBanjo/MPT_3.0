@@ -15,7 +15,13 @@ class MenuRepository extends EntityRepository
     public function getCurrentMenuClassique()
     {
         $query = $this->getEntityManager()
-        ->createQuery('SELECT m, c FROM AppBundle:Menu m JOIN m.categorie c WHERE c.nom = :nom AND m.active = :active ORDER BY m.date DESC')
+        ->createQuery('
+            SELECT m, c 
+            FROM AppBundle:Menu m 
+            JOIN m.categorie c 
+            WHERE c.nom = :nom AND m.active = :active 
+            ORDER BY m.date DESC
+            ')
         ->setParameter('nom', 'Classique')
         ->setParameter('active', 'oui');
 

@@ -4,7 +4,7 @@ $(document).ready(function(){
 	(function() {
 
 		var url = document.URL;
-		$(".login_form").submit(function(e){
+		$(".login_header_form").submit(function(e){
 			e.preventDefault();
 			$.ajax({
 				type        : $(this).attr( 'method' ),

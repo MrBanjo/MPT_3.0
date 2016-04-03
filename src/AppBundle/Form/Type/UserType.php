@@ -13,6 +13,7 @@ use Symfony\Component\Form\Extension\Core\Type\BirthdayType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\Extension\Core\Type\CollectionType;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
+use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 
 class UserType extends AbstractType
 {
@@ -23,13 +24,17 @@ class UserType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('email', EmailType::class, array('label' => 'Adresse e-mail:', 'invalid_message' => 'Cet Email est déjà utilisé.'))
+            ->add('email', EmailType::class, [
+                'label' => 'Adresse e-mail:',
+                'invalid_message' => 'Cet Email est déjà utilisé.'
+                ])
             ->add('password', RepeatedType::class, array(
                         'type' => PasswordType::class,
                         'invalid_message' => 'Les mots de passe doivent correspondre.',
                         'options' => array('required' => true),
-                        'first_options' => array('label' => 'Mot de passe:'),
+                        'first_options' => array('label' => 'Mot de passe:','error_bubbling' => true),
                         'second_options' => array('label' => 'Confirmer ce mot de passe:'),
+                        'error_bubbling' => true
                         ))
             ->add('civilite', ChoiceType::class, array(
                             'choices' => array(

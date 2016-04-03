@@ -12,6 +12,8 @@ services:
                 - "@session"
                 - "@doctrine.orm.entity_manager"
                 - "@security.token_storage"
+        login_handler:
+            alias: authentication_handler
         twig.extension.intl:
             class: Twig_Extensions_Extension_Intl
             tags:

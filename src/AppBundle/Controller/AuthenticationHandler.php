@@ -59,15 +59,17 @@ class AuthenticationHandler implements AuthenticationSuccessHandlerInterface, Au
 
             return $response;
 
-        // if form login 
+        // if form login
         } else {
             if ($this->session->get('_security.main.target_path')) {
                 $url = $this->session->get('_security.main.target_path');
+            } elseif ($this->session->get('old_referer')) {
+                $url = $this->session->get('old_referer');
             } elseif ($request->headers->get('referer')) {
                 $url = $request->headers->get('referer');
             } else {
                 $url = $this->router->generate('accueil');
-            } // end if
+            }
 
             return new RedirectResponse($url);
         }
@@ -91,13 +93,13 @@ class AuthenticationHandler implements AuthenticationSuccessHandlerInterface, Au
 
             return $response;
 
-        // if form login 
+        // if form login
         } else {
 
             // set authentication exception to session
             $request->getSession()->set(Security::AUTHENTICATION_ERROR, $exception);
 
-            return new RedirectResponse($this->router->generate('login'));
+            return new RedirectResponse($request->headers->get('referer'));
         }
     }
 }

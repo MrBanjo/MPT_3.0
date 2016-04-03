@@ -5,11 +5,11 @@
   use Knp\Menu\FactoryInterface;
   use Symfony\Component\HttpFoundation\RequestStack;
 
-  class Builder
-  {
+class Builder
+{
     /**
      * @var FactoryInterface
-     */   
+     */
     private $factory;
     private $requestStack;
 
@@ -34,38 +34,38 @@
         $menu->addChild('Accueil', ['route' => 'accueil']);
 
         // crée le menu en fonction de la route
-        switch($this->requestStack->getCurrentRequest()->getPathInfo()){
+        switch ($this->requestStack->getCurrentRequest()->getPathInfo()) {
             case '/caddie/ma-commande':
                 $menu
                     ->addChild('Ma commande', array('route' => 'cart'))
                     ->setCurrent(true)
                     // setCurrent est utilisé pour ajouter une classe css "current"
                 ;
-            break;
+                break;
             case 'cart_identification':
                 $menu
                     ->addChild('mon caddie', array('route' => 'cart'));
                     $menu->addChild('identification')
                     ->setCurrent(true)
                 ;
-            break;
+                break;
             case '/paniers':
                 $menu->addChild('Nos paniers', array('route' => 'paniers'));
-                $menu->setCurrent(true)   
+                $menu->setCurrent(true)
                 ;
                 
-            break;
+                break;
             case '/paniers/classique':
                 $menu->addChild('Nos paniers', array('route' => 'paniers'));
                 $menu->addChild('Panier classique', array('route' => 'classique'))
                      ->setCurrent(true)
-                ;                    
-            break;
+                ;
+                break;
             case '/menus':
                 $menu->addChild('Nos menus', array('route' => 'menus'))
                      ->setCurrent(true)
-                ;                    
-            break;            
+                ;
+                break;
         }
 
         return $menu;

@@ -3,7 +3,7 @@
 {% block sidebar_admin %}
 
 <li class="menu_side menu_side_down">
-    <a href="{{ path('edit_plat_admin', {'id': 'nouveau'})}}">Nouveau plat</a>
+    <a href="{{ path('plat_new') }}">Nouveau plat</a>
 </li>
 
 {% endblock %}
@@ -24,14 +24,13 @@
             </tr>
         </thead>
         <tbody>
-            {% for plat in liste_plat %}
+            {% for plat in entities %}
             <tr>
                 <td>{{ plat.id }}</td>
                 <td>{{ plat.titre }}</td>
                 <td>{{ plat.accroche }}</td>
                 <td>
-                    <form action="{{ path('plat_erase')}}" method="post" onSubmit="return confirm('Êtes-vous sûr de vouloir supprimer ce plat ?');">
-                        <input type="hidden" value="{{ plat.id }}" name="erase" >
+                    <form action="{{ path('plat_delete', { 'id' : plat.id })}}" method="post" onSubmit="return confirm('Êtes-vous sûr de vouloir supprimer ce plat ?');">
                         <input type="submit" class="btn btn-danger" value="supprimer" name="supprimer" />
                     </form>
                 </td>

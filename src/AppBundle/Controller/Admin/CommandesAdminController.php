@@ -6,38 +6,38 @@ use AppBundle\Controller\BaseController;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 use Symfony\Component\HttpFoundation\Request;
-use AppBundle\Entity\Plat;
+use AppBundle\Entity\Commandes;
 
 /**
  * Caddie controller.
  *
- * @Route("/admin/plat")
+ * @Route("/admin/commandes")
  */
-class PlatAdminController extends BaseController
+class CommandesAdminController extends BaseController
 {
-    protected $type = 'AppBundle\Form\Type\PlatType';
-    protected $class = 'AppBundle\Entity\Plat';
-    protected $handle = 'AppBundle:Plat';
-    protected $basePath = 'plat_admin';
-    protected $editPath = 'edit_plat_admin';
+    protected $type = 'AppBundle\Form\Type\CommandesType';
+    protected $class = 'AppBundle\Entity\Commandes';
+    protected $handle = 'AppBundle:Commandes';
+    protected $basePath = 'commandes_admin';
+    protected $editPath = 'edit_commandes_admin';
 
     /**
-     * Lists all Plat entities.
+     * Lists all Commandes entities.
      *
-     * @Route("/", name="plat_admin")
+     * @Route("/", name="commandes_admin")
      * @Method({"GET","HEAD"})
      */
     public function indexAction()
     {
         $entities = $this->getRepo($this->handle)->findBy([], ['id' => 'desc']);
 
-        return $this->render('admin/plat_admin', ['entities' => $entities]);
+        return $this->render('admin/commandes_admin', ['entities' => $entities]);
     }
 
     /**
-     * Creates a new Plat entity.
+     * Creates a new Commandes entity.
      *
-     * @Route("/new", name="plat_new")
+     * @Route("/new", name="commandes_new")
      * @Method({"GET", "POST"})
      */
     public function newAction(Request $request)
@@ -59,10 +59,10 @@ class PlatAdminController extends BaseController
     /**
      * Displays a form to edit an existing Caddie entity.
      *
-     * @Route("/edit/{id}", name="edit_plat_admin")
+     * @Route("/edit/{id}", name="edit_commandes_admin")
      * @Method({"GET","POST"})
      */
-    public function editAction(Request $request, Plat $entity)
+    public function editAction(Request $request, Commandes $entity)
     {
         $form = $this->getForm($entity);
 
@@ -80,12 +80,12 @@ class PlatAdminController extends BaseController
     }
 
     /**
-     * Deletes a Plat entity.
+     * Deletes a Commandes entity.
      *
-     * @Route("/delete/{id}", name="plat_delete")
+     * @Route("/delete/{id}", name="commandes_delete")
      * @Method("POST")
      */
-    public function deleteAction(Plat $entity)
+    public function deleteAction(Commandes $entity)
     {
         $this->remove($entity);
 

@@ -22,9 +22,8 @@ class Commandes
     private $id;
 
     /**
-     * @var int
-     *
-     * @ORM\Column(name="user", type="integer")
+     * @ORM\ManyToOne(targetEntity="AppBundle\Entity\User", inversedBy="commandes")
+     * @ORM\JoinColumn(nullable=false, name="user_id", referencedColumnName="id")
      */
     private $user;
 
