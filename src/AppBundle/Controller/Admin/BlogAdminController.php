@@ -112,20 +112,4 @@ class BlogAdminController extends BaseController
 
         return $this->redirectToRoute($this->basePath);
     }
-
-    /**
-     * Creates a form to delete a Blog entity.
-     *
-     * @param Blog $blog The Blog entity
-     *
-     * @return \Symfony\Component\Form\Form The form
-     */
-    private function createDeleteForm($entity)
-    {
-        return $this->createFormBuilder()
-            ->setAction($this->generateUrl('blog_delete', ['id' => $entity->getId()]))
-            ->setMethod('DELETE')
-            ->getForm()
-        ;
-    }
 }
