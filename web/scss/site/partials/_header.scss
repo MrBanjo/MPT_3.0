@@ -12,6 +12,12 @@ header {
     & > div {
         position: relative;
     }
+
+    span {
+        display: inline-block;
+        margin-right: 20px;
+        vertical-align: middle; 
+    }
 }
 
 #logo {
@@ -97,12 +103,19 @@ header {
 
 /*Style 'show menu' label button and hide it by default*/
 .show-menu {
-    background: url('../img/header/menu_close.png') 0 0 no-repeat;
     height: 100px;
-    display: none;
     vertical-align: middle;
     line-height: 100px;
-    background-position: center;
+    position: relative;  
+}
+
+.header-menu_close {
+    position: absolute;
+    margin: 0 auto;
+    top: 30px;
+    left: 0;
+    right: 0;
+    display: none;
 }
 
 /*Hide checkbox*/
@@ -149,6 +162,12 @@ header {
     top: 20px;
 }
 
+.header-account {
+    position: relative;
+    top: 33px;
+    left: 12px;
+}
+
 #caddie_header {
     display: inline-block;
     position: absolute;
@@ -176,7 +195,7 @@ header {
     font-weight: bold;
     font-size: 16px;
     color: white;
-    right: -8px;
+    right: -6px;
     top: 18px;
 }
 
@@ -192,9 +211,6 @@ header {
     z-index: 500;
     text-align: center;
     width: 100px;
-    vertical-align: middle;
-    background: url('../img/header/account.png') 0 0 no-repeat;
-    background-position: center;
     right: 55px;
     position: absolute;
 }
@@ -327,6 +343,10 @@ header {
     /*Display 'show menu' link*/
     .show-menu {
         display:block;
+    }
+
+    .header-menu_close {
+        display: initial;
     }
 
     .nav_header ul li:last-child {

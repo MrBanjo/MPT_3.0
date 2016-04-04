@@ -130,10 +130,11 @@ h2 {
 .afterarrow::after {
     content: "";
     position: absolute;
+    background-position: 0 -90px;
+    background-image: url('../img/sprites/content-s8449bca4fc.png');
     background-repeat: no-repeat;
-    background-image: url('../img/accueil/arrow.png');
-    width: 175px;
     height: 31px;
+    width: 175px;
     top: 20px;
     left:150px;
 }
@@ -144,10 +145,8 @@ h2 {
 
     }
     .afterarrow::after {
-        background: url('../img/accueil/arrow.png') 130px 0;
+        background-position: -45px -90px;
         width: 130px;
-        height: 30px;
-        top: 20px;
         left:120px;
     }
 }
@@ -190,13 +189,13 @@ h2 {
 
 
         .bx-prev {
-        left: -60px;
-        background: url(../img/accueil/arrow_left_slider.png) no-repeat 0 0;
+            left: -60px;
+            background: url('../img/sprites/content-s8449bca4fc.png') no-repeat -175px -90px;;
         }
 
         .bx-next {
             right: -60px;
-            background: url(../img/accueil/arrow_right_slider.png) no-repeat 0 0;
+            background: url('../img/sprites/content-s8449bca4fc.png') no-repeat -127px -133px;
         }
 
         .bx-controls-direction a {
@@ -380,19 +379,12 @@ h2 {
         color: white;
         font-style: italic;
     }
-
-    & > div > img {
-        margin-top: -15px;
-        padding-left: 200px;
-    }
     
     div {
         margin: 40px 20px;
     }
 
-    a > img {
-        display: inline-block;
-        vertical-align: middle;
+    a > span {
         margin-left: 10px;
     }
 
@@ -402,9 +394,9 @@ h2 {
         vertical-align: top;
     }
 
-    span {
+   .comments-author {
         font-weight: normal;
-        margin-right: 100px;
+        margin-right: 30px;
     }
 }
 

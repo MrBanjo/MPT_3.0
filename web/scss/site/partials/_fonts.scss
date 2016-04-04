@@ -3,38 +3,60 @@
    ========================================================================== */
 
 @font-face {
-    font-family: "mohave bold";
-    src: url('../fonts/Mohave-Bold/Mohave-Bold.eot');
-    src: url('../fonts/Mohave-Bold/Mohave-Bold.eot?') format('embedded-opentype'),  
-         url('../fonts/Mohave-Bold/Mohave-Bold.otf') format('truetype'),
-         url('../fonts/Mohave-Bold/Mohave-Bold.woff') format('woff');
-}
-
-@font-face {
-    font-family: "mohave semi-bold";
-    src: url('../fonts/Mohave-SemiBold/Mohave-SemiBold.eot');
-    src: url('../fonts/Mohave-SemiBold/Mohave-SemiBold.eot?') format('embedded-opentype'),
-         url('../fonts/Mohave-SemiBold/Mohave-SemiBold.otf') format('truetype'),
-         url('../fonts/Mohave-SemiBold/Mohave-SemiBold.woff') format('woff');
-}
-
-@font-face {
-    font-family: "Kraftstoff";
-    src: url('../fonts/Kraftstoff/Kraftstoff-Regular.eot?') format('embedded-opentype'),
-         url('../fonts/Kraftstoff/Kraftstoff-Regular.woff') format('woff'),
-         url('../fonts/Kraftstoff/Kraftstoff-Regular.otf') format('truetype');
+    font-family: 'Mohave Bold';
+    src: url('../fonts/Mohave-Bold/mohave-bold.eot');
+    src: url('../fonts/Mohave-Bold/Mohave-Bold.eot?#iefix') format('embedded-opentype'),  
+         url('../fonts/Mohave-Bold/Mohave-Bold.otf')  format('opentype'),
+         url('../fonts/Mohave-Bold/Mohave-Bold.woff') format('woff'), 
+         url('../fonts/Mohave-Bold/Mohave-Bold.ttf')  format('truetype'), 
+         url('../fonts/Mohave-Bold/Mohave-Bold.svg#Mohave-Bold') format('svg');
     font-weight: normal;
     font-style: normal;
 }
 
 @font-face {
-    font-family: "arialnarrow";
+    font-family: 'mohave semi-bold';
+    src: url('../fonts/Mohave-SemiBold/Mohave-SemiBold.eot');
+    src: url('../fonts/Mohave-SemiBold/Mohave-SemiBold.eot?#iefix') format('embedded-opentype'),
+         url('../fonts/Mohave-SemiBold/Mohave-SemiBold.woff2') format('woff2'),
+         url('../fonts/Mohave-SemiBold/Mohave-SemiBold.woff') format('woff'),
+         url('../fonts/Mohave-SemiBold/Mohave-SemiBold.ttf') format('truetype'),
+         url('../fonts/Mohave-SemiBold/Mohave-SemiBold.svg#Mohave-SemiBold') format('svg');
     font-weight: normal;
-    src: url('../fonts/Arial Narrow Regular.ttf');
+    font-style: normal;
+} 
+
+@font-face {
+    font-family: 'kraftstoff';
+    src: url('../fonts/Kraftstoff/kraftstoff-regular-webfont.eot');
+    src: url('../fonts/Kraftstoff/kraftstoff-regular-webfont.eot?#iefix') format('embedded-opentype'),
+         url('../fonts/Kraftstoff/kraftstoff-regular-webfont.woff2') format('woff2'),
+         url('../fonts/Kraftstoff/kraftstoff-regular-webfont.woff') format('woff'),
+         url('../fonts/Kraftstoff/kraftstoff-regular-webfont.ttf') format('truetype'),
+         url('../fonts/Kraftstoff/kraftstoff-regular-webfont.svg#kraftstoffregular') format('svg');
+    font-weight: normal;
+    font-style: normal;
 }
 
 @font-face {
-    font-family: "aileron";
+    font-family: 'arialnarrow';
+    src: url('../fonts/ArialNarrow/ArialNarrow.eot');
+    src: url('../fonts/ArialNarrow/ArialNarrow.eot?#iefix') format('embedded-opentype'),
+         url('../fonts/ArialNarrow/ArialNarrow.woff') format('woff'), 
+         url('../fonts/ArialNarrow/ArialNarrow.ttf')  format('truetype'), 
+         url('../fonts/ArialNarrow/ArialNarrow.svg#ArialNarrow') format('svg');
     font-weight: normal;
-    src: url('../fonts/Aileron-regular.otf');
+    font-style: normal;
 }
+
+@font-face {
+    font-family: 'aileron';
+    src: url('../fonts/Aileron/aileron-regular.eot');
+    src: url('../fonts/Aileron/aileron-regular.eot?#iefix') format('embedded-opentype'),
+         url('../fonts/Aileron/aileron-regular.woff2') format('woff2'),
+         url('../fonts/Aileron/aileron-regular.woff') format('woff'),
+         url('../fonts/Aileron/aileron-regular.ttf') format('truetype'),
+         url('../fonts/Aileron/aileron-regular.svg#aileronregular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+} 

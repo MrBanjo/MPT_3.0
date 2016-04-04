@@ -42,8 +42,8 @@
     width: 600px;
 }
 
-.panier_what img {
-    padding: 0 20px;
+.panier_what .sprite-span {
+    margin: 0 20px;
 }
 
 .panier_what_trait {
@@ -148,7 +148,7 @@
     background: url('../img/menus/small_arrow_desca.png') no-repeat right;
 }
 
-#lolol {
+.order-input-date {
     position: absolute;
     pointer-events: none;
     right: 5%;
@@ -274,9 +274,8 @@
     display: inline-block;
 }
 
-.plat_what img {
-    padding: 8px 5px;
-    vertical-align: middle;
+.plat_what .sprite-span {
+    margin: 8px 5px;
 }
 
 .photo_plat {
@@ -330,7 +329,7 @@
     text-align: center;  
 }
 
-.sel_poivre img{
+.sel_poivre .sprite-span {
     margin-right: 10px;
     vertical-align: middle;
 }
@@ -366,12 +365,12 @@
 
 .slider_menu .bx-wrapper .bx-next {
     right: 0;
-    background: url(../img/menus/big_arrow_next.png) no-repeat 0 0;
+    background: url('../img/sprites/content-s054e081b8d.png') -54px -470px;
 }
 
 .slider_menu .bx-wrapper .bx-controls-direction a {
     position: absolute;
-   bottom:50%;
+    bottom:50%;
     margin: auto 0;
     outline: 0;
     width: 69px;

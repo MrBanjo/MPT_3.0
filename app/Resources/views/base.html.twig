@@ -21,9 +21,9 @@
     <body>
         <header>
             <div class='container_small'>
-                <a href="{{ path('accueil')}}"><img src="{{ asset('img/header/logo.png')}}" alt="logo monpaniertoque" id="logo"></a>
+                <a href="{{ path('accueil')}}"><img src="{{ asset('img/header/logo.png')}}" alt="Logo Mon Panier Toqué" id="logo"></a>
                 <nav class="nav_header">
-                    <label for="show-menu" class="show-menu"></label>
+                    <label for="show-menu" class="show-menu"><span class="header-menu_close"></span></label>
                     <input type="checkbox" id="show-menu" role="button">
                     <ul id="menu_header">
                         <li class="left_li">                         
@@ -52,6 +52,7 @@
                 </nav>
                 <div id="header_right">
                     <div id="account_header">
+                        <span class="header-account"></span>
                         <div class="form_header">
                             {% if (is_granted('ROLE_USER') or is_granted('ROLE_ADMIN')) %}
                                 <a href="{{ path('account') }}">Mon compte</a>
@@ -76,10 +77,10 @@
                 </div> 
                 <div id="caddie_header">
                     <a href="{{ path('cart') }}">
-                        <div id="count_caddie">
+                        <span id="count_caddie">
                             {{ showCountCart(app.user) }}
-                        </div>
-                        <img src="{{ asset('img/header/panier.png')}}" alt="">
+                        </span>
+                        <span class="header-panier"></span>
                     </a>                         
                 </div>
             </div>
