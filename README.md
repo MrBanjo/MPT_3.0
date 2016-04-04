@@ -7,14 +7,14 @@ C'est un site e-commerce dont le but est de proposer des kits à cuisiner dans l
 
 Modifications apportées:
 
--Mise à jour vers Symfony 3.0
--Refactorisation du code PHP
--Utilisation de SaSS avec COMPASS
--Optimisations des images et utilisations de sprites
--Code PHP PSR2 validé avec Phpcs
--Code Javascript validé avec jshint
--Concaténations et minifications des assets (JS, CSS)
--Ajout d'un espace utlisateur
--Back-office complété
--Utilisation de grunt pour l'automatisation des taches d'optimisations (jshint, concat, cssmin, uglify, imagemin)
--Validation Platinium SensioLabsInsight
+- Mise à jour vers Symfony 3.0
+- Refactorisation du code PHP
+- Utilisation de SaSS avec COMPASS
+- Optimisations des images et utilisations de sprites
+- Code PHP PSR2 validé avec Phpcs
+- Code Javascript validé avec jshint
+- Concaténations et minifications des assets (JS, CSS)
+- Ajout d'un espace utlisateur
+- Back-office complété
+- Utilisation de grunt pour l'automatisation des taches d'optimisations (jshint, concat, cssmin, uglify, imagemin)
+- Validation Platinium SensioLabsInsight
