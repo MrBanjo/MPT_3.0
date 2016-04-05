@@ -121,10 +121,14 @@
     text-align: center;
     width:90%;
     height: 40px;
-    overflow: hidden;
     margin: 10px auto;
-    background: url('../img/menus/small_arrow_desc.png') no-repeat right;
+
+    .sprite-span {
+        position: absolute;
+        right: 20px;
+    }
 }
+
 
 .styled-select select {
     width: 100%;
@@ -141,11 +145,6 @@
 
 .styled-select select option{
     text-align: center;
-}
-
-
-.styled-select:hover {
-    background: url('../img/menus/small_arrow_desca.png') no-repeat right;
 }
 
 .order-input-date {
@@ -359,13 +358,14 @@
 }
 .slider_menu .bx-wrapper .bx-prev {
     left: 0;
-    background: url(../img/accueil/arrow_left_slider.png) no-repeat 0 0;
     display: none;
 }
 
 .slider_menu .bx-wrapper .bx-next {
     right: 0;
-    background: url('../img/sprites/content-s054e081b8d.png') -54px -470px;
+    @extend .content-big-arrow-next;
+    @extend .content-sprite;
+    
 }
 
 .slider_menu .bx-wrapper .bx-controls-direction a {
@@ -373,8 +373,7 @@
     bottom:50%;
     margin: auto 0;
     outline: 0;
-    width: 69px;
-    height: 111px;
+
     text-indent: 100%;
     white-space: nowrap;
     overflow: hidden;

@@ -130,11 +130,8 @@ h2 {
 .afterarrow::after {
     content: "";
     position: absolute;
-    background-position: 0 -90px;
-    background-image: url('../img/sprites/content-s8449bca4fc.png');
-    background-repeat: no-repeat;
-    height: 31px;
-    width: 175px;
+    @extend .content-sprite;
+    @extend .content-arrow;
     top: 20px;
     left:150px;
 }
@@ -190,12 +187,14 @@ h2 {
 
         .bx-prev {
             left: -60px;
-            background: url('../img/sprites/content-s8449bca4fc.png') no-repeat -175px -90px;;
+            @extend .content-sprite;
+            @extend .content-arrow-left-slider;
         }
 
         .bx-next {
             right: -60px;
-            background: url('../img/sprites/content-s8449bca4fc.png') no-repeat -127px -133px;
+            @extend .content-sprite;
+            @extend .content-arrow-right-slider;
         }
 
         .bx-controls-direction a {
@@ -203,8 +202,6 @@ h2 {
             top: 50%;
             margin-top: -16px;
             outline: 0;
-            width: 44px;
-            height: 44px;
             text-indent: 100%;
             white-space: nowrap;
             overflow: hidden;
