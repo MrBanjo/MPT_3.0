@@ -9,6 +9,7 @@ class HomeController extends BaseController
 {
     /**
      * @Route("/accueil", name="accueil", defaults={"title": "Accueil"})
+     * @Route("/")
      * @Method({"GET","HEAD"})
      */
     public function indexAction()
