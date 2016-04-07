@@ -337,25 +337,25 @@ table {
 }
 /* line 96, sprites/footer/*.png */
 .footer-sprite, .footer-blog, .footer-facebook, .footer-lettre, .footer-picto_partenaire, .footer-plat, .footer-truc, .footer-twitter {
-  background-image: url('../img/sprites/footer-sb04bdaccbf.png');
+  background-image: url('../img/sprites/footer-sbb680667ad.png');
   background-repeat: no-repeat;
 }
 
 /* line 80, sprites/account/*.png */
 .account-sprite, .account-adresses, .account-fidelite, .account-historique, .account-informations, .account-parrainage {
-  background-image: url('../img/sprites/account-sda155964fb.png');
+  background-image: url('../img/sprites/account-s493d439c09.png');
   background-repeat: no-repeat;
 }
 
 /* line 72, sprites/header/*.png */
 .header-sprite, .header-account, .header-menu_close, .header-menu_open, .header-panier {
-  background-image: url('../img/sprites/header-sfbe95c35d9.png');
+  background-image: url('../img/sprites/header-s3a16b3fc0a.png');
   background-repeat: no-repeat;
 }
 
 /* line 264, sprites/content/*.png */
 .content-sprite, .content-aliment-classique, .content-aliment-vegan, .content-arrow-bottom-right, .content-arrow-bottom, .content-arrow-left-slider, #plat .bx-wrapper .bx-prev, .content-arrow-next, .content-arrow-right-slider, #plat .bx-wrapper .bx-next, .content-arrow-up, .content-arrow, .afterarrow::after, .content-assiette, .content-big-arrow-next, .slider_menu .bx-wrapper .bx-next, .content-camion, .content-consistance, .content-detail-classique, .content-detail-vegetarien, .content-difficulte, .content-garbage, .content-horloge, .content-livreur, .content-medium-arrow-white, .content-panier, .content-produits, .content-recettes, .content-sel, .content-small-arrow-desc, .content-stars-four, .content-stars-three, .content-toque {
-  background-image: url('../img/sprites/content-s054e081b8d.png');
+  background-image: url('../img/sprites/content-sa46aa3132b.png');
   background-repeat: no-repeat;
 }
 
@@ -2146,19 +2146,21 @@ h2 {
 
 /* line 119, ../scss/site/partials/_panier&menu.scss */
 .styled-select {
+  position: relative;
   border: 1px solid #5f3817;
   text-align: center;
   width: 90%;
   height: 40px;
   margin: 10px auto;
 }
-/* line 126, ../scss/site/partials/_panier&menu.scss */
+/* line 127, ../scss/site/partials/_panier&menu.scss */
 .styled-select .sprite-span {
   position: absolute;
-  right: 20px;
+  pointer-events: none;
+  right: 0px;
 }
 
-/* line 133, ../scss/site/partials/_panier&menu.scss */
+/* line 134, ../scss/site/partials/_panier&menu.scss */
 .styled-select select {
   width: 100%;
   height: 40px;
@@ -2167,17 +2169,17 @@ h2 {
   -webkit-appearance: none;
   -moz-appearance: none;
   outline: none;
-  border-radius: 0;
-  border: 0;
+  border-radius: 0px;
+  border: 0px;
   text-align: center;
 }
 
-/* line 146, ../scss/site/partials/_panier&menu.scss */
+/* line 147, ../scss/site/partials/_panier&menu.scss */
 .styled-select select option {
   text-align: center;
 }
 
-/* line 150, ../scss/site/partials/_panier&menu.scss */
+/* line 151, ../scss/site/partials/_panier&menu.scss */
 .order-input-date {
   position: absolute;
   pointer-events: none;
@@ -2185,18 +2187,18 @@ h2 {
   bottom: 84px;
 }
 
-/* line 157, ../scss/site/partials/_panier&menu.scss */
+/* line 158, ../scss/site/partials/_panier&menu.scss */
 .prix_paniers input[type="date"]::-webkit-inner-spin-button {
   display: none;
 }
 
-/* line 161, ../scss/site/partials/_panier&menu.scss */
+/* line 162, ../scss/site/partials/_panier&menu.scss */
 .prix_paniers input[type="date"]::-webkit-calendar-picker-indicator {
   width: 40px;
   margin-left: -10px;
 }
 
-/* line 168, ../scss/site/partials/_panier&menu.scss */
+/* line 169, ../scss/site/partials/_panier&menu.scss */
 .prix_paniers input[type='submit'] {
   width: 90%;
   color: white;
@@ -2206,7 +2208,7 @@ h2 {
   margin-bottom: 0;
 }
 
-/* line 177, ../scss/site/partials/_panier&menu.scss */
+/* line 178, ../scss/site/partials/_panier&menu.scss */
 .prix_paniers small {
   font-family: "arialnarrow";
   font-size: 15px;
@@ -2216,14 +2218,14 @@ h2 {
 }
 
 @media only screen and (max-width: 720px) {
-  /* line 188, ../scss/site/partials/_panier&menu.scss */
+  /* line 189, ../scss/site/partials/_panier&menu.scss */
   .panier_type {
     width: 100%;
     padding: 10px 20px 10px 20px;
     font-size: 26px;
   }
 
-  /* line 194, ../scss/site/partials/_panier&menu.scss */
+  /* line 195, ../scss/site/partials/_panier&menu.scss */
   .panier_type p {
     position: relative;
     width: 100%;
@@ -2232,41 +2234,41 @@ h2 {
     text-align: center;
   }
 
-  /* line 201, ../scss/site/partials/_panier&menu.scss */
+  /* line 202, ../scss/site/partials/_panier&menu.scss */
   #panier_type_photo {
     width: 100%;
     max-width: 508px;
   }
 
-  /* line 206, ../scss/site/partials/_panier&menu.scss */
+  /* line 207, ../scss/site/partials/_panier&menu.scss */
   #panier_type_local {
     display: none;
   }
 
-  /* line 210, ../scss/site/partials/_panier&menu.scss */
+  /* line 211, ../scss/site/partials/_panier&menu.scss */
   .panier_what {
     width: 100%;
     text-align: center;
   }
 
-  /* line 215, ../scss/site/partials/_panier&menu.scss */
+  /* line 216, ../scss/site/partials/_panier&menu.scss */
   .panier_what img {
     padding: 0 20px;
   }
 
-  /* line 219, ../scss/site/partials/_panier&menu.scss */
+  /* line 220, ../scss/site/partials/_panier&menu.scss */
   .panier_what_trait {
     width: 0;
   }
 }
 /* PLAT SLIDER */
-/* line 226, ../scss/site/partials/_panier&menu.scss */
+/* line 227, ../scss/site/partials/_panier&menu.scss */
 #panier_detail {
   text-align: center;
   padding: 20px 0;
 }
 
-/* line 231, ../scss/site/partials/_panier&menu.scss */
+/* line 232, ../scss/site/partials/_panier&menu.scss */
 #panier_detail h3 {
   font-family: 'Kraftstoff';
   font-size: 45px;
@@ -2275,7 +2277,7 @@ h2 {
   font-weight: normal;
 }
 
-/* line 239, ../scss/site/partials/_panier&menu.scss */
+/* line 240, ../scss/site/partials/_panier&menu.scss */
 #panier_detail h4 {
   font-family: 'arialnarrow';
   font-size: 36px;
@@ -2284,19 +2286,19 @@ h2 {
   font-weight: normal;
 }
 
-/* line 247, ../scss/site/partials/_panier&menu.scss */
+/* line 248, ../scss/site/partials/_panier&menu.scss */
 #plat_detail {
   margin-bottom: 0;
   text-align: center;
 }
 
-/* line 252, ../scss/site/partials/_panier&menu.scss */
+/* line 253, ../scss/site/partials/_panier&menu.scss */
 #plat_detail, .plat_what > div {
   display: inline-block;
   vertical-align: middle;
 }
 
-/* line 257, ../scss/site/partials/_panier&menu.scss */
+/* line 258, ../scss/site/partials/_panier&menu.scss */
 .plat_what {
   border-top: 1px solid #5f3817;
   border-bottom: 1px solid #5f3817;
@@ -2311,24 +2313,24 @@ h2 {
   margin: 15px 0 15px 20px;
 }
 
-/* line 271, ../scss/site/partials/_panier&menu.scss */
+/* line 272, ../scss/site/partials/_panier&menu.scss */
 .plat_what span {
   vertical-align: middle;
   display: inline-block;
 }
 
-/* line 276, ../scss/site/partials/_panier&menu.scss */
+/* line 277, ../scss/site/partials/_panier&menu.scss */
 .plat_what .sprite-span {
   margin: 8px 5px;
 }
 
-/* line 280, ../scss/site/partials/_panier&menu.scss */
+/* line 281, ../scss/site/partials/_panier&menu.scss */
 .photo_plat {
   max-width: 500px;
   width: 100%;
 }
 
-/* line 285, ../scss/site/partials/_panier&menu.scss */
+/* line 286, ../scss/site/partials/_panier&menu.scss */
 .plat_what_trait {
   display: inline-block;
   background-color: #5f3817;
@@ -2338,7 +2340,7 @@ h2 {
   margin: 8px 10px 0 10px;
 }
 
-/* line 294, ../scss/site/partials/_panier&menu.scss */
+/* line 295, ../scss/site/partials/_panier&menu.scss */
 .plat_accroche {
   font-family: 'arialnarrow';
   font-size: 26px;
@@ -2348,7 +2350,7 @@ h2 {
   margin: 0 auto;
 }
 
-/* line 303, ../scss/site/partials/_panier&menu.scss */
+/* line 304, ../scss/site/partials/_panier&menu.scss */
 .plat_description {
   font-family: 'arialnarrow';
   font-size: 18px;
@@ -2358,7 +2360,7 @@ h2 {
   margin: 0 auto;
 }
 
-/* line 312, ../scss/site/partials/_panier&menu.scss */
+/* line 313, ../scss/site/partials/_panier&menu.scss */
 .plat_titre_suivant {
   font-family: 'arialnarrow';
   font-size: 26px;
@@ -2368,7 +2370,7 @@ h2 {
   margin: 0 auto;
 }
 
-/* line 322, ../scss/site/partials/_panier&menu.scss */
+/* line 323, ../scss/site/partials/_panier&menu.scss */
 .sel_poivre {
   font-family: 'arialnarrow';
   font-size: 14px;
@@ -2378,13 +2380,13 @@ h2 {
   text-align: center;
 }
 
-/* line 331, ../scss/site/partials/_panier&menu.scss */
+/* line 332, ../scss/site/partials/_panier&menu.scss */
 .sel_poivre .sprite-span {
   margin-right: 10px;
   vertical-align: middle;
 }
 
-/* line 336, ../scss/site/partials/_panier&menu.scss */
+/* line 337, ../scss/site/partials/_panier&menu.scss */
 .discovery {
   float: right;
   font-weight: bold;
@@ -2397,30 +2399,30 @@ h2 {
   vertical-align: middle;
 }
 
-/* line 349, ../scss/site/partials/_panier&menu.scss */
+/* line 350, ../scss/site/partials/_panier&menu.scss */
 .arrow_slider_right {
   text-align: right;
 }
 
-/* line 353, ../scss/site/partials/_panier&menu.scss */
+/* line 354, ../scss/site/partials/_panier&menu.scss */
 .slider_menu .bx-wrapper {
   position: relative;
   display: block;
   margin: 0 auto;
 }
 
-/* line 359, ../scss/site/partials/_panier&menu.scss */
+/* line 360, ../scss/site/partials/_panier&menu.scss */
 .slider_menu .bx-wrapper .bx-prev {
   left: 0;
   display: none;
 }
 
-/* line 364, ../scss/site/partials/_panier&menu.scss */
+/* line 365, ../scss/site/partials/_panier&menu.scss */
 .slider_menu .bx-wrapper .bx-next {
   right: 0;
 }
 
-/* line 371, ../scss/site/partials/_panier&menu.scss */
+/* line 372, ../scss/site/partials/_panier&menu.scss */
 .slider_menu .bx-wrapper .bx-controls-direction a {
   position: absolute;
   bottom: 50%;
@@ -2433,7 +2435,7 @@ h2 {
 }
 
 @media only screen and (max-width: 1280px) {
-  /* line 384, ../scss/site/partials/_panier&menu.scss */
+  /* line 385, ../scss/site/partials/_panier&menu.scss */
   .discovery {
     float: none;
     display: inline-block;
@@ -2441,13 +2443,13 @@ h2 {
   }
 }
 @media only screen and (max-width: 700px) {
-  /* line 393, ../scss/site/partials/_panier&menu.scss */
+  /* line 394, ../scss/site/partials/_panier&menu.scss */
   .plat_what {
     width: 100%;
     margin: 30px 0;
   }
 
-  /* line 398, ../scss/site/partials/_panier&menu.scss */
+  /* line 399, ../scss/site/partials/_panier&menu.scss */
   .slider_menu .bx-wrapper .bx-controls-direction a {
     position: absolute;
     bottom: 2px;
@@ -2455,30 +2457,30 @@ h2 {
   }
 }
 @media only screen and (max-width: 570px) {
-  /* line 407, ../scss/site/partials/_panier&menu.scss */
+  /* line 408, ../scss/site/partials/_panier&menu.scss */
   .plat_what {
     height: 100px;
   }
 
-  /* line 410, ../scss/site/partials/_panier&menu.scss */
+  /* line 411, ../scss/site/partials/_panier&menu.scss */
   .plat_accroche {
     width: 100%;
   }
 
-  /* line 414, ../scss/site/partials/_panier&menu.scss */
+  /* line 415, ../scss/site/partials/_panier&menu.scss */
   .plat_description {
     width: 100%;
   }
 }
 /* NEXT PLATS */
-/* line 422, ../scss/site/partials/_panier&menu.scss */
+/* line 423, ../scss/site/partials/_panier&menu.scss */
 #panier_suivant {
   background-color: #e5dcd0;
   text-align: center;
   padding-bottom: 20px;
 }
 
-/* line 428, ../scss/site/partials/_panier&menu.scss */
+/* line 429, ../scss/site/partials/_panier&menu.scss */
 .plat_suivant {
   display: inline-block;
   text-align: center;
@@ -2486,7 +2488,7 @@ h2 {
   vertical-align: top;
 }
 
-/* line 435, ../scss/site/partials/_panier&menu.scss */
+/* line 436, ../scss/site/partials/_panier&menu.scss */
 #panier_suivant h3 {
   font-family: 'arialnarrow';
   font-size: 36px;
@@ -2495,13 +2497,13 @@ h2 {
   margin-top: 0;
 }
 
-/* line 444, ../scss/site/partials/_panier&menu.scss */
+/* line 445, ../scss/site/partials/_panier&menu.scss */
 .photo_plat_suivant {
   max-width: 480px;
   width: 100%;
 }
 
-/* line 449, ../scss/site/partials/_panier&menu.scss */
+/* line 450, ../scss/site/partials/_panier&menu.scss */
 .next_menu {
   font-family: 'arialnarrow';
   font-size: 15px;
@@ -2514,7 +2516,7 @@ h2 {
 }
 
 @media only screen and (max-width: 600px) {
-  /* line 461, ../scss/site/partials/_panier&menu.scss */
+  /* line 462, ../scss/site/partials/_panier&menu.scss */
   .plat_suivant {
     margin: 0;
     padding: 0;
@@ -2522,31 +2524,31 @@ h2 {
   }
 }
 /* UPSELL */
-/* line 473, ../scss/site/partials/_panier&menu.scss */
+/* line 474, ../scss/site/partials/_panier&menu.scss */
 #upsell {
   text-align: center;
   clear: both;
 }
 
-/* line 478, ../scss/site/partials/_panier&menu.scss */
+/* line 479, ../scss/site/partials/_panier&menu.scss */
 #upsell article {
   display: inline-block;
   margin-bottom: 20px;
   width: 400px;
 }
 
-/* line 484, ../scss/site/partials/_panier&menu.scss */
+/* line 485, ../scss/site/partials/_panier&menu.scss */
 #upsell form {
   display: inline-block;
 }
 
-/* line 488, ../scss/site/partials/_panier&menu.scss */
+/* line 489, ../scss/site/partials/_panier&menu.scss */
 .img_upsell {
   border: 15px solid #e5dcd0;
   margin-right: 0;
 }
 
-/* line 493, ../scss/site/partials/_panier&menu.scss */
+/* line 494, ../scss/site/partials/_panier&menu.scss */
 .prix_upsell {
   display: inline-block;
   font-family: 'arialnarrow';
@@ -2556,7 +2558,7 @@ h2 {
   font-weight: bold;
 }
 
-/* line 502, ../scss/site/partials/_panier&menu.scss */
+/* line 503, ../scss/site/partials/_panier&menu.scss */
 .upsell_titre {
   font-family: 'arialnarrow';
   font-size: 26px;
@@ -2566,7 +2568,7 @@ h2 {
   margin: 0 auto;
 }
 
-/* line 511, ../scss/site/partials/_panier&menu.scss */
+/* line 512, ../scss/site/partials/_panier&menu.scss */
 .provenance {
   font-family: 'arialnarrow';
   font-size: 18px;
@@ -2574,13 +2576,13 @@ h2 {
   font-style: italic;
 }
 
-/* line 518, ../scss/site/partials/_panier&menu.scss */
+/* line 519, ../scss/site/partials/_panier&menu.scss */
 .prix_upsell small {
   font-size: 16px;
   font-style: italic;
 }
 
-/* line 523, ../scss/site/partials/_panier&menu.scss */
+/* line 524, ../scss/site/partials/_panier&menu.scss */
 .upsell_add {
   font-family: arial;
   font-size: 14px;
@@ -2589,7 +2591,7 @@ h2 {
 }
 
 @media only screen and (max-width: 600px) {
-  /* line 531, ../scss/site/partials/_panier&menu.scss */
+  /* line 532, ../scss/site/partials/_panier&menu.scss */
   .img_upsell {
     margin-right: 0;
     width: 100%;
@@ -2597,24 +2599,24 @@ h2 {
   }
 }
 @media only screen and (max-width: 480px) {
-  /* line 540, ../scss/site/partials/_panier&menu.scss */
+  /* line 541, ../scss/site/partials/_panier&menu.scss */
   #upsell article {
     width: 100%;
   }
 }
-/* line 546, ../scss/site/partials/_panier&menu.scss */
+/* line 547, ../scss/site/partials/_panier&menu.scss */
 #plat_comment {
   background-color: #c3beba;
   text-align: center;
 }
 
-/* line 551, ../scss/site/partials/_panier&menu.scss */
+/* line 552, ../scss/site/partials/_panier&menu.scss */
 #plat_comment img {
   margin: 0 30px 30px 0;
 }
 
 /* POPUP */
-/* line 558, ../scss/site/partials/_panier&menu.scss */
+/* line 559, ../scss/site/partials/_panier&menu.scss */
 .addtocart-popup {
   width: 480px;
   height: 245px;
@@ -2625,7 +2627,7 @@ h2 {
   position: relative;
 }
 
-/* line 568, ../scss/site/partials/_panier&menu.scss */
+/* line 569, ../scss/site/partials/_panier&menu.scss */
 .addtocart-popup p {
   font-family: 'arialnarrow';
   font-size: 18px;
@@ -2634,7 +2636,7 @@ h2 {
   font-weight: bold;
 }
 
-/* line 576, ../scss/site/partials/_panier&menu.scss */
+/* line 577, ../scss/site/partials/_panier&menu.scss */
 .addtocart-popup span {
   font-family: 'arialnarrow';
   font-size: 22px;
@@ -2643,7 +2645,7 @@ h2 {
   font-weight: bold;
 }
 
-/* line 584, ../scss/site/partials/_panier&menu.scss */
+/* line 585, ../scss/site/partials/_panier&menu.scss */
 #popup-box {
   margin-left: 25px;
   margin-top: 50px;
@@ -2651,7 +2653,7 @@ h2 {
   vertical-align: middle;
 }
 
-/* line 591, ../scss/site/partials/_panier&menu.scss */
+/* line 592, ../scss/site/partials/_panier&menu.scss */
 #popup-photo {
   display: inline-block;
   width: 100px;
@@ -2660,7 +2662,7 @@ h2 {
   vertical-align: middle;
 }
 
-/* line 599, ../scss/site/partials/_panier&menu.scss */
+/* line 600, ../scss/site/partials/_panier&menu.scss */
 .addtocart-popup a, #popup-continue {
   font-family: 'arialnarrow';
   font-size: 22px;
@@ -2672,23 +2674,23 @@ h2 {
   bottom: 0;
 }
 
-/* line 609, ../scss/site/partials/_panier&menu.scss */
+/* line 610, ../scss/site/partials/_panier&menu.scss */
 #popup-link {
   display: none;
 }
 
-/* line 612, ../scss/site/partials/_panier&menu.scss */
+/* line 613, ../scss/site/partials/_panier&menu.scss */
 #popup-continue {
   left: 5px;
   line-height: 1.4;
 }
 
-/* line 617, ../scss/site/partials/_panier&menu.scss */
+/* line 618, ../scss/site/partials/_panier&menu.scss */
 #popup-end {
   right: 5px;
 }
 
-/* line 621, ../scss/site/partials/_panier&menu.scss */
+/* line 622, ../scss/site/partials/_panier&menu.scss */
 #popup-photo {
   display: inline-block;
   width: 100px;

@@ -65,5 +65,5 @@ module.exports = function(grunt){
 
 	});
 
-	grunt.registerTask('default', ['jshint', 'concat', 'cssmin', 'uglify', 'imagemin', 'phpcs']);
+	grunt.registerTask('default', ['jshint', 'concat', 'cssmin', 'uglify', 'phpcs']);
 };
