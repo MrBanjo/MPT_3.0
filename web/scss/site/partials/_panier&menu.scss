@@ -626,3 +626,14 @@
     border-radius: 50%;
     vertical-align: middle;
 }
+
+@media only screen and (max-width: 480px) {
+
+    .addtocart-popup {
+        width: 100%;
+    }
+
+    #popup-continue {
+        bottom: 30px;
+    }
+}

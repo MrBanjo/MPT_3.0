@@ -12,7 +12,7 @@ use Doctrine\ORM\EntityRepository;
  */
 class MenuRepository extends EntityRepository
 {
-    public function getCurrentMenuClassique()
+    public function getCurrentMenu($menuType)
     {
         $query = $this->getEntityManager()
         ->createQuery('
@@ -22,10 +22,10 @@ class MenuRepository extends EntityRepository
             WHERE c.nom = :nom AND m.active = :active 
             ORDER BY m.date DESC
             ')
-        ->setParameter('nom', 'Classique')
+        ->setParameter('nom', $menuType)
         ->setParameter('active', 'oui');
 
-        $results = $query->getResult();
+        $results = $query->getOneOrNullResult();
 
         return $results;
     }

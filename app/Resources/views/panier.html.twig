@@ -5,16 +5,14 @@
 	<section id="panier_class" class="first_section">
 		<div class="container_small">
 			<div class="title_section">
-			    <h2>NOTRE PANIER CLASSIQUE</h2>
+			    <h2>NOTRE PANIER {{ menu.categorie.nom }}</h2>
 			</div>
-			<nav class="breadcrumb">
-				{{ knp_menu_render('breadcrumb',{'depth': 2,'currentAsLink':false}) }}
-			</nav>
+
 		    <div id="box_menu">	    		   
 			    <article class="panier_type">
-			    	<p>Notre panier classique contient tous les ingrédients pour préparer vos repas. <strong>4 repas originaux</strong>, simples et équilibrés.</p>
+			    	<p>Notre panier {{ menu.categorie.nom|lower }} contient tous les ingrédients pour préparer vos repas. <strong>4 repas originaux</strong>, simples et équilibrés.</p>
 			    	<img src="{{ asset('img/accueil/local.png')}}" alt="100% local Mon Panier Toqué" id="panier_type_local">
-			    	<img src="{{ asset('img/menus/menu_classique2.png')}}" alt="Menu classique Mon Panier Toqué" id="panier_type_photo">
+			    	<img src="{{ asset( menu.photo )}}" alt="Menu classique Mon Panier Toqué" id="panier_type_photo">
 			    	<div class="panier_what">
 			    		<span class="content-produits sprite-span"></span>	
 			    		<div class="panier_what_trait"></div>
@@ -25,7 +23,7 @@
 			    </article>
 			    <article class="panier_order">
 			    	<div class="prix_paniers">
-			    		<p><strong id="update_prix" data-prix="{{ menu_classique.prix }}">{{ menu_classique.prix }}</strong><strong> €</strong> (panier pour <strong id="update_pers">2</strong> pers.)</p>
+			    		<p><strong id="update_prix" data-prix="{{ menu.prix }}">{{ menu.prix }}</strong><strong> €</strong> (panier pour <strong id="update_pers">2</strong> pers.)</p>
 			    		<form action="{{ path('addtocart', { 'slug' : 'Menu' }) }}" method="post" class="submit_product">
 			    			<small>Choisissez le nombre de panier</small>
 			    			<div id="quantite_panier">
@@ -50,7 +48,7 @@
 									<OPTION VALUE="4">1 semaine sur 4</OPTION>
 								</SELECT>
 							</div>
-							<input type="hidden" name="id_product" value="{{ menu_classique.id }}">
+							<input type="hidden" name="id_product" value="{{ menu.id }}">
 			    			<input type="date" onfocus="(this.type='date')" placeholder="Choisissez la date de votre livraison"><span class="content-small-arrow-desc  sprite-span  order-input-date"></span>
 			    			<input type="submit" value="AJOUTER A VOTRE COMMANDE" class="orange">
 			    		</form>
@@ -68,12 +66,12 @@
 			<nav class="slider_menu">	
 				<ul class="bxslider ">
 
-					{% for plat in liste_classique %}
+					{% for plat in plats %}
 
 				    	<li>
 							<img src="{{ asset(plat.photo)}}" alt="Plat Mon Panier Toqué" class="photo_plat">
 							<div id="plat_detail">			
-								<h3>Menu classique semaine du {{ menu_classique.date | date('d')}}</h3>
+								<h3>Menu classique semaine du {{ menu.date | date('d')}}</h3>
 								<h4>plat {{ loop.index }} : {{ plat.titre }}</h4>
 						    	<div class="plat_what">
 						    		<div>

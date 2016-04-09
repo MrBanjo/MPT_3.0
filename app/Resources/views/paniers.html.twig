@@ -18,7 +18,7 @@
 			    	<span class="content-detail-classique sprite-span"></span>
 			    	<div class="prix_paniers_box">
 			    		<span><strong>2</strong> pers. (59 €) | <strong>4</strong> pers. (89 €)<br><strong>4</strong> repas / semaine</span>
-			    		<div class="plus_soir"><a href="{{ path('classique') }}" class="orange">découvrir ce panier</a></div>
+			    		<div class="plus_soir"><a href="{{ path('panier', {'slug' : 'classique'}) }}" class="orange">découvrir ce panier</a></div>
 			    	</div>
 			    </article>
 			    <article class="menu_soir">
@@ -27,7 +27,7 @@
 			    	<span class="content-detail-vegetarien sprite-span"></span>
 			    	<div class="prix_paniers_box">
 			    		<span><strong>2</strong> pers. (59 €) | <strong>4</strong> pers. (89 €) <br><strong>4</strong> repas / semaine</span>
-			    		<div class="plus_soir"><a href="#" class="orange">découvrir ce panier</a></div>
+			    		<div class="plus_soir"><a href="{{ path('panier', {'slug' : 'végétarien'}) }}" class="orange">découvrir ce panier</a></div>
 			    	</div>
 			    </article>
 		    </div>
@@ -45,7 +45,7 @@
 			    	<img src="{{ asset('img/menus/apero.jpg')}}" alt="Apéro Mon Panier Toqué">
 			    	<div class="prix_paniers_box">
 			    		<span><strong>49 €</strong> le panier / <strong>4</strong> pers.</span>
-			    		<div class="plus_convi"><a href="#" class="white-button">découvrir ce panier</a></div>
+			    		<div class="plus_convi"><a href="{{ path('panier', {'slug' : 'apéro'}) }}" class="white-button">découvrir ce panier</a></div>
 			    	</div>
 			    </article>
 			    <article class="menu_autre">
@@ -53,7 +53,7 @@
 			    	<img src="{{ asset('img/menus/brunch.jpg')}}" alt="Brunch Mon Panier Toqué" id="brunch_img">
 			    	<div class="prix_paniers_box">
 			    		<span><strong>49 €</strong> le panier / <strong>4</strong> pers.</span>
-			    		<div class="plus_convi"><a href="#" class="white-button">découvrir ce panier</a></div>
+			    		<div class="plus_convi"><a href="{{ path('panier', {'slug' : 'brunch'}) }}" class="white-button">découvrir ce panier</a></div>
 			    	</div>
 			    </article>
 		    </div>

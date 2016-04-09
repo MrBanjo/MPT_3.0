@@ -2699,6 +2699,17 @@ h2 {
   vertical-align: middle;
 }
 
+@media only screen and (max-width: 480px) {
+  /* line 632, ../scss/site/partials/_panier&menu.scss */
+  .addtocart-popup {
+    width: 100%;
+  }
+
+  /* line 636, ../scss/site/partials/_panier&menu.scss */
+  #popup-continue {
+    bottom: 30px;
+  }
+}
 /* ==========================================================================
    CADDIE
    ========================================================================== */
