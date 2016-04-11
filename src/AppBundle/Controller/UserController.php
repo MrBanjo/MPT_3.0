@@ -9,6 +9,7 @@ use Symfony\Component\Security\Core\Authentication\Token\UsernamePasswordToken;
 use Symfony\Component\Security\Http\Event\InteractiveLoginEvent;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\RedirectResponse;
+use Symfony\Component\HttpFoundation\JsonResponse;
 use AppBundle\Entity\User;
 
 class UserController extends BaseController
@@ -56,7 +57,8 @@ class UserController extends BaseController
             $this->get('security.token_storage')->setToken($token);
             $event = new InteractiveLoginEvent($request, $token);
             $this->get('event_dispatcher')->dispatch('security.interactive_login', $event);
-
+            
+            $this->get('session')->set('old_referer', $request->headers->get('referer'));
             return $this->container->get('login_handler')->onAuthenticationSuccess($request, $token);
         }
 
@@ -67,13 +69,17 @@ class UserController extends BaseController
     }
 
     /**
-     * @Route("/checkMail/{data}", name="checkMail", defaults={"data" = ""}, options={"expose"=true})
+     * @Route("/checkMail/{email}", name="checkMail", defaults={"email" = ""}, options={"expose"=true})
      * @Method({"POST"})
      */
-    public function checkEmailAction($data)
+    public function checkEmailAction($email)
     {
-        $user = $this->getRepo('AppBundle:User')->findOneByEmail($data);
+        if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+            return new JsonResponse(['message' => 'novalidate'], 200);
+        }
 
-        return ($user) ? $this->jsonSuccess() : $this->jsonFail();
+        $user = $this->getRepo('AppBundle:User')->findOneByEmail($email);
+
+        return ($user) ? $this->jsonFail() : $this->jsonSuccess();
     }
 }

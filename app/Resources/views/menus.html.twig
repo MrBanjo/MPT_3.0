@@ -37,7 +37,7 @@
 						    	<p class="plat_description">{{ plat.description }}</p>
 						    	<p class="plat_description"> {{ plat.plus }}</p>
 						    	<p class="sel_poivre"><span class="content-sel sprite-span"></span>Prévoir du sel, du poivre et de l’huile dans votre placard</p>
-						    	<a href="{{ path('classique') }}" class="discovery orange">découvrir notre panier classique</a>		
+						    	<a href="{{ path('panier', {'slug' : 'classique'}) }}" class="discovery orange">découvrir notre panier classique</a>		
 							</div>			    	
 				    	</li>
 				    {% endfor %}		    	
@@ -98,7 +98,7 @@
 					    	<p class="plat_description">{{ plat.description }}</p>
 					    	<p class="plat_description"> {{ plat.plus }}</p>
 					    	<p class="sel_poivre"><span class="content-sel sprite-span"></span>Prévoir du sel, du poivre et de l’huile dans votre placard</p>
-					    	<a href="{{ path('classique') }}" class="discovery orange">découvrir notre panier végétarien</a>		
+					    	<a href="{{ path('panier', {'slug' : 'végétarien'}) }}" class="discovery orange">découvrir notre panier végétarien</a>		
 						</div>			    	
 			    	</li>
 

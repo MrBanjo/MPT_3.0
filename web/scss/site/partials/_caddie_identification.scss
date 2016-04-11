@@ -52,10 +52,10 @@
 .label_login_form {
     position: absolute;
     display: inline-block;
-    right:510px;
+    right: 510px;
     width: 300px;
     text-align: right;
-    bottom:0;
+    bottom: 0;
 }
 
 .box_form_user span, .asterix {
@@ -88,7 +88,7 @@
     width: 10px;
     display: inline-block;
     margin: 0 3px;
-    border : 0;
+    border: 0;
     height: 10px;
 }
 
@@ -97,7 +97,7 @@
     height: 20px;
     display: inline-block;
     margin: 0;
-    border : 0;
+    border: 0;
 }
 
 /* .styled-select {
@@ -110,7 +110,7 @@
     background: url('../img/menus/small_arrow_desc.png') no-repeat right;
 }*/
 
-.styled-select select{
+.styled-select select {
     font-family: 'arialnarrow';
     font-size: 18px;
     color: #493f33;
@@ -121,13 +121,13 @@
 .row_login_form select {
     width: 90px;
     height: 30px;
-   background: transparent;
-   font-size: 16px;
-   outline: none;
-   border: 1px solid #6d9a4b;
+    background: transparent;
+    font-size: 16px;
+    outline: none;
+    border: 1px solid #6d9a4b;
     text-align: center;
     box-sizing: border-box;
-} 
+}
 
 .row_login_form select:nth-child(2) {
     margin: 0 12px;
@@ -153,11 +153,10 @@
 }
 
 .box_form_user:last-child {
-    text-align: right; 
-    
+    text-align: right;
 }
 
-.box_form_user:last-child span{
+.box_form_user:last-child span {
     display: none;
 }
 
@@ -166,10 +165,33 @@
     width: 235px;
     height: 40px;
     background-color: #f18a31;
-    color: white;   
+    color: white;
 }
 
-@media screen and (max-width : 780px){
+.row_email {
+    position: relative;
+}
+
+#spinner {
+    display: inline-block;
+    position: absolute;
+    left: 510px;
+    bottom: 0px;
+    font-weight: bold;
+
+    span {
+        display: inline-block;
+        vertical-align: middle;
+    }
+    p {
+        width:300px;
+        text-align: left;
+        position: relative;
+        left: 35px;
+    }
+}
+
+@media screen and (max-width: 780px) {
     .box_form_user_small {
         width: 100%;
         margin: 0 auto;
@@ -181,7 +203,7 @@
         width: 100%;
         text-align: center;
         right: auto;
-        left:0;
+        left: 0;
     }
 
     .rememberme_login {
@@ -197,6 +219,7 @@
         width: 100%;
         border: 1px solid #6d9a4b;
     }
+
     .row_login_form input[type="checkbox"] {
         display: inline-block;
         vertical-align: middle;
@@ -205,5 +228,11 @@
     .box_form_user_small {
         width: 100%;
         margin: 0 auto;
+    }
+
+    #spinner {
+        position: static;
+        left: 510px;
+        bottom: 0px;
     }
 }
