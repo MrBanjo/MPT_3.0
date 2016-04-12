@@ -8,8 +8,7 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 class HomeController extends BaseController
 {
     /**
-     * @Route("/accueil", name="accueil", defaults={"title": "Accueil"})
-     * @Route("/")
+     * @Route("/", name="accueil", defaults={"title": "Mon Panier Toqué"})
      * @Method({"GET","HEAD"})
      */
     public function indexAction()

@@ -77,7 +77,6 @@ class CartController extends BaseController
     public function addProductAction(Request $request, $slug)
     {
         if ($request->isXmlHttpRequest() && $request->request->get('quantite') !== null) {
-            $caddie = new Caddie();
             $quantite = $request->request->get('quantite');
             $produit = $this->find('AppBundle:'.$slug, $request->request->get('id_product'));
 
@@ -87,6 +86,7 @@ class CartController extends BaseController
                 $checkdb[0]->setQuantite($quantite + $checkdb[0]->getQuantite());
                 $this->save($checkdb[0]);
             } else {
+                $caddie = new Caddie();
                 $session = new Session();
                 $caddie->setSession($session->getId());
                 $caddie->setTitre($produit->getTitre());
