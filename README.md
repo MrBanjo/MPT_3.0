@@ -18,3 +18,5 @@ Modifications apportées:
 - Back-office complété
 - Utilisation de grunt pour l'automatisation des taches d'optimisations (jshint, concat, cssmin, uglify, imagemin)
 - Validation Platinium SensioLabsInsight
+
+http://www.johannuntereiner.fr/mon-panier-toque/

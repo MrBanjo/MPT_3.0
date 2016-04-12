@@ -29,10 +29,10 @@
                         <li class="left_li">                         
                             <a href="{{path('paniers')}}">NOS PANIERS ￬</a>
                             <ul class="ulhidden">
-                                <li><a href="{{ path('classique')}}">Panier classique</a></li>
-                                <li><a href="#">Panier végétarien</a></li>
-                                <li><a href="#">Panier Apéro</a></li>
-                                <li><a href="#">Panier Brunch</a></li>
+                                <li><a href="{{ path('panier', {'slug' : 'classique'})}}">Panier classique</a></li>
+                                <li><a href="{{ path('panier', {'slug' : 'végétarien'})}}">Panier végétarien</a></li>
+                                <li><a href="{{ path('panier', {'slug' : 'apéro'})}}">Panier Apéro</a></li>
+                                <li><a href="{{ path('panier', {'slug' : 'brunch'})}}">Panier Brunch</a></li>
                             </ul>               
                             <li class="left_li">
                                 <a href="#">COMMENT CA MARCHE ￬</a>

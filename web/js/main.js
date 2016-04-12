@@ -19,8 +19,8 @@ $(document).ready(function(){
 						$('#error_login_header').prepend('<div />').html(messagefr);				
 					}
 				},
-				error: function (jqXHR, textStatus, errorThrown) {
-				}
+/*				error: function (jqXHR, textStatus, errorThrown) {
+				}*/
 			});
 		});
 
@@ -38,9 +38,9 @@ $(document).ready(function(){
 						$('#error_newsletter').html('Vous êtes déjà inscrit à la newsletter !');
 					}
 				},	
-				error: function (jqXHR, textStatus, errorThrown) {
+/*				error: function (jqXHR, textStatus, errorThrown) {
 					console.log("neineenienie");
-				}
+				}*/
 			});
 		});
 	})();
@@ -100,14 +100,14 @@ $(document).ready(function(){
 						$("." + form.attr("id")).parent().parent().remove();
 					}
 				},	
-				error: function (jqXHR, textStatus, errorThrown) {
-				}
+/*				error: function (jqXHR, textStatus, errorThrown) {
+				}*/
 			});
 		});				
 
 		function updatePrixTotal() {
 			var prix_total = 0;
-			$(".test").each(function(index){
+			$(".test").each(function(){
 				prix_total += parseFloat($(this).text());
 			});
 			$(".cart_prixtotal").html(prix_total + " €");
@@ -121,7 +121,7 @@ $(document).ready(function(){
 
 	})();
 
-	// classique page
+	// Panier page
 	(function() {
 		$('.open-popup-link').magnificPopup({
 			type:'inline',
@@ -168,8 +168,8 @@ $(document).ready(function(){
 					$('a.open-popup-link').trigger('click');
 					$('#count_caddie').html(data.countcaddie);
 				},
-				error: function (jqXHR, textStatus, errorThrown) {
-				}
+/*				error: function (jqXHR, textStatus, errorThrown) {
+				}*/
 			});
 		});		
 	})();
@@ -200,13 +200,21 @@ $(document).ready(function(){
 			    	url: Routing.generate('checkMail') + "/" + $(this).val(),
 			    	data: $(this).val(),
 			    	beforeSend: function() {
-			    		$('#spinner').html('encours');
+			    		$('#spinner').empty().html('<span class="spinner-load"></span>');
 			    	},
 			    	success: function (data) {
-			    		$('#spinner').html((data.message == 'success') ? 'Deja pris' : 'libre');
+                        if (data.message == 'success') {
+                            $('#spinner').empty().html('<span class="content-sprite content-ok"><p>Adresse e-mail disponible</p></span>');
+                        } 
+                        else if (data.message == 'novalidate') {
+                            $('#spinner').empty().html('<span class="content-sprite content-no"><p>Adresse e-mail incorrecte</p></span>');
+                        }
+                        else {
+                            $('#spinner').empty().html('<span class="content-sprite content-no"><p>Adresse e-mail déjà utilisée</p></span>');
+                        }
 			    	},
-			    	error: function (jqXHR, textStatus, errorThrown) {
-			    	}   
+/*			    	error: function (jqXHR, textStatus, errorThrown) {
+			    	}  */ 
 			    });	
 			});
 		}
@@ -240,7 +248,7 @@ $(document).ready(function(){
 	        var addDeleteLink = function($prototype) 
 	        {
 	          // Création du lien
-	          $deleteLink = $('<a href="#" id="erase_adresse" class="btn btn-danger">Supprimer l\'adresse</a>');
+	          var $deleteLink = $('<a href="#" id="erase_adresse" class="btn btn-danger">Supprimer l\'adresse</a>');
 
 	          // Ajout du lien
 	          $prototype.append($deleteLink);

@@ -337,25 +337,25 @@ table {
 }
 /* line 96, sprites/footer/*.png */
 .footer-sprite, .footer-blog, .footer-facebook, .footer-lettre, .footer-picto_partenaire, .footer-plat, .footer-truc, .footer-twitter {
-  background-image: url('../img/sprites/footer-sb04bdaccbf.png');
+  background-image: url('../img/sprites/footer-sbb680667ad.png');
   background-repeat: no-repeat;
 }
 
 /* line 80, sprites/account/*.png */
 .account-sprite, .account-adresses, .account-fidelite, .account-historique, .account-informations, .account-parrainage {
-  background-image: url('../img/sprites/account-sda155964fb.png');
+  background-image: url('../img/sprites/account-s493d439c09.png');
   background-repeat: no-repeat;
 }
 
 /* line 72, sprites/header/*.png */
 .header-sprite, .header-account, .header-menu_close, .header-menu_open, .header-panier {
-  background-image: url('../img/sprites/header-sfbe95c35d9.png');
+  background-image: url('../img/sprites/header-s3a16b3fc0a.png');
   background-repeat: no-repeat;
 }
 
-/* line 264, sprites/content/*.png */
-.content-sprite, .content-aliment-classique, .content-aliment-vegan, .content-arrow-bottom-right, .content-arrow-bottom, .content-arrow-left-slider, #plat .bx-wrapper .bx-prev, .content-arrow-next, .content-arrow-right-slider, #plat .bx-wrapper .bx-next, .content-arrow-up, .content-arrow, .afterarrow::after, .content-assiette, .content-big-arrow-next, .slider_menu .bx-wrapper .bx-next, .content-camion, .content-consistance, .content-detail-classique, .content-detail-vegetarien, .content-difficulte, .content-garbage, .content-horloge, .content-livreur, .content-medium-arrow-white, .content-panier, .content-produits, .content-recettes, .content-sel, .content-small-arrow-desc, .content-stars-four, .content-stars-three, .content-toque {
-  background-image: url('../img/sprites/content-s054e081b8d.png');
+/* line 280, sprites/content/*.png */
+.content-sprite, .content-aliment-classique, .content-aliment-vegan, .content-arrow-bottom-right, .content-arrow-bottom, .content-arrow-left-slider, #plat .bx-wrapper .bx-prev, .content-arrow-next, .content-arrow-right-slider, #plat .bx-wrapper .bx-next, .content-arrow-up, .content-arrow, .afterarrow::after, .content-assiette, .content-big-arrow-next, .slider_menu .bx-wrapper .bx-next, .content-camion, .content-consistance, .content-detail-classique, .content-detail-vegetarien, .content-difficulte, .content-garbage, .content-horloge, .content-livreur, .content-medium-arrow-white, .content-no, .content-ok, .content-panier, .content-produits, .content-recettes, .content-sel, .content-small-arrow-desc, .content-stars-four, .content-stars-three, .content-toque {
+  background-image: url('../img/sprites/content-s0352d5aba6.png');
   background-repeat: no-repeat;
 }
 
@@ -473,28 +473,28 @@ table {
 
 /* line 84, ../../../../../Ruby22-x64/lib/ruby/gems/2.2.0/gems/compass-core-1.0.3/stylesheets/compass/utilities/sprites/_base.scss */
 .content-aliment-classique {
-  background-position: 0 -200px;
+  background-position: -77px -133px;
   height: 40px;
   width: 132px;
 }
 
 /* line 84, ../../../../../Ruby22-x64/lib/ruby/gems/2.2.0/gems/compass-core-1.0.3/stylesheets/compass/utilities/sprites/_base.scss */
 .content-aliment-vegan {
-  background-position: 0 -133px;
+  background-position: 0 -401px;
   height: 38px;
   width: 127px;
 }
 
 /* line 84, ../../../../../Ruby22-x64/lib/ruby/gems/2.2.0/gems/compass-core-1.0.3/stylesheets/compass/utilities/sprites/_base.scss */
 .content-arrow-bottom-right {
-  background-position: -170px -133px;
+  background-position: -54px -133px;
   height: 66px;
   width: 23px;
 }
 
 /* line 84, ../../../../../Ruby22-x64/lib/ruby/gems/2.2.0/gems/compass-core-1.0.3/stylesheets/compass/utilities/sprites/_base.scss */
 .content-arrow-bottom {
-  background-position: -193px -133px;
+  background-position: -43px -199px;
   height: 67px;
   width: 20px;
 }
@@ -508,21 +508,21 @@ table {
 
 /* line 84, ../../../../../Ruby22-x64/lib/ruby/gems/2.2.0/gems/compass-core-1.0.3/stylesheets/compass/utilities/sprites/_base.scss */
 .content-arrow-next {
-  background-position: -81px 0;
+  background-position: -72px 0;
   height: 34px;
   width: 21px;
 }
 
 /* line 84, ../../../../../Ruby22-x64/lib/ruby/gems/2.2.0/gems/compass-core-1.0.3/stylesheets/compass/utilities/sprites/_base.scss */
 .content-arrow-right-slider, #plat .bx-wrapper .bx-next {
-  background-position: -127px -133px;
+  background-position: 0 -199px;
   height: 44px;
   width: 43px;
 }
 
 /* line 84, ../../../../../Ruby22-x64/lib/ruby/gems/2.2.0/gems/compass-core-1.0.3/stylesheets/compass/utilities/sprites/_base.scss */
 .content-arrow-up {
-  background-position: -187px 0;
+  background-position: -182px 0;
   height: 66px;
   width: 25px;
 }
@@ -536,70 +536,70 @@ table {
 
 /* line 84, ../../../../../Ruby22-x64/lib/ruby/gems/2.2.0/gems/compass-core-1.0.3/stylesheets/compass/utilities/sprites/_base.scss */
 .content-assiette {
-  background-position: -140px -310px;
+  background-position: 0 -321px;
   height: 80px;
   width: 72px;
 }
 
 /* line 84, ../../../../../Ruby22-x64/lib/ruby/gems/2.2.0/gems/compass-core-1.0.3/stylesheets/compass/utilities/sprites/_base.scss */
 .content-big-arrow-next, .slider_menu .bx-wrapper .bx-next {
-  background-position: -54px -470px;
+  background-position: -139px -481px;
   height: 111px;
   width: 69px;
 }
 
 /* line 84, ../../../../../Ruby22-x64/lib/ruby/gems/2.2.0/gems/compass-core-1.0.3/stylesheets/compass/utilities/sprites/_base.scss */
 .content-camion {
-  background-position: 0 -390px;
+  background-position: 0 -481px;
   height: 80px;
   width: 139px;
 }
 
 /* line 84, ../../../../../Ruby22-x64/lib/ruby/gems/2.2.0/gems/compass-core-1.0.3/stylesheets/compass/utilities/sprites/_base.scss */
 .content-consistance {
-  background-position: -18px 0;
+  background-position: -17px 0;
   height: 27px;
   width: 37px;
 }
 
 /* line 84, ../../../../../Ruby22-x64/lib/ruby/gems/2.2.0/gems/compass-core-1.0.3/stylesheets/compass/utilities/sprites/_base.scss */
 .content-detail-classique {
-  background-position: 0 -581px;
+  background-position: 0 -592px;
   height: 140px;
   width: 220px;
 }
 
 /* line 84, ../../../../../Ruby22-x64/lib/ruby/gems/2.2.0/gems/compass-core-1.0.3/stylesheets/compass/utilities/sprites/_base.scss */
 .content-detail-vegetarien {
-  background-position: 0 -721px;
+  background-position: 0 -732px;
   height: 143px;
   width: 220px;
 }
 
 /* line 84, ../../../../../Ruby22-x64/lib/ruby/gems/2.2.0/gems/compass-core-1.0.3/stylesheets/compass/utilities/sprites/_base.scss */
 .content-difficulte {
-  background-position: -102px 0;
+  background-position: -151px 0;
   height: 33px;
   width: 31px;
 }
 
 /* line 84, ../../../../../Ruby22-x64/lib/ruby/gems/2.2.0/gems/compass-core-1.0.3/stylesheets/compass/utilities/sprites/_base.scss */
 .content-garbage {
-  background-position: -184px -66px;
+  background-position: 0 0;
   height: 24px;
   width: 17px;
 }
 
 /* line 84, ../../../../../Ruby22-x64/lib/ruby/gems/2.2.0/gems/compass-core-1.0.3/stylesheets/compass/utilities/sprites/_base.scss */
 .content-horloge {
-  background-position: -55px 0;
+  background-position: -93px 0;
   height: 30px;
   width: 26px;
 }
 
 /* line 84, ../../../../../Ruby22-x64/lib/ruby/gems/2.2.0/gems/compass-core-1.0.3/stylesheets/compass/utilities/sprites/_base.scss */
 .content-livreur {
-  background-position: -132px -200px;
+  background-position: -72px -321px;
   height: 55px;
   width: 83px;
 }
@@ -612,36 +612,50 @@ table {
 }
 
 /* line 84, ../../../../../Ruby22-x64/lib/ruby/gems/2.2.0/gems/compass-core-1.0.3/stylesheets/compass/utilities/sprites/_base.scss */
+.content-no {
+  background-position: -184px -66px;
+  height: 24px;
+  width: 24px;
+}
+
+/* line 84, ../../../../../Ruby22-x64/lib/ruby/gems/2.2.0/gems/compass-core-1.0.3/stylesheets/compass/utilities/sprites/_base.scss */
+.content-ok {
+  background-position: -119px 0;
+  height: 32px;
+  width: 32px;
+}
+
+/* line 84, ../../../../../Ruby22-x64/lib/ruby/gems/2.2.0/gems/compass-core-1.0.3/stylesheets/compass/utilities/sprites/_base.scss */
 .content-panier {
-  background-position: 0 -470px;
+  background-position: -127px -401px;
   height: 80px;
   width: 54px;
 }
 
 /* line 84, ../../../../../Ruby22-x64/lib/ruby/gems/2.2.0/gems/compass-core-1.0.3/stylesheets/compass/utilities/sprites/_base.scss */
 .content-produits {
-  background-position: 0 -255px;
+  background-position: 0 -266px;
   height: 55px;
   width: 190px;
 }
 
 /* line 84, ../../../../../Ruby22-x64/lib/ruby/gems/2.2.0/gems/compass-core-1.0.3/stylesheets/compass/utilities/sprites/_base.scss */
 .content-recettes {
-  background-position: 0 -310px;
+  background-position: -63px -199px;
   height: 55px;
   width: 140px;
 }
 
 /* line 84, ../../../../../Ruby22-x64/lib/ruby/gems/2.2.0/gems/compass-core-1.0.3/stylesheets/compass/utilities/sprites/_base.scss */
 .content-sel {
-  background-position: 0 0;
+  background-position: -54px 0;
   height: 29px;
   width: 18px;
 }
 
 /* line 84, ../../../../../Ruby22-x64/lib/ruby/gems/2.2.0/gems/compass-core-1.0.3/stylesheets/compass/utilities/sprites/_base.scss */
 .content-small-arrow-desc {
-  background-position: -133px 0;
+  background-position: 0 -133px;
   height: 40px;
   width: 54px;
 }
@@ -662,7 +676,7 @@ table {
 
 /* line 84, ../../../../../Ruby22-x64/lib/ruby/gems/2.2.0/gems/compass-core-1.0.3/stylesheets/compass/utilities/sprites/_base.scss */
 .content-toque {
-  background-position: -139px -390px;
+  background-position: -155px -321px;
   height: 80px;
   width: 59px;
 }
@@ -873,6 +887,25 @@ input, button {
 /* line 180, ../scss/site/partials/_general.scss */
 .breadcrumb ul li:first-child:after {
   content: "/";
+}
+
+/* line 185, ../scss/site/partials/_general.scss */
+.bx-wrapper .bx-caption {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  background: #666 \9;
+  background: rgba(80, 80, 80, 0.4);
+  width: 100%;
+}
+
+/* line 194, ../scss/site/partials/_general.scss */
+.bx-wrapper .bx-caption span {
+  color: #fff;
+  text-align: center;
+  display: block;
+  font-size: 1.2em;
+  padding: 10px;
 }
 
 /* line 1, ../scss/site/partials/_404.scss */
@@ -1441,7 +1474,7 @@ footer span {
 /* BANNER */
 /* line 7, ../scss/site/partials/_home.scss */
 #banner {
-  background-image: url("../img/banniere.jpg");
+  background-image: url("../img/accueil/banniere.jpg");
   background-size: cover;
   height: 641px;
   position: relative;
@@ -1501,60 +1534,60 @@ footer span {
   #title_banner h1 {
     font-size: 60px;
   }
-  /* line 65, ../scss/site/partials/_home.scss */
+  /* line 66, ../scss/site/partials/_home.scss */
   #title_banner p {
     font-size: 47px;
     letter-spacing: 6px;
   }
 }
 @media only screen and (max-width: 575px) {
-  /* line 73, ../scss/site/partials/_home.scss */
+  /* line 74, ../scss/site/partials/_home.scss */
   #banner {
     height: 500px;
   }
 
-  /* line 76, ../scss/site/partials/_home.scss */
+  /* line 78, ../scss/site/partials/_home.scss */
   #banner > div {
     height: 500px;
   }
 
-  /* line 79, ../scss/site/partials/_home.scss */
+  /* line 82, ../scss/site/partials/_home.scss */
   #title_banner h1 {
     font-size: 40px;
   }
 
-  /* line 82, ../scss/site/partials/_home.scss */
+  /* line 86, ../scss/site/partials/_home.scss */
   #title_banner p {
     font-size: 25px;
   }
 }
 /* HOW IT WORKS */
-/* line 89, ../scss/site/partials/_home.scss */
+/* line 93, ../scss/site/partials/_home.scss */
 h2 {
   font-family: 'mohave semi-bold';
   font-size: 36px;
   color: #588c00;
 }
 
-/* line 95, ../scss/site/partials/_home.scss */
+/* line 99, ../scss/site/partials/_home.scss */
 #show_how {
   margin-bottom: 20px;
   text-align: center;
 }
 
-/* line 100, ../scss/site/partials/_home.scss */
+/* line 104, ../scss/site/partials/_home.scss */
 .title_section {
   text-align: center;
   padding: 40px 0;
 }
-/* line 104, ../scss/site/partials/_home.scss */
+/* line 108, ../scss/site/partials/_home.scss */
 .title_section p {
   font-family: 'Kraftstoff';
   font-size: 30px;
   color: #4d4135;
 }
 
-/* line 111, ../scss/site/partials/_home.scss */
+/* line 115, ../scss/site/partials/_home.scss */
 .howdiv {
   display: inline-block;
   position: relative;
@@ -1563,18 +1596,18 @@ h2 {
   text-align: center;
   margin-right: 145px;
 }
-/* line 119, ../scss/site/partials/_home.scss */
+/* line 123, ../scss/site/partials/_home.scss */
 .howdiv:last-child {
   margin-right: 0;
 }
-/* line 123, ../scss/site/partials/_home.scss */
+/* line 127, ../scss/site/partials/_home.scss */
 .howdiv p {
   font-family: 'Kraftstoff';
   font-size: 21px;
   color: #4d4135;
 }
 
-/* line 130, ../scss/site/partials/_home.scss */
+/* line 134, ../scss/site/partials/_home.scss */
 .afterarrow::after {
   content: "";
   position: absolute;
@@ -1583,12 +1616,12 @@ h2 {
 }
 
 @media only screen and (max-width: 1200px) {
-  /* line 140, ../scss/site/partials/_home.scss */
+  /* line 147, ../scss/site/partials/_home.scss */
   .howdiv {
     width: 100px;
   }
 
-  /* line 144, ../scss/site/partials/_home.scss */
+  /* line 151, ../scss/site/partials/_home.scss */
   .afterarrow::after {
     background-position: -45px -90px;
     width: 130px;
@@ -1596,7 +1629,7 @@ h2 {
   }
 }
 @media only screen and (max-width: 900px) {
-  /* line 152, ../scss/site/partials/_home.scss */
+  /* line 159, ../scss/site/partials/_home.scss */
   .howdiv {
     display: block;
     width: 100%;
@@ -1604,40 +1637,40 @@ h2 {
     margin-bottom: 20px;
   }
 
-  /* line 159, ../scss/site/partials/_home.scss */
+  /* line 166, ../scss/site/partials/_home.scss */
   .afterarrow::after {
     background: none;
   }
 }
 /* 4 SECTIONS */
-/* line 168, ../scss/site/partials/_home.scss */
+/* line 173, ../scss/site/partials/_home.scss */
 #last_section > div {
   display: flex;
   flex-wrap: wrap;
 }
 
 /* SLIDER */
-/* line 176, ../scss/site/partials/_home.scss */
+/* line 180, ../scss/site/partials/_home.scss */
 #plat {
   background-color: #e5dcd0;
   flex-grow: 1;
 }
-/* line 181, ../scss/site/partials/_home.scss */
+/* line 184, ../scss/site/partials/_home.scss */
 #plat .bx-wrapper {
   position: relative;
   display: block;
   margin: 0 auto;
   width: 600px;
 }
-/* line 188, ../scss/site/partials/_home.scss */
+/* line 190, ../scss/site/partials/_home.scss */
 #plat .bx-wrapper .bx-prev {
   left: -60px;
 }
-/* line 194, ../scss/site/partials/_home.scss */
+/* line 198, ../scss/site/partials/_home.scss */
 #plat .bx-wrapper .bx-next {
   right: -60px;
 }
-/* line 200, ../scss/site/partials/_home.scss */
+/* line 206, ../scss/site/partials/_home.scss */
 #plat .bx-wrapper .bx-controls-direction a {
   position: absolute;
   top: 50%;
@@ -1649,7 +1682,7 @@ h2 {
   z-index: 50;
 }
 
-/* line 214, ../scss/site/partials/_home.scss */
+/* line 219, ../scss/site/partials/_home.scss */
 .bx-wrapper .bx-pager .bx-pager-item,
 .bx-wrapper .bx-controls-auto .bx-controls-auto-item {
   position: absolute;
@@ -1658,12 +1691,12 @@ h2 {
   bottom: 0;
 }
 
-/* line 222, ../scss/site/partials/_home.scss */
+/* line 227, ../scss/site/partials/_home.scss */
 #slider_button {
   text-align: center;
   margin: 25px 0;
 }
-/* line 226, ../scss/site/partials/_home.scss */
+/* line 231, ../scss/site/partials/_home.scss */
 #slider_button a {
   display: inline-block;
   width: 240px;
@@ -1672,7 +1705,7 @@ h2 {
   line-height: 35px;
 }
 
-/* line 235, ../scss/site/partials/_home.scss */
+/* line 240, ../scss/site/partials/_home.scss */
 #show_menus_slider, #show_paniers_slider {
   font-family: "arialnarrow";
   font-size: 21px;
@@ -1682,29 +1715,29 @@ h2 {
 }
 
 @media only screen and (max-width: 1280px) {
-  /* line 244, ../scss/site/partials/_home.scss */
+  /* line 249, ../scss/site/partials/_home.scss */
   #plat {
     width: 100%;
   }
 }
 @media only screen and (max-width: 760px) {
-  /* line 250, ../scss/site/partials/_home.scss */
+  /* line 255, ../scss/site/partials/_home.scss */
   #plat .bx-wrapper .bx-prev {
     left: 0;
   }
 
-  /* line 253, ../scss/site/partials/_home.scss */
+  /* line 259, ../scss/site/partials/_home.scss */
   #plat .bx-wrapper .bx-next {
     right: 0;
   }
 
-  /* line 256, ../scss/site/partials/_home.scss */
+  /* line 263, ../scss/site/partials/_home.scss */
   #slider_start_nav img {
     width: 100%;
   }
 }
 /* BLOG */
-/* line 263, ../scss/site/partials/_home.scss */
+/* line 270, ../scss/site/partials/_home.scss */
 #blog_accueil {
   background-color: #e5dcd0;
   width: 100%;
@@ -1712,14 +1745,14 @@ h2 {
   margin: 22px 0;
 }
 
-/* line 270, ../scss/site/partials/_home.scss */
+/* line 277, ../scss/site/partials/_home.scss */
 .flexbox_blog {
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
 }
 
-/* line 276, ../scss/site/partials/_home.scss */
+/* line 283, ../scss/site/partials/_home.scss */
 .blog_accueil_box {
   width: 380px;
   height: 200px;
@@ -1733,36 +1766,36 @@ h2 {
   position: relative;
   margin-bottom: 90px;
 }
-/* line 289, ../scss/site/partials/_home.scss */
+/* line 296, ../scss/site/partials/_home.scss */
 .blog_accueil_box:nth-child(2) {
   margin-left: 10px;
   margin-right: 10px;
 }
-/* line 294, ../scss/site/partials/_home.scss */
+/* line 301, ../scss/site/partials/_home.scss */
 .blog_accueil_box h5 {
   font-size: 20px;
   color: #588c00;
   margin-top: 5px;
 }
-/* line 300, ../scss/site/partials/_home.scss */
+/* line 307, ../scss/site/partials/_home.scss */
 .blog_accueil_box small {
   font-size: 13px;
   font-style: italic;
 }
-/* line 305, ../scss/site/partials/_home.scss */
+/* line 312, ../scss/site/partials/_home.scss */
 .blog_accueil_box p {
   font-size: 15px;
   margin-top: 20px;
   margin-bottom: 20px;
 }
-/* line 311, ../scss/site/partials/_home.scss */
+/* line 318, ../scss/site/partials/_home.scss */
 .blog_accueil_box a {
   font-size: 15px;
   font-style: italic;
   text-decoration: underline;
   color: #493f33;
 }
-/* line 318, ../scss/site/partials/_home.scss */
+/* line 325, ../scss/site/partials/_home.scss */
 .blog_accueil_box img {
   position: absolute;
   width: 130px;
@@ -1774,7 +1807,7 @@ h2 {
   bottom: -65px;
 }
 
-/* line 330, ../scss/site/partials/_home.scss */
+/* line 337, ../scss/site/partials/_home.scss */
 #title_blog_accueil h2 {
   color: #493f33;
   font-family: "mohave semi-bold";
@@ -1783,24 +1816,24 @@ h2 {
 }
 
 @media only screen and (max-width: 600px) {
-  /* line 339, ../scss/site/partials/_home.scss */
+  /* line 345, ../scss/site/partials/_home.scss */
   .blog_accueil_box {
     width: 100%;
     height: auto;
     margin-bottom: 90px;
   }
-  /* line 344, ../scss/site/partials/_home.scss */
+  /* line 350, ../scss/site/partials/_home.scss */
   .blog_accueil_box:nth-child(2) {
     margin-left: 0px;
     margin-right: 0px;
   }
-  /* line 349, ../scss/site/partials/_home.scss */
+  /* line 355, ../scss/site/partials/_home.scss */
   .blog_accueil_box img {
     bottom: -85px;
   }
 }
 /* TEMOIGNAGE */
-/* line 357, ../scss/site/partials/_home.scss */
+/* line 363, ../scss/site/partials/_home.scss */
 #commentaire {
   background-color: #bab6b3;
   width: 320px;
@@ -1810,62 +1843,62 @@ h2 {
   font-family: 'arialnarrow', Arial, sans-serif;
   font-size: 20px;
 }
-/* line 366, ../scss/site/partials/_home.scss */
+/* line 372, ../scss/site/partials/_home.scss */
 #commentaire h4 {
   font-family: 'mohave bold';
   font-size: 36px;
   font-weight: bold;
   margin-left: -100px;
 }
-/* line 373, ../scss/site/partials/_home.scss */
+/* line 379, ../scss/site/partials/_home.scss */
 #commentaire a {
   display: block;
   text-align: right;
   color: white;
   font-style: italic;
 }
-/* line 380, ../scss/site/partials/_home.scss */
+/* line 386, ../scss/site/partials/_home.scss */
 #commentaire div {
   margin: 40px 20px;
 }
-/* line 384, ../scss/site/partials/_home.scss */
+/* line 390, ../scss/site/partials/_home.scss */
 #commentaire a > span {
   margin-left: 10px;
 }
-/* line 388, ../scss/site/partials/_home.scss */
+/* line 394, ../scss/site/partials/_home.scss */
 #commentaire small {
   font-size: 27px;
   margin-right: -160px;
   vertical-align: top;
 }
-/* line 394, ../scss/site/partials/_home.scss */
+/* line 400, ../scss/site/partials/_home.scss */
 #commentaire .comments-author {
   font-weight: normal;
   margin-right: 30px;
 }
 
 @media only screen and (max-width: 1085px) {
-  /* line 401, ../scss/site/partials/_home.scss */
+  /* line 407, ../scss/site/partials/_home.scss */
   #commentaire {
     flex-grow: 1;
   }
 }
 /* ENGAGEMENT */
-/* line 409, ../scss/site/partials/_home.scss */
+/* line 414, ../scss/site/partials/_home.scss */
 #engagements {
   background-color: #fffaf4;
   position: relative;
   flex-grow: 1;
   text-align: center;
 }
-/* line 415, ../scss/site/partials/_home.scss */
+/* line 420, ../scss/site/partials/_home.scss */
 #engagements > img {
   position: absolute;
   top: 30px;
   right: 40px;
 }
 
-/* line 422, ../scss/site/partials/_home.scss */
+/* line 427, ../scss/site/partials/_home.scss */
 #engagement {
   display: flex;
   justify-content: space-around;
@@ -1873,21 +1906,21 @@ h2 {
   font-size: 21px;
   font-family: "arialnarrow";
 }
-/* line 429, ../scss/site/partials/_home.scss */
+/* line 434, ../scss/site/partials/_home.scss */
 #engagement div {
   width: 240px;
   text-align: center;
   position: relative;
   margin: 40px 0;
 }
-/* line 436, ../scss/site/partials/_home.scss */
+/* line 441, ../scss/site/partials/_home.scss */
 #engagement a {
   color: #588c00;
   font-style: italic;
 }
 
 @media only screen and (max-width: 800px) {
-  /* line 443, ../scss/site/partials/_home.scss */
+  /* line 448, ../scss/site/partials/_home.scss */
   #engagements > img {
     position: relative;
     top: 0;
@@ -2146,19 +2179,21 @@ h2 {
 
 /* line 119, ../scss/site/partials/_panier&menu.scss */
 .styled-select {
+  position: relative;
   border: 1px solid #5f3817;
   text-align: center;
   width: 90%;
   height: 40px;
   margin: 10px auto;
 }
-/* line 126, ../scss/site/partials/_panier&menu.scss */
+/* line 127, ../scss/site/partials/_panier&menu.scss */
 .styled-select .sprite-span {
   position: absolute;
-  right: 20px;
+  pointer-events: none;
+  right: 0px;
 }
 
-/* line 133, ../scss/site/partials/_panier&menu.scss */
+/* line 134, ../scss/site/partials/_panier&menu.scss */
 .styled-select select {
   width: 100%;
   height: 40px;
@@ -2167,17 +2202,17 @@ h2 {
   -webkit-appearance: none;
   -moz-appearance: none;
   outline: none;
-  border-radius: 0;
-  border: 0;
+  border-radius: 0px;
+  border: 0px;
   text-align: center;
 }
 
-/* line 146, ../scss/site/partials/_panier&menu.scss */
+/* line 147, ../scss/site/partials/_panier&menu.scss */
 .styled-select select option {
   text-align: center;
 }
 
-/* line 150, ../scss/site/partials/_panier&menu.scss */
+/* line 151, ../scss/site/partials/_panier&menu.scss */
 .order-input-date {
   position: absolute;
   pointer-events: none;
@@ -2185,18 +2220,18 @@ h2 {
   bottom: 84px;
 }
 
-/* line 157, ../scss/site/partials/_panier&menu.scss */
+/* line 158, ../scss/site/partials/_panier&menu.scss */
 .prix_paniers input[type="date"]::-webkit-inner-spin-button {
   display: none;
 }
 
-/* line 161, ../scss/site/partials/_panier&menu.scss */
+/* line 162, ../scss/site/partials/_panier&menu.scss */
 .prix_paniers input[type="date"]::-webkit-calendar-picker-indicator {
   width: 40px;
   margin-left: -10px;
 }
 
-/* line 168, ../scss/site/partials/_panier&menu.scss */
+/* line 169, ../scss/site/partials/_panier&menu.scss */
 .prix_paniers input[type='submit'] {
   width: 90%;
   color: white;
@@ -2206,7 +2241,7 @@ h2 {
   margin-bottom: 0;
 }
 
-/* line 177, ../scss/site/partials/_panier&menu.scss */
+/* line 178, ../scss/site/partials/_panier&menu.scss */
 .prix_paniers small {
   font-family: "arialnarrow";
   font-size: 15px;
@@ -2216,14 +2251,14 @@ h2 {
 }
 
 @media only screen and (max-width: 720px) {
-  /* line 188, ../scss/site/partials/_panier&menu.scss */
+  /* line 189, ../scss/site/partials/_panier&menu.scss */
   .panier_type {
     width: 100%;
     padding: 10px 20px 10px 20px;
     font-size: 26px;
   }
 
-  /* line 194, ../scss/site/partials/_panier&menu.scss */
+  /* line 195, ../scss/site/partials/_panier&menu.scss */
   .panier_type p {
     position: relative;
     width: 100%;
@@ -2232,41 +2267,41 @@ h2 {
     text-align: center;
   }
 
-  /* line 201, ../scss/site/partials/_panier&menu.scss */
+  /* line 202, ../scss/site/partials/_panier&menu.scss */
   #panier_type_photo {
     width: 100%;
     max-width: 508px;
   }
 
-  /* line 206, ../scss/site/partials/_panier&menu.scss */
+  /* line 207, ../scss/site/partials/_panier&menu.scss */
   #panier_type_local {
     display: none;
   }
 
-  /* line 210, ../scss/site/partials/_panier&menu.scss */
+  /* line 211, ../scss/site/partials/_panier&menu.scss */
   .panier_what {
     width: 100%;
     text-align: center;
   }
 
-  /* line 215, ../scss/site/partials/_panier&menu.scss */
+  /* line 216, ../scss/site/partials/_panier&menu.scss */
   .panier_what img {
     padding: 0 20px;
   }
 
-  /* line 219, ../scss/site/partials/_panier&menu.scss */
+  /* line 220, ../scss/site/partials/_panier&menu.scss */
   .panier_what_trait {
     width: 0;
   }
 }
 /* PLAT SLIDER */
-/* line 226, ../scss/site/partials/_panier&menu.scss */
+/* line 227, ../scss/site/partials/_panier&menu.scss */
 #panier_detail {
   text-align: center;
   padding: 20px 0;
 }
 
-/* line 231, ../scss/site/partials/_panier&menu.scss */
+/* line 232, ../scss/site/partials/_panier&menu.scss */
 #panier_detail h3 {
   font-family: 'Kraftstoff';
   font-size: 45px;
@@ -2275,7 +2310,7 @@ h2 {
   font-weight: normal;
 }
 
-/* line 239, ../scss/site/partials/_panier&menu.scss */
+/* line 240, ../scss/site/partials/_panier&menu.scss */
 #panier_detail h4 {
   font-family: 'arialnarrow';
   font-size: 36px;
@@ -2284,19 +2319,19 @@ h2 {
   font-weight: normal;
 }
 
-/* line 247, ../scss/site/partials/_panier&menu.scss */
+/* line 248, ../scss/site/partials/_panier&menu.scss */
 #plat_detail {
   margin-bottom: 0;
   text-align: center;
 }
 
-/* line 252, ../scss/site/partials/_panier&menu.scss */
+/* line 253, ../scss/site/partials/_panier&menu.scss */
 #plat_detail, .plat_what > div {
   display: inline-block;
   vertical-align: middle;
 }
 
-/* line 257, ../scss/site/partials/_panier&menu.scss */
+/* line 258, ../scss/site/partials/_panier&menu.scss */
 .plat_what {
   border-top: 1px solid #5f3817;
   border-bottom: 1px solid #5f3817;
@@ -2311,24 +2346,24 @@ h2 {
   margin: 15px 0 15px 20px;
 }
 
-/* line 271, ../scss/site/partials/_panier&menu.scss */
+/* line 272, ../scss/site/partials/_panier&menu.scss */
 .plat_what span {
   vertical-align: middle;
   display: inline-block;
 }
 
-/* line 276, ../scss/site/partials/_panier&menu.scss */
+/* line 277, ../scss/site/partials/_panier&menu.scss */
 .plat_what .sprite-span {
   margin: 8px 5px;
 }
 
-/* line 280, ../scss/site/partials/_panier&menu.scss */
+/* line 281, ../scss/site/partials/_panier&menu.scss */
 .photo_plat {
   max-width: 500px;
   width: 100%;
 }
 
-/* line 285, ../scss/site/partials/_panier&menu.scss */
+/* line 286, ../scss/site/partials/_panier&menu.scss */
 .plat_what_trait {
   display: inline-block;
   background-color: #5f3817;
@@ -2338,7 +2373,7 @@ h2 {
   margin: 8px 10px 0 10px;
 }
 
-/* line 294, ../scss/site/partials/_panier&menu.scss */
+/* line 295, ../scss/site/partials/_panier&menu.scss */
 .plat_accroche {
   font-family: 'arialnarrow';
   font-size: 26px;
@@ -2348,7 +2383,7 @@ h2 {
   margin: 0 auto;
 }
 
-/* line 303, ../scss/site/partials/_panier&menu.scss */
+/* line 304, ../scss/site/partials/_panier&menu.scss */
 .plat_description {
   font-family: 'arialnarrow';
   font-size: 18px;
@@ -2358,7 +2393,7 @@ h2 {
   margin: 0 auto;
 }
 
-/* line 312, ../scss/site/partials/_panier&menu.scss */
+/* line 313, ../scss/site/partials/_panier&menu.scss */
 .plat_titre_suivant {
   font-family: 'arialnarrow';
   font-size: 26px;
@@ -2368,7 +2403,7 @@ h2 {
   margin: 0 auto;
 }
 
-/* line 322, ../scss/site/partials/_panier&menu.scss */
+/* line 323, ../scss/site/partials/_panier&menu.scss */
 .sel_poivre {
   font-family: 'arialnarrow';
   font-size: 14px;
@@ -2378,13 +2413,13 @@ h2 {
   text-align: center;
 }
 
-/* line 331, ../scss/site/partials/_panier&menu.scss */
+/* line 332, ../scss/site/partials/_panier&menu.scss */
 .sel_poivre .sprite-span {
   margin-right: 10px;
   vertical-align: middle;
 }
 
-/* line 336, ../scss/site/partials/_panier&menu.scss */
+/* line 337, ../scss/site/partials/_panier&menu.scss */
 .discovery {
   float: right;
   font-weight: bold;
@@ -2397,30 +2432,30 @@ h2 {
   vertical-align: middle;
 }
 
-/* line 349, ../scss/site/partials/_panier&menu.scss */
+/* line 350, ../scss/site/partials/_panier&menu.scss */
 .arrow_slider_right {
   text-align: right;
 }
 
-/* line 353, ../scss/site/partials/_panier&menu.scss */
+/* line 354, ../scss/site/partials/_panier&menu.scss */
 .slider_menu .bx-wrapper {
   position: relative;
   display: block;
   margin: 0 auto;
 }
 
-/* line 359, ../scss/site/partials/_panier&menu.scss */
+/* line 360, ../scss/site/partials/_panier&menu.scss */
 .slider_menu .bx-wrapper .bx-prev {
   left: 0;
   display: none;
 }
 
-/* line 364, ../scss/site/partials/_panier&menu.scss */
+/* line 365, ../scss/site/partials/_panier&menu.scss */
 .slider_menu .bx-wrapper .bx-next {
   right: 0;
 }
 
-/* line 371, ../scss/site/partials/_panier&menu.scss */
+/* line 372, ../scss/site/partials/_panier&menu.scss */
 .slider_menu .bx-wrapper .bx-controls-direction a {
   position: absolute;
   bottom: 50%;
@@ -2433,7 +2468,7 @@ h2 {
 }
 
 @media only screen and (max-width: 1280px) {
-  /* line 384, ../scss/site/partials/_panier&menu.scss */
+  /* line 385, ../scss/site/partials/_panier&menu.scss */
   .discovery {
     float: none;
     display: inline-block;
@@ -2441,13 +2476,13 @@ h2 {
   }
 }
 @media only screen and (max-width: 700px) {
-  /* line 393, ../scss/site/partials/_panier&menu.scss */
+  /* line 394, ../scss/site/partials/_panier&menu.scss */
   .plat_what {
     width: 100%;
     margin: 30px 0;
   }
 
-  /* line 398, ../scss/site/partials/_panier&menu.scss */
+  /* line 399, ../scss/site/partials/_panier&menu.scss */
   .slider_menu .bx-wrapper .bx-controls-direction a {
     position: absolute;
     bottom: 2px;
@@ -2455,30 +2490,30 @@ h2 {
   }
 }
 @media only screen and (max-width: 570px) {
-  /* line 407, ../scss/site/partials/_panier&menu.scss */
+  /* line 408, ../scss/site/partials/_panier&menu.scss */
   .plat_what {
     height: 100px;
   }
 
-  /* line 410, ../scss/site/partials/_panier&menu.scss */
+  /* line 411, ../scss/site/partials/_panier&menu.scss */
   .plat_accroche {
     width: 100%;
   }
 
-  /* line 414, ../scss/site/partials/_panier&menu.scss */
+  /* line 415, ../scss/site/partials/_panier&menu.scss */
   .plat_description {
     width: 100%;
   }
 }
 /* NEXT PLATS */
-/* line 422, ../scss/site/partials/_panier&menu.scss */
+/* line 423, ../scss/site/partials/_panier&menu.scss */
 #panier_suivant {
   background-color: #e5dcd0;
   text-align: center;
   padding-bottom: 20px;
 }
 
-/* line 428, ../scss/site/partials/_panier&menu.scss */
+/* line 429, ../scss/site/partials/_panier&menu.scss */
 .plat_suivant {
   display: inline-block;
   text-align: center;
@@ -2486,7 +2521,7 @@ h2 {
   vertical-align: top;
 }
 
-/* line 435, ../scss/site/partials/_panier&menu.scss */
+/* line 436, ../scss/site/partials/_panier&menu.scss */
 #panier_suivant h3 {
   font-family: 'arialnarrow';
   font-size: 36px;
@@ -2495,13 +2530,13 @@ h2 {
   margin-top: 0;
 }
 
-/* line 444, ../scss/site/partials/_panier&menu.scss */
+/* line 445, ../scss/site/partials/_panier&menu.scss */
 .photo_plat_suivant {
   max-width: 480px;
   width: 100%;
 }
 
-/* line 449, ../scss/site/partials/_panier&menu.scss */
+/* line 450, ../scss/site/partials/_panier&menu.scss */
 .next_menu {
   font-family: 'arialnarrow';
   font-size: 15px;
@@ -2514,7 +2549,7 @@ h2 {
 }
 
 @media only screen and (max-width: 600px) {
-  /* line 461, ../scss/site/partials/_panier&menu.scss */
+  /* line 462, ../scss/site/partials/_panier&menu.scss */
   .plat_suivant {
     margin: 0;
     padding: 0;
@@ -2522,31 +2557,31 @@ h2 {
   }
 }
 /* UPSELL */
-/* line 473, ../scss/site/partials/_panier&menu.scss */
+/* line 474, ../scss/site/partials/_panier&menu.scss */
 #upsell {
   text-align: center;
   clear: both;
 }
 
-/* line 478, ../scss/site/partials/_panier&menu.scss */
+/* line 479, ../scss/site/partials/_panier&menu.scss */
 #upsell article {
   display: inline-block;
   margin-bottom: 20px;
   width: 400px;
 }
 
-/* line 484, ../scss/site/partials/_panier&menu.scss */
+/* line 485, ../scss/site/partials/_panier&menu.scss */
 #upsell form {
   display: inline-block;
 }
 
-/* line 488, ../scss/site/partials/_panier&menu.scss */
+/* line 489, ../scss/site/partials/_panier&menu.scss */
 .img_upsell {
   border: 15px solid #e5dcd0;
   margin-right: 0;
 }
 
-/* line 493, ../scss/site/partials/_panier&menu.scss */
+/* line 494, ../scss/site/partials/_panier&menu.scss */
 .prix_upsell {
   display: inline-block;
   font-family: 'arialnarrow';
@@ -2556,7 +2591,7 @@ h2 {
   font-weight: bold;
 }
 
-/* line 502, ../scss/site/partials/_panier&menu.scss */
+/* line 503, ../scss/site/partials/_panier&menu.scss */
 .upsell_titre {
   font-family: 'arialnarrow';
   font-size: 26px;
@@ -2566,7 +2601,7 @@ h2 {
   margin: 0 auto;
 }
 
-/* line 511, ../scss/site/partials/_panier&menu.scss */
+/* line 512, ../scss/site/partials/_panier&menu.scss */
 .provenance {
   font-family: 'arialnarrow';
   font-size: 18px;
@@ -2574,13 +2609,13 @@ h2 {
   font-style: italic;
 }
 
-/* line 518, ../scss/site/partials/_panier&menu.scss */
+/* line 519, ../scss/site/partials/_panier&menu.scss */
 .prix_upsell small {
   font-size: 16px;
   font-style: italic;
 }
 
-/* line 523, ../scss/site/partials/_panier&menu.scss */
+/* line 524, ../scss/site/partials/_panier&menu.scss */
 .upsell_add {
   font-family: arial;
   font-size: 14px;
@@ -2589,7 +2624,7 @@ h2 {
 }
 
 @media only screen and (max-width: 600px) {
-  /* line 531, ../scss/site/partials/_panier&menu.scss */
+  /* line 532, ../scss/site/partials/_panier&menu.scss */
   .img_upsell {
     margin-right: 0;
     width: 100%;
@@ -2597,24 +2632,24 @@ h2 {
   }
 }
 @media only screen and (max-width: 480px) {
-  /* line 540, ../scss/site/partials/_panier&menu.scss */
+  /* line 541, ../scss/site/partials/_panier&menu.scss */
   #upsell article {
     width: 100%;
   }
 }
-/* line 546, ../scss/site/partials/_panier&menu.scss */
+/* line 547, ../scss/site/partials/_panier&menu.scss */
 #plat_comment {
   background-color: #c3beba;
   text-align: center;
 }
 
-/* line 551, ../scss/site/partials/_panier&menu.scss */
+/* line 552, ../scss/site/partials/_panier&menu.scss */
 #plat_comment img {
   margin: 0 30px 30px 0;
 }
 
 /* POPUP */
-/* line 558, ../scss/site/partials/_panier&menu.scss */
+/* line 559, ../scss/site/partials/_panier&menu.scss */
 .addtocart-popup {
   width: 480px;
   height: 245px;
@@ -2625,7 +2660,7 @@ h2 {
   position: relative;
 }
 
-/* line 568, ../scss/site/partials/_panier&menu.scss */
+/* line 569, ../scss/site/partials/_panier&menu.scss */
 .addtocart-popup p {
   font-family: 'arialnarrow';
   font-size: 18px;
@@ -2634,7 +2669,7 @@ h2 {
   font-weight: bold;
 }
 
-/* line 576, ../scss/site/partials/_panier&menu.scss */
+/* line 577, ../scss/site/partials/_panier&menu.scss */
 .addtocart-popup span {
   font-family: 'arialnarrow';
   font-size: 22px;
@@ -2643,7 +2678,7 @@ h2 {
   font-weight: bold;
 }
 
-/* line 584, ../scss/site/partials/_panier&menu.scss */
+/* line 585, ../scss/site/partials/_panier&menu.scss */
 #popup-box {
   margin-left: 25px;
   margin-top: 50px;
@@ -2651,7 +2686,7 @@ h2 {
   vertical-align: middle;
 }
 
-/* line 591, ../scss/site/partials/_panier&menu.scss */
+/* line 592, ../scss/site/partials/_panier&menu.scss */
 #popup-photo {
   display: inline-block;
   width: 100px;
@@ -2660,7 +2695,7 @@ h2 {
   vertical-align: middle;
 }
 
-/* line 599, ../scss/site/partials/_panier&menu.scss */
+/* line 600, ../scss/site/partials/_panier&menu.scss */
 .addtocart-popup a, #popup-continue {
   font-family: 'arialnarrow';
   font-size: 22px;
@@ -2672,23 +2707,23 @@ h2 {
   bottom: 0;
 }
 
-/* line 609, ../scss/site/partials/_panier&menu.scss */
+/* line 610, ../scss/site/partials/_panier&menu.scss */
 #popup-link {
   display: none;
 }
 
-/* line 612, ../scss/site/partials/_panier&menu.scss */
+/* line 613, ../scss/site/partials/_panier&menu.scss */
 #popup-continue {
   left: 5px;
   line-height: 1.4;
 }
 
-/* line 617, ../scss/site/partials/_panier&menu.scss */
+/* line 618, ../scss/site/partials/_panier&menu.scss */
 #popup-end {
   right: 5px;
 }
 
-/* line 621, ../scss/site/partials/_panier&menu.scss */
+/* line 622, ../scss/site/partials/_panier&menu.scss */
 #popup-photo {
   display: inline-block;
   width: 100px;
@@ -2697,6 +2732,17 @@ h2 {
   vertical-align: middle;
 }
 
+@media only screen and (max-width: 480px) {
+  /* line 632, ../scss/site/partials/_panier&menu.scss */
+  .addtocart-popup {
+    width: 100%;
+  }
+
+  /* line 636, ../scss/site/partials/_panier&menu.scss */
+  #popup-continue {
+    bottom: 30px;
+  }
+}
 /* ==========================================================================
    CADDIE
    ========================================================================== */
@@ -3264,12 +3310,12 @@ h2 {
   text-align: right;
 }
 
-/* line 160, ../scss/site/partials/_caddie_identification.scss */
+/* line 159, ../scss/site/partials/_caddie_identification.scss */
 .box_form_user:last-child span {
   display: none;
 }
 
-/* line 164, ../scss/site/partials/_caddie_identification.scss */
+/* line 163, ../scss/site/partials/_caddie_identification.scss */
 .box_form_user:last-child button[type="submit"] {
   text-align: center;
   width: 235px;
@@ -3278,14 +3324,40 @@ h2 {
   color: white;
 }
 
+/* line 171, ../scss/site/partials/_caddie_identification.scss */
+.row_email {
+  position: relative;
+}
+
+/* line 175, ../scss/site/partials/_caddie_identification.scss */
+#spinner {
+  display: inline-block;
+  position: absolute;
+  left: 510px;
+  bottom: 0px;
+  font-weight: bold;
+}
+/* line 182, ../scss/site/partials/_caddie_identification.scss */
+#spinner span {
+  display: inline-block;
+  vertical-align: middle;
+}
+/* line 186, ../scss/site/partials/_caddie_identification.scss */
+#spinner p {
+  width: 300px;
+  text-align: left;
+  position: relative;
+  left: 35px;
+}
+
 @media screen and (max-width: 780px) {
-  /* line 173, ../scss/site/partials/_caddie_identification.scss */
+  /* line 195, ../scss/site/partials/_caddie_identification.scss */
   .box_form_user_small {
     width: 100%;
     margin: 0 auto;
   }
 
-  /* line 178, ../scss/site/partials/_caddie_identification.scss */
+  /* line 200, ../scss/site/partials/_caddie_identification.scss */
   .label_login_form {
     position: static;
     display: block;
@@ -3295,13 +3367,13 @@ h2 {
     left: 0;
   }
 
-  /* line 187, ../scss/site/partials/_caddie_identification.scss */
+  /* line 209, ../scss/site/partials/_caddie_identification.scss */
   .rememberme_login {
     display: inline-block;
     width: auto;
   }
 
-  /* line 192, ../scss/site/partials/_caddie_identification.scss */
+  /* line 214, ../scss/site/partials/_caddie_identification.scss */
   .box_form_user input {
     text-align: center;
     display: block;
@@ -3311,16 +3383,23 @@ h2 {
     border: 1px solid #6d9a4b;
   }
 
-  /* line 200, ../scss/site/partials/_caddie_identification.scss */
+  /* line 223, ../scss/site/partials/_caddie_identification.scss */
   .row_login_form input[type="checkbox"] {
     display: inline-block;
     vertical-align: middle;
   }
 
-  /* line 205, ../scss/site/partials/_caddie_identification.scss */
+  /* line 228, ../scss/site/partials/_caddie_identification.scss */
   .box_form_user_small {
     width: 100%;
     margin: 0 auto;
+  }
+
+  /* line 233, ../scss/site/partials/_caddie_identification.scss */
+  #spinner {
+    position: static;
+    left: 510px;
+    bottom: 0px;
   }
 }
 /* ==========================================================================

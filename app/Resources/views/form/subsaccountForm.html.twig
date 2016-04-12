@@ -9,8 +9,17 @@
         <p class="asterix_reminder">Champ obligatoire : <span>*</span>
         </p>
         <p class="title_box_form">VOS IDENTIFIANTS</p>
-        {{ form_row(form.email,{ 'attr': {'class': 'email_row'} }) }}
-        <span id="spinner"></span>
+        <div class="row_login_form">
+            <div class="label_login_form">
+            {{ form_label(form.email) }}
+        </div>
+            {{ form_errors(form.email) }}
+            <div class="row_email">
+                {{ form_widget(form.email,{ 'attr': {'class': 'email_row'} }) }}
+                <div id="spinner">      
+                </div>
+            </div> 
+        </div>
         {{ form_errors(form.password.first) }} 
         {{ form_row(form.password.first) }}
         <div class="row_login_form">

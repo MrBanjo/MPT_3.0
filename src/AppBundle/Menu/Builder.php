@@ -57,7 +57,7 @@ class Builder
                 break;
             case '/paniers/classique':
                 $menu->addChild('Nos paniers', array('route' => 'paniers'));
-                $menu->addChild('Panier classique', array('route' => 'classique'))
+                $menu->addChild('Panier classique', array('route' => 'panier', ))
                      ->setCurrent(true)
                 ;
                 break;

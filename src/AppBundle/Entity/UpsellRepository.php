@@ -14,14 +14,12 @@ class UpsellRepository extends EntityRepository
 {
     public function getCurrentUpsell()
     {
-        $query = $this->getEntityManager()
+        $results = $this->getEntityManager()
         ->createQuery('SELECT u FROM AppBundle:Upsell u WHERE u.actif = :actif')
-        ->setParameter('actif', 'oui');
-
-        $results = $query->getResult();
+        ->setParameter('actif', 'oui')
+        ->getResult();
 
         $upsells = array();
-
         foreach ($results as $upsell) {
             $upsells[$upsell->getCategorie()->getNom()] = $upsell;
         }

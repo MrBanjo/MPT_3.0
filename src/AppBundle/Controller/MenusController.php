@@ -13,7 +13,7 @@ class MenusController extends BaseController
      */
     public function showCurrentMenuAction()
     {
-        $curClassique = $this->getRepo('AppBundle:Menu')->getCurrentMenuClassique();
+        $curClassique = $this->getRepo('AppBundle:Menu')->getCurrentMenu('classique');
         $curVegan = $this->getRepo('AppBundle:Menu')->getCurrentMenuVegan();
 
         $menuvide = ['titre' => '', 'prix' => '', 'date' => ''];
@@ -29,9 +29,9 @@ class MenusController extends BaseController
                 'photo' => '',
         ]];
 
-        if (isset($curClassique[0])) {
-            $menuClassique = $curClassique[0];
-            $platsClassique = $curClassique[0]->getPlats();
+        if (isset($curClassique)) {
+            $menuClassique = $curClassique;
+            $platsClassique = $curClassique->getPlats();
         } else {
             $menuClassique = $menuvide;
             $platsClassique = $platvide;

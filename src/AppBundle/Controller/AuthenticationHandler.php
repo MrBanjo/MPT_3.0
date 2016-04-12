@@ -95,7 +95,6 @@ class AuthenticationHandler implements AuthenticationSuccessHandlerInterface, Au
 
         // if form login
         } else {
-
             // set authentication exception to session
             $request->getSession()->set(Security::AUTHENTICATION_ERROR, $exception);
 
