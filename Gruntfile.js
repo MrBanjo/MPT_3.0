@@ -58,7 +58,7 @@ module.exports = function(grunt){
 		        src: ['src/AppBundle/**/*.php']
 		    },
 		    options: {
-		        bin: 'phpcs',
+		        bin: 'phpcbf',
 		        standard: 'PSR2'
 		    }
 		}
