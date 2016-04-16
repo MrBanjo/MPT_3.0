@@ -3,7 +3,6 @@
    ========================================================================== */
 
 html {
-    color: #222;
     font-size: 1em;
     line-height: 1.4;
 }
@@ -109,6 +108,12 @@ input,button {
 .sprite-span {
     display: inline-block;
     vertical-align: middle; 
+}
+
+.sprite-span-base {
+    display: inline-block;
+    vertical-align: middle; 
+    margin-right: 20px; 
 } 
 
 /* ==========================================================================

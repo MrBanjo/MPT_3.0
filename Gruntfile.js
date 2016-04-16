@@ -58,12 +58,12 @@ module.exports = function(grunt){
 		        src: ['src/AppBundle/**/*.php']
 		    },
 		    options: {
-		        bin: 'phpcbf',
+		        bin: 'phpcs',
 		        standard: 'PSR2'
 		    }
 		}
 
 	});
 
-	grunt.registerTask('default', ['jshint', 'concat', 'cssmin', 'uglify', 'imagemin', 'phpcs']);
+	grunt.registerTask('default', ['jshint', 'concat', 'cssmin', 'uglify', 'phpcs']);
 };

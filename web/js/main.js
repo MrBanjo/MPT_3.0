@@ -262,7 +262,7 @@ $(document).ready(function(){
 	        });
 	      };
 
-	      $('#user_roles option:nth-child(2)').attr('selected', 'selected');
+	      $('#user_roles').find('option:nth-child(2)').attr('selected', 'selected');
 	        // On récupère la balise <div> en question qui contient l'attribut « data-prototype » qui nous intéresse.
 	        var $container = $('div#user_adresses');
 
