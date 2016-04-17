@@ -50,6 +50,17 @@
 }
 
 @font-face {
+  font-family: 'ArialNarrow-Bold';
+  src: url('../fonts/ArialNarrow-Bold/ArialNarrow-Bold.eot?#iefix') format('embedded-opentype'),
+       url('../fonts/ArialNarrow-Bold/ArialNarrow-Bold.woff2') format('woff2'),
+       url('../fonts/ArialNarrow-Bold/ArialNarrow-Bold.woff') format('woff'),
+       url('../fonts/ArialNarrow-Bold/ArialNarrow-Bold.ttf')  format('truetype'),
+       url('../fonts/ArialNarrow-Bold/ArialNarrow-Bold.svg#ArialNarrow-Bold') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
     font-family: 'aileron';
     src: url('../fonts/Aileron/aileron-regular.eot');
     src: url('../fonts/Aileron/aileron-regular.eot?#iefix') format('embedded-opentype'),

@@ -7,18 +7,9 @@ html {
     line-height: 1.4;
 }
 
-::-moz-selection {
-    background: #b3d4fc;
-    text-shadow: none;
-}
-
-::selection {
-    background: #b3d4fc;
-    text-shadow: none;
-}
-
 img { 
-    -ms-interpolation-mode: bicubic; 
+    -ms-interpolation-mode: bicubic;
+    max-width: 100%;
 }
 
 hr {
@@ -79,7 +70,6 @@ input,button {
 .container_small {
     width: 1280px;
     margin: 0 auto;
-    position: relative;
 }
 
 .first_section {
@@ -119,6 +109,21 @@ input,button {
 /* ==========================================================================
    Styled Buttons
    ========================================================================== */
+
+@mixin buttonLink($height, $width, $font-size: 21px) {
+    display: inline-block;
+    text-align: center;
+    font-family: "arialnarrow";
+    font-size: unquote($font-size);
+
+    & a {
+        display: inline-block;
+        height: $height;
+        width: $width;
+        line-height: $height;
+        vertical-align: middle;        
+    }
+}
 
 .orange {
     background-color: $orange_ligth;
@@ -191,7 +196,7 @@ input,button {
     position: absolute;
     bottom: 0;
     left: 0;
-    background: #666\9;
+    background: rgb(80, 80, 80);;
     background: rgba(80, 80, 80, 0.4);
     width: 100%;
 }
@@ -203,3 +208,32 @@ input,button {
     font-size: 1.2em;
     padding: 10px;
 }
+
+/* ==========================================================================
+   Title
+   ========================================================================== */
+
+.section-title {
+    text-align: center;
+    padding: 40px 0;
+}
+
+.section_title-green {
+    font-family: "Mohave semi-Bold", sans-serif;
+    font-size: 36px;
+    color: $font-green;
+}
+
+.section_title-brown {
+    font-family: 'mohave semi-bold', sans-serif;
+    font-size: 36px;
+    color: $font-brown;
+}
+
+.section_description {
+    font-family: 'kraftstoff', sans-serif;
+    font-size: 30px;
+    color: $font-brown;    
+}
+
+

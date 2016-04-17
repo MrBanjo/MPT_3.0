@@ -2,18 +2,20 @@
    FOOTER
    ========================================================================== */
 
-footer {
+.footer {
     background-color: $header_footer_background;
     padding-top: 30px;
     padding-bottom: 10px;
     font-family: "aileron";
+    text-align: center;
 
-    & > div {
-        text-align: center;
-    } 
+    &-sectionbox {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
 
-    section {
-        display: inline-block;
+    &_section {
         height: 235px;
         width: 380px;
         margin: 0 -2px 20px 0;
@@ -23,11 +25,7 @@ footer {
         vertical-align: middle;
         box-sizing: border-box;
 
-        & > div {
-            padding: 0 50px;
-        }
-
-        p {
+        &_p {
             margin: 20px 30px 30px 0;
             vertical-align: middle;
             color: $whity;
@@ -35,11 +33,7 @@ footer {
         }
     }
 
-    form div {
-        display: inline-block;
-    }
-
-    input[type="email"] {
+    &_input-email {
         width: 200px;
         height: 55px;
         background-color: white; /* Fallback */
@@ -47,51 +41,49 @@ footer {
         color: #28180d;
         font-family: "aileron";
         font-style: italic;
-        margin-top: 10px;
+        margin-top: 10px;        
     }
 
-    button[type="submit"], input[type="submit"] {
+    &_input-submit {
         width: 94px;
         height: 55px;
         background-color: rgb(88,140,0); /* Fallback */
         background-color: rgba(88,140,0,0.59);
         color: white;
         font-family: "aileron";
-        font-style: italic;
-    }
-}
+        font-style: italic;        
+    } 
 
-#footer_copyright {
-    display: block;
-    text-align: center;
-    font-size: 14px;
-    color: $whity;
-
-    li {
-        display: inline-block;
-        padding: 0 14px;
-        border-right: 2px solid $whity;
-
-        &:first-child {
-            font-weight: bold;
-        }
-
-        &:last-child {
-            border: none;
-        }
-    }
-}
-
-#social_footer {
-    a {
+    &_social-link {
         display: inline-block;
         margin: 0 10px;
         vertical-align: middle;
     }
+
+    &-copyright {
+        display: block;
+        font-size: 14px;
+        
+        &_li {
+            display: inline-block;
+            padding: 0 14px;
+            border-right: 2px solid $whity;
+            color: $whity; 
+            font-size: 14px;  
+        }
+
+        &_li:first-child {
+            font-weight: bold;
+        }
+
+        &_li:last-child {
+            border: none;
+        }       
+    }
 }
 
 @media only screen and (max-width: 480px) {
-    footer section {
+    .footer_section {
         margin: 0 0 20px 0;
         width: 100%;
         border: 0;

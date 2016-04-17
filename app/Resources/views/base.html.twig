@@ -1,139 +1,143 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-{% block meta %}
-  <meta charset="UTF-8" />
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="Mon panier toqué est un site e-commerce proposant des paniers bio">
-{% endblock %}
-  <title>{% block title %}{{ app.request.attributes.get('title') }}{% endblock %}</title>
+    {% block meta %}
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Mon panier toqué est un site e-commerce proposant des paniers bio">
+    {% endblock %}
+    <title>{% block title %}{{ app.request.attributes.get('title') }}{% endblock %}</title>
 
-{% block stylesheets %}
-{% if app.environment == "dev" %}
-  <link rel="stylesheet" type="text/css" href="{{ asset('css/main.css') }}" />
-{% elseif app.environment == 'prod' %}
-  <link rel="stylesheet" type="text/css" href="{{ asset('css/main.min.css') }}" />
-{% endif %}
-{% endblock %}
-  <link rel="icon" type="image/x-icon" href="{{ asset('favicon-32x32.png') }}" />
+    {% block stylesheets %}
+    {% if app.environment == "dev" %}
+    <link rel="stylesheet" type="text/css" href="{{ asset('css/main.css') }}" />
+    {% elseif app.environment == 'prod' %}
+    <link rel="stylesheet" type="text/css" href="{{ asset('css/main.min.css') }}" />
+    {% endif %}
+    {% endblock %}
+    <link rel="icon" type="image/x-icon" href="{{ asset('favicon-32x32.png') }}" />
 </head>
 <body>
-  <header>
-    <div class='container_small'>
-      <a href="{{ path('accueil')}}"><img src="{{ asset('img/header/logo.png')}}" alt="Logo Mon Panier Toqué" class="logo"></a>
-      <nav class="header-nav">
-        <label for="show-menu" class="show-menu"><span class="header-menu_close"></span></label>
-        <input type="checkbox" id="show-menu" class="show-menu-input" role="button">
-        <ul class="header-nav_ul">
-          <li class="left_li header-nav_li">                         
-            <a href="{{path('paniers')}}" class="header-nav_link">NOS PANIERS ￬</a>
-            <ul class="header-nav_ul2">
-              <li class="header-nav_li2"><a href="{{ path('panier', {'slug' : 'classique'})}}" class="header-nav_link2">Panier classique</a></li>
-              <li class="header-nav_li2"><a href="{{ path('panier', {'slug' : 'végétarien'})}}" class="header-nav_link2">Panier végétarien</a></li>
-              <li class="header-nav_li2"><a href="{{ path('panier', {'slug' : 'apéro'})}}" class="header-nav_link2">Panier Apéro</a></li>
-              <li class="header-nav_li2"><a href="{{ path('panier', {'slug' : 'brunch'})}}" class="header-nav_link2">Panier Brunch</a></li>
-            </ul>
-          </li>               
-          <li class="left_li header-nav_li">
-            <a href="#" class="header-nav_link">COMMENT CA MARCHE ￬</a>
-            <ul class="header-nav_ul2">
-              <li class="header-nav_li2"><a href="#" class="header-nav_link2">Le concept</a></li>
-              <li class="header-nav_li2"><a href="#" class="header-nav_link2">Zones de livraison</a></li>
-              <li class="header-nav_li2"><a href="#" class="header-nav_link2">Nos producteurs partenaires</a></li>
-              <li class="header-nav_li2"><a href="#" class="header-nav_link2">Nos chefs</a></li>
-            </ul>
-          </li>
-          <li class="left_li header-nav_li"><a href="{{path('menus')}}" id="menus_header" class="header-nav_link">NOS MENUS</a></li>
-          <li class="header-nav_li"><a href="#" class="right_li header-nav_link">CARTE CADEAU</a></li>
-          <li class="header-nav_li"><a href="#" class="right_li header-nav_link">QUI SOMMES NOUS</a></li>
-          <li class="right_li header-nav_li"><div class="header-question-barre"></div><span class="header-question">UNE QUESTION ? 01 63 12 16 02</span></li>
-        </ul>
-      </nav>
-      <div class="header-right">
-        <div class="header-right-account">
-          <span class="header-account sprite-span-base"></span>
-          {% if is_granted('IS_AUTHENTICATED_FULLY') or is_granted('IS_AUTHENTICATED_REMEMBERED') %}
-          <p class="header-prenom">{{ app.user.prenom }}</p>
-          {% endif %}
-          <div class="header-form">
-            {% if (is_granted('ROLE_USER') or is_granted('ROLE_ADMIN')) %}
-            <a href="{{ path('account') }}">Mon compte</a>
-            <a href="{{ path('logout') }}">Se déconnecter</a>
-            {% else %}
-            <div>
-              {{ include("form/loginheaderForm.html.twig") }}
-              <p id="error_login_header"></p>
+    <header>
+        <div class='container_small'>
+            <a href="{{ path('accueil')}}"><img src="{{ asset('img/header/logo.png')}}" alt="Logo Mon Panier Toqué" class="logo"></a>
+            <nav class="header-nav">
+                <label for="show-menu" class="show-menu"><span class="header-menu_close"></span></label>
+                <input type="checkbox" id="show-menu" class="show-menu-input">
+                <ul class="header-nav_ul">
+                    <li class="left_li header-nav_li">                         
+                        <a href="{{path('paniers')}}" class="header-nav_link">NOS PANIERS ￬</a>
+                        <ul class="header-nav_ul2">
+                            <li class="header-nav_li2"><a href="{{ path('panier', {'slug' : 'classique'})}}" class="header-nav_link2">Panier classique</a></li>
+                            <li class="header-nav_li2"><a href="{{ path('panier', {'slug' : 'végétarien'})}}" class="header-nav_link2">Panier végétarien</a></li>
+                            <li class="header-nav_li2"><a href="{{ path('panier', {'slug' : 'apéro'})}}" class="header-nav_link2">Panier Apéro</a></li>
+                            <li class="header-nav_li2"><a href="{{ path('panier', {'slug' : 'brunch'})}}" class="header-nav_link2">Panier Brunch</a></li>
+                        </ul>
+                    </li>               
+                    <li class="left_li header-nav_li">
+                        <a href="#" class="header-nav_link">COMMENT CA MARCHE ￬</a>
+                        <ul class="header-nav_ul2">
+                            <li class="header-nav_li2"><a href="#" class="header-nav_link2">Le concept</a></li>
+                            <li class="header-nav_li2"><a href="#" class="header-nav_link2">Zones de livraison</a></li>
+                            <li class="header-nav_li2"><a href="#" class="header-nav_link2">Nos producteurs partenaires</a></li>
+                            <li class="header-nav_li2"><a href="#" class="header-nav_link2">Nos chefs</a></li>
+                        </ul>
+                    </li>
+                    <li class="left_li header-nav_li"><a href="{{path('menus')}}" class="header-nav_link">NOS MENUS</a></li>
+                    <li class="header-nav_li"><a href="#" class="right_li header-nav_link">CARTE CADEAU</a></li>
+                    <li class="header-nav_li"><a href="#" class="right_li header-nav_link">QUI SOMMES NOUS</a></li>
+                    <li class="right_li header-nav_li"><div class="header-question-barre"></div><span class="header-question">UNE QUESTION ? 01 63 12 16 02</span></li>
+                </ul>
+            </nav>
+            <div class="header-right">
+                <div class="header-right-account">
+                    <span class="header-account sprite-span-base"></span>
+                    {% if is_granted('IS_AUTHENTICATED_FULLY') or is_granted('IS_AUTHENTICATED_REMEMBERED') %}
+                    <p class="header-prenom">{{ app.user.prenom }}</p>
+                    {% endif %}
+                    <div class="header-form">
+                        {% if (is_granted('ROLE_USER') or is_granted('ROLE_ADMIN')) %}
+                        <a href="{{ path('account') }}">Mon compte</a>
+                        <a href="{{ path('logout') }}">Se déconnecter</a>
+                        {% else %}
+                        <div>
+                            {{ include("form/loginheaderForm.html.twig") }}
+                            <p id="error_login_header"></p>
+                        </div>
+                        <div>
+                            <a href="{{path('login')}}">Créer mon compte</a>
+                        </div>
+                        {% endif %}
+                        {% if (is_granted('ROLE_ADMIN')) %}
+                        <a href="{{ path('admin') }}">Admin</a>
+                        {% endif %}
+                    </div>                        
+                </div>     
+                <div class="header-caddie">
+                    <a href="{{ path('cart') }}">
+                        <span id="count_caddie" class="caddie-count sprite-span-base">
+                            {{ showCountCart(app.user) }}
+                        </span>
+                        <span class="header-panier sprite-span-base"></span>
+                    </a>                         
+                </div>
             </div>
-            <div>
-              <a href="{{path('login')}}">Créer mon compte</a>
+        </div>
+    </header>
+
+    {% block body %}{% endblock %}
+
+    <footer class="footer">
+        <div class='container_small'>
+            <div class="footer-sectionbox">
+                <section class="footer_section">
+                    <div>
+                        <p class="footer_section_p"><span class="footer-picto_partenaire sprite-span-base"></span>Inscrivez-vous !</p>
+                    </div>
+                    {# render(controller('AppBundle:Newsletter:showform')) #}
+                    {{ include ("form/newsletterForm.html.twig") }}
+                    <div>
+                        <p id="error_newsletter" class="footer_section_p"></p>
+                    </div>
+                </section>
+                <section class="footer_section">
+                    <p class="footer_section_p"><span class="footer-plat sprite-span-base"></span>Suivez-nous</p>
+                    <a href="" class="footer_social-link footer-facebook"></a>
+                    <a href="" class="footer_social-link footer-twitter"></a>
+                    <a href="" class="footer_social-link footer-truc"></a>
+                    <a href="" class="footer_social-link footer-blog"></a>
+                </section>
+                <section class="footer_section">
+                    <p class="footer_section_p"><span class="footer-picto_partenaire sprite-span-base"></span>Nos partenaires</p>
+                    <img src="{{ asset('img/footer/labels.png')}}" alt="">
+                </section>        
             </div>
-            {% endif %}
-            {% if (is_granted('ROLE_ADMIN')) %}
-            <a href="{{ path('admin') }}">Admin</a>
-            {% endif %}
-          </div>                        
-        </div>     
-        <div class="header-caddie">
-          <a href="{{ path('cart') }}">
-            <span id="count_caddie" class="caddie-count sprite-span-base">
-              {{ showCountCart(app.user) }}
-            </span>
-            <span class="header-panier sprite-span-base"></span>
-          </a>                         
+            <div class='footer-coryright'>
+                <nav>
+                    <ul>
+                        <li class="footer-copyright_li"><p>Mon Panier Toqué@2015</p></li>
+                        <li class="footer-copyright_li"><a href="#">Conditions générales de vente</a></li>
+                        <li class="footer-copyright_li"><a href="#">Mentions légales</a></li>
+                        <li class="footer-copyright_li"><a href="#">Conditions de livraison</a></li>
+                    </ul>
+                </nav>
+            </div>
         </div>
-      </div>
-    </div>
-  </header>
+    </footer>
 
-  {% block body %}{% endblock %}
-
-  <footer>
-    <div class='container_small'>
-      <section>
-        <div id="newsletter_footer">
-          <p><span class="footer-picto_partenaire sprite-span-base"></span>Inscrivez-vous !</p>
-        </div>
-        {# render(controller('AppBundle:Newsletter:showform')) #}
-        {{ include ("form/newsletterForm.html.twig") }}
-        <div>
-          <p id="error_newsletter"></p>
-        </div>
-      </section><section id="social_footer">
-        <p><span class="footer-plat sprite-span-base"></span>Suivez-nous</p>
-        <a href="" class="footer-facebook"></a>
-        <a href="" class="footer-twitter"></a>
-        <a href="" class="footer-truc"></a>
-        <a href="" class="footer-blog"></a>
-      </section><section id="label_footer">
-        <p><span class="footer-picto_partenaire sprite-span-base"></span>Nos partenaires</p>
-        <img src="{{ asset('img/footer/labels.png')}}" alt="">
-      </section>
-      <div id="footer_copyright" class='container_small'>
-        <nav>
-          <ul>
-            <li><p>Mon Panier Toqué@2015</p></li>
-            <li><a href="#">Conditions générales de vente</a></li>
-            <li><a href="#">Mentions légales</a></li>
-            <li><a href="#">Conditions de livraison</a></li>
-          </ul>
-        </nav>
-      </div>
-    </div>
-  </footer>
-
-  {% block javascripts %}
-  {#% if app.environment == "dev" %#}
-  <script src="{{ asset('js/vendor/jquery-1.11.2.min.js') }}"></script>
-  <script src="{{ asset('bundles/fosjsrouting/js/router.js') }}"></script>
-  <script src="{{ path('fos_js_routing_js', {"callback": "fos.Router.setData"}) }}"></script>
-  <script src="{{ asset('js/vendor/bxslider/jquery.bxslider.min.js') }}"></script>
-  <script src="{{ asset('js/vendor/jquery.magnific-popup.min.js') }}"></script>
-  <script src="{{ asset('js/main.js') }}"></script>
-  {#% elseif app.environment == 'prod' %}
-  <script src="{{ asset('js/main.min.js') }}"></script>
-  {% endif %#}
-  {% endblock %}
+    {% block javascripts %}
+    {#% if app.environment == "dev" %#}
+    <script src="{{ asset('js/vendor/jquery-1.11.2.min.js') }}"></script>
+    <script src="{{ asset('bundles/fosjsrouting/js/router.js') }}"></script>
+    <script src="{{ path('fos_js_routing_js', {"callback": "fos.Router.setData"}) }}"></script>
+    <script src="{{ asset('js/vendor/bxslider/jquery.bxslider.min.js') }}"></script>
+    <script src="{{ asset('js/vendor/jquery.magnific-popup.min.js') }}"></script>
+    <script src="{{ asset('js/main.js') }}"></script>
+    {#% elseif app.environment == 'prod' %}
+    <script src="{{ asset('js/main.min.js') }}"></script>
+    {% endif %#}
+    {% endblock %}
 
 </body>
 </html>

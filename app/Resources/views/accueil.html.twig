@@ -3,139 +3,137 @@
 {% block body %}
 
 <div class="accueil">
-    <section id="banner">
+    <section class="banner">
         <div class="container_small">
-            <div id="title_banner">
-                <h1>CUISINEZ COMME UN CHEF !</h1>
-                <p>les produits de notre région</p>
+            <div class="banner-title">
+                <h1 class="banner-title_title">CUISINEZ COMME UN CHEF !</h1>
+                <p class="banner-title_description">les produits de notre région</p>
             </div>
-            <div id="show_panier" class="orange">
+            <div class="banner_button orange">
                 <a href="{{ path('paniers') }}">VOIR NOS PANIERS</a>
             </div>
         </div>
     </section>
-    <section id="howitworks">
+    <section class="howitworks">
         <div class="container_small">
-            <div class="title_section">
-                <h2>COMMENT CA MARCHE</h2>
-                <p>Le panier à la semaine pour concocter de délicieux repas, livré directement chez soi !</p>
+            <div class="section-title">
+                <h2 class="section_title-green">COMMENT CA MARCHE</h2>
+                <p class="section_description">Le panier à la semaine pour concocter de délicieux repas, livré directement chez soi !</p>
             </div>
-            <div id="show_how">
-                <div class="afterarrow howdiv">
+            <div>
+                <div class="afterarrow howitworks_box">
                     <span class="content-toque sprite-span"></span>
                     <p>Chaque semaine, nos chefs créent de nouvelles recettes pour réaliser 4 plats.</p>
                 </div>
-                <div class="afterarrow howdiv">
+                <div class="afterarrow howitworks_box">
                     <span class="content-panier sprite-span"></span>
                     <p>Vous choisissez votre panier contenant des produits locaux et de saison</p>
                 </div>
-                <div class="afterarrow howdiv">
+                <div class="afterarrow howitworks_box">
                     <span class="content-camion sprite-span"></span>
                     <p>Nous vous livrons à domicile</p>
                 </div>
-                <div class="howdiv">
+                <div class="howitworks_box">
                     <span class="content-assiette sprite-span"></span>
                     <p>Vous cuisinez un repas original. Comme un chef!</p>
                 </div>
             </div>
         </div>
     </section>
-    <section id="last_section">
+    <section class="home-slider">
         <div class="container_small">
-            <article id="plat">
-                <div class="title_section">
-                    <h2>NOS MENUS</h2>
-                    <p>Chaque semaine, nous créons de délicieuses recettes.</p>
-                </div>
-                <div id="slider_start">
-                    <nav id="slider_start_nav">
-                        <ul class="bxslider">
-                            <li><img src="{{ asset('img/plat/semaine/plat1.jpg') }}" title="Pétales de fleurs cristallisées" alt="Plat du jour Mon panier toqué"></li>
-                            <li><img src="{{ asset('img/plat/semaine/plat2.jpg') }}" title="Riz épicé aux tomates et poivrons" alt="Plat du jour Mon panier toqué"></li>
-                            <li><img src="{{ asset('img/plat/semaine/plat3.jpg') }}" title="Boeuf aux épinards et graines de courge" alt="Plat du jour Mon panier toqué"></li>
+            <div class="section-title">
+                <h2 class="section_title-green">NOS MENUS</h2>
+                <p class="section_description">Chaque semaine, nous créons de délicieuses recettes.</p>
+            </div>
+            <div id="slider_start">
+                <nav id="slider_start_nav">
+                    <ul class="bxslider">
+                        <li><img src="{{ asset('img/plat/semaine/plat1.jpg') }}" title="Pétales de fleurs cristallisées" alt="Plat du jour Mon panier toqué"></li>
+                        <li><img src="{{ asset('img/plat/semaine/plat2.jpg') }}" title="Riz épicé aux tomates et poivrons" alt="Plat du jour Mon panier toqué"></li>
+                        <li><img src="{{ asset('img/plat/semaine/plat3.jpg') }}" title="Boeuf aux épinards et graines de courge" alt="Plat du jour Mon panier toqué"></li>
                         </ul>
-                    </nav>
-                    <div id="slider_button">
-                        <div id="show_menus_slider">
-                        	<a href="{{ path('menus') }}" class="white-button">VOIR NOS MENUS</a>
-                        </div>
-                        <div id="show_paniers_slider">
-                        	<a href="{{ path('paniers') }}" class="orange">VOIR NOS PANIERS</a>
-                        </div>
+                </nav>
+                <div class="home-slider_buttonbox">
+                    <div class="home-slider_button white-button">
+                        <a href="{{ path('menus') }}">VOIR NOS MENUS</a>
+                    </div>
+                    <div class="home-slider_button orange">
+                        <a href="{{ path('paniers') }}">VOIR NOS PANIERS</a>
                     </div>
                 </div>
-            </article>
-
-			{% if liste_blog is not empty %}
-
-	            <article id="blog_accueil">
-	                <div id="title_blog_accueil">
-	                    <h2>LES DERNIERS ARTICLES DE NOTRE BLOG</h2>
-	                </div>
-                    <div class="flexbox_blog">
-                    {% for blog in liste_blog %}
-                        <div class="blog_accueil_box">
-                            <h5>{{ blog.titre }}</h5>
-                            <small>Publié le <strong>{{ blog.date | localizeddate('medium', 'none', 'fr') }}</strong>
-                                dans la rubrique <strong>{{ blog.rubriqueblog.nom }}</strong></small>
-                            <p>{{ blog.article | truncate(145, false, ' (...)') }}</p>
-                            <a href="">lire la suite</a>
-                            <img src="{{ asset(blog.image) }}" alt="">
-                        </div>
-                    {% endfor %}                        
-                    </div>
-	            </article>
-
+            </div>
+        </div>
+    </section>
+    <section class="home-blog">
+        <div class="container_small">
+            {% if liste_blog is not empty %}
+            <div class="section-title">
+                <h2 class="section_title-brown">LES DERNIERS ARTICLES DE NOTRE BLOG</h2>
+            </div>
+            <div class="home-blog_flexbox">
+                {% for blog in liste_blog %}
+                <article class="home-blog_article">
+                    <h3 class="">{{ blog.titre }}</h3>
+                    <small>Publié le <strong>{{ blog.date | localizeddate('medium', 'none', 'fr') }}</strong>
+                        dans la rubrique <strong>{{ blog.rubriqueblog.nom }}</strong></small>
+                    <p>{{ blog.article | truncate(145, false, ' (...)') }}</p>
+                    <a href="">lire la suite</a>
+                    <img src="{{ asset(blog.image) }}" alt="">
+                </article>
+                {% endfor %}                        
+            </div>
             {% endif %}
-
-            <article id="commentaire">
-                <h4>NOS CLIENTS</br>
+        </div>        
+    </section>
+    <div class="home-flexbox">
+        <div class="home-flexbox_box container_small">
+            <section class="home-comments">
+                <h2>NOS CLIENTS<br>
                     <small>témoignent</small>
-                </h4>
-                <div><p>« Très pratique pour éviter les courses et toute la famille est contente ! Une nourriture
-                        saine et je reprends plaisir à cuisiner comme un chef ! » <br></p>
+                </h2>
+                <div class="home-comments_box"><p>« Très pratique pour éviter les courses et toute la famille est contente ! Une nourriture
+                    saine et je reprends plaisir à cuisiner comme un chef ! » <br></p>
                     <span class="comments-author">Marie (77450)</span><span class="content-stars-three sprite-span"></span>
                 </div>
-                <div><p>« Vraiment sympa ! Pratique, rapide à préparer je reprends plaisir à cuisiner ! Les produits
-                        du terroirs sont tops ! » <br></p>
+                <div class="home-comments_box"><p>« Vraiment sympa ! Pratique, rapide à préparer je reprends plaisir à cuisiner ! Les produits
+                    du terroirs sont tops ! » <br></p>
                     <span class="comments-author">Nadia (75013)</span><span class="content-stars-four sprite-span"></span>
                 </div>
-                <div><p>« Au départ assez sceptique sur le coût ... mais après quelques semaines, je ne regrette
-                        rien ! » <br></p>
+                <div class="home-comments_box"><p>« Au départ assez sceptique sur le coût ... mais après quelques semaines, je ne regrette
+                    rien ! » <br></p>
                     <span class="comments-author">Charles (75004)</span><span class="content-stars-three sprite-span"></span>
                 </div>
-                <div id="youradvice">
+                <div class="home-comments_box">
                     <a href="#">Donnez-nous votre avis<span class="content-medium-arrow-white sprite-span"></span></a>
                 </div>
-
-            </article><!-- 
-         --><article id="engagements">
-                <div class="title_section">
-                    <h2>NOS ENGAGEMENTS</h2>
-
-                    <p>renouer avec les plaisirs gustatifs des produits de notre région !</p>
+            </section>
+            <section class="engagements">
+                <div class="section-title">
+                    <h2 class="section_title-green">NOS ENGAGEMENTS</h2>
+                    <p class="section_description">renouer avec les plaisirs gustatifs des produits de notre région !</p>
                 </div>
-                <img src="{{ asset('img/accueil/local.png') }}" alt="100% local Mon Panier Toqué">
-                <div id="engagement">
-                    <div>
+                <img src="{{ asset('img/accueil/local.png') }}" alt="100% local Mon Panier Toqué" class="engagements_100">
+                <div class="engagements_flexbox">
+                    <div class="engagements_flexbox_box">
                         <p>NOS PRODUITS<br>Des ingrédients de qualité <br> et des recettes accessibles, <br>le tout livré chez vous pour<br> vous simplifier la vie.</p>
                         <a href="#">Lire la suite ></a>
                         <img src="{{ asset('img/accueil/panier_garni.png') }}" alt="Panier Garni Mon Panier Toqué">
                     </div>
-                    <div>
+                    <div class="engagements_flexbox_box">
                         <img src="{{ asset('img/accueil/producteur.png') }}" alt="Producteur Mon Panier Toqué">
                         <p>Des produits de <br> saison issus des <br> PRODUCTEURS locaux.</p>
                         <a href="#">Lire la suite ></a>
                     </div>
-                    <div>
+                    <div class="engagements_flexbox_box">
                         <p>Des recettes simples, <br> pour tous les goûts, <br> élaborées par NOS CHEFS.</p>
                         <a href="#">Lire la suite ></a>
                         <img src="{{ asset('img/accueil/chef.png') }}" alt="Chef Mon Panier Toqué">
                     </div>
                 </div>
-            </article>
-        </div>
-    </section>
+            </section>            
+        </div>      
+    </div>
 </div>
 
 {% endblock %}
