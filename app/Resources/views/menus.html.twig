@@ -2,42 +2,42 @@
 
 {% block body %}
 
-	<section  class="alter_first_section">
-		<div class="container_small" id="panier_detail">
-			<div class="title_section">
-			    <h2>NOS MENUS</h2>
+	<section class="section-first-white">
+		<div class="container-small">
+			<div class="section-title">
+			    <h1 class="section_title-green">NOS MENUS</h1>
 			</div>
-			<nav class="slider_menu">	
+			<nav class="menu-slider">	
 				<ul class="bxslider ">
 					{% for plat in liste_classique %}
 				    	<li>
-							<img src="{{ asset(plat.photo)}}" alt="" class="photo_plat">
-							<div id="plat_detail">			
-								<h3>Menu classique semaine du {{ menu_classique.date | date('d')}}</h3>
-								<h4>plat {{ loop.index }} : {{ plat.titre }}</h4>
-						    	<div class="plat_what">
-						    		<div>
+							<img src="{{ asset(plat.photo)}}" alt="" class="menu-slider_photo">
+							<div class="menu-slider_content">			
+								<h3 class="">Menu classique semaine du {{ menu_classique.date | date('d')}}</h3>
+								<h4 class="menu-slider_title">Plat {{ loop.index }} : {{ plat.titre }}</h4>
+						    	<div class="menu-slider_infos">
+						    		<div class="menu-slider_info">
 							    		<span class="content-horloge sprite-span"></span>
 							    		<span>Temps de préparation</br>{{ plat.temps }}</span>
 						    		</div>
-						    		<div>
-							    		<div class="plat_what_trait"></div>
+						    		<div class="menu-slider_info">
+							    		<div class="menu-slider_trait"></div>
 							    		<span class="content-difficulte sprite-span"></span>
 							    		<span>Difficulté</br>{{ plat.difficulte }}</span>
 							    	</div>
-							    	<div>
-							    		<div class="plat_what_trait"></div>
+							    	<div class="menu-slider_info">
+							    		<div class="menu-slider_trait"></div>
 							    		<span class="content-consistance sprite-span"></span>
 							    		<span>{{ plat.consistance }}</span>
 							    	</div>
-						    		<div class="plat_what_trait"></div>
+						    		<div class="menu-slider_trait"></div>
 						    		<span class="content-aliment-classique sprite-span"></span>
 					    		</div>
-						    	<p class="plat_accroche">{{ plat.accroche }}</p>	
-						    	<p class="plat_description">{{ plat.description }}</p>
-						    	<p class="plat_description"> {{ plat.plus }}</p>
-						    	<p class="sel_poivre"><span class="content-sel sprite-span"></span>Prévoir du sel, du poivre et de l’huile dans votre placard</p>
-						    	<a href="{{ path('panier', {'slug' : 'classique'}) }}" class="discovery orange">découvrir notre panier classique</a>		
+						    	<p class="menu-slider_accroche">{{ plat.accroche }}</p>	
+						    	<p class="menu-slider_description">{{ plat.description }}</p>
+						    	<p class="menu-slider_description"> {{ plat.plus }}</p>
+						    	<p class="menu-slider_salt"><span class="content-sel sprite-span"></span>Prévoir du sel, du poivre et de l’huile dans votre placard</p>
+						    	<a href="{{ path('panier', {'slug' : 'classique'}) }}" class="menu-slider_discovery orange">découvrir notre panier classique</a>		
 							</div>			    	
 				    	</li>
 				    {% endfor %}		    	
@@ -45,87 +45,82 @@
 			</nav>
 		</div>
 	</section>	
-	<section id="panier_suivant">
-		<div class="container_small">
-			<div class="title_section">
-			    <h2>Les semaines à venir</h2>
+	<section class="menu-nextweek">
+		<div class="container-small">
+			<div class="section-title">
+			    <h2 class="section_title-green">Les semaines à venir</h2>
 			</div>	    		   
-			<div class="plat_suivant">
+			<div class="menu-nextweek_plat">
 				<h3>Semaine du 15 au 21 juin</h3>
-		    	<img src="{{ asset('img/menus/semaine1.jpg')}}" alt="" class="photo_plat_suivant">
-		    	<p class="plat_titre_suivant">Tarte saumon et légumes</p>
-		    	<a class="next_menu">voir le menu</a><span class="content-arrow-next sprite-span"></span>			
+		    	<img src="{{ asset('img/menus/semaine1.jpg')}}" alt="" class="menu-nextweek_photo">
+		    	<p class="menu-nextweek_title">Tarte saumon et légumes</p>
+		    	<a href="#" class="menu-nextweek_link">voir le menu<span class="content-arrow-next sprite-span"></span></a>		
 			</div>
-			<div class="plat_suivant">
+			<div class="menu-nextweek_plat">
 				<h3>Semaine du 22 au 28 juin</h3>
-		    	<img src="{{ asset('img/menus/semaine2.jpg')}}" alt="" class="photo_plat_suivant">
-		    	<p class="plat_titre_suivant">Brochettes poulet-carottes</p>
-		    	<a class="next_menu">voir le menu</a><span class="content-arrow-next sprite-span"></span>		
+		    	<img src="{{ asset('img/menus/semaine2.jpg')}}" alt="" class="menu-nextweek_photo">
+		    	<p class="menu-nextweek_title">Brochettes poulet-carottes</p>
+		    	<a href="#" class="menu-nextweek_link">voir le menu<span class="content-arrow-next sprite-span"></span></a>
 			</div>
 		</div>
 	</section>
-	<section>
-		<div class="container_small" id="panier_detail">
-			<nav class="slider_menu">	
-				<ul class="bxslider ">
-
-				{% for plat in liste_vegan %}
-
-			    	<li>
-						<img src="{{ asset('img/menus/ratatouille.jpg')}}" alt="" class="photo_plat">
-						<div id="plat_detail">			
-							<h3>Menu végétarien semaine du 7 Juin</h3>
-							<h4>plat 1 : {{ plat.titre }}</h4>
-					    	<div class="plat_what">
-					    		<div>
-						    		<span class="content-horloge sprite-span"></span>
-						    		<span>Temps de préparation</br>{{ plat.temps }}</span>
-					    		</div>
-					    		<div>
-						    		<div class="plat_what_trait"></div>
-						    		<span class="content-difficulte sprite-span"></span>
-						    		<span>Difficulté</br>{{ plat.difficulte }}</span>
-						    	</div>
-						    	<div>
-						    		<div class="plat_what_trait"></div>
-						    		<span class="content-consistance sprite-span"></span>
-						    		<span>{{ plat.consistance }}</span>
-						    	</div>
-					    		<div class="plat_what_trait"></div>
-					    		<span class="content-aliment-classique sprite-span"></span>
-				    		</div>
-					    	<p class="plat_accroche">{{ plat.accroche }}</p>	
-					    	<p class="plat_description">{{ plat.description }}</p>
-					    	<p class="plat_description"> {{ plat.plus }}</p>
-					    	<p class="sel_poivre"><span class="content-sel sprite-span"></span>Prévoir du sel, du poivre et de l’huile dans votre placard</p>
-					    	<a href="{{ path('panier', {'slug' : 'végétarien'}) }}" class="discovery orange">découvrir notre panier végétarien</a>		
-						</div>			    	
-			    	</li>
-
-			    {% endfor %}
-
-				</ul>	    		   
-			</nav>
+	<section class="section-title">
+		<div class="container-small">
+            <nav class="menu-slider">   
+                <ul class="bxslider ">
+                    {% for plat in liste_vegan %}
+                        <li>
+                            <img src="{{ asset(plat.photo)}}" alt="" class="menu-slider_photo">
+                            <div class="menu-slider_content">           
+                                <h3 class="">Menu végétarien semaine du 7 Juin</h3>
+                                <h4 class="menu-slider_title">Plat {{ loop.index }} : {{ plat.titre }}</h4>
+                                <div class="menu-slider_infos">
+                                    <div class="menu-slider_info">
+                                        <span class="content-horloge sprite-span"></span>
+                                        <span>Temps de préparation</br>{{ plat.temps }}</span>
+                                    </div>
+                                    <div class="menu-slider_info">
+                                        <div class="menu-slider_trait"></div>
+                                        <span class="content-difficulte sprite-span"></span>
+                                        <span>Difficulté</br>{{ plat.difficulte }}</span>
+                                    </div>
+                                    <div class="menu-slider_info">
+                                        <div class="menu-slider_trait"></div>
+                                        <span class="content-consistance sprite-span"></span>
+                                        <span>{{ plat.consistance }}</span>
+                                    </div>
+                                    <div class="menu-slider_trait"></div>
+                                    <span class="content-aliment-classique sprite-span"></span>
+                                </div>
+                                <p class="menu-slider_accroche">{{ plat.accroche }}</p> 
+                                <p class="menu-slider_description">{{ plat.description }}</p>
+                                <p class="menu-slider_description"> {{ plat.plus }}</p>
+                                <p class="menu-slider_salt"><span class="content-sel sprite-span"></span>Prévoir du sel, du poivre et de l’huile dans votre placard</p>
+                                <a href="{{ path('panier', {'slug' : 'végétarien'}) }}" class="menu-slider_discovery orange">découvrir notre panier végétarien</a>        
+                            </div>                  
+                        </li>
+                    {% endfor %}                
+                </ul>                  
+            </nav>
 		</div>
 	</section>	
-	<section id="panier_suivant">
-		<div class="container_small">
-			<div class="title_section">
-			    <h2>Les semaines à venir</h2>
-			</div>	    		   
-			<div class="plat_suivant">
-				<h3>Semaine du 15 au 21 juin</h3>
-		    	<img src="{{ asset('img/menus/paella.jpg')}}" alt="" class="photo_plat_suivant">
-		    	<p class="plat_titre_suivant">Paëlla végétarienne</p>
-		    	<a class="next_menu">voir le menu</a><span class="content-arrow-next sprite-span"></span>				
-			</div>
-			<div class="plat_suivant">
-				<h3>Semaine du 22 au 28 juin</h3>
-		    	<img src="{{ asset('img/menus/feuillete.jpg')}}" alt="" class="photo_plat_suivant">
-		    	<p class="plat_titre_suivant">Feuilleté de légumes</p>
-		    	<a class="next_menu">voir le menu</a><span class="content-arrow-next sprite-span"></span>			
-			</div>
-		</div>
-	</section>
-
+    <section class="menu-nextweek">
+        <div class="container-small">
+            <div class="section-title">
+                <h2 class="section_title-green">Les semaines à venir</h2>
+            </div>                 
+            <div class="menu-nextweek_plat">
+                <h3>Semaine du 15 au 21 juin</h3>
+                <img src="{{ asset('img/menus/paella.jpg')}}" alt="" class="menu-nextweek_photo">
+                <p class="menu-nextweek_title">Paëlla végétarienne</p>
+                <a href="#" class="menu-nextweek_link">voir le menu<span class="content-arrow-next sprite-span"></span></a>     
+            </div>
+            <div class="menu-nextweek_plat">
+                <h3>Semaine du 22 au 28 juin</h3>
+                <img src="{{ asset('img/menus/feuillete.jpg')}}" alt="" class="menu-nextweek_photo">
+                <p class="menu-nextweek_title">Feuilleté de légumes</p>
+                <a href="#" class="menu-nextweek_link">voir le menu<span class="content-arrow-next sprite-span"></span></a>
+            </div>
+        </div>
+    </section>
 {% endblock %}

@@ -6,9 +6,11 @@
  */
 
 html {
-  font-family: sans-serif; /* 1 */
-  -ms-text-size-adjust: 100%; /* 2 */
-  -webkit-text-size-adjust: 100%; /* 2 */
+    font-family: sans-serif; /* 1 */
+    -ms-text-size-adjust: 100%; /* 2 */
+    -webkit-text-size-adjust: 100%; /* 2 */
+    font-size: 1em;
+    line-height: 1.4;
 }
 
 /**
@@ -17,6 +19,24 @@ html {
 
 body {
   margin: 0;
+}
+
+/*
+ * Remove text-shadow in selection highlight:
+ * https://twitter.com/miketaylr/status/12228805301
+ *
+ * These selection rule sets have to be separate.
+ * Customize the background color to match your design.
+ */
+
+::-moz-selection {
+    background: #b3d4fc;
+    text-shadow: none;
+}
+
+::selection {
+    background: #b3d4fc;
+    text-shadow: none;
 }
 
 /* HTML5 display definitions
@@ -90,6 +110,8 @@ template, /* 1 */
 
 a {
   background-color: transparent;
+  text-decoration: none;
+  color: inherit;
 }
 
 /**
@@ -142,14 +164,9 @@ dfn {
   font-style: italic;
 }
 
-/**
- * Correct the font size and margin on `h1` elements within `section` and
- * `article` contexts in Chrome, Firefox, and Safari.
- */
-
-h1 {
-  font-size: 2em;
-  margin: 0.67em 0;
+h1,h2,h3,h4,h5,h6,p {
+    margin:0;
+    padding:0;
 }
 
 /**
@@ -160,6 +177,7 @@ mark {
   background-color: #ff0;
   color: #000;
 }
+
 
 /**
  * Add the correct font size in all browsers.
@@ -199,6 +217,8 @@ sup {
 
 img {
   border-style: none;
+  max-width: 100%;
+  vertical-align: middle;
 }
 
 /**
@@ -244,6 +264,12 @@ hr {
   overflow: visible; /* 2 */
 }
 
+fieldset,ul,li {
+    border: 0;
+    margin: 0;
+    padding: 0;
+}
+
 /* Forms
    ========================================================================== */
 
@@ -287,7 +313,10 @@ button,
 input,
 select,
 textarea { /* 1 */
-  margin: 0;
+    margin: 0;
+    padding:0;
+    border:0;
+    background: none;
 }
 
 /**

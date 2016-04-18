@@ -4,18 +4,16 @@
 
 <div class="accueil">
     <section class="banner">
-        <div class="container_small">
+        <div class="banner-container">
             <div class="banner-title">
                 <h1 class="banner-title_title">CUISINEZ COMME UN CHEF !</h1>
                 <p class="banner-title_description">les produits de notre région</p>
             </div>
-            <div class="banner_button orange">
-                <a href="{{ path('paniers') }}">VOIR NOS PANIERS</a>
-            </div>
+            <a href="{{ path('paniers') }}" class="banner_button orange">VOIR NOS PANIERS</a>
         </div>
     </section>
     <section class="howitworks">
-        <div class="container_small">
+        <div class="container-small">
             <div class="section-title">
                 <h2 class="section_title-green">COMMENT CA MARCHE</h2>
                 <p class="section_description">Le panier à la semaine pour concocter de délicieux repas, livré directement chez soi !</p>
@@ -41,7 +39,7 @@
         </div>
     </section>
     <section class="home-slider">
-        <div class="container_small">
+        <div class="container-small">
             <div class="section-title">
                 <h2 class="section_title-green">NOS MENUS</h2>
                 <p class="section_description">Chaque semaine, nous créons de délicieuses recettes.</p>
@@ -55,18 +53,14 @@
                         </ul>
                 </nav>
                 <div class="home-slider_buttonbox">
-                    <div class="home-slider_button white-button">
-                        <a href="{{ path('menus') }}">VOIR NOS MENUS</a>
-                    </div>
-                    <div class="home-slider_button orange">
-                        <a href="{{ path('paniers') }}">VOIR NOS PANIERS</a>
-                    </div>
+                    <a href="{{ path('menus') }}" class="home-slider_button white-button">VOIR NOS MENUS</a>
+                    <a href="{{ path('paniers') }}" class="home-slider_button orange">VOIR NOS PANIERS</a>
                 </div>
             </div>
         </div>
     </section>
     <section class="home-blog">
-        <div class="container_small">
+        <div class="container-small">
             {% if liste_blog is not empty %}
             <div class="section-title">
                 <h2 class="section_title-brown">LES DERNIERS ARTICLES DE NOTRE BLOG</h2>
@@ -87,7 +81,7 @@
         </div>        
     </section>
     <div class="home-flexbox">
-        <div class="home-flexbox_box container_small">
+        <div class="home-flexbox_box container-small">
             <section class="home-comments">
                 <h2>NOS CLIENTS<br>
                     <small>témoignent</small>

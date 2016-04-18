@@ -1,91 +1,87 @@
 {% extends "base.html.twig" %}
 
 {% block body %}
-
-	<section id="paniers_menu_soir" class="first_section">
-		<div class="container_small">
-			<div class="title_section">
-			    <h2>NOS PANIERS MENUS DU SOIR</h2>
-			    <p>Pour vous simplifier la vie !</p>
+	<section class="menu-soir section-first">
+		<div class="container-small">
+			<div class="section-title">
+			    <h1 class="section_title-green">NOS PANIERS MENUS DU SOIR</h1>
+			    <p class="section_description">Pour vous simplifier la vie !</p>
 			</div>
 			<nav class="breadcrumb">
 				{{ knp_menu_render('breadcrumb',{'depth': 2,'currentAsLink':false}) }}
 			</nav>
-		    <div id="box_menu">	    		   
-			    <article class="menu_soir">
+		    <div class="menu-flexbox">	    		   
+			    <article class="menu-soir_article">
 			    	<h3>Classique</h3>
 			    	<img src="{{ asset('img/menus/menu_classique.png')}}" alt="Panier Classique Mon Panier Toqué">
 			    	<span class="content-detail-classique sprite-span"></span>
-			    	<div class="prix_paniers_box">
+			    	<div class="panier-prix_box">
 			    		<span><strong>2</strong> pers. (59 €) | <strong>4</strong> pers. (89 €)<br><strong>4</strong> repas / semaine</span>
-			    		<div class="plus_soir"><a href="{{ path('panier', {'slug' : 'classique'}) }}" class="orange">découvrir ce panier</a></div>
+                        <a href="{{ path('panier', {'slug' : 'classique'}) }}" class="menu_button-box orange">découvrir ce panier</a>
 			    	</div>
 			    </article>
-			    <article class="menu_soir">
+			    <article class="menu-soir_article">
 			    	<h3>Végétarien</h3>
 			    	<img src="{{ asset('img/menus/menu_veg.png')}}" alt="Panier Végétarien Mon Panier Toqué">
 			    	<span class="content-detail-vegetarien sprite-span"></span>
-			    	<div class="prix_paniers_box">
+			    	<div class="panier-prix_box">
 			    		<span><strong>2</strong> pers. (59 €) | <strong>4</strong> pers. (89 €) <br><strong>4</strong> repas / semaine</span>
-			    		<div class="plus_soir"><a href="{{ path('panier', {'slug' : 'végétarien'}) }}" class="orange">découvrir ce panier</a></div>
+                        <a href="{{ path('panier', {'slug' : 'végétarien'}) }}" class="menu_button-box orange">découvrir ce panier</a>
 			    	</div>
 			    </article>
 		    </div>
 	    </div>
 	</section>
-	<section id="panier_menu_autre">
-		<div class="container_small">
-			<div class="title_section">
-			    <h2>NOS PANIERS convivialité</h2>
-			    <p>Pour vous simplifier la vie !</p>
+	<section class="menu-other">
+		<div class="container-small">
+			<div class="section-title">
+			    <h2 class="section_title-green">NOS PANIERS convivialité</h2>
+			    <p class="section_description">Pour vous simplifier la vie !</p>
 			</div>
-		    <div id="box_menu">	    		   
-			    <article class="menu_autre">
+		    <div class="menu-flexbox">	    		   
+			    <article class="menu-other_article">
 			    	<h3>Apéro</h3>
 			    	<img src="{{ asset('img/menus/apero.jpg')}}" alt="Apéro Mon Panier Toqué">
-			    	<div class="prix_paniers_box">
+			    	<div class="panier-prix_box">
 			    		<span><strong>49 €</strong> le panier / <strong>4</strong> pers.</span>
-			    		<div class="plus_convi"><a href="{{ path('panier', {'slug' : 'apéro'}) }}" class="white-button">découvrir ce panier</a></div>
+			    		<a href="{{ path('panier', {'slug' : 'apéro'}) }}" class="menu_button-box white-button">découvrir ce panier</a>
 			    	</div>
 			    </article>
-			    <article class="menu_autre">
+			    <article class="menu-other_article">
 			    	<h3>Brunch</h3>
 			    	<img src="{{ asset('img/menus/brunch.jpg')}}" alt="Brunch Mon Panier Toqué" id="brunch_img">
-			    	<div class="prix_paniers_box">
+			    	<div class="panier-prix_box">
 			    		<span><strong>49 €</strong> le panier / <strong>4</strong> pers.</span>
-			    		<div class="plus_convi"><a href="{{ path('panier', {'slug' : 'brunch'}) }}" class="white-button">découvrir ce panier</a></div>
+			    		<a href="{{ path('panier', {'slug' : 'brunch'}) }}" class="menu_button-box white-button">découvrir ce panier</a>
 			    	</div>
 			    </article>
 		    </div>
 		</div>
 	</section>	
-	<section id="engagement_panier">
-	    <div class="container_small">
-	        <article id="engagements">
-	            <div class="title_section">
-	                <h2>NOS ENGAGEMENTS</h2>
-	                <p>renouer avec les plaisirs gustatifs des produits de notre région !</p>
-	            </div>
-	            <img src="{{ asset('img/accueil/local.png')}}" alt="">
-                <div id="engagement">
-                    <div>
-                        <p>NOS PRODUITS<br>Des ingrédients de qualité <br> et des recettes accessibles, <br>le tout livré chez vous pour<br> vous simplifier la vie.</p>
-                        <a href="#">Lire la suite ></a>
-                        <img src="{{ asset('img/accueil/panier_garni.png') }}" alt="Panier Garni Mon Panier Toqué">
-                    </div>
-                    <div>
-                        <img src="{{ asset('img/accueil/producteur.png') }}" alt="Producteur Mon Panier Toqué">
-                        <p>Des produits de <br> saison issus des <br> PRODUCTEURS locaux.</p>
-                        <a href="#">Lire la suite ></a>
-                    </div>
-                    <div>
-                        <p>Des recettes simples, <br> pour tous les goûts, <br> élaborées par NOS CHEFS.</p>
-                        <a href="#">Lire la suite ></a>
-                        <img src="{{ asset('img/accueil/chef.png') }}" alt="Chef Mon Panier Toqué">
-                    </div>
+    <section class="engagements">
+        <div class="container-small">
+            <div class="section-title">
+                <h2 class="section_title-green">NOS ENGAGEMENTS</h2>
+                <p class="section_description">renouer avec les plaisirs gustatifs des produits de notre région !</p>
+            </div>
+            <img src="{{ asset('img/accueil/local.png') }}" alt="100% local Mon Panier Toqué" class="engagements_100">
+            <div class="engagements_flexbox">
+                <div class="engagements_flexbox_box">
+                    <p>NOS PRODUITS<br>Des ingrédients de qualité <br> et des recettes accessibles, <br>le tout livré chez vous pour<br> vous simplifier la vie.</p>
+                    <a href="#">Lire la suite ></a>
+                    <img src="{{ asset('img/accueil/panier_garni.png') }}" alt="Panier Garni Mon Panier Toqué">
                 </div>
-	        </article>
-	    </div>
-	</section>
-
+                <div class="engagements_flexbox_box">
+                    <img src="{{ asset('img/accueil/producteur.png') }}" alt="Producteur Mon Panier Toqué">
+                    <p>Des produits de <br> saison issus des <br> PRODUCTEURS locaux.</p>
+                    <a href="#">Lire la suite ></a>
+                </div>
+                <div class="engagements_flexbox_box">
+                    <p>Des recettes simples, <br> pour tous les goûts, <br> élaborées par NOS CHEFS.</p>
+                    <a href="#">Lire la suite ></a>
+                    <img src="{{ asset('img/accueil/chef.png') }}" alt="Chef Mon Panier Toqué">
+                </div>
+            </div>                
+        </div>
+    </section>
 {% endblock %} 
