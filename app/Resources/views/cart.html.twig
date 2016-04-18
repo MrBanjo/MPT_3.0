@@ -2,37 +2,37 @@
 
 {% block body %}
 
-	<section id="caddie" class="section-first">
+	<section class="caddie section-first">
 		<div class="container-small">
-			<nav class="nav_caddie">
-				<label for="show-caddie_menu" class="show-caddie_menu">Etapes de votre commande:</label>
-				<input type="checkbox" id="show-caddie_menu" role="button">
-				<ul id="menu_caddie">
-					<li><a href="{{ path('cart')}}"><strong>1</strong> ma commande</a></li>
-					<li><a href="{{ path('cart_identification')}}" class="opac"><strong>2</strong> identification</a></li>
-					<li><a href="" class="opac"><strong>3</strong> livraison</a></li>
-					<li><a href="" class="opac"><strong>4</strong> paiment</a></li>
-					<li><a href="{{ (app.user) ? path('cart_summary') : path('cart_identification')}}" class="opac"><strong>5</strong> récapitulatif</a></li>
+			<nav class="caddie-nav">
+				<label for="caddie-nav-show" class="caddie-nav-show">Etapes de votre commande:</label>
+				<input type="checkbox" id="caddie-nav-show" role="button">
+				<ul class="caddie-nav_menu">
+					<li><a href="{{ path('cart')}}" class="opacity-none"><strong>1</strong> ma commande</a></li>
+					<li><a href="{{ path('cart_identification')}}"><strong>2</strong> identification</a></li>
+					<li><a href=""><strong>3</strong> livraison</a></li>
+					<li><a href=""><strong>4</strong> paiment</a></li>
+					<li><a href="{{ (app.user) ? path('cart_summary') : path('cart_identification')}}" ><strong>5</strong> récapitulatif</a></li>
 				</ul>
 			</nav>
-			<div id="box_caddie">
-				<p class="conseil_tel">Besoin d’un conseil avant de finaliser votre commande ? appelez-nous : <strong>01 63 12 16 02</strong></p>
+			<div class="caddie_box">
+				<p class="caddie_tel">Besoin d’un conseil avant de finaliser votre commande ? appelez-nous : <strong>01 63 12 16 02</strong></p>
 				<nav class="breadcrumb">
 					{{ knp_menu_render('breadcrumb',{'depth': 2,'currentAsLink':false}) }}
 				</nav>
-				<a href="{{path('paniers')}}" id="continue_achat">< Poursuivre mes achats</a>
-				<form action="{{ (app.user) ? path('cart_summary') : path('cart_identification') }}" class="validate_caddie">
+				<a href="{{path('paniers')}}" class="caddie_continue">< Poursuivre mes achats</a>
+				<form action="{{ (app.user) ? path('cart_summary') : path('cart_identification') }}" class="caddie_validate">
 					<button type="submit" id="submit_caddie" class="orange">VALIDER MA COMMANDE</button>
 				</form>
-				<div class="box_table">
-					<table class="table_caddie table-striped">
+				<div class="caddie-table_box">
+					<table class="caddie-table table-striped">
 						<thead>
 							<tr>
-								<th id="caddie_table_photo"></th>
-								<th id="caddie_table_produit">PRODUITS(S)</th>
-								<th id="caddie_table_prix">PRIX UNITAIRE</th>
-								<th id="caddie_table_quantite">QUANTITé</th>
-								<th id="caddie_table_total">total</th>
+								<th class="caddie-table_photo"></th>
+								<th class="caddie-table_produit">PRODUITS(S)</th>
+								<th class="caddie-table_prix">PRIX UNITAIRE</th>
+								<th class="caddie-table_quantite">QUANTITé</th>
+								<th class="caddie-table_total">total</th>
 							</tr>
 						</thead>
 						<tbody>
@@ -49,11 +49,10 @@
 											 --><input type="text" value="{{ article.quantite }}" id="quantite{{ article.id }}" size="2" maxlength="4" onkeypress="return isNumberKey(event);" name="quantite"><!-- 
 											--><button type="button" onClick="add('quantite{{ article.id }}');" id="{{ article.id }}plus" class="quantite_cart">+</button>
 											<input type="hidden" value="{{ article.id }}" name="article_id">
-											<input type="submit" class="quantite_submit">
 										</form>
-										<button class="garbage" onClick="erase('quantite{{ article.id }}');"><span class="content-garbage sprite-span garbage"></span></button> 
+										<button class="caddie-table_garbage" onClick="erase('quantite{{ article.id }}');"><span class="content-garbage sprite-span"></span></button> 
 									</th>
-									<th><span class='test form-{{ article.id }}'>{{ article.prix * article.quantite }}</span> €</th>			            		
+									<th><span class='js-prixtotal form-{{ article.id }}'>{{ article.prix * article.quantite }}</span> €</th>			            		
 								</tr>
 
 							{% endfor %}
@@ -76,10 +75,10 @@
 							</tr>
 							<tr class="green_light">
 								<th></th>
-								<th  id="caddie_codereduc">
+								<th>
 									<form action="">
 										<label for="">Code de réduction :</label>
-										<div>
+										<div class="caddie-table_reduc">
 			            					<input type="text" placeholder="Saisissez votre code"><!-- 
 			            				 --><input type="submit" value="OK" class="green-button">	
 			            				</div>
@@ -93,15 +92,15 @@
 			        		</tr>			            				            	
 			    		</tfoot>
 					</table>
-					<div class="recette_radio">
+					<div class="caddie_recette">
 						<span >Je souhaite recevoir les recettes par email :</span>	 
 						<form>
 							<input type="radio" name="sex" value="male" checked>OUI
 							<input type="radio" name="sex" value="female">NON
 						</form>					        	
 					</div>
-					<a href="{{path('paniers')}}" id="continue_achat">< Poursuivre mes achats</a>
-					<div class="validate_caddie">
+					<a href="{{path('paniers')}}" class="caddie_continue">< Poursuivre mes achats</a>
+					<div class="caddie_validate">
 						<form action="{{ path('addcommandes')}}" method="post" >
 							<button type="submit" id="submit_caddie" class="orange">VALIDER MA COMMANDE</button>
 						</form>		        	
@@ -110,33 +109,31 @@
 			</div>
 		</div>
 	</section>	
-	<section id="engagement_panier">
-		<div class="container-small">
-			<article id="engagements">
-				<div class="title_section">
-					<h2>NOS ENGAGEMENTS</h2>
-					<p>renouer avec les plaisirs gustatifs des produits de notre région !</p>
-				</div>
-                <img src="{{ asset('img/accueil/local.png') }}" alt="100% local Mon Panier Toqué">
-                <div id="engagement">
-                    <div>
-                        <p>NOS PRODUITS<br>Des ingrédients de qualité <br> et des recettes accessibles, <br>le tout livré chez vous pour<br> vous simplifier la vie.</p>
-                        <a href="#">Lire la suite ></a>
-                        <img src="{{ asset('img/accueil/panier_garni.png') }}" alt="Panier Garni Mon Panier Toqué">
-                    </div>
-                    <div>
-                        <img src="{{ asset('img/accueil/producteur.png') }}" alt="Producteur Mon Panier Toqué">
-                        <p>Des produits de <br> saison issus des <br> PRODUCTEURS locaux.</p>
-                        <a href="#">Lire la suite ></a>
-                    </div>
-                    <div>
-                        <p>Des recettes simples, <br> pour tous les goûts, <br> élaborées par NOS CHEFS.</p>
-                        <a href="#">Lire la suite ></a>
-                        <img src="{{ asset('img/accueil/chef.png') }}" alt="Chef Mon Panier Toqué">
-                    </div>
+    <section class="engagements">
+        <div class="container-small">
+            <div class="section-title">
+                <h2 class="section_title-green">NOS ENGAGEMENTS</h2>
+                <p class="section_description">renouer avec les plaisirs gustatifs des produits de notre région !</p>
+            </div>
+            <img src="{{ asset('img/accueil/local.png') }}" alt="100% local Mon Panier Toqué" class="engagements_100">
+            <div class="engagements_flexbox">
+                <div class="engagements_flexbox_box">
+                    <p>NOS PRODUITS<br>Des ingrédients de qualité <br> et des recettes accessibles, <br>le tout livré chez vous pour<br> vous simplifier la vie.</p>
+                    <a href="#">Lire la suite ></a>
+                    <img src="{{ asset('img/accueil/panier_garni.png') }}" alt="Panier Garni Mon Panier Toqué">
                 </div>
-			</article>
-		</div>
-	</section>
+                <div class="engagements_flexbox_box">
+                    <img src="{{ asset('img/accueil/producteur.png') }}" alt="Producteur Mon Panier Toqué">
+                    <p>Des produits de <br> saison issus des <br> PRODUCTEURS locaux.</p>
+                    <a href="#">Lire la suite ></a>
+                </div>
+                <div class="engagements_flexbox_box">
+                    <p>Des recettes simples, <br> pour tous les goûts, <br> élaborées par NOS CHEFS.</p>
+                    <a href="#">Lire la suite ></a>
+                    <img src="{{ asset('img/accueil/chef.png') }}" alt="Chef Mon Panier Toqué">
+                </div>
+            </div>                
+        </div>
+    </section>
 
 {% endblock %}

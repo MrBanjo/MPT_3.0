@@ -30,6 +30,14 @@
     vertical-align: middle; 
 }
 
+.green_light {
+    background-color: #f7f9f5;
+}
+
+.green_dark {
+    background-color: #dee8d6;
+}
+
 .sprite-span-base {
     display: inline-block;
     vertical-align: middle; 
@@ -108,7 +116,6 @@
             text-decoration: underline;
             color: #4d4135;
         }
-
     }
 
     ul li:after {
@@ -145,21 +152,27 @@
    Title
    ========================================================================== */
 
+@mixin sectionTitle ($color) {
+    font-family: "Mohave semi-Bold", sans-serif;
+    font-size: 36px;
+    color: $color;    
+}
+
 .section-title {
     text-align: center;
     padding: 40px 0;
 }
 
 .section_title-green {
-    font-family: "Mohave semi-Bold", sans-serif;
-    font-size: 36px;
-    color: $font-green;
+    @include sectionTitle($font-green);
 }
 
 .section_title-brown {
-    font-family: 'mohave semi-bold', sans-serif;
-    font-size: 36px;
-    color: $font-brown;
+    @include sectionTitle($font-brown);
+}
+
+.section_title-white {
+    @include sectionTitle(white);
 }
 
 .section_description {
@@ -167,5 +180,3 @@
     font-size: 30px;
     color: $font-brown;    
 }
-
-

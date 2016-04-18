@@ -2,54 +2,53 @@
 
 {% block body %}
 
-	<section id="panier_class" class="section-first">
+	<section class="section-first">
 		<div class="container-small">
-			<div class="title_section">
-			    <h2>NOTRE PANIER {{ menu.categorie.nom }}</h2>
+			<div class="section-title">
+			    <h1 class="section_title-green">NOTRE PANIER {{ menu.categorie.nom }}</h1>
 			</div>
-
-		    <div id="box_menu">	    		   
-			    <article class="panier_type">
-			    	<p>Notre panier {{ menu.categorie.nom|lower }} contient tous les ingrédients pour préparer vos repas. <strong>4 repas originaux</strong>, simples et équilibrés.</p>
-			    	<img src="{{ asset('img/accueil/local.png')}}" alt="100% local Mon Panier Toqué" id="panier_type_local">
-			    	<img src="{{ asset( menu.photo )}}" alt="Menu classique Mon Panier Toqué" id="panier_type_photo">
-			    	<div class="panier_what">
+		    <div class="panier_box">	    		   
+			    <article class="panier_article panier-type">
+			    	<p class="panier-type_description">Notre panier {{ menu.categorie.nom|lower }} contient tous les ingrédients pour préparer vos repas. <strong>4 repas originaux</strong>, simples et équilibrés.</p>
+			    	<img src="{{ asset('img/accueil/local.png')}}" alt="100% local Mon Panier Toqué" class="panier-type_100">
+			    	<img src="{{ asset( menu.photo )}}" alt="Menu classique Mon Panier Toqué" class="panier-type_photo">
+			    	<div class="panier-type_infobox">
 			    		<span class="content-produits sprite-span"></span>	
-			    		<div class="panier_what_trait"></div>
+			    		<div class="panier-type_trait"></div>
 			    		<span class="content-recettes sprite-span"></span>	
-			    		<div class="panier_what_trait"></div>
+			    		<div class="panier-type_trait"></div>
 			    		<span class="content-livreur sprite-span"></span>	
 			    	</div>
 			    </article>
-			    <article class="panier_order">
-			    	<div class="prix_paniers">
+			    <article class="panier_article panier-order">
+			    	<div class="panier-order_box">
 			    		<p><strong id="update_prix" data-prix="{{ menu.prix }}">{{ menu.prix }}</strong><strong> €</strong> (panier pour <strong id="update_pers">2</strong> pers.)</p>
-			    		<form action="{{ path('addtocart', { 'slug' : 'Menu' }) }}" method="post" class="submit_product">
+			    		<form action="{{ path('addtocart', { 'slug' : 'Menu' }) }}" method="post" class="panier-form">
 			    			<small>Choisissez le nombre de panier</small>
-			    			<div id="quantite_panier">
-								<button type="button" class="green-button quantite_button" onClick="substract('quantite');" formnovalidate="formnovalidate">-</button><!--  
-							 --><input type="number" value="1" id="quantite" min="1" max="9" name="quantite" size="2" maxlength="4" onkeypress="return isNumberKey(event);" required><!-- 
-							 --><button type="button" class="green-button quantite_button" onClick="add('quantite');" >+</button> 			    				
+			    			<div class="panier-order_quantity">
+								<button type="button" class="green-button quantite_button" onClick="substract('quantite');" formnovalidate="formnovalidate">-</button>
+                                <input type="number" value="1" id="quantite" min="1" max="9" name="quantite" size="2" maxlength="4" onkeypress="return isNumberKey(event);" required>
+                                <button type="button" class="green-button quantite_button" onClick="add('quantite');" >+</button> 			    				
 			    			</div>
-			    			<div class="styled-select">
+			    			<div class="panier-order_select">
                                 <span class="sprite-span content-small-arrow-desc"></span>
-								<SELECT name="fonction" id="nbre_pers">
-									<option value="2" disabled selected style='display:none;'>Choisissez le nombre de personne</option>
-									<OPTION VALUE="2">2</OPTION>
-									<OPTION VALUE="4">4</OPTION>
-								</SELECT>
+								<select name="fonction" id="nbre_pers">
+									<option value="2" disabled selected style='display:none;'>Nombre de personne</option>
+									<option value="2">2</option>
+									<option value="4">4</option>
+								</select>
 							</div>
-							<div class="styled-select">
+							<div class="panier-order_select">
                                 <span class="sprite-span content-small-arrow-desc"></span>
-								<SELECT name="fonction">
-									<option value="" disabled selected style='display:none;'>Choisissez votre fréquence de livraison</option>
-									<OPTION VALUE="2">1 semaine sur 2</OPTION>
-									<OPTION VALUE="3">1 semaine sur 3</OPTION>
-									<OPTION VALUE="4">1 semaine sur 4</OPTION>
-								</SELECT>
+								<select name="fonction">
+									<option value="" disabled selected style='display:none;'>Fréquence de livraison</option>
+									<option value="2">1 semaine sur 2</option>
+									<option value="3">1 semaine sur 3</option>
+									<option value="4">1 semaine sur 4</option>
+								</select>
 							</div>
 							<input type="hidden" name="id_product" value="{{ menu.id }}">
-			    			<input type="date" onfocus="(this.type='date')" placeholder="Choisissez la date de votre livraison"><span class="content-small-arrow-desc  sprite-span  order-input-date"></span>
+			    			<input type="date" onfocus="(this.type='date')" id="datePicker"><span class="content-small-arrow-desc sprite-span panier-order_date"></span>
 			    			<input type="submit" value="AJOUTER A VOTRE COMMANDE" class="orange">
 			    		</form>
 			    		<small>A commander jusqu'au 5 juin</small>
@@ -58,96 +57,89 @@
 		    </div>
 	    </div>
 	</section>
-	<section id="panier_detail">
+    <section>
+        <div class="container-small">
+            <div class="section-title">
+                <h2 class="section_title-green">MENU DE NOTRE PANIER</h2>
+            </div>
+            <nav class="menu-slider">   
+                <ul class="bxslider ">
+                    {% for plat in plats %}
+                        <li>
+                            <img src="{{ asset(plat.photo)}}" alt="" class="menu-slider_photo">
+                            <div class="menu-slider_content">           
+                                <h3 class="">Menu {{ menu.categorie.nom|lower }} semaine du {{ menu.date | date('d')}}</h3>
+                                <h4 class="menu-slider_title">Plat {{ loop.index }} : {{ plat.titre }}</h4>
+                                <div class="menu-slider_infos">
+                                    <div class="menu-slider_info">
+                                        <span class="content-horloge sprite-span"></span>
+                                        <span>Temps de préparation</br>{{ plat.temps }}</span>
+                                    </div>
+                                    <div class="menu-slider_info">
+                                        <div class="menu-slider_trait"></div>
+                                        <span class="content-difficulte sprite-span"></span>
+                                        <span>Difficulté</br>{{ plat.difficulte }}</span>
+                                    </div>
+                                    <div class="menu-slider_info">
+                                        <div class="menu-slider_trait"></div>
+                                        <span class="content-consistance sprite-span"></span>
+                                        <span>{{ plat.consistance }}</span>
+                                    </div>
+                                    <div class="menu-slider_trait"></div>
+                                    <span class="content-aliment-classique sprite-span"></span>
+                                </div>
+                                <p class="menu-slider_accroche">{{ plat.accroche }}</p> 
+                                <p class="menu-slider_description">{{ plat.description }}</p>
+                                <p class="menu-slider_description"> {{ plat.plus }}</p>
+                                <p class="menu-slider_salt"><span class="content-sel sprite-span"></span>Prévoir du sel, du poivre et de l’huile dans votre placard</p>
+                                <a href="{{ path('panier', {'slug' : 'classique'}) }}" class="menu-slider_discovery orange">découvrir notre panier classique</a>        
+                            </div>                  
+                        </li>
+                    {% endfor %}                
+                </ul>                  
+            </nav>
+        </div>
+    </section>
+	<section class="panier-upsell">
 		<div class="container-small">
-			<div class="title_section">
-			    <h2>MENU DE NOTRE PANIER</h2>
+			<div class="section-title">
+			    <h2 class="section_title-green">POUR COMPLéTER VOTRE PANIER</h2>
+			    <p class="section_description">vous aimerez également</p>
 			</div>
-			<nav class="slider_menu">	
-				<ul class="bxslider ">
-
-					{% for plat in plats %}
-
-				    	<li>
-							<img src="{{ asset(plat.photo)}}" alt="Plat Mon Panier Toqué" class="photo_plat">
-							<div class="plat_detail">			
-								<h3>Menu {{ menu.categorie.nom|lower }} semaine du {{ menu.date | date('d')}}</h3>
-								<h4>plat {{ loop.index }} : {{ plat.titre }}</h4>
-						    	<div class="plat_what">
-						    		<div>
-							    		<span class="content-horloge sprite-span"></span>
-							    		<span>Temps de préparation</br>{{ plat.temps }}</span>
-						    		</div>
-						    		<div>
-							    		<div class="plat_what_trait"></div>
-							    		<span class="content-difficulte sprite-span"></span>
-							    		<span>Difficulté</br>{{ plat.difficulte }}</span>
-							    	</div>
-							    	<div>
-							    		<div class="plat_what_trait"></div>
-							    		<span class="content-consistance sprite-span"></span>
-							    		<span>{{ plat.consistance }}</span>
-							    	</div>
-						    		<div class="plat_what_trait"></div>
-						    		<span class="content-aliment-classique sprite-span"></span>
-					    		</div>
-						    	<p class="plat_accroche">{{ plat.accroche }}</p>	
-						    	<p class="plat_description">{{ plat.description }}</p>
-						    	<p class="plat_description"> {{ plat.plus }}</p>
-						    	<p class="sel_poivre"><span class="content-sel sprite-span"></span>Prévoir du sel, du poivre et de l’huile dans votre placard</p>		
-							</div>			    	
-				    	</li>
-
-				    {% endfor %}
-
-				</ul>	    		   
-			</nav>
-		</div>
-	</section>	
-	<section id="upsell">
-		<div class="container-small">
-			<div class="title_section">
-			    <h2>POUR COMPLéTER VOTRE PANIER</h2>
-			    <p>vous aimerez également</p>
-			</div>
-
 			{% for categorie,upsell in liste_upsell %}<!-- 
-			
-			 --><article> 
-					<img src="{{ asset( upsell.photo )}}" alt="Upsell Mon Panier Toqué" class="img_upsell">
-					<p class="upsell_titre">{{ upsell.titre }}</p>
-					<p class="provenance">{{ upsell.origine }} <small>({{ upsell.departement }})</small></p>
-					<span class="prix_upsell">{{ upsell.prix | localizednumber }} € <small>ttc ({{ upsell.contenance }})</small></span>
-					<form action="{{ path('addtocart', { 'slug' : 'Upsell' }) }}" method="post" class="submit_product">
+			 --><article class="panier-upsell_article"> 
+					<img src="{{ asset( upsell.photo )}}" alt="Upsell Mon Panier Toqué" class="panier-upsell_photo">
+					<p class="panier-upsell_titre">{{ upsell.titre }}</p>
+					<p class="panier-upsell_provenance">{{ upsell.origine }} <small>({{ upsell.departement }})</small></p>
+					<span class="panier-upsell_prix">{{ upsell.prix | localizednumber }} € <small>ttc ({{ upsell.contenance }})</small></span>
+					<form action="{{ path('addtocart', { 'slug' : 'Upsell' }) }}" method="post" class="panier-form panier-upsell_form">
 						<input type="hidden" value="1" name="quantite" >
 						<input type="hidden" name="id_product" value="{{ upsell.id }}">
-						<input type="submit" name="submit" class="upsell_add orange" value="AJOUTER A MA COMMANDE">
+						<input type="submit" name="submit" class="panier-upsell_submit orange" value="AJOUTER A MA COMMANDE">
 					</form>
-					<p><a class="next_menu">voir notre sélection de {{ categorie | lower }}s</a><span class="content-arrow-next sprite-span"></span>
+					<p><a class="menu-nextweek_link">voir notre sélection de {{ categorie | lower }}s</a><span class="content-arrow-next sprite-span"></span>
 				</article><!--
-
 		-->{% endfor %}
-
 		</div>
 	</section>
-	<section id="plat_comment">
-		<div class="title_section">
-			<h2>nos clients témoignent</h2>
+	<section class="plat_comment">
+		<div class="section-title">
+			<h2 class="section_title-white">nos clients témoignent</h2>
 		</div>		
 		<img src="{{ asset('img/menus/comment1.jpg')}}" alt="Commentaires Mon Panier Toqué">
 		<img src="{{ asset('img/menus/comment2.jpg')}}" alt="Commentaires Mon Panier Toqué">
 		<img src="{{ asset('img/menus/comment3.jpg')}}" alt="Commentaires Mon Panier Toqué">
 	</section>
-	<a href="#popup-cart" class="open-popup-link" id="popup-link">Show inline popup</a>
-	<div id="popup-cart" class="addtocart-popup mfp-hide ">
+	<a href="#popup-cart" class="panier-popup_link">Show inline popup</a>
+	<div id="popup-cart" class="panier-popup mfp-hide">
 		<p>Vous venez d'ajouter à votre panier:</p>
-		<div id="popup-box">
-			<img id="popup-photo" data-src="{{ asset('') }}" alt="popup caddie">
-			<span id="popup-quantite"></span>
+		<div class="panier-popup_box">
+			<img class="panier-popup_photo" data-src="{{ asset('') }}" alt="popup caddie">
+			<span class="panier-popup_quantite"></span>
 			<span>-</span>
-			<span id="popup-titre"></span>
-			<a href="{{ path('cart')}}" id="popup-end">Terminer ma commande ></a>
-			<button id="popup-continue">Poursuivre mes achats ></button>		
+			<span class="panier-popup_titre"></span>
+			<a href="{{ path('cart')}}" class="panier-popup_end">Terminer ma commande ></a>
+			<button class="panier-popup_continue">Poursuivre mes achats ></button>		
 		</div>
 	</div>
 

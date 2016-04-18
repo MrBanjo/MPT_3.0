@@ -7,18 +7,17 @@
 {% block body %}
     <div class="section-first">     
         <div class="container-small errorpage">
-            <div class="title_section">
-                <h2>Commande acceptée</h2>
+            <div class="section-title">
+                <h2 class="section_title-green">Commande acceptée</h2>
 
                 {# example security usage, see below #}
                 {% if is_granted('IS_AUTHENTICATED_FULLY') %}
                     {# ... #}
                 {% endif %}
 
-                <p>Votre commande d'un montant de <strong>{{ prix }}</strong> € vient d'être accepter et sera traiter très prochainement par notre service. Merci de votre confiance.
+                <p class="section_description">Votre commande d'un montant de <strong>{{ prix }}</strong> € vient d'être accepter et sera traiter très prochainement par notre service. Merci de votre confiance.
                 </p><br />
-                <p>Vous allez être rediriger vers la page d'accueil.</p>
-
+                <p class="section_description">Vous allez être rediriger vers la page d'accueil.</p>
             </div>
         </div>
     </div>

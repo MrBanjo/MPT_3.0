@@ -81,7 +81,7 @@ $(document).ready(function(){
 			$(this).parent().submit();
 		});
 
-		$('.garbage').on('click', function() {
+		$('.caddie-table_garbage').on('click', function() {
 			$(this).prev().submit();
 		});
 
@@ -107,7 +107,7 @@ $(document).ready(function(){
 
 		function updatePrixTotal() {
 			var prix_total = 0;
-			$(".test").each(function(){
+			$(".js-prixtotal").each(function(){
 				prix_total += parseFloat($(this).text());
 			});
 			$(".cart_prixtotal").html(prix_total + " €");
@@ -115,24 +115,30 @@ $(document).ready(function(){
 		}
 
 		var prix = 0;
-		for (var i=0; i < $('.test').length; i++) {
-			prix += parseFloat($('.test')[i].innerHTML);
+		for (var i=0; i < $('.js-prixtotal').length; i++) {
+			prix += parseFloat($('.js-prixtotal')[i].innerHTML);
 		}
 
 	})();
 
 	// Panier page
 	(function() {
-		$('.open-popup-link').magnificPopup({
+		$('.panier-popup_link').magnificPopup({
 			type:'inline',
 			closeBtnInside: true,
 			midClick: true // Allow opening popup on middle mouse click. Always set it to true if you don't provide alternative source in href.
 		});
 
-		$('#popup-continue').on('click', function() {
+		$('.panier-popup_continue').on('click', function() {
 			$.magnificPopup.close();
 		});
 
+        Date.prototype.toDateInputValue = (function() {
+            var local = new Date(this);
+            local.setMinutes(this.getMinutes() - this.getTimezoneOffset());
+            return local.toJSON().slice(0,10);
+        });
+        $('#datePicker').val(new Date().toDateInputValue());
 
 		// Mis à jour du prix du panier
 		$('.quantite_button').on("click", function() {
@@ -155,17 +161,17 @@ $(document).ready(function(){
 		});
 
 		// Requete AJAX pour ajouter le produit au caddie
-		$(".submit_product").submit(function(e){
+		$(".panier-form").submit(function(e){
 			e.preventDefault();
 			$.ajax({
 				type: 'post',
 				url: $(this).attr('action'),
 				data: $(this).serialize(),
 				success: function (data) {
-					$('#popup-photo').attr('src', $('#popup-photo').data('src') + data.photo);
-					$('#popup-quantite').html(data.quantite);
-					$('#popup-titre').html(data.titre);
-					$('a.open-popup-link').trigger('click');
+					$('.panier-popup_photo').attr('src', $('.panier-popup_photo').data('src') + data.photo);
+					$('.panier-popup_quantite').html(data.quantite);
+					$('.panier-popup_titre').html(data.titre);
+					$('.panier-popup_link').trigger('click');
 					$('#count_caddie').html(data.countcaddie);
 				},
 /*				error: function (jqXHR, textStatus, errorThrown) {

@@ -15,7 +15,7 @@
         color: #4a2f14;
         font-weight: normal;
     }
-    
+
     h4 {
         font-size: 36px;
         color: #4a2f14;
@@ -24,7 +24,6 @@
 
     &_content {
         display: inline-block;
-
         margin-bottom: 0;
     }
 
@@ -46,11 +45,11 @@
 
         .sprite-span {
             margin: 8px 5px;
-        }       
+        }
     }
 
     &_info {
-        display: inline-block;        
+        display: inline-block;
     }
 
     &_trait {
@@ -59,7 +58,7 @@
         width: 1px;
         height: 36px;
         vertical-align: middle;
-        margin: 8px 10px 0 10px;        
+        margin: 8px 10px 0 10px;
     }
 
     &_accroche {
@@ -82,7 +81,7 @@
         font-style: italic;
         width: 230px;
         line-height: 0;
-        
+
         span {
             margin-right: 10px;
         }
@@ -90,11 +89,12 @@
 
     &_discovery {
         @include buttonLink(35px, 275px, "15px");
+
         float: right;
         font-weight: bold;
         text-transform: uppercase;
         margin-top: 30px;
-    }    
+    }
 
     .bx-wrapper {
         position: relative;
@@ -104,7 +104,9 @@
 
     .bx-next {
         right: 0;
+
         @extend .content-big-arrow-next;
+
         @extend .content-sprite;
     }
 
@@ -121,8 +123,7 @@
     .bx-prev,
     .bx-controls-auto-item {
         display: none;
-    }    
-
+    }
 }
 
 @media only screen and (max-width: 1170px) {
@@ -131,44 +132,48 @@
             right: initial;
             top: 47%;
             margin-left: 200px;
-        }        
+        }
     }
 }
 
-
 @media only screen and (max-width: 700px) {
     .menu-slider {
-
         &_infos {
             width: 100%;
-            margin: 30px 0;            
+            margin: 30px 0;
         }
+
         .bx-controls-direction a {
             top: 88%;
             maring: 0;
             right: 0;
         }
+
         &_salt {
             display: block;
             font-size: 14px;
             margin-top: 30px;
             width: auto;
         }
+
         &_discovery {
             float: none;
-        }   
+        }
     }
 }
 
 @media only screen and (max-width: 570px) {
     .menu-slider {
         padding-bottom: 20px;
+
         &_infos {
             height: 100px;
         }
+
         &_accroche {
             width: 100%;
         }
+
         &_description {
             width: 100%;
         }
@@ -187,7 +192,7 @@
         display: inline-block;
         text-align: center;
         margin: 0 30px;
-        vertical-align: top;        
+        vertical-align: top;
     }
 
     h3 {
@@ -199,7 +204,11 @@
         font-size: 26px;
         color: #493f34;
         margin: 20px 0;
-        margin: 0 auto;        
+        margin: 0 auto;
+    }
+
+    &_photo {
+        width: 480px;
     }
 
     &_link {
@@ -212,7 +221,7 @@
 
         span {
             margin-left: 10px;
-        }        
+        }
     }
 }
 

@@ -2,24 +2,24 @@
 
 {% block body %}
 
-<section id="caddie" class="section-first">
+<section class="caddie section-first">
   <div class="container-small">
-    <nav class="nav_caddie">
-      <label for="show-caddie_menu" class="show-caddie_menu">Etapes de votre commande:</label>
-      <input type="checkbox" id="show-caddie_menu" role="button">
-      <ul id="menu_caddie">
-        <li><a href="{{ path('cart')}}" class="opac"><strong>1</strong> ma commande</a></li>
-        <li><a href="{{ path('cart_identification')}}"><strong>2</strong> identification</a></li>
-        <li><a href="" class="opac"><strong>3</strong> livraison</a></li>
-        <li><a href="" class="opac"><strong>4</strong> paiment</a></li>
-        <li><a href="{{ path('cart_summary')}}" class="opac"><strong>5</strong> récapitulatif</a></li>
-      </ul>
+    <nav class="caddie-nav">
+        <label for="caddie-nav-show" class="caddie-nav-show">Etapes de votre commande:</label>
+        <input type="checkbox" id="caddie-nav-show" role="button">
+        <ul class="caddie-nav_menu">
+            <li><a href="{{ path('cart')}}"><strong>1</strong> ma commande</a></li>
+            <li><a href="{{ path('cart_identification')}}" class="opacity-none"><strong>2</strong> identification</a></li>
+            <li><a href=""><strong>3</strong> livraison</a></li>
+            <li><a href=""><strong>4</strong> paiment</a></li>
+            <li><a href="{{ (app.user) ? path('cart_summary') : path('cart_identification')}}" ><strong>5</strong> récapitulatif</a></li>
+        </ul>
     </nav>
-    <div id="box_caddie">
-      <p class="conseil_tel">Besoin d’un conseil avant de finaliser votre commande ? appelez-nous : <strong>01 63 12 16 02</strong></p>
-      <nav class="breadcrumb">
-        {{ knp_menu_render('breadcrumb',{'depth': 5,'currentAsLink':false}) }}
-      </nav>
+    <div class="caddie_box">
+        <p class="caddie_tel">Besoin d’un conseil avant de finaliser votre commande ? appelez-nous : <strong>01 63 12 16 02</strong></p>
+        <nav class="breadcrumb">
+            {{ knp_menu_render('breadcrumb',{'depth': 2,'currentAsLink':false}) }}
+        </nav>
     </div>
     <P class="login_title">CONNEXION</p>
     {{ include ("form/loginForm.html.twig") }}

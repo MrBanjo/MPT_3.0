@@ -49,7 +49,7 @@
 									<th>{{ commande.date|localizeddate('medium', 'none', 'fr') }}</th>
 									<th>{{ commandes|length }}</th>
 									<th>En cours</th>
-									<th><span class='test'>{{ commande.prix }}</span> €</th>			            		
+									<th><span class='js-prixtotal'>{{ commande.prix }}</span> €</th>			            		
 								</tr>
 
 							{% endfor %}
