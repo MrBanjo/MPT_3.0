@@ -173,12 +173,14 @@ dfn {
 h1, h2, h3, h4, h5, h6, p {
   margin: 0;
   padding: 0;
+  font-weight: normal;
+  font-size: 1em;
 }
 
 /**
  * Add the correct background and color in IE 9-.
  */
-/* line 177, ../scss/vendor/_normalize.scss */
+/* line 179, ../scss/vendor/_normalize.scss */
 mark {
   background-color: #ff0;
   color: #000;
@@ -187,7 +189,7 @@ mark {
 /**
  * Add the correct font size in all browsers.
  */
-/* line 187, ../scss/vendor/_normalize.scss */
+/* line 189, ../scss/vendor/_normalize.scss */
 small {
   font-size: 80%;
 }
@@ -196,7 +198,7 @@ small {
  * Prevent `sub` and `sup` elements from affecting the line height in
  * all browsers.
  */
-/* line 196, ../scss/vendor/_normalize.scss */
+/* line 198, ../scss/vendor/_normalize.scss */
 sub,
 sup {
   font-size: 75%;
@@ -205,12 +207,12 @@ sup {
   vertical-align: baseline;
 }
 
-/* line 204, ../scss/vendor/_normalize.scss */
+/* line 206, ../scss/vendor/_normalize.scss */
 sub {
   bottom: -0.25em;
 }
 
-/* line 208, ../scss/vendor/_normalize.scss */
+/* line 210, ../scss/vendor/_normalize.scss */
 sup {
   top: -0.5em;
 }
@@ -220,7 +222,7 @@ sup {
 /**
  * Remove the border on images inside links in IE 10-.
  */
-/* line 219, ../scss/vendor/_normalize.scss */
+/* line 221, ../scss/vendor/_normalize.scss */
 img {
   border-style: none;
   max-width: 100%;
@@ -230,7 +232,7 @@ img {
 /**
  * Hide the overflow in IE.
  */
-/* line 229, ../scss/vendor/_normalize.scss */
+/* line 231, ../scss/vendor/_normalize.scss */
 svg:not(:root) {
   overflow: hidden;
 }
@@ -241,7 +243,7 @@ svg:not(:root) {
  * 1. Correct the inheritance and scaling of font size in all browsers.
  * 2. Correct the odd `em` font sizing in all browsers.
  */
-/* line 241, ../scss/vendor/_normalize.scss */
+/* line 243, ../scss/vendor/_normalize.scss */
 code,
 kbd,
 pre,
@@ -255,7 +257,7 @@ samp {
 /**
  * Add the correct margin in IE 8.
  */
-/* line 253, ../scss/vendor/_normalize.scss */
+/* line 255, ../scss/vendor/_normalize.scss */
 figure {
   margin: 1em 40px;
 }
@@ -264,7 +266,7 @@ figure {
  * 1. Add the correct box sizing in Firefox.
  * 2. Show the overflow in Edge and IE.
  */
-/* line 262, ../scss/vendor/_normalize.scss */
+/* line 264, ../scss/vendor/_normalize.scss */
 hr {
   box-sizing: content-box;
   /* 1 */
@@ -274,7 +276,7 @@ hr {
   /* 2 */
 }
 
-/* line 268, ../scss/vendor/_normalize.scss */
+/* line 270, ../scss/vendor/_normalize.scss */
 fieldset, ul, li {
   border: 0;
   margin: 0;
@@ -286,7 +288,7 @@ fieldset, ul, li {
 /**
  * Change font properties to `inherit` in all browsers (opinionated).
  */
-/* line 281, ../scss/vendor/_normalize.scss */
+/* line 283, ../scss/vendor/_normalize.scss */
 button,
 input,
 select,
@@ -297,7 +299,7 @@ textarea {
 /**
  * Restore the font weight unset by the previous rule.
  */
-/* line 292, ../scss/vendor/_normalize.scss */
+/* line 294, ../scss/vendor/_normalize.scss */
 optgroup {
   font-weight: bold;
 }
@@ -307,7 +309,7 @@ optgroup {
  * 1. Show the overflow in Edge.
  * 2. Show the overflow in Edge, Firefox, and IE.
  */
-/* line 302, ../scss/vendor/_normalize.scss */
+/* line 304, ../scss/vendor/_normalize.scss */
 button,
 input,
 select {
@@ -319,7 +321,7 @@ select {
  * Remove the margin in Safari.
  * 1. Remove the margin in Firefox and Safari.
  */
-/* line 313, ../scss/vendor/_normalize.scss */
+/* line 315, ../scss/vendor/_normalize.scss */
 button,
 input,
 select,
@@ -335,7 +337,7 @@ textarea {
  * Remove the inheritence of text transform in Edge, Firefox, and IE.
  * 1. Remove the inheritence of text transform in Firefox.
  */
-/* line 328, ../scss/vendor/_normalize.scss */
+/* line 330, ../scss/vendor/_normalize.scss */
 button,
 select {
   /* 1 */
@@ -345,7 +347,7 @@ select {
 /**
  * Change the cursor in all browsers (opinionated).
  */
-/* line 337, ../scss/vendor/_normalize.scss */
+/* line 339, ../scss/vendor/_normalize.scss */
 button,
 [type="button"],
 [type="reset"],
@@ -356,7 +358,7 @@ button,
 /**
  * Restore the default cursor to disabled elements unset by the previous rule.
  */
-/* line 348, ../scss/vendor/_normalize.scss */
+/* line 350, ../scss/vendor/_normalize.scss */
 [disabled] {
   cursor: default;
 }
@@ -366,7 +368,7 @@ button,
  *    controls in Android 4.
  * 2. Correct the inability to style clickable types in iOS.
  */
-/* line 358, ../scss/vendor/_normalize.scss */
+/* line 360, ../scss/vendor/_normalize.scss */
 button,
 html [type="button"],
 [type="reset"],
@@ -378,7 +380,7 @@ html [type="button"],
 /**
  * Remove the inner border and padding in Firefox.
  */
-/* line 369, ../scss/vendor/_normalize.scss */
+/* line 371, ../scss/vendor/_normalize.scss */
 button::-moz-focus-inner,
 input::-moz-focus-inner {
   border: 0;
@@ -388,7 +390,7 @@ input::-moz-focus-inner {
 /**
  * Restore the focus styles unset by the previous rule.
  */
-/* line 379, ../scss/vendor/_normalize.scss */
+/* line 381, ../scss/vendor/_normalize.scss */
 button:-moz-focusring,
 input:-moz-focusring {
   outline: 1px dotted ButtonText;
@@ -397,7 +399,7 @@ input:-moz-focusring {
 /**
  * Change the border, margin, and padding in all browsers (opinionated).
  */
-/* line 388, ../scss/vendor/_normalize.scss */
+/* line 390, ../scss/vendor/_normalize.scss */
 fieldset {
   border: 1px solid #c0c0c0;
   margin: 0 2px;
@@ -410,7 +412,7 @@ fieldset {
  * 3. Remove the padding so developers are not caught out when they zero out
  *    `fieldset` elements in all browsers.
  */
-/* line 401, ../scss/vendor/_normalize.scss */
+/* line 403, ../scss/vendor/_normalize.scss */
 legend {
   box-sizing: border-box;
   /* 1 */
@@ -429,7 +431,7 @@ legend {
 /**
  * Remove the default vertical scrollbar in IE.
  */
-/* line 414, ../scss/vendor/_normalize.scss */
+/* line 416, ../scss/vendor/_normalize.scss */
 textarea {
   overflow: auto;
 }
@@ -438,7 +440,7 @@ textarea {
  * 1. Add the correct box sizing in IE 10-.
  * 2. Remove the padding in IE 10-.
  */
-/* line 423, ../scss/vendor/_normalize.scss */
+/* line 425, ../scss/vendor/_normalize.scss */
 [type="checkbox"],
 [type="radio"] {
   box-sizing: border-box;
@@ -450,7 +452,7 @@ textarea {
 /**
  * Correct the cursor style of increment and decrement buttons in Chrome.
  */
-/* line 433, ../scss/vendor/_normalize.scss */
+/* line 435, ../scss/vendor/_normalize.scss */
 [type="number"]::-webkit-inner-spin-button,
 [type="number"]::-webkit-outer-spin-button {
   height: auto;
@@ -459,7 +461,7 @@ textarea {
 /**
  * Correct the odd appearance of search inputs in Chrome and Safari.
  */
-/* line 442, ../scss/vendor/_normalize.scss */
+/* line 444, ../scss/vendor/_normalize.scss */
 [type="search"] {
   -webkit-appearance: textfield;
 }
@@ -468,7 +470,7 @@ textarea {
  * Remove the inner padding and cancel buttons in Chrome on OS X and
  * Safari on OS X.
  */
-/* line 451, ../scss/vendor/_normalize.scss */
+/* line 453, ../scss/vendor/_normalize.scss */
 [type="search"]::-webkit-search-cancel-button,
 [type="search"]::-webkit-search-decoration {
   -webkit-appearance: none;
@@ -1463,13 +1465,14 @@ header {
   box-sizing: border-box;
 }
 /* line 28, ../scss/site/partials/_footer.scss */
-.footer_section_p {
-  margin: 20px 30px 30px 0;
+.footer_section_title {
+  margin: 20px 0px 30px 0;
   vertical-align: middle;
   color: #fcf8f2;
   font-size: 24px;
+  font-weight: normal;
 }
-/* line 36, ../scss/site/partials/_footer.scss */
+/* line 37, ../scss/site/partials/_footer.scss */
 .footer_input-email {
   width: 200px;
   height: 55px;
@@ -1481,7 +1484,7 @@ header {
   font-style: italic;
   margin-top: 10px;
 }
-/* line 47, ../scss/site/partials/_footer.scss */
+/* line 48, ../scss/site/partials/_footer.scss */
 .footer_input-submit {
   width: 94px;
   height: 55px;
@@ -1492,18 +1495,18 @@ header {
   font-family: "aileron";
   font-style: italic;
 }
-/* line 57, ../scss/site/partials/_footer.scss */
+/* line 58, ../scss/site/partials/_footer.scss */
 .footer_social-link {
   display: inline-block;
   margin: 0 10px;
   vertical-align: middle;
 }
-/* line 63, ../scss/site/partials/_footer.scss */
+/* line 64, ../scss/site/partials/_footer.scss */
 .footer-copyright {
   display: block;
   font-size: 14px;
 }
-/* line 67, ../scss/site/partials/_footer.scss */
+/* line 68, ../scss/site/partials/_footer.scss */
 .footer-copyright_li {
   display: inline-block;
   padding: 0 14px;
@@ -1511,24 +1514,24 @@ header {
   color: #fcf8f2;
   font-size: 14px;
 }
-/* line 75, ../scss/site/partials/_footer.scss */
+/* line 76, ../scss/site/partials/_footer.scss */
 .footer-copyright_li:first-child {
   font-weight: bold;
 }
-/* line 79, ../scss/site/partials/_footer.scss */
+/* line 80, ../scss/site/partials/_footer.scss */
 .footer-copyright_li:last-child {
   border: none;
 }
 
 @media only screen and (max-width: 480px) {
-  /* line 86, ../scss/site/partials/_footer.scss */
+  /* line 87, ../scss/site/partials/_footer.scss */
   .footer_section {
     margin: 0 0 20px 0;
     width: 100%;
     border: 0;
     position: relative;
   }
-  /* line 92, ../scss/site/partials/_footer.scss */
+  /* line 93, ../scss/site/partials/_footer.scss */
   .footer_section:nth-child(2):after {
     content: "";
     background: white;
@@ -1538,7 +1541,7 @@ header {
     bottom: 0;
     left: 15%;
   }
-  /* line 102, ../scss/site/partials/_footer.scss */
+  /* line 103, ../scss/site/partials/_footer.scss */
   .footer_section:nth-child(2):before {
     content: "";
     background: white;
@@ -2081,39 +2084,40 @@ header {
   background-color: white;
   width: 700px;
   padding: 10px 20px 10px 20px;
-  font-size: 26px;
   position: relative;
   box-sizing: border-box;
   text-align: left;
 }
-/* line 30, ../scss/site/partials/_panier.scss */
+/* line 29, ../scss/site/partials/_panier.scss */
 .panier-type_description {
   position: absolute;
+  font-weight: normal;
+  font-size: 26px;
   width: 300px;
   top: 45px;
   right: 20px;
 }
-/* line 36, ../scss/site/partials/_panier.scss */
+/* line 37, ../scss/site/partials/_panier.scss */
 .panier-type_description strong {
   color: #f28a31;
 }
-/* line 41, ../scss/site/partials/_panier.scss */
+/* line 42, ../scss/site/partials/_panier.scss */
 .panier-type_100 {
   position: absolute;
   right: 50px;
   bottom: 90px;
 }
-/* line 47, ../scss/site/partials/_panier.scss */
+/* line 48, ../scss/site/partials/_panier.scss */
 .panier-type_infobox {
   border-top: 1px solid #5f3817;
   border-bottom: 1px solid #5f3817;
   width: 600px;
 }
-/* line 53, ../scss/site/partials/_panier.scss */
+/* line 54, ../scss/site/partials/_panier.scss */
 .panier-type .sprite-span {
   margin: 0 20px;
 }
-/* line 57, ../scss/site/partials/_panier.scss */
+/* line 58, ../scss/site/partials/_panier.scss */
 .panier-type_trait {
   display: inline-block;
   background-color: #5f3817;
@@ -2124,7 +2128,7 @@ header {
   margin-top: 8px;
 }
 
-/* line 68, ../scss/site/partials/_panier.scss */
+/* line 69, ../scss/site/partials/_panier.scss */
 .panier-order {
   background-color: white;
   width: 440px;
@@ -2132,13 +2136,13 @@ header {
   margin-left: 20px;
   text-align: center;
 }
-/* line 75, ../scss/site/partials/_panier.scss */
+/* line 76, ../scss/site/partials/_panier.scss */
 .panier-order_box {
   margin: 20px;
   font-size: 24px;
   position: relative;
 }
-/* line 81, ../scss/site/partials/_panier.scss */
+/* line 82, ../scss/site/partials/_panier.scss */
 .panier-order input {
   height: 40px;
   border: 1px solid #5f3817;
@@ -2146,11 +2150,11 @@ header {
   font-size: 15px;
   text-align: center;
 }
-/* line 89, ../scss/site/partials/_panier.scss */
+/* line 90, ../scss/site/partials/_panier.scss */
 .panier-order input[type="number"] {
   -moz-appearance: textfield;
 }
-/* line 93, ../scss/site/partials/_panier.scss */
+/* line 94, ../scss/site/partials/_panier.scss */
 .panier-order input::-webkit-outer-spin-button,
 .panier-order input::-webkit-inner-spin-button {
   /* display: none; <- Crashes Chrome on hover */
@@ -2159,16 +2163,16 @@ header {
   margin: 0;
   /* <-- Apparently some margin are still there even though it's hidden */
 }
-/* line 101, ../scss/site/partials/_panier.scss */
+/* line 102, ../scss/site/partials/_panier.scss */
 .panier-order input[type="date"]::-webkit-inner-spin-button {
   display: none;
 }
-/* line 105, ../scss/site/partials/_panier.scss */
+/* line 106, ../scss/site/partials/_panier.scss */
 .panier-order input[type="date"]::-webkit-calendar-picker-indicator {
   width: 40px;
   margin-left: -10px;
 }
-/* line 111, ../scss/site/partials/_panier.scss */
+/* line 112, ../scss/site/partials/_panier.scss */
 .panier-order input[type='submit'] {
   width: 90%;
   color: white;
@@ -2177,13 +2181,13 @@ header {
   margin-top: 10px;
   margin-bottom: 0;
 }
-/* line 120, ../scss/site/partials/_panier.scss */
+/* line 121, ../scss/site/partials/_panier.scss */
 .panier-order small {
   font-size: 15px;
   font-style: italic;
   color: #493f34;
 }
-/* line 126, ../scss/site/partials/_panier.scss */
+/* line 127, ../scss/site/partials/_panier.scss */
 .panier-order_quantity {
   display: flex;
   width: 90%;
@@ -2191,18 +2195,18 @@ header {
   height: 40px;
   margin: auto;
 }
-/* line 133, ../scss/site/partials/_panier.scss */
+/* line 134, ../scss/site/partials/_panier.scss */
 .panier-order_quantity input {
   border: none;
   color: #719d26;
   font-size: 24px;
 }
-/* line 139, ../scss/site/partials/_panier.scss */
+/* line 140, ../scss/site/partials/_panier.scss */
 .panier-order_quantity button {
   height: 40px;
   min-width: 55px;
 }
-/* line 145, ../scss/site/partials/_panier.scss */
+/* line 146, ../scss/site/partials/_panier.scss */
 .panier-order_select {
   position: relative;
   border: 1px solid #5f3817;
@@ -2210,7 +2214,7 @@ header {
   height: 40px;
   margin: 10px auto;
 }
-/* line 152, ../scss/site/partials/_panier.scss */
+/* line 153, ../scss/site/partials/_panier.scss */
 .panier-order_select select {
   width: 100%;
   height: 40px;
@@ -2223,13 +2227,13 @@ header {
   border: 0;
   text-align: center;
 }
-/* line 165, ../scss/site/partials/_panier.scss */
+/* line 166, ../scss/site/partials/_panier.scss */
 .panier-order_select .sprite-span {
   position: absolute;
   pointer-events: none;
   right: 0;
 }
-/* line 172, ../scss/site/partials/_panier.scss */
+/* line 173, ../scss/site/partials/_panier.scss */
 .panier-order_date {
   position: absolute;
   pointer-events: none;
@@ -2238,13 +2242,13 @@ header {
 }
 
 @media only screen and (max-width: 720px) {
-  /* line 181, ../scss/site/partials/_panier.scss */
+  /* line 182, ../scss/site/partials/_panier.scss */
   .panier-type {
     width: 100%;
     padding: 10px 20px 10px 20px;
     font-size: 26px;
   }
-  /* line 186, ../scss/site/partials/_panier.scss */
+  /* line 187, ../scss/site/partials/_panier.scss */
   .panier-type_description {
     position: relative;
     width: 100%;
@@ -2252,64 +2256,64 @@ header {
     right: 0;
     text-align: center;
   }
-  /* line 194, ../scss/site/partials/_panier.scss */
+  /* line 195, ../scss/site/partials/_panier.scss */
   .panier-type_photo {
     width: 100%;
     max-width: 508px;
   }
-  /* line 199, ../scss/site/partials/_panier.scss */
+  /* line 200, ../scss/site/partials/_panier.scss */
   .panier-type_100 {
     display: none;
   }
-  /* line 203, ../scss/site/partials/_panier.scss */
+  /* line 204, ../scss/site/partials/_panier.scss */
   .panier-type_infobox {
     width: 100%;
     text-align: center;
   }
-  /* line 206, ../scss/site/partials/_panier.scss */
+  /* line 207, ../scss/site/partials/_panier.scss */
   .panier-type_infobox img {
     padding: 0 20px;
   }
-  /* line 211, ../scss/site/partials/_panier.scss */
+  /* line 212, ../scss/site/partials/_panier.scss */
   .panier-type_trait {
     width: 0;
   }
 
-  /* line 216, ../scss/site/partials/_panier.scss */
+  /* line 217, ../scss/site/partials/_panier.scss */
   .panier-order {
     margin-left: 0;
   }
 }
 /* UPSELL */
-/* line 223, ../scss/site/partials/_panier.scss */
+/* line 224, ../scss/site/partials/_panier.scss */
 .panier-upsell {
   text-align: center;
   color: #4d4135;
   font-family: 'arialnarrow';
 }
-/* line 228, ../scss/site/partials/_panier.scss */
+/* line 229, ../scss/site/partials/_panier.scss */
 .panier-upsell_article {
   display: inline-block;
   margin-bottom: 20px;
   width: 400px;
 }
-/* line 234, ../scss/site/partials/_panier.scss */
+/* line 235, ../scss/site/partials/_panier.scss */
 .panier-upsell_form {
   display: inline-block;
 }
-/* line 238, ../scss/site/partials/_panier.scss */
+/* line 239, ../scss/site/partials/_panier.scss */
 .panier-upsell_submit {
   font-family: arial;
   font-size: 14px;
   width: 214px;
   height: 35px;
 }
-/* line 245, ../scss/site/partials/_panier.scss */
+/* line 246, ../scss/site/partials/_panier.scss */
 .panier-upsell_photo {
   border: 15px solid #e5dcd0;
   margin-right: 0;
 }
-/* line 250, ../scss/site/partials/_panier.scss */
+/* line 251, ../scss/site/partials/_panier.scss */
 .panier-upsell_prix {
   display: inline-block;
   font-size: 20px;
@@ -2317,24 +2321,24 @@ header {
   margin: 20px 10px 40px 0;
   font-weight: bold;
 }
-/* line 257, ../scss/site/partials/_panier.scss */
+/* line 258, ../scss/site/partials/_panier.scss */
 .panier-upsell_prix small {
   font-size: 16px;
   font-style: italic;
 }
-/* line 263, ../scss/site/partials/_panier.scss */
+/* line 264, ../scss/site/partials/_panier.scss */
 .panier-upsell_titre {
   font-size: 26px;
   margin: 5px auto 0 auto;
 }
-/* line 268, ../scss/site/partials/_panier.scss */
+/* line 269, ../scss/site/partials/_panier.scss */
 .panier-upsell_provenance {
   font-size: 18px;
   font-style: italic;
 }
 
 @media only screen and (max-width: 600px) {
-  /* line 275, ../scss/site/partials/_panier.scss */
+  /* line 276, ../scss/site/partials/_panier.scss */
   .panier-upsell_photo {
     margin-right: 0;
     width: 100%;
@@ -2342,23 +2346,23 @@ header {
   }
 }
 @media only screen and (max-width: 480px) {
-  /* line 284, ../scss/site/partials/_panier.scss */
+  /* line 285, ../scss/site/partials/_panier.scss */
   .panier-upsell_article {
     width: 100%;
   }
 }
-/* line 289, ../scss/site/partials/_panier.scss */
+/* line 290, ../scss/site/partials/_panier.scss */
 .plat_comment {
   background-color: #c3beba;
   text-align: center;
 }
-/* line 293, ../scss/site/partials/_panier.scss */
+/* line 294, ../scss/site/partials/_panier.scss */
 .plat_comment img {
   margin: 0 30px 30px 0;
 }
 
 /* POPUP */
-/* line 300, ../scss/site/partials/_panier.scss */
+/* line 301, ../scss/site/partials/_panier.scss */
 .panier-popup {
   width: 480px;
   height: 245px;
@@ -2370,14 +2374,14 @@ header {
   color: #4d4135;
   font-family: 'arialnarrow';
 }
-/* line 311, ../scss/site/partials/_panier.scss */
+/* line 312, ../scss/site/partials/_panier.scss */
 .panier-popup_box {
   margin-left: 25px;
   margin-top: 50px;
   display: inline-block;
   vertical-align: middle;
 }
-/* line 318, ../scss/site/partials/_panier.scss */
+/* line 319, ../scss/site/partials/_panier.scss */
 .panier-popup_photo {
   display: inline-block;
   width: 100px;
@@ -2385,19 +2389,19 @@ header {
   border-radius: 50%;
   vertical-align: middle;
 }
-/* line 326, ../scss/site/partials/_panier.scss */
+/* line 327, ../scss/site/partials/_panier.scss */
 .panier-popup p {
   font-size: 18px;
   text-align: center;
   font-weight: bold;
 }
-/* line 332, ../scss/site/partials/_panier.scss */
+/* line 333, ../scss/site/partials/_panier.scss */
 .panier-popup span {
   font-size: 22px;
   text-align: center;
   font-weight: bold;
 }
-/* line 338, ../scss/site/partials/_panier.scss */
+/* line 339, ../scss/site/partials/_panier.scss */
 .panier-popup_end, .panier-popup_continue {
   font-size: 22px;
   color: #558f29;
@@ -2407,26 +2411,26 @@ header {
   position: absolute;
   bottom: 0;
 }
-/* line 348, ../scss/site/partials/_panier.scss */
+/* line 349, ../scss/site/partials/_panier.scss */
 .panier-popup_continue {
   left: 5px;
   line-height: 1.4;
 }
-/* line 353, ../scss/site/partials/_panier.scss */
+/* line 354, ../scss/site/partials/_panier.scss */
 .panier-popup_end {
   right: 5px;
 }
-/* line 357, ../scss/site/partials/_panier.scss */
+/* line 358, ../scss/site/partials/_panier.scss */
 .panier-popup_link {
   display: none;
 }
 
 @media only screen and (max-width: 480px) {
-  /* line 363, ../scss/site/partials/_panier.scss */
+  /* line 364, ../scss/site/partials/_panier.scss */
   .panier-popup {
     width: 100%;
   }
-  /* line 366, ../scss/site/partials/_panier.scss */
+  /* line 367, ../scss/site/partials/_panier.scss */
   .panier-popup_continue {
     bottom: 30px;
   }
@@ -2772,8 +2776,8 @@ header {
   background-color: #493f33;
   vertical-align: middle;
   color: white;
-  font-size: 36px;
   font-family: "Kraftstoff", Helvetica, Arial, sans-serif;
+  font-size: 36px;
 }
 /* line 113, ../scss/site/partials/_caddie.scss */
 .caddie-nav input[type=checkbox] {
@@ -3229,7 +3233,7 @@ header {
   background-color: white;
   font-style: italic;
 }
-/* line 32, ../scss/site/partials/_account.scss */
+/* line 31, ../scss/site/partials/_account.scss */
 .account-content {
   background-color: #dee8d6;
   display: flex;
@@ -3237,19 +3241,19 @@ header {
   flex-wrap: wrap;
   padding: 20px 0;
 }
-/* line 40, ../scss/site/partials/_account.scss */
+/* line 39, ../scss/site/partials/_account.scss */
 .account_infobox {
   margin: auto;
 }
-/* line 43, ../scss/site/partials/_account.scss */
+/* line 42, ../scss/site/partials/_account.scss */
 .account_infobox h2 {
   margin: 10px 0;
 }
-/* line 48, ../scss/site/partials/_account.scss */
+/* line 47, ../scss/site/partials/_account.scss */
 .account_reference {
   width: 200px;
 }
-/* line 52, ../scss/site/partials/_account.scss */
+/* line 51, ../scss/site/partials/_account.scss */
 .account caption {
   margin-top: 20px;
   font-family: 'Kraftstoff';
@@ -3257,62 +3261,62 @@ header {
   color: #4d4135;
 }
 
-/* line 60, ../scss/site/partials/_account.scss */
+/* line 59, ../scss/site/partials/_account.scss */
 .account-table {
   width: 100%;
   border-collapse: collapse;
   border-spacing: 0;
   font-family: "arialnarrow", sans-serif;
 }
-/* line 66, ../scss/site/partials/_account.scss */
+/* line 65, ../scss/site/partials/_account.scss */
 .account-table thead {
   background-color: #9bba83;
   color: white;
 }
-/* line 70, ../scss/site/partials/_account.scss */
+/* line 69, ../scss/site/partials/_account.scss */
 .account-table thead tr {
   height: 41px;
   border-top: 1px solid #ccd7bc;
   border-bottom: 1px solid #ccd7bc;
   box-sizing: border-box;
 }
-/* line 77, ../scss/site/partials/_account.scss */
+/* line 76, ../scss/site/partials/_account.scss */
 .account-table thead th {
   font-family: arial;
   font-size: 16px;
   text-transform: uppercase;
   padding: 0 20px;
 }
-/* line 85, ../scss/site/partials/_account.scss */
+/* line 84, ../scss/site/partials/_account.scss */
 .account-table tbody {
   background-color: #eef4ea;
   color: #493f33;
   font-size: 18px;
 }
-/* line 90, ../scss/site/partials/_account.scss */
+/* line 89, ../scss/site/partials/_account.scss */
 .account-table tbody th {
   font-weight: normal;
   padding: 5px 0;
 }
-/* line 95, ../scss/site/partials/_account.scss */
+/* line 94, ../scss/site/partials/_account.scss */
 .account-table tbody button {
   font-weight: bold;
   color: #493f33;
 }
-/* line 101, ../scss/site/partials/_account.scss */
+/* line 100, ../scss/site/partials/_account.scss */
 .account-table-hide {
   display: none;
 }
 
-/* line 106, ../scss/site/partials/_account.scss */
+/* line 105, ../scss/site/partials/_account.scss */
 .account-sidebar {
   padding: 0px 0 0 50px;
 }
-/* line 109, ../scss/site/partials/_account.scss */
+/* line 108, ../scss/site/partials/_account.scss */
 .account-sidebar ul {
   list-style-type: none;
 }
-/* line 113, ../scss/site/partials/_account.scss */
+/* line 112, ../scss/site/partials/_account.scss */
 .account-sidebar button {
   font-family: "arialnarrow", sans-serif;
   color: #493f33;
@@ -3322,30 +3326,30 @@ header {
   position: relative;
   border: none;
 }
-/* line 121, ../scss/site/partials/_account.scss */
+/* line 120, ../scss/site/partials/_account.scss */
 .account-sidebar button:focus {
   outline: none;
 }
-/* line 126, ../scss/site/partials/_account.scss */
+/* line 125, ../scss/site/partials/_account.scss */
 .account-sidebar span {
   display: inline-block;
   position: absolute;
   vertical-align: middle;
   left: -30px;
 }
-/* line 133, ../scss/site/partials/_account.scss */
+/* line 132, ../scss/site/partials/_account.scss */
 .account-sidebar .account-adresses {
   left: -40px;
 }
 
 @media only screen and (max-width: 1280px) {
-  /* line 139, ../scss/site/partials/_account.scss */
+  /* line 138, ../scss/site/partials/_account.scss */
   .account {
     padding: 0;
   }
 }
 @media only screen and (max-width: 700px) {
-  /* line 145, ../scss/site/partials/_account.scss */
+  /* line 144, ../scss/site/partials/_account.scss */
   .account-table thead th {
     padding: 0;
   }

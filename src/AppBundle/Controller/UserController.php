@@ -17,7 +17,7 @@ class UserController extends BaseController
     protected $type = 'AppBundle\Form\Type\UserType';
 
     /**
-     * @Route("/login", name="login")
+     * @Route("/login", name="login", defaults={"title": "Connexion / Enregistrement - Mon Panier Toqué"})
      * @Method({"GET","HEAD","POST"})
      */
     public function loginAction(Request $request)

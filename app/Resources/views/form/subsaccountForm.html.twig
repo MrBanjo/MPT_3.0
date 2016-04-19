@@ -10,8 +10,8 @@
         <p class="userform_titleform">VOS IDENTIFIANTS</p>
         <div class="userform_row">
             <div class="userform_label">
-            {{ form_label(form.email) }}
-        </div>
+                {{ form_label(form.email) }}
+            </div>
             {{ form_errors(form.email) }}
             <div class="userform_email">
                 {{ form_widget(form.email,{ 'attr': {'class': 'js-email'} }) }}
@@ -53,6 +53,7 @@
 </div>
 <div class="userform">
     <div class="userform_smallbox">
-        {{ form_end(form) }}
+        {{ form_rest(form) }}
     </div>
 </div>
+{{ form_end(form) }}

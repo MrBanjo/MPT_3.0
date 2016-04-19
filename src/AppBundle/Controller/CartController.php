@@ -16,7 +16,7 @@ class CartController extends BaseController
     protected $type = 'AppBundle\Form\Type\UserType';
 
     /**
-     * @Route("/caddie/ma-commande", name="cart", defaults={"title": "Ma commande"})
+     * @Route("/caddie/ma-commande", name="cart", defaults={"title": "Ma commande - Mon Panier Toqué"})
      * @Method({"GET","HEAD"})
      */
     public function showCaddieAction()
@@ -33,7 +33,7 @@ class CartController extends BaseController
     }
 
     /**
-     * @Route("/caddie/identification", name="cart_identification", defaults={"title": "Identification"})
+     * @Route("/caddie/identification", name="cart_identification", defaults={"title": "Identification - Mon Panier Toqué"})
      * @Method({"GET","HEAD"})
      */
     public function showIdentificationAction()
@@ -46,7 +46,7 @@ class CartController extends BaseController
     }
 
     /**
-     * @Route("/caddie/recapitulatif", name="cart_summary", defaults={"title": "Récapitulatif de la commande"})
+     * @Route("/caddie/recapitulatif", name="cart_summary", defaults={"title": "Récapitulatif de la commande - Mon Panier Toqué"})
      * @Method({"GET","HEAD"})
      */
     public function showSummaryAction()

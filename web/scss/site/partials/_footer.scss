@@ -25,11 +25,12 @@
         vertical-align: middle;
         box-sizing: border-box;
 
-        &_p {
-            margin: 20px 30px 30px 0;
+        &_title {
+            margin: 20px 0px 30px 0;
             vertical-align: middle;
             color: $whity;
             font-size: 24px;
+            font-weight: normal;
         }
     }
 

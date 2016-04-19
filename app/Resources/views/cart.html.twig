@@ -6,7 +6,7 @@
 		<div class="container-small">
 			<nav class="caddie-nav">
 				<label for="caddie-nav-show" class="caddie-nav-show">Etapes de votre commande:</label>
-				<input type="checkbox" id="caddie-nav-show" role="button">
+				<input type="checkbox" id="caddie-nav-show">
 				<ul class="caddie-nav_menu">
 					<li><a href="{{ path('cart')}}" class="opacity-none"><strong>1</strong> ma commande</a></li>
 					<li><a href="{{ path('cart_identification')}}"><strong>2</strong> identification</a></li>
@@ -20,9 +20,9 @@
 				<nav class="breadcrumb">
 					{{ knp_menu_render('breadcrumb',{'depth': 2,'currentAsLink':false}) }}
 				</nav>
-				<a href="{{path('paniers')}}" class="caddie_continue">< Poursuivre mes achats</a>
+				<a href="{{path('paniers')}}" class="caddie_continue">&lt; Poursuivre mes achats</a>
 				<form action="{{ (app.user) ? path('cart_summary') : path('cart_identification') }}" class="caddie_validate">
-					<button type="submit" id="submit_caddie" class="orange">VALIDER MA COMMANDE</button>
+					<button type="submit" class="orange">VALIDER MA COMMANDE</button>
 				</form>
 				<div class="caddie-table_box">
 					<table class="caddie-table">
@@ -76,8 +76,8 @@
 							<tr class="green_light">
 								<th></th>
 								<th>
-									<form action="">
-										<label for="">Code de réduction :</label>
+									<form action="#">
+										<label>Code de réduction :</label>
 										<div class="caddie-table_reduc">
 			            					<input type="text" placeholder="Saisissez votre code"><!-- 
 			            				 --><input type="submit" value="OK" class="green-button">	
@@ -99,10 +99,10 @@
 							<input type="radio" name="sex" value="female">NON
 						</form>					        	
 					</div>
-					<a href="{{path('paniers')}}" class="caddie_continue">< Poursuivre mes achats</a>
+					<a href="{{path('paniers')}}" class="caddie_continue">&lt; Poursuivre mes achats</a>
 					<div class="caddie_validate">
                         <form action="{{ (app.user) ? path('cart_summary') : path('cart_identification') }}" class="caddie_validate">
-                            <button type="submit" id="submit_caddie" class="orange">VALIDER MA COMMANDE</button>
+                            <button type="submit" class="orange">VALIDER MA COMMANDE</button>
                         </form>	        	
 					</div>			
 				</div>

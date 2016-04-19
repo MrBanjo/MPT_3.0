@@ -13,7 +13,7 @@ use AppBundle\Entity\Categorie;
 class PaniersController extends BaseController
 {
     /**
-     * @Route("", name="paniers", defaults={"title": "Nos paniers"})
+     * @Route("", name="paniers", defaults={"title": "Nos paniers - Mon Panier Toqué"})
      * @Method({"GET","HEAD"})
      */
     public function showPaniersAction()
@@ -22,7 +22,7 @@ class PaniersController extends BaseController
     }
 
     /**
-     * @Route("/{slug}", name="panier", defaults={"title": "Notre panier"})
+     * @Route("/{slug}", name="panier", defaults={"title": "Notre panier - Mon Panier Toqué"})
      * @Method({"GET","HEAD"})
      * @ParamConverter("categorie", options={"mapping": {"slug": "nom"}})
      */

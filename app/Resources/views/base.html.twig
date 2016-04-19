@@ -93,23 +93,23 @@
             <div class="footer-sectionbox">
                 <section class="footer_section">
                     <div>
-                        <p class="footer_section_p"><span class="footer-picto_partenaire sprite-span-base"></span>Inscrivez-vous !</p>
+                        <h2 class="footer_section_title"><span class="footer-picto_partenaire sprite-span-base"></span>Inscrivez-vous !</h2>
                     </div>
                     {# render(controller('AppBundle:Newsletter:showform')) #}
                     {{ include ("form/newsletterForm.html.twig") }}
                     <div>
-                        <p id="error_newsletter" class="footer_section_p"></p>
+                        <p id="error_newsletter" class="footer_section_title"></p>
                     </div>
                 </section>
                 <section class="footer_section">
-                    <p class="footer_section_p"><span class="footer-plat sprite-span-base"></span>Suivez-nous</p>
+                    <h2 class="footer_section_title"><span class="footer-plat sprite-span-base"></span>Suivez-nous</h2>
                     <a href="" class="footer_social-link footer-facebook"></a>
                     <a href="" class="footer_social-link footer-twitter"></a>
                     <a href="" class="footer_social-link footer-truc"></a>
                     <a href="" class="footer_social-link footer-blog"></a>
                 </section>
                 <section class="footer_section">
-                    <p class="footer_section_p"><span class="footer-picto_partenaire sprite-span-base"></span>Nos partenaires</p>
+                    <h2 class="footer_section_title"><span class="footer-picto_partenaire sprite-span-base"></span>Nos partenaires</h2>
                     <img src="{{ asset('img/footer/labels.png')}}" alt="">
                 </section>        
             </div>

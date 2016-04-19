@@ -9,7 +9,7 @@
 			</div>
 		    <div class="panier_box">	    		   
 			    <article class="panier_article panier-type">
-			    	<p class="panier-type_description">Notre panier {{ menu.categorie.nom|lower }} contient tous les ingrédients pour préparer vos repas. <strong>4 repas originaux</strong>, simples et équilibrés.</p>
+			    	<h2 class="panier-type_description">Notre panier {{ menu.categorie.nom|lower }} contient tous les ingrédients pour préparer vos repas. <strong>4 repas originaux</strong>, simples et équilibrés.</h2>
 			    	<img src="{{ asset('img/accueil/local.png')}}" alt="100% local Mon Panier Toqué" class="panier-type_100">
 			    	<img src="{{ asset( menu.photo )}}" alt="Menu classique Mon Panier Toqué" class="panier-type_photo">
 			    	<div class="panier-type_infobox">
@@ -26,8 +26,8 @@
 			    		<form action="{{ path('addtocart', { 'slug' : 'Menu' }) }}" method="post" class="panier-form">
 			    			<small>Choisissez le nombre de panier</small>
 			    			<div class="panier-order_quantity">
-								<button type="button" class="green-button quantite_button" onClick="substract('quantite');" formnovalidate="formnovalidate">-</button>
-                                <input type="number" value="1" id="quantite" min="1" max="9" name="quantite" size="2" maxlength="4" onkeypress="return isNumberKey(event);" required>
+								<button type="button" class="green-button quantite_button" onClick="substract('quantite');">-</button>
+                                <input type="number" value="1" id="quantite" min="1" max="9" name="quantite" size="2" onkeypress="return isNumberKey(event);" required>
                                 <button type="button" class="green-button quantite_button" onClick="add('quantite');" >+</button> 			    				
 			    			</div>
 			    			<div class="panier-order_select">
@@ -73,12 +73,12 @@
                                 <div class="menu-slider_infos">
                                     <div class="menu-slider_info">
                                         <span class="content-horloge sprite-span"></span>
-                                        <span>Temps de préparation</br>{{ plat.temps }}</span>
+                                        <span>Temps de préparation<br>{{ plat.temps }}</span>
                                     </div>
                                     <div class="menu-slider_info">
                                         <div class="menu-slider_trait"></div>
                                         <span class="content-difficulte sprite-span"></span>
-                                        <span>Difficulté</br>{{ plat.difficulte }}</span>
+                                        <span>Difficulté<br>{{ plat.difficulte }}</span>
                                     </div>
                                     <div class="menu-slider_info">
                                         <div class="menu-slider_trait"></div>
@@ -134,7 +134,7 @@
 	<div id="popup-cart" class="panier-popup mfp-hide">
 		<p>Vous venez d'ajouter à votre panier:</p>
 		<div class="panier-popup_box">
-			<img class="panier-popup_photo" data-src="{{ asset('') }}" alt="popup caddie">
+			<img src="{{ asset('img/accueil/local.png')}}" class="panier-popup_photo" data-src="{{ asset('') }}" alt="popup caddie">
 			<span class="panier-popup_quantite"></span>
 			<span>-</span>
 			<span class="panier-popup_titre"></span>
