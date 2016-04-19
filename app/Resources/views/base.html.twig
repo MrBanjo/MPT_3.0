@@ -12,7 +12,7 @@
     {% block stylesheets %}
     {% if app.environment == "dev" %}
     <link rel="stylesheet" type="text/css" href="{{ asset('css/main.css') }}" />
-    {% elseif app.environment == 'prod' %}
+    {% else %}
     <link rel="stylesheet" type="text/css" href="{{ asset('css/main.min.css') }}" />
     {% endif %}
     {% endblock %}
@@ -134,7 +134,7 @@
     <script src="{{ asset('js/vendor/bxslider/jquery.bxslider.min.js') }}"></script>
     <script src="{{ asset('js/vendor/jquery.magnific-popup.min.js') }}"></script>
     <script src="{{ asset('js/main.js') }}"></script>
-    {% elseif app.environment == 'prod' %}
+    {% else %}
     <script src="{{ asset('js/main.min.js') }}"></script>
     {% endif %}
     {% endblock %}
