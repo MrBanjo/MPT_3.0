@@ -1,4 +1,5 @@
 /app/config/parameters.yml
+/app/config/config_prod.yml
 /build/
 /phpunit.xml.dist
 /insight-pmd.xml
@@ -23,3 +24,4 @@
 /src/.htaccess
 /app/.htaccess
 /vendor/
+
