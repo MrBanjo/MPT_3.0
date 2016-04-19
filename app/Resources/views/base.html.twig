@@ -127,16 +127,16 @@
     </footer>
 
     {% block javascripts %}
-    {#% if app.environment == "dev" %#}
+    {% if app.environment == "dev" %}
     <script src="{{ asset('js/vendor/jquery-1.11.2.min.js') }}"></script>
     <script src="{{ asset('bundles/fosjsrouting/js/router.js') }}"></script>
     <script src="{{ path('fos_js_routing_js', {"callback": "fos.Router.setData"}) }}"></script>
     <script src="{{ asset('js/vendor/bxslider/jquery.bxslider.min.js') }}"></script>
     <script src="{{ asset('js/vendor/jquery.magnific-popup.min.js') }}"></script>
     <script src="{{ asset('js/main.js') }}"></script>
-    {#% elseif app.environment == 'prod' %}
+    {% elseif app.environment == 'prod' %}
     <script src="{{ asset('js/main.min.js') }}"></script>
-    {% endif %#}
+    {% endif %}
     {% endblock %}
 
 </body>
