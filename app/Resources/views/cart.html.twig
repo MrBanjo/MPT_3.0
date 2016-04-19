@@ -25,7 +25,7 @@
 					<button type="submit" id="submit_caddie" class="orange">VALIDER MA COMMANDE</button>
 				</form>
 				<div class="caddie-table_box">
-					<table class="caddie-table table-striped">
+					<table class="caddie-table">
 						<thead>
 							<tr>
 								<th class="caddie-table_photo"></th>
@@ -101,9 +101,9 @@
 					</div>
 					<a href="{{path('paniers')}}" class="caddie_continue">< Poursuivre mes achats</a>
 					<div class="caddie_validate">
-						<form action="{{ path('addcommandes')}}" method="post" >
-							<button type="submit" id="submit_caddie" class="orange">VALIDER MA COMMANDE</button>
-						</form>		        	
+                        <form action="{{ (app.user) ? path('cart_summary') : path('cart_identification') }}" class="caddie_validate">
+                            <button type="submit" id="submit_caddie" class="orange">VALIDER MA COMMANDE</button>
+                        </form>	        	
 					</div>			
 				</div>
 			</div>

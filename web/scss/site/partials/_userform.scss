@@ -1,0 +1,209 @@
+/* ==========================================================================
+   LOGIN & REGISTER FORM
+   ========================================================================== */
+
+.userform {
+    background-color: white;
+    margin: 20px 0;
+    padding: 20px;
+    font-family: 'arialnarrow';
+    font-size: 18px;
+    color: #493f33;
+    overflow: hidden;
+
+    &_box {
+        margin: 0 20px;
+        padding-bottom: 20px;
+        padding-top: 40px;        
+    }
+
+    &_flash {
+        display: block;
+    }
+      
+    &_smallbox {
+        width: 700px;
+        margin: 0 auto;        
+    }
+
+    &_title {
+        margin-bottom: 40px;
+        text-align: left;
+        font-size: 16px;
+        font-weight: bold;        
+    }
+
+    &_label {
+        position: absolute;
+        display: inline-block;
+        right: 510px;
+        width: 300px;
+        text-align: right;
+        bottom: 0;
+
+        .required:after {
+            content: " *";
+            color: #f18a31;
+            font-weight: normal;
+            vertical-align: bottom;
+        }
+    }
+
+    &_asterix-reminder {
+        float: right;
+        font-size: 16px;
+        font-weight: bold;        
+    }
+
+    &_asterix {
+        color: #f18a31;
+    }
+
+    input {
+        text-align: center;
+        display: block;
+        margin: 10px auto;
+        height: 28px;
+        width: 300px;
+        border: 1px solid #6d9a4b;
+    }
+
+    input[type="radio"] {
+        width: 10px;
+        display: inline-block;
+        margin: 0 3px;
+        border: 0;
+        height: 10px;
+    }
+
+    input[type="checkbox"] {
+        width: 20px;
+        height: 20px;
+        display: inline-block;
+        margin: 0;
+        border: 0;
+    }
+
+    &_row {
+        position: relative;
+        max-width: 700px;
+        margin: auto;
+        text-align: center;        
+    }
+
+    &_email {
+        position: relative;
+    }
+
+    select {
+        width: 90px;
+        height: 30px;
+        background: transparent;
+        font-size: 16px;
+        outline: none;
+        border: 1px solid #6d9a4b;
+        text-align: center;
+        box-sizing: border-box;
+    }
+
+    select:nth-child(2) {
+        margin: 0 12px;
+    }
+
+    &:last-child {
+        text-align: right;
+
+        span {
+            display: none;
+        }
+
+        button[type="submit"] {
+            text-align: center;
+            width: 235px;
+            height: 40px;
+            background-color: #f18a31;
+            color: white;
+        }
+    }
+
+    &_adresse-add {
+        text-align: left;
+        color: #588c31;
+        font-family: "arialnarrow";
+        font-size: 21px;
+        font-weight: bold;
+        font-style: italic;
+        text-decoration: underline;        
+    }
+
+    &_adresse-remove {
+        float: right;
+        font-family: "arialnarrow";
+        font-size: 21px;
+        font-weight: bold;
+        font-style: italic;
+        color: #588c31;        
+    }
+}
+
+#js-emailspinner {
+    display: inline-block;
+    position: absolute;
+    left: 510px;
+    bottom: 0px;
+    font-weight: bold;
+
+    span {
+        display: inline-block;
+        vertical-align: middle;
+    }
+    p {
+        width:300px;
+        text-align: left;
+        position: relative;
+        left: 35px;
+    }
+}
+
+@media screen and (max-width: 780px) {
+    .userform {
+        &_smallbox {
+            width: 100%;
+            margin: 0 auto;  
+        }
+
+        &_label {
+            position: static;
+            display: block;
+            width: 100%;
+            text-align: center;
+            right: auto;
+            left: 0;
+        }
+
+        input {
+            text-align: center;
+            display: block;
+            margin: 10px auto;
+            height: 28px;
+            width: 100%;
+            border: 1px solid #6d9a4b;
+        }
+
+        input[type="checkbox"] {
+            display: inline-block;
+            vertical-align: middle;
+        }
+
+        &_remember {
+            display: inline-block;
+            width: auto;           
+        }
+    }
+
+    #js-emailspinner {
+        position: static;
+        left: 510px;
+        bottom: 0px;
+    }
+}

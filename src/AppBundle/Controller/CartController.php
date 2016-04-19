@@ -78,10 +78,11 @@ class CartController extends BaseController
     {
         if ($request->isXmlHttpRequest() && $request->request->get('quantite') !== null) {
             $quantite = $request->request->get('quantite');
-            $produit = $this->find('AppBundle:'.$slug, $request->request->get('id_product'));
+            $product_id = $request->request->get('id_product');
+            $produit = $this->find('AppBundle:'.$slug, $product_id);
 
             // Recherche si le produit existe dans le caddie
-            $checkdb = $this->getRepo('AppBundle:Caddie')->getProductCaddie($request->request->get('id_product'), strtolower($slug), $this->getUser());
+            $checkdb = $this->getRepo('AppBundle:Caddie')->getProductCaddie($product_id, strtolower($slug), $this->getUser());
             if (!empty($checkdb)) {
                 $checkdb[0]->setQuantite($quantite + $checkdb[0]->getQuantite());
                 $this->save($checkdb[0]);

@@ -51,9 +51,19 @@ class AuthenticationHandler implements AuthenticationSuccessHandlerInterface, Au
         $user = $this->security->getToken()->getUser();
         $this->doctrine->getRepository('AppBundle:Caddie')->switchSessionToUserProduct($user);
 
+        if ($this->session->get('_security.main.target_path')) {
+            $url = $this->session->get('_security.main.target_path');
+        } elseif ($this->session->get('old_referer')) {
+            $url = $this->session->get('old_referer');
+        } elseif ($request->headers->get('referer')) {
+            $url = $request->headers->get('referer');
+        } else {
+            $url = $this->router->generate('accueil');
+        }
+
         // if AJAX login
         if ($request->isXmlHttpRequest()) {
-            $array = array('success' => true); // data to return via JSON
+            $array = array('success' => true, 'url' => $url); // data to return via JSON
             $response = new Response(json_encode($array));
             $response->headers->set('Content-Type', 'application/json');
 
@@ -61,16 +71,6 @@ class AuthenticationHandler implements AuthenticationSuccessHandlerInterface, Au
 
         // if form login
         } else {
-            if ($this->session->get('_security.main.target_path')) {
-                $url = $this->session->get('_security.main.target_path');
-            } elseif ($this->session->get('old_referer')) {
-                $url = $this->session->get('old_referer');
-            } elseif ($request->headers->get('referer')) {
-                $url = $request->headers->get('referer');
-            } else {
-                $url = $this->router->generate('accueil');
-            }
-
             return new RedirectResponse($url);
         }
     }

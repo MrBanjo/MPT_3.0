@@ -20,8 +20,7 @@ class MenuRepository extends EntityRepository
             FROM AppBundle:Menu m 
             JOIN m.categorie c 
             WHERE c.nom = :nom AND m.active = :active 
-            ORDER BY m.date DESC
-            ')
+            ORDER BY m.date DESC')
         ->setParameter('nom', $menuType)
         ->setParameter('active', 'oui');
 
@@ -33,7 +32,12 @@ class MenuRepository extends EntityRepository
     public function getCurrentMenuVegan()
     {
         $query = $this->getEntityManager()
-        ->createQuery('SELECT m, c FROM AppBundle:Menu m JOIN m.categorie c WHERE c.nom = :nom AND m.active = :active ORDER BY m.date DESC')
+        ->createQuery('
+            SELECT m, c 
+            FROM AppBundle:Menu m 
+            JOIN m.categorie c 
+            WHERE c.nom = :nom AND m.active = :active 
+            ORDER BY m.date DESC')
         ->setParameter('nom', 'Végétarien')
         ->setParameter('active', 'oui');
 

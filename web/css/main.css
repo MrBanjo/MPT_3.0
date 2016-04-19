@@ -887,30 +887,22 @@ textarea {
 }
 
 /* line 21, ../scss/site/partials/_general.scss */
-.label_login_form .required:after {
-  content: " *";
-  color: #f18a31;
-  font-weight: normal;
-  vertical-align: bottom;
-}
-
-/* line 28, ../scss/site/partials/_general.scss */
 .sprite-span {
   display: inline-block;
   vertical-align: middle;
 }
 
-/* line 33, ../scss/site/partials/_general.scss */
+/* line 26, ../scss/site/partials/_general.scss */
 .green_light {
   background-color: #f7f9f5;
 }
 
-/* line 37, ../scss/site/partials/_general.scss */
+/* line 30, ../scss/site/partials/_general.scss */
 .green_dark {
   background-color: #dee8d6;
 }
 
-/* line 41, ../scss/site/partials/_general.scss */
+/* line 34, ../scss/site/partials/_general.scss */
 .sprite-span-base {
   display: inline-block;
   vertical-align: middle;
@@ -918,7 +910,7 @@ textarea {
 }
 
 @media only screen and (max-width: 1280px) {
-  /* line 48, ../scss/site/partials/_general.scss */
+  /* line 41, ../scss/site/partials/_general.scss */
   .container-small {
     width: 100%;
   }
@@ -926,44 +918,44 @@ textarea {
 /* ==========================================================================
    Styled Buttons
    ========================================================================== */
-/* line 68, ../scss/site/partials/_general.scss */
+/* line 61, ../scss/site/partials/_general.scss */
 .orange {
   background-color: #f28a31;
   color: white;
 }
-/* line 71, ../scss/site/partials/_general.scss */
+/* line 64, ../scss/site/partials/_general.scss */
 .orange:hover {
   background-color: #f27314;
 }
-/* line 74, ../scss/site/partials/_general.scss */
+/* line 67, ../scss/site/partials/_general.scss */
 .orange:active {
   background-color: #f28a31;
 }
 
-/* line 79, ../scss/site/partials/_general.scss */
+/* line 72, ../scss/site/partials/_general.scss */
 .white-button {
   background-color: white;
   color: #987545;
 }
-/* line 82, ../scss/site/partials/_general.scss */
+/* line 75, ../scss/site/partials/_general.scss */
 .white-button:hover {
   background-color: #f0f0f0;
 }
-/* line 85, ../scss/site/partials/_general.scss */
+/* line 78, ../scss/site/partials/_general.scss */
 .white-button:active {
   background-color: white;
 }
 
-/* line 90, ../scss/site/partials/_general.scss */
+/* line 83, ../scss/site/partials/_general.scss */
 .green-button {
   background-color: #719d26;
   color: white;
 }
-/* line 93, ../scss/site/partials/_general.scss */
+/* line 86, ../scss/site/partials/_general.scss */
 .green-button:hover {
   background-color: #557a0c;
 }
-/* line 96, ../scss/site/partials/_general.scss */
+/* line 89, ../scss/site/partials/_general.scss */
 .green-button:active {
   background-color: #719d26;
 }
@@ -971,11 +963,11 @@ textarea {
 /* ==========================================================================
    BREADCRUMB
    ========================================================================== */
-/* line 105, ../scss/site/partials/_general.scss */
+/* line 98, ../scss/site/partials/_general.scss */
 .breadcrumb {
   margin: 0 0 10px 20px;
 }
-/* line 108, ../scss/site/partials/_general.scss */
+/* line 101, ../scss/site/partials/_general.scss */
 .breadcrumb ul li {
   display: inline-block;
   color: #4d4135;
@@ -983,25 +975,25 @@ textarea {
   font-size: 18px;
   margin-right: 5px;
 }
-/* line 115, ../scss/site/partials/_general.scss */
+/* line 108, ../scss/site/partials/_general.scss */
 .breadcrumb ul li a {
   text-decoration: underline;
   color: #4d4135;
 }
-/* line 121, ../scss/site/partials/_general.scss */
+/* line 114, ../scss/site/partials/_general.scss */
 .breadcrumb ul li:after {
   content: ">";
 }
-/* line 125, ../scss/site/partials/_general.scss */
+/* line 118, ../scss/site/partials/_general.scss */
 .breadcrumb ul li:last-child:after {
   content: "";
 }
-/* line 129, ../scss/site/partials/_general.scss */
+/* line 122, ../scss/site/partials/_general.scss */
 .breadcrumb ul li:first-child:after {
   content: "/";
 }
 
-/* line 134, ../scss/site/partials/_general.scss */
+/* line 127, ../scss/site/partials/_general.scss */
 .bx-wrapper .bx-caption {
   position: absolute;
   bottom: 0;
@@ -1011,7 +1003,7 @@ textarea {
   width: 100%;
 }
 
-/* line 143, ../scss/site/partials/_general.scss */
+/* line 136, ../scss/site/partials/_general.scss */
 .bx-wrapper .bx-caption span {
   color: #fff;
   text-align: center;
@@ -1023,34 +1015,37 @@ textarea {
 /* ==========================================================================
    Title
    ========================================================================== */
-/* line 161, ../scss/site/partials/_general.scss */
+/* line 155, ../scss/site/partials/_general.scss */
 .section-title {
   text-align: center;
   padding: 40px 0;
 }
 
-/* line 166, ../scss/site/partials/_general.scss */
+/* line 160, ../scss/site/partials/_general.scss */
 .section_title-green {
   font-family: "Mohave semi-Bold", sans-serif;
   font-size: 36px;
   color: #588c00;
+  text-align: center;
 }
 
-/* line 170, ../scss/site/partials/_general.scss */
+/* line 164, ../scss/site/partials/_general.scss */
 .section_title-brown {
   font-family: "Mohave semi-Bold", sans-serif;
   font-size: 36px;
   color: #493f33;
+  text-align: center;
 }
 
-/* line 174, ../scss/site/partials/_general.scss */
+/* line 168, ../scss/site/partials/_general.scss */
 .section_title-white {
   font-family: "Mohave semi-Bold", sans-serif;
   font-size: 36px;
   color: white;
+  text-align: center;
 }
 
-/* line 178, ../scss/site/partials/_general.scss */
+/* line 172, ../scss/site/partials/_general.scss */
 .section_description {
   font-family: 'kraftstoff', sans-serif;
   font-size: 30px;
@@ -2798,7 +2793,7 @@ header {
   clear: both;
   margin-top: 20px;
 }
-/* line 132, ../scss/site/partials/_caddie.scss */
+/* line 131, ../scss/site/partials/_caddie.scss */
 .caddie-table thead tr {
   height: 41px;
   border-top: 1px solid #ccd7bc;
@@ -2806,23 +2801,23 @@ header {
   box-sizing: border-box;
   background-color: #9bba83;
 }
-/* line 139, ../scss/site/partials/_caddie.scss */
+/* line 138, ../scss/site/partials/_caddie.scss */
 .caddie-table thead th {
   color: white;
   font-family: arial;
   font-size: 16px;
   text-transform: uppercase;
 }
-/* line 147, ../scss/site/partials/_caddie.scss */
+/* line 146, ../scss/site/partials/_caddie.scss */
 .caddie-table th {
   text-align: center;
   padding: 0;
 }
-/* line 153, ../scss/site/partials/_caddie.scss */
+/* line 152, ../scss/site/partials/_caddie.scss */
 .caddie-table tbody tr {
   background-color: #dee8d6;
 }
-/* line 156, ../scss/site/partials/_caddie.scss */
+/* line 155, ../scss/site/partials/_caddie.scss */
 .caddie-table tbody th {
   color: #4d4135;
   font-size: 18px;
@@ -2831,16 +2826,16 @@ header {
   height: 100px;
   position: relative;
 }
-/* line 164, ../scss/site/partials/_caddie.scss */
+/* line 163, ../scss/site/partials/_caddie.scss */
 .caddie-table tbody th:first-child {
   background-color: white;
   max-width: 250px;
 }
-/* line 168, ../scss/site/partials/_caddie.scss */
+/* line 167, ../scss/site/partials/_caddie.scss */
 .caddie-table tbody th:first-child img {
   max-width: 250px;
 }
-/* line 172, ../scss/site/partials/_caddie.scss */
+/* line 171, ../scss/site/partials/_caddie.scss */
 .caddie-table tbody form {
   border: 1px solid #588c31;
   border-radius: 2px;
@@ -2849,7 +2844,7 @@ header {
   width: 80px;
   display: inline-block;
 }
-/* line 180, ../scss/site/partials/_caddie.scss */
+/* line 179, ../scss/site/partials/_caddie.scss */
 .caddie-table tbody input[type='text'] {
   width: 28px;
   height: 28px;
@@ -2859,7 +2854,7 @@ header {
   color: white;
   vertical-align: middle;
 }
-/* line 189, ../scss/site/partials/_caddie.scss */
+/* line 188, ../scss/site/partials/_caddie.scss */
 .caddie-table tbody button {
   display: inline-block;
   height: 27px;
@@ -2870,7 +2865,7 @@ header {
   font-family: "Arial";
   text-align: center;
 }
-/* line 202, ../scss/site/partials/_caddie.scss */
+/* line 201, ../scss/site/partials/_caddie.scss */
 .caddie-table tfoot th {
   color: #4d4135;
   font-size: 16px;
@@ -2878,20 +2873,20 @@ header {
   font-family: "arialnarrow";
   height: 50px;
 }
-/* line 209, ../scss/site/partials/_caddie.scss */
+/* line 208, ../scss/site/partials/_caddie.scss */
 .caddie-table tfoot th:first-child {
   background-color: white;
   max-width: 250px;
 }
-/* line 215, ../scss/site/partials/_caddie.scss */
+/* line 214, ../scss/site/partials/_caddie.scss */
 .caddie-table_quantite, .caddie-table_total {
   width: 100px;
 }
-/* line 219, ../scss/site/partials/_caddie.scss */
+/* line 218, ../scss/site/partials/_caddie.scss */
 .caddie-table_prix {
   width: 150px;
 }
-/* line 223, ../scss/site/partials/_caddie.scss */
+/* line 222, ../scss/site/partials/_caddie.scss */
 .caddie-table_garbage {
   position: absolute;
   bottom: 10%;
@@ -2900,20 +2895,20 @@ header {
   width: 17px;
   margin: auto;
 }
-/* line 232, ../scss/site/partials/_caddie.scss */
+/* line 231, ../scss/site/partials/_caddie.scss */
 .caddie-table_reduc {
   position: relative;
   display: inline-block;
   font-size: 16px;
 }
-/* line 237, ../scss/site/partials/_caddie.scss */
+/* line 236, ../scss/site/partials/_caddie.scss */
 .caddie-table_reduc input[type="text"] {
   background-color: white;
   height: 31px;
   vertical-align: middle;
   width: 200px;
 }
-/* line 244, ../scss/site/partials/_caddie.scss */
+/* line 243, ../scss/site/partials/_caddie.scss */
 .caddie-table_reduc input[type="submit"] {
   position: absolute;
   background-color: #588c31;
@@ -2922,17 +2917,17 @@ header {
   color: white;
   right: 0;
 }
-/* line 253, ../scss/site/partials/_caddie.scss */
+/* line 252, ../scss/site/partials/_caddie.scss */
 .caddie-table_reduc input[type="submit"]:hover {
   background-color: #557a0c;
 }
 
 @media screen and (max-width: 1050px) {
-  /* line 260, ../scss/site/partials/_caddie.scss */
+  /* line 259, ../scss/site/partials/_caddie.scss */
   .caddie-nav {
     margin-right: 0;
   }
-  /* line 263, ../scss/site/partials/_caddie.scss */
+  /* line 262, ../scss/site/partials/_caddie.scss */
   .caddie-nav_menu {
     display: inherit;
     height: 0;
@@ -2943,30 +2938,30 @@ header {
     transition: height 1s;
     overflow: hidden;
   }
-  /* line 274, ../scss/site/partials/_caddie.scss */
+  /* line 273, ../scss/site/partials/_caddie.scss */
   .caddie-nav a {
     color: white;
     text-align: center;
   }
-  /* line 279, ../scss/site/partials/_caddie.scss */
+  /* line 278, ../scss/site/partials/_caddie.scss */
   .caddie-nav li {
     width: 100%;
     background-color: #493f33;
   }
-  /* line 284, ../scss/site/partials/_caddie.scss */
+  /* line 283, ../scss/site/partials/_caddie.scss */
   .caddie-nav-show {
     display: block;
   }
-  /* line 288, ../scss/site/partials/_caddie.scss */
+  /* line 287, ../scss/site/partials/_caddie.scss */
   .caddie-nav input[type=checkbox]:checked ~ .caddie-nav_menu {
     height: 250px;
   }
 
-  /* line 295, ../scss/site/partials/_caddie.scss */
+  /* line 294, ../scss/site/partials/_caddie.scss */
   .caddie_box {
     margin: 0;
   }
-  /* line 299, ../scss/site/partials/_caddie.scss */
+  /* line 298, ../scss/site/partials/_caddie.scss */
   .caddie_tel {
     text-align: center;
     color: #4d4135;
@@ -2975,18 +2970,18 @@ header {
   }
 }
 @media screen and (max-width: 680px) {
-  /* line 309, ../scss/site/partials/_caddie.scss */
+  /* line 308, ../scss/site/partials/_caddie.scss */
   .caddie-table tbody th:first-child img {
     max-width: 0;
   }
 }
 @media screen and (max-width: 580px) {
-  /* line 315, ../scss/site/partials/_caddie.scss */
+  /* line 314, ../scss/site/partials/_caddie.scss */
   .caddie_validate {
     float: none;
     width: 100%;
   }
-  /* line 319, ../scss/site/partials/_caddie.scss */
+  /* line 318, ../scss/site/partials/_caddie.scss */
   .caddie_validate button {
     width: 100%;
     display: block;
@@ -2994,29 +2989,10 @@ header {
   }
 }
 /* ==========================================================================
-   IDENTIFICATION CADDIE
+   LOGIN & REGISTER FORM
    ========================================================================== */
-/* line 5, ../scss/site/partials/_caddie_identification.scss */
-.login_title {
-  font-family: 'mohave semi-bold';
-  font-size: 36px;
-  color: #588c00;
-  text-align: center;
-}
-
-/* line 12, ../scss/site/partials/_caddie_identification.scss */
-.login_box {
-  margin-top: 35px;
-}
-
-/* line 16, ../scss/site/partials/_caddie_identification.scss */
-.box_subs {
-  margin: 0 20px;
-  padding-bottom: 20px;
-}
-
-/* line 21, ../scss/site/partials/_caddie_identification.scss */
-.box_form_user {
+/* line 5, ../scss/site/partials/_userform.scss */
+.userform {
   background-color: white;
   margin: 20px 0;
   padding: 20px;
@@ -3025,33 +3001,30 @@ header {
   color: #493f33;
   overflow: hidden;
 }
-/* line 30, ../scss/site/partials/_caddie_identification.scss */
-.box_form_user h3 {
+/* line 14, ../scss/site/partials/_userform.scss */
+.userform_box {
+  margin: 0 20px;
+  padding-bottom: 20px;
+  padding-top: 40px;
+}
+/* line 20, ../scss/site/partials/_userform.scss */
+.userform_flash {
   display: block;
 }
-
-/* line 35, ../scss/site/partials/_caddie_identification.scss */
-.box_form_user li {
-  list-style: none;
-  display: block;
-}
-
-/* line 40, ../scss/site/partials/_caddie_identification.scss */
-.box_form_user_small {
+/* line 24, ../scss/site/partials/_userform.scss */
+.userform_smallbox {
   width: 700px;
   margin: 0 auto;
 }
-
-/* line 45, ../scss/site/partials/_caddie_identification.scss */
-.title_box_form {
+/* line 29, ../scss/site/partials/_userform.scss */
+.userform_title {
   margin-bottom: 40px;
   text-align: left;
   font-size: 16px;
   font-weight: bold;
 }
-
-/* line 52, ../scss/site/partials/_caddie_identification.scss */
-.label_login_form {
+/* line 36, ../scss/site/partials/_userform.scss */
+.userform_label {
   position: absolute;
   display: inline-block;
   right: 510px;
@@ -3059,21 +3032,25 @@ header {
   text-align: right;
   bottom: 0;
 }
-
-/* line 61, ../scss/site/partials/_caddie_identification.scss */
-.box_form_user span, .asterix {
+/* line 44, ../scss/site/partials/_userform.scss */
+.userform_label .required:after {
+  content: " *";
   color: #f18a31;
+  font-weight: normal;
+  vertical-align: bottom;
 }
-
-/* line 65, ../scss/site/partials/_caddie_identification.scss */
-.asterix_reminder {
+/* line 52, ../scss/site/partials/_userform.scss */
+.userform_asterix-reminder {
   float: right;
   font-size: 16px;
   font-weight: bold;
 }
-
-/* line 71, ../scss/site/partials/_caddie_identification.scss */
-.box_form_user input {
+/* line 58, ../scss/site/partials/_userform.scss */
+.userform_asterix {
+  color: #f18a31;
+}
+/* line 62, ../scss/site/partials/_userform.scss */
+.userform input {
   text-align: center;
   display: block;
   margin: 10px auto;
@@ -3081,53 +3058,35 @@ header {
   width: 300px;
   border: 1px solid #6d9a4b;
 }
-
-/* line 80, ../scss/site/partials/_caddie_identification.scss */
-.row_login_form {
-  position: relative;
-  max-width: 700px;
-  margin: auto;
-  text-align: center;
-}
-
-/* line 87, ../scss/site/partials/_caddie_identification.scss */
-.row_login_form input[type="radio"] {
+/* line 71, ../scss/site/partials/_userform.scss */
+.userform input[type="radio"] {
   width: 10px;
   display: inline-block;
   margin: 0 3px;
   border: 0;
   height: 10px;
 }
-
-/* line 95, ../scss/site/partials/_caddie_identification.scss */
-.row_login_form input[type="checkbox"] {
+/* line 79, ../scss/site/partials/_userform.scss */
+.userform input[type="checkbox"] {
   width: 20px;
   height: 20px;
   display: inline-block;
   margin: 0;
   border: 0;
 }
-
-/* .styled-select {
-    border: 1px solid #5f3817;
-    text-align: center;
-    width:90%;
-    height: 40px;
-    overflow: hidden;
-    margin: 10px auto;
-    background: url('../img/menus/small_arrow_desc.png') no-repeat right;
-}*/
-/* line 113, ../scss/site/partials/_caddie_identification.scss */
-.styled-select select {
-  font-family: 'arialnarrow';
-  font-size: 18px;
-  color: #493f33;
+/* line 87, ../scss/site/partials/_userform.scss */
+.userform_row {
+  position: relative;
+  max-width: 700px;
+  margin: auto;
   text-align: center;
-  font-style: italic;
 }
-
-/* line 121, ../scss/site/partials/_caddie_identification.scss */
-.row_login_form select {
+/* line 94, ../scss/site/partials/_userform.scss */
+.userform_email {
+  position: relative;
+}
+/* line 98, ../scss/site/partials/_userform.scss */
+.userform select {
   width: 90px;
   height: 30px;
   background: transparent;
@@ -3137,14 +3096,28 @@ header {
   text-align: center;
   box-sizing: border-box;
 }
-
-/* line 132, ../scss/site/partials/_caddie_identification.scss */
-.row_login_form select:nth-child(2) {
+/* line 109, ../scss/site/partials/_userform.scss */
+.userform select:nth-child(2) {
   margin: 0 12px;
 }
-
-/* line 136, ../scss/site/partials/_caddie_identification.scss */
-#add_adresse {
+/* line 113, ../scss/site/partials/_userform.scss */
+.userform:last-child {
+  text-align: right;
+}
+/* line 116, ../scss/site/partials/_userform.scss */
+.userform:last-child span {
+  display: none;
+}
+/* line 120, ../scss/site/partials/_userform.scss */
+.userform:last-child button[type="submit"] {
+  text-align: center;
+  width: 235px;
+  height: 40px;
+  background-color: #f18a31;
+  color: white;
+}
+/* line 129, ../scss/site/partials/_userform.scss */
+.userform_adresse-add {
   text-align: left;
   color: #588c31;
   font-family: "arialnarrow";
@@ -3153,9 +3126,8 @@ header {
   font-style: italic;
   text-decoration: underline;
 }
-
-/* line 146, ../scss/site/partials/_caddie_identification.scss */
-#erase_adresse {
+/* line 139, ../scss/site/partials/_userform.scss */
+.userform_adresse-remove {
   float: right;
   font-family: "arialnarrow";
   font-size: 21px;
@@ -3164,45 +3136,21 @@ header {
   color: #588c31;
 }
 
-/* line 155, ../scss/site/partials/_caddie_identification.scss */
-.box_form_user:last-child {
-  text-align: right;
-}
-
-/* line 159, ../scss/site/partials/_caddie_identification.scss */
-.box_form_user:last-child span {
-  display: none;
-}
-
-/* line 163, ../scss/site/partials/_caddie_identification.scss */
-.box_form_user:last-child button[type="submit"] {
-  text-align: center;
-  width: 235px;
-  height: 40px;
-  background-color: #f18a31;
-  color: white;
-}
-
-/* line 171, ../scss/site/partials/_caddie_identification.scss */
-.row_email {
-  position: relative;
-}
-
-/* line 175, ../scss/site/partials/_caddie_identification.scss */
-#spinner {
+/* line 149, ../scss/site/partials/_userform.scss */
+#js-emailspinner {
   display: inline-block;
   position: absolute;
   left: 510px;
   bottom: 0px;
   font-weight: bold;
 }
-/* line 182, ../scss/site/partials/_caddie_identification.scss */
-#spinner span {
+/* line 156, ../scss/site/partials/_userform.scss */
+#js-emailspinner span {
   display: inline-block;
   vertical-align: middle;
 }
-/* line 186, ../scss/site/partials/_caddie_identification.scss */
-#spinner p {
+/* line 160, ../scss/site/partials/_userform.scss */
+#js-emailspinner p {
   width: 300px;
   text-align: left;
   position: relative;
@@ -3210,14 +3158,13 @@ header {
 }
 
 @media screen and (max-width: 780px) {
-  /* line 195, ../scss/site/partials/_caddie_identification.scss */
-  .box_form_user_small {
+  /* line 170, ../scss/site/partials/_userform.scss */
+  .userform_smallbox {
     width: 100%;
     margin: 0 auto;
   }
-
-  /* line 200, ../scss/site/partials/_caddie_identification.scss */
-  .label_login_form {
+  /* line 175, ../scss/site/partials/_userform.scss */
+  .userform_label {
     position: static;
     display: block;
     width: 100%;
@@ -3225,15 +3172,8 @@ header {
     right: auto;
     left: 0;
   }
-
-  /* line 209, ../scss/site/partials/_caddie_identification.scss */
-  .rememberme_login {
-    display: inline-block;
-    width: auto;
-  }
-
-  /* line 214, ../scss/site/partials/_caddie_identification.scss */
-  .box_form_user input {
+  /* line 184, ../scss/site/partials/_userform.scss */
+  .userform input {
     text-align: center;
     display: block;
     margin: 10px auto;
@@ -3241,21 +3181,19 @@ header {
     width: 100%;
     border: 1px solid #6d9a4b;
   }
-
-  /* line 223, ../scss/site/partials/_caddie_identification.scss */
-  .row_login_form input[type="checkbox"] {
+  /* line 193, ../scss/site/partials/_userform.scss */
+  .userform input[type="checkbox"] {
     display: inline-block;
     vertical-align: middle;
   }
-
-  /* line 228, ../scss/site/partials/_caddie_identification.scss */
-  .box_form_user_small {
-    width: 100%;
-    margin: 0 auto;
+  /* line 198, ../scss/site/partials/_userform.scss */
+  .userform_remember {
+    display: inline-block;
+    width: auto;
   }
 
-  /* line 233, ../scss/site/partials/_caddie_identification.scss */
-  #spinner {
+  /* line 204, ../scss/site/partials/_userform.scss */
+  #js-emailspinner {
     position: static;
     left: 510px;
     bottom: 0px;
@@ -3265,28 +3203,19 @@ header {
    CADDIE
    ========================================================================== */
 /* line 5, ../scss/site/partials/_account.scss */
-.green_header {
-  background-color: #9bba83;
-}
-
-/* line 9, ../scss/site/partials/_account.scss */
-.green_content {
-  background-color: #dee8d6;
-}
-
-/* line 13, ../scss/site/partials/_account.scss */
-#account-wrapper {
+.account {
   margin-top: 35px;
   font-family: "arialnarrow", sans-serif;
   color: #493f33;
   font-size: 18px;
 }
-/* line 19, ../scss/site/partials/_account.scss */
-#account-wrapper .green_header {
+/* line 11, ../scss/site/partials/_account.scss */
+.account-header {
+  background-color: #9bba83;
   height: 54px;
 }
-/* line 22, ../scss/site/partials/_account.scss */
-#account-wrapper .green_header h1 {
+/* line 16, ../scss/site/partials/_account.scss */
+.account-title {
   text-align: center;
   font-family: "Kraftstoff", sans-serif;
   color: white;
@@ -3294,79 +3223,97 @@ header {
   font-weight: normal;
   margin: auto;
 }
-
-/* line 34, ../scss/site/partials/_account.scss */
-#account_welcome {
+/* line 25, ../scss/site/partials/_account.scss */
+.account-welcome {
   text-align: center;
   background-color: white;
-}
-/* line 37, ../scss/site/partials/_account.scss */
-#account_welcome p {
-  margin: auto;
   font-style: italic;
 }
-
-/* line 43, ../scss/site/partials/_account.scss */
-#account_content {
+/* line 32, ../scss/site/partials/_account.scss */
+.account-content {
+  background-color: #dee8d6;
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
   padding: 20px 0;
 }
-/* line 50, ../scss/site/partials/_account.scss */
-#account_content .box_table {
-  padding: 0;
+/* line 40, ../scss/site/partials/_account.scss */
+.account_infobox {
+  margin: auto;
 }
-/* line 54, ../scss/site/partials/_account.scss */
-#account_content .table_caddie th {
-  padding: 0 5px;
+/* line 43, ../scss/site/partials/_account.scss */
+.account_infobox h2 {
+  margin: 10px 0;
 }
-/* line 58, ../scss/site/partials/_account.scss */
-#account_content .table_caddie tbody th {
-  height: auto;
-  background-color: #eef4ea;
+/* line 48, ../scss/site/partials/_account.scss */
+.account_reference {
+  width: 200px;
 }
-/* line 63, ../scss/site/partials/_account.scss */
-#account_content caption {
+/* line 52, ../scss/site/partials/_account.scss */
+.account caption {
   margin-top: 20px;
   font-family: 'Kraftstoff';
   font-size: 30px;
   color: #4d4135;
 }
-/* line 70, ../scss/site/partials/_account.scss */
-#account_content .table-hide {
-  display: none;
-}
-/* line 74, ../scss/site/partials/_account.scss */
-#account_content .table_caddie button {
+
+/* line 60, ../scss/site/partials/_account.scss */
+.account-table {
+  width: 100%;
+  border-collapse: collapse;
+  border-spacing: 0;
   font-family: "arialnarrow", sans-serif;
+}
+/* line 66, ../scss/site/partials/_account.scss */
+.account-table thead {
+  background-color: #9bba83;
+  color: white;
+}
+/* line 70, ../scss/site/partials/_account.scss */
+.account-table thead tr {
+  height: 41px;
+  border-top: 1px solid #ccd7bc;
+  border-bottom: 1px solid #ccd7bc;
+  box-sizing: border-box;
+}
+/* line 77, ../scss/site/partials/_account.scss */
+.account-table thead th {
+  font-family: arial;
+  font-size: 16px;
+  text-transform: uppercase;
+  padding: 0 20px;
+}
+/* line 85, ../scss/site/partials/_account.scss */
+.account-table tbody {
+  background-color: #eef4ea;
   color: #493f33;
   font-size: 18px;
-  margin: 5px 0;
-  position: relative;
-  border: none;
-  font-weight: bold;
-}
-/* line 82, ../scss/site/partials/_account.scss */
-#account_content .table_caddie button:focus {
-  outline: none;
-}
-
-/* line 88, ../scss/site/partials/_account.scss */
-#account_box {
-  margin: auto;
 }
 /* line 90, ../scss/site/partials/_account.scss */
-#account_box h2 {
-  text-align: center;
+.account-table tbody th {
+  font-weight: normal;
+  padding: 5px 0;
+}
+/* line 95, ../scss/site/partials/_account.scss */
+.account-table tbody button {
+  font-weight: bold;
+  color: #493f33;
+}
+/* line 101, ../scss/site/partials/_account.scss */
+.account-table-hide {
+  display: none;
 }
 
-/* line 95, ../scss/site/partials/_account.scss */
-#account_sidebar {
+/* line 106, ../scss/site/partials/_account.scss */
+.account-sidebar {
   padding: 0px 0 0 50px;
 }
-/* line 98, ../scss/site/partials/_account.scss */
-#account_sidebar button {
+/* line 109, ../scss/site/partials/_account.scss */
+.account-sidebar ul {
+  list-style-type: none;
+}
+/* line 113, ../scss/site/partials/_account.scss */
+.account-sidebar button {
   font-family: "arialnarrow", sans-serif;
   color: #493f33;
   font-size: 18px;
@@ -3375,25 +3322,31 @@ header {
   position: relative;
   border: none;
 }
-/* line 106, ../scss/site/partials/_account.scss */
-#account_sidebar button:focus {
+/* line 121, ../scss/site/partials/_account.scss */
+.account-sidebar button:focus {
   outline: none;
 }
-/* line 111, ../scss/site/partials/_account.scss */
-#account_sidebar span {
+/* line 126, ../scss/site/partials/_account.scss */
+.account-sidebar span {
   display: inline-block;
   position: absolute;
   vertical-align: middle;
   left: -30px;
 }
-/* line 118, ../scss/site/partials/_account.scss */
-#account_sidebar .account-adresses {
+/* line 133, ../scss/site/partials/_account.scss */
+.account-sidebar .account-adresses {
   left: -40px;
 }
 
 @media only screen and (max-width: 1280px) {
-  /* line 124, ../scss/site/partials/_account.scss */
-  #account-wrapper {
+  /* line 139, ../scss/site/partials/_account.scss */
+  .account {
+    padding: 0;
+  }
+}
+@media only screen and (max-width: 700px) {
+  /* line 145, ../scss/site/partials/_account.scss */
+  .account-table thead th {
     padding: 0;
   }
 }

@@ -18,13 +18,6 @@
     padding-top: 130px;
 }
 
-.label_login_form .required:after {
-    content: " *";
-    color: #f18a31;
-    font-weight: normal;
-    vertical-align: bottom;
-}
-
 .sprite-span {
     display: inline-block;
     vertical-align: middle; 
@@ -155,7 +148,8 @@
 @mixin sectionTitle ($color) {
     font-family: "Mohave semi-Bold", sans-serif;
     font-size: 36px;
-    color: $color;    
+    color: $color;
+    text-align: center;
 }
 
 .section-title {

@@ -1,11 +1,11 @@
 <form action="{{ path('login') }}" method="post" class="login_header_form">
     <label for="username">Votre email:</label>
-    <input type="text" id="username" name="_username"  />
+    <input type="text" name="_username"  />
 
     <label for="password">Mot de passe:</label>
-    <input type="password" id="password" name="_password" />
+    <input type="password" name="_password" />
 
-    <input type="checkbox" id="remember_me" name="_remember_me" checked />
+    <input type="checkbox" name="_remember_me" checked />
     <label for="remember_me">Se souvenir de moi</label>
     <input type="hidden" name="_csrf_token" value="{{ csrf_token('authenticate') }}">
     {#
@@ -13,6 +13,5 @@
         is redirected to on success (more details below)
         <input type="hidden" name="_target_path" value="/account" />
     #}
-
     <input type="submit" value="Me connecter"></input>
 </form>

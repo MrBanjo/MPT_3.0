@@ -3,7 +3,6 @@ $(document).ready(function(){
 	// Header et footer js
 	(function() {
 
-		var url = document.URL;
 		$(".login_header_form").submit(function(e){
 			e.preventDefault();
 			$.ajax({
@@ -12,7 +11,7 @@ $(document).ready(function(){
 				data        : $(this).serialize(),
 				success: function (data) {
 					if ( data.success === true ) {
-						window.location.href = url;
+						window.location.href = data.url;
 					}
 					else {
 						var messagefr = "Email ou mot de passe incorrect";
@@ -183,17 +182,17 @@ $(document).ready(function(){
 	// ACCOUNT SECTION
 
 	(function() {
-		$('.ref-commandes').on('click', function() {
+		$('.account-table_buttonref').on('click', function() {
 			var ref = $(this).text();
-			$('.button-ref').addClass('table-hide');
-			$('#button-' + ref).removeClass('table-hide');
+			$('.account-reftable').addClass('account-table-hide');
+			$('#js-account-refbutton-' + ref).removeClass('account-table-hide');
 		});
 	})();
 
 	// Le spinner du formulaire d'enregistrement
 	(function () {
-		if ($('.email_row')) {
-			$('.email_row').on('change', function(){
+		if ($('.js-email')) {
+			$('.js-email').on('change', function(){
 
 				var $this = $(this);
 			    var delay = 2000; // 2 seconds delay after last input
@@ -206,17 +205,17 @@ $(document).ready(function(){
 			    	url: Routing.generate('checkMail') + "/" + $(this).val(),
 			    	data: $(this).val(),
 			    	beforeSend: function() {
-			    		$('#spinner').empty().html('<span class="spinner-load"></span>');
+			    		$('#js-emailspinner').empty().html('<span class="spinner-load"></span>');
 			    	},
 			    	success: function (data) {
                         if (data.message == 'success') {
-                            $('#spinner').empty().html('<span class="content-sprite content-ok"><p>Adresse e-mail disponible</p></span>');
+                            $('#js-emailspinner').empty().html('<span class="content-sprite content-ok"><p>Adresse e-mail disponible</p></span>');
                         } 
                         else if (data.message == 'novalidate') {
-                            $('#spinner').empty().html('<span class="content-sprite content-no"><p>Adresse e-mail incorrecte</p></span>');
+                            $('#js-emailspinner').empty().html('<span class="content-sprite content-no"><p>Adresse e-mail incorrecte</p></span>');
                         }
                         else {
-                            $('#spinner').empty().html('<span class="content-sprite content-no"><p>Adresse e-mail déjà utilisée</p></span>');
+                            $('#js-emailspinner').empty().html('<span class="content-sprite content-no"><p>Adresse e-mail déjà utilisée</p></span>');
                         }
 			    	},
 /*			    	error: function (jqXHR, textStatus, errorThrown) {
@@ -254,7 +253,7 @@ $(document).ready(function(){
 	        var addDeleteLink = function($prototype) 
 	        {
 	          // Création du lien
-	          var $deleteLink = $('<a href="#" id="erase_adresse" class="btn btn-danger">Supprimer l\'adresse</a>');
+	          var $deleteLink = $('<a href="#" class="userform_adresse-remove">Supprimer l\'adresse</a>');
 
 	          // Ajout du lien
 	          $prototype.append($deleteLink);
@@ -273,7 +272,7 @@ $(document).ready(function(){
 	        var $container = $('div#user_adresses');
 
 	        // On ajoute un lien pour ajouter une nouvelle catégorie
-	        var $addLink = $('<a href="#" id="add_adresse" class="btn btn-default">Ajouter une autre adresse de livraison</a>');
+	        var $addLink = $('<a href="#" class="userform_adresse-add">Ajouter une autre adresse de livraison</a>');
 	        $container.after($addLink);
 
 	        // On ajoute un nouveau champ à chaque clic sur le lien d'ajout.

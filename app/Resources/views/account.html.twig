@@ -2,98 +2,87 @@
 
 {% block body %}
 
-<section class="section-first">
+<div class="section-first">
 	<div class="container-small">
-		<div id="account-wrapper">
-			<div class="green_header">
-				<h1>Mon compte</h1>			
+		<div class="account">
+			<div class="account-header">
+				<h1 class="account-title">Mon compte</h1>			
 			</div>
-			<div id="account_welcome">
+			<div class="account-welcome">
 				<p >Bienvenue sur votre page d’acceuil.<br>
-				Vous pouvez gérer vos informations personnelles,<br> 
-				vos commandes ainsi que vos adresses.
-				</p>		
-			</div>
-			<div id="account_content" class="green_content">
-				<section id="account_sidebar">
-					<nav>
-						<ul>
-							<li><button><span class="account-historique"></span>Historique et détails de mes commandes</button></li>
-							<li><button><span class="account-adresses"></span>Mes adresses de livraison</button></li>
-							<li><button><span class="account-informations"></span>Mes informations personelles</button></li>
-							<li><button><span class="account-fidelite"></span>Mes points de fidélité</button></li>
-							<li><button><span class="account-parrainage"></span>Parrainage</button></li>
-						</ul>
-					</nav>
-				</section>
-				<section id="account_box">
-					<article id="account_commandes">
-						<h2>Mes commandes</h2>
-						<div class="box_table">
-						<table class="table_caddie table-striped">
-						<thead>
-							<tr>
-								<th id="caddie_table_photo">Numéro de la commande</th>
-								<th id="caddie_table_produit">Date de commande</th>
-								<th id="caddie_table_prix">Articles</th>
-								<th id="caddie_table_quantite">État de la commande</th>
-								<th id="caddie_table_total">Coût</th>
-							</tr>
-						</thead>
-						<tbody>
-
-							{% for commande in commandes %} <!-- Création des lignes du tableau contenant les produits -->
-
-								<tr>
-									<th><button class="ref-commandes">{{ commande.reference }}</button></th>
-									<th>{{ commande.date|localizeddate('medium', 'none', 'fr') }}</th>
-									<th>{{ commandes|length }}</th>
-									<th>En cours</th>
-									<th><span class='js-prixtotal'>{{ commande.prix }}</span> €</th>			            		
-								</tr>
-
-							{% endfor %}
-
-						</tbody>
-					</table>
-					</div>
-							{% for commande in commandes %} <!-- Création des lignes du tableau contenant les produits -->
-
-						<table class="table_caddie table-striped table-hide button-ref" id="button-{{commande.reference}}">
-						<caption>Détails de la commande {{commande.reference}}</caption>
-
-						<thead>
-							<tr>
-								<th id="caddie_table_photo">Produit</th>
-								<th id="caddie_table_produit">Quantité</th>
-								<th id="caddie_table_prix">Prix</th>
-							</tr>
-						</thead>
-						<tbody>
-
-								{% for liste in commande.produit %}
-								<tr>
-									<th>{{ liste.titre }}</th>
-									<th>{{ liste.quantite }}</th>
-									<th>{{ liste.prix }} €</th>		            		
-								</tr>
-								{% endfor %}
-						
-						</tbody>
-					</table>
-					{% endfor %}						
-					</article>
-					<article>
-						
-					</article>
-					<article></article>
-					<article></article>
-					<article></article>
-				</section>
-			</div>
-		</div>
-		
-	</div>
-</section>
+                    Vous pouvez gérer vos informations personnelles,<br> 
+                    vos commandes ainsi que vos adresses.
+                </p>		
+            </div>
+            <div class="account-content">
+                <section class="account-sidebar">
+                    <nav>
+                        <ul>
+                            <li><button><span class="account-historique"></span>Historique et détails de mes commandes</button></li>
+                            <li><button><span class="account-adresses"></span>Mes adresses de livraison</button></li>
+                            <li><button><span class="account-informations"></span>Mes informations personelles</button></li>
+                            <li><button><span class="account-fidelite"></span>Mes points de fidélité</button></li>
+                            <li><button><span class="account-parrainage"></span>Parrainage</button></li>
+                        </ul>
+                    </nav>
+                </section>
+                <section class="account_infobox">
+                    <article>
+                        <h2 class="section_title-green">Mes commandes</h2>
+                        <div>
+                            <table class="account-table">
+                                <thead>
+                                    <tr>
+                                        <th class="account-table_reference">Référence</th>
+                                        <th>Date de commande</th>
+                                        <th>Articles</th>
+                                        <th>État de la commande</th>
+                                        <th>Coût</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                {% for commande in commandes %} <!-- Création des lignes du tableau contenant les produits -->
+                                    <tr>
+                                        <th><button class="account-table_buttonref">{{ commande.reference }}</button></th>
+                                        <th>{{ commande.date|localizeddate('medium', 'none', 'fr') }}</th>
+                                        <th>{{ commande.produit|length }}</th>
+                                        <th>En cours</th>
+                                        <th><span class='js-prixtotal'>{{ commande.prix }}</span> €</th>			            		
+                                    </tr>
+                                {% endfor %}
+                                </tbody>
+                            </table>
+                        </div>
+                        {% for commande in commandes %} <!-- Création des lignes du tableau contenant les produits -->
+                        <table class="account-table account-table-hide account-reftable" id="js-account-refbutton-{{commande.reference}}">
+                            <caption>Détails de la commande {{commande.reference}}</caption>
+                            <thead>
+                                <tr>
+                                    <th>Produit</th>
+                                    <th>Quantité</th>
+                                    <th>Prix</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                            {% for liste in commande.produit %}
+                                <tr>
+                                   <th>{{ liste.titre }}</th>
+                                   <th>{{ liste.quantite }}</th>
+                                   <th>{{ liste.prix }} €</th>		            		
+                               </tr>
+                            {% endfor %}
+                            </tbody>
+                        </table>
+                        {% endfor %}						
+                    </article>
+                    <article></article>
+                    <article></article>
+                    <article></article>
+                    <article></article>
+                </section>
+            </div>
+        </div>
+    </div>
+</div>
 
 {% endblock %}

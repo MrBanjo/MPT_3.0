@@ -1,21 +1,17 @@
 {% extends "base.html.twig" %}
 
 {% block body %}
-    {% if error is defined %}
-        <div>{{ error.messageKey|trans(error.messageData) }}</div>
-    {% endif %}
-
-    <section class="section-first">
-        <div class='container-small'>
-          <div class="login_box">
-             <div class="box_subs">
-              <P class="login_title">CONNEXION</p>
-              {{ include ("form/loginForm.html.twig") }}
-              <P class="login_title">ENREGISTREMENT</p>     
-              {{ include ("form/subsaccountForm.html.twig") }}
-            </div>           
-          </div>
-        </div>
-    </section>
-
+{% if error is defined %}
+    <div>{{ error.messageKey|trans(error.messageData) }}</div>
+{% endif %}
+<section class="section-first">
+    <div class='container-small'>
+        <div class="userform_box">
+            <h1 class="section_title-green">CONNEXION</h1>
+            {{ include ("form/loginForm.html.twig") }}
+            <h2 class="section_title-green">ENREGISTREMENT</h2>     
+            {{ include ("form/subsaccountForm.html.twig") }}
+        </div>           
+    </div>
+</section>
 {% endblock %}
