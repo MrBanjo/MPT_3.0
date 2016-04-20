@@ -2,62 +2,50 @@
    CADDIE
    ========================================================================== */
 
-.green_header {
-    background-color: $green_dark_account;
-}
-
-.green_content {
-    background-color: $green_medium_account;
-}
-
-#account-wrapper {
+.account {
     margin-top: 35px;
     font-family: "arialnarrow", sans-serif;
-    color: $font_brown;
-    font-size: 18px;
+    color: $font-brown;
+    font-size: 18px;        
 
-    .green_header {
+    &-header {
+        background-color: $green_dark_account;
         height: 54px;
+    }
 
-        h1 {
-            text-align: center;
-            font-family: "Kraftstoff", sans-serif;
-            color: white;
-            font-size: 36px;
-            font-weight: normal;
-            margin: auto;
-        }
+    &-title {
+        text-align: center;
+        font-family: "Kraftstoff", sans-serif;
+        color: white;
+        font-size: 36px;
+        font-weight: normal;
+        margin: auto;        
+    }
 
-    }    
-}
-
-#account_welcome {
-    text-align: center;
-    background-color: white;
-    p {
-        margin: auto;
+    &-welcome {
+        text-align: center;
+        background-color: white;
         font-style: italic;
     }
-}
 
-#account_content {
-    display: flex;
-    justify-content: center;
-
-    flex-wrap: wrap;
-    padding: 20px 0;
-
-    .box_table {
-        padding: 0;
+    &-content {
+        background-color: $green_medium_account;
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+        padding: 20px 0;        
     }
 
-    .table_caddie th {
-        padding: 0 5px;
+    &_infobox {
+        margin: auto;
+
+        h2 {
+            margin: 10px 0;
+        }
     }
 
-    .table_caddie tbody th {
-        height: auto;
-        background-color: #eef4ea;
+    &_reference {
+        width: 200px;
     }
 
     caption {
@@ -66,38 +54,64 @@
         font-size: 30px;
         color: #4d4135;
     }
+}
 
-    .table-hide {
-        display: none;
-    }
+.account-table {
+    width: 100%;
+    border-collapse: collapse;
+    border-spacing: 0;
+    font-family: "arialnarrow", sans-serif;
 
-    .table_caddie button {
-        font-family: "arialnarrow", sans-serif;
-        color: $font_brown;
-        font-size: 18px;
-        margin: 5px 0;
-        position: relative;
-        border: none;
-        font-weight: bold;
-        &:focus {
-            outline:none;
+    thead {
+        background-color: #9bba83;
+        color: white;
+
+        tr {
+            height: 41px;
+            border-top: 1px solid #ccd7bc;
+            border-bottom: 1px solid #ccd7bc;
+            box-sizing: border-box;
+        }
+
+        th {
+            font-family: arial;
+            font-size: 16px;
+            text-transform: uppercase;
+            padding: 0 20px;
         }
     }
-}
 
-#account_box {
-    margin: auto;
-    h2 {
-        text-align: center;
+    tbody {
+        background-color: #eef4ea;
+        color: $font-brown;
+        font-size: 18px;
+
+        th {   
+            font-weight: normal;
+            padding: 5px 0;
+        }
+
+        button { 
+            font-weight: bold;
+            color: $font-brown;   
+        }      
+    }
+
+    &-hide {
+        display: none;
     }
 }
 
-#account_sidebar {
+.account-sidebar {
     padding: 0px 0 0 50px;
+
+    ul {
+        list-style-type: none;
+    }
 
     button {
         font-family: "arialnarrow", sans-serif;
-        color: $font_brown;
+        color: $font-brown;
         font-size: 18px;
         text-decoration: underline;
         margin: 5px 0;
@@ -121,7 +135,13 @@
 }
 
 @media only screen and (max-width: 1280px) {
-    #account-wrapper {
+    .account {
+        padding: 0;
+    }
+}
+
+@media only screen and (max-width: 700px) {
+    .account-table thead th {
         padding: 0;
     }
 }

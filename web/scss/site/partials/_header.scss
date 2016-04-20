@@ -2,6 +2,14 @@
    Header
    ========================================================================== */
 
+@mixin header-nav_link($height, $line, $size) {
+    line-height: $line;
+    height: $height;
+    display: block;
+    text-align: center;
+    font-size: $size;
+}
+
 header {
     position: fixed;
     top: 0;
@@ -9,95 +17,74 @@ header {
     height: 100px;
     background-color: $header_footer_background;
     z-index: 1000;
-    & > div {
-        position: relative;
-    }
-
-    span {
-        display: inline-block;
-        margin-right: 20px;
-        vertical-align: middle; 
-    }
+    color: white;
+    font-family: "mohave bold";
 }
 
-#logo {
+.logo {
     position: absolute;
     top: 10px;
-    left:0;
-    right:0;
+    left: 0;
+    right: 0;
     margin: 0 auto;
     z-index: 1000;
 } 
 
 /*Strip the ul of padding and list styling*/
-.nav_header ul {
-    list-style-type:none;
-    margin:0;
-    padding:0;
+.header-nav_ul {
     position: absolute;
 }
 
 /*Create a horizontal list with spacing*/
-.nav_header li {
-    display: block;
-    float: left;
+.header-nav_li {
+    display: inline-block;
 }
 
-#menu_header > li > a {
-    height: 100px;
-    line-height: 100px;
+.left_li {
+    margin-left: 65px;
+}
+
+.right_li {
+    margin-left: 30px;
+}
+
+// Make room for the logo
+.header-nav_li:nth-child(3) {
+    margin-right: 220px;
 }
 
 /*Style for menu links*/
-.nav_header li a {
-    display:block;
-    height: 50px;
-    text-align: center;
-    line-height: 50px;
-    font-size: 18px;
-    font-family: "mohave bold";
-    color: #fff;
-    text-decoration: none;
+.header-nav_link {
+    @include header-nav_link(100px, 100px, 18px);
 }
 
-/*Hover state for top level links*/
-/* .nav_header li:hover a {
-    
-} */
-
 /*Style for dropdown links*/
-.nav_header li:hover ul a {
-    background-color: rgb(73,63,51);
-    height: 40px;
-    line-height: 40px;
+.header-nav_link2 {
+    @include header-nav_link(40px, 40px, 16px);
+    background-color: $header_footer_background;
+    width: auto;
+    min-width: 100px;
+    padding: 0 20px;
 }
 
 /*Hover state for dropdown links*/
- li:hover ul a:hover {
+.header-nav_link2:hover {
     background: #312a22;
 } 
 
 /*Hide dropdown links until they are needed*/
-.nav_header li ul {
+.header-nav_ul2 {
     display: none;
+    position: absolute;
 }
 
 /*Make dropdown links vertical*/
-.nav_header li ul li {
+.header-nav_li2 {
     display: block;
-    float: none;
-}
-
-/*Prevent text wrapping*/
-.nav_header li ul li a {
-    width: auto;
-    min-width: 100px;
-    padding: 0 20px;
-    font-size: 16px;
 }
 
 /*Display the dropdown on hover*/
-.nav_header ul li a:hover + .ulhidden, .ulhidden:hover {
+.header-nav_link:hover + .header-nav_ul2, .header-nav_ul2:hover {
     display: block;
 }
 
@@ -110,47 +97,50 @@ header {
 }
 
 .header-menu_close {
+    display: none;
     position: absolute;
     margin: 0 auto;
     top: 30px;
     left: 0;
     right: 0;
-    display: none;
 }
 
 /*Hide checkbox*/
-.nav_header input[type=checkbox]{
+.show-menu-input {
     display: none;
 }
 
 /*Show menu when invisible checkbox is checked*/
-.nav_header input[type=checkbox]:checked ~ #menu_header{
+.show-menu-input:checked ~ .header-nav_ul {
     display: block;
 }
 
-.nav_header > ul > li:last-child {
+// Question li
+.header-nav_li:last-child {
     position: relative;
     width: 100px;
 }
 
-.left_li {
-    margin-left: 65px;
+.header-question {
+    position: relative;
+    top: 10px;
+    font-size: 18px;
+
+/*     &:before {
+    content: "";
+    -webkit-backface-visibility:hidden;
+   display: inline-block;
+   position: absolute;
+   height: 62px;
+   width: 2px;
+   background-color: white;
+   left: -15px;
+   opacity: 0.7;
+   top: 0px;
+} */
 }
 
-.right_li {
-    margin-left: 30px;
-    a {
-        height: 100px !important; 
-        line-height: 18px !important;
-        padding-top: 30px;
-    }
-}
-
-#menus_header {
-    margin-right: 220px;
-}
-
-#barre_left {
+/* .header-question-barre {
     content: "";
     display: inline-block;
     position: absolute;
@@ -159,7 +149,17 @@ header {
     background-color: white;
     left: -15px;
     opacity: 0.7;
-    top: 20px;
+    top: 0px;
+ }  */ 
+
+.header-right {
+    position: absolute;
+    right:0;
+    top:0;
+
+    p {
+        margin-top: 10px;
+    }
 }
 
 .header-account {
@@ -168,44 +168,12 @@ header {
     left: 12px;
 }
 
-#caddie_header {
-    display: inline-block;
-    position: absolute;
-    z-index: 500;
-    right: -30px;
-    top: 32px;
-    width: 100px;
-    height: 100px;
-
-    a {
-        position: relative;
-        width: 100px;
-        height: 100px;
-    }
+.header-prenom {
+    position: relative;
+    top: 30px;
 }
 
-#count_caddie {
-    position: absolute;
-    width: 25px;
-    height: 25px;
-    background-color: $orange_ligth;
-    border-radius: 50%;
-    text-align: center;
-    font-family: "mohave bold";
-    font-weight: bold;
-    font-size: 16px;
-    color: white;
-    right: -6px;
-    top: 18px;
-}
-
-#prenom_header {
-    position: absolute;
-    top: 65px;
-    right: 85px;
-}
-
-#account_header {
+.header-right-account {
     display: inline-block;
     height:100px;
     z-index: 500;
@@ -215,20 +183,7 @@ header {
     position: absolute;
 }
 
-#header_right {
-    position: absolute;
-    right:0;
-    top:0;
-
-    p {
-        margin-top: 10px;
-        font-family: "mohave bold";
-        font-weight: bold;
-        color: white;
-    }
-}
-
-.form_header {
+.header-form {
     display: none;
     background-color: $header_footer_background;
     width: 250px;
@@ -266,8 +221,6 @@ header {
     }
 
     label {
-        font-family: "mohave bold";
-        color: white;
         font-size: 14px;
     }
 
@@ -277,19 +230,48 @@ header {
         width: 150px;
         margin: 20px auto 20px auto;
         padding: 3px 0;
-        color: white;
-        font-family: "mohave bold";
+
     }    
 }
 
-#account_header:hover .form_header {
+.header-right-account:hover .header-form {
     display: block;
+}
+
+.header-caddie {
+    display: inline-block;
+    position: absolute;
+    z-index: 500;
+    right: -30px;
+    top: 32px;
+    width: 100px;
+    height: 100px;
+
+    a {
+        position: relative;
+        width: 100px;
+        height: 100px;
+    }
+}
+
+.caddie-count {
+    position: absolute;
+    width: 25px;
+    height: 25px;
+    background-color: $orange_ligth;
+    border-radius: 50%;
+    text-align: center;
+    font-weight: bold;
+    font-size: 16px;
+    color: white;
+    right: -6px;
+    top: 18px;
 }
 
 /*Responsive Styles*/
 
 @media screen and (max-width : 1280px){
-    #logo {
+    .logo {
         position: absolute;
         top: 10px;
         left: 10px;
@@ -301,44 +283,38 @@ header {
         margin-left: 20px;
     }
 
-    #menus_header {
+    .header-nav_li:nth-child(3) {
         margin-right: 0;
     }
-    .nav_header > ul {
+
+    .header-nav_ul {
         right: 130px;
-    }
+    } 
 }
 
 @media screen and (max-width : 1050px){
-    #logo {
+    .logo {
         position: absolute;
         top: 10px;
         left: 10px;
         right: auto;
         margin: 0;
     } 
-    #menu_header > li > a{
+    .header-nav_link {
         height: 50px;
         line-height: 50px;
     }
 
     /*Make dropdown links appear inline*/
-    .nav_header ul {
+    .header-nav ul {
         position: static;
         display: none;
     }
-    .login_nav ul {
-        display: inherit;
-    }
-    /*Create vertical spacing*/
-    .nav_header li {
-        margin-bottom: 0;
-    }
+
     /*Make all menu links full width*/
-    .nav_header ul li {
+    .header-nav li {
         width: 100%;
-        background-color: rgb(73,63,51);
-        background-color: rgba(73,63,51,1);
+        background-color: $header_footer_background;
     }
     /*Display 'show menu' link*/
     .show-menu {
@@ -349,28 +325,27 @@ header {
         display: initial;
     }
 
-    .nav_header ul li:last-child {
-        position: relative;
+    .header-nav_li:last-child {
         width: 100%;
     }
 
-    .right_li a {
-        height: 50px !important; 
-        line-height: 50px !important;
-        padding-top: 0;
+    .header-question {
+        display: block;
+        text-align: center;
+        height: 50px;
     }
-    #barre_left {
+
+    .header-question-barre {
         display: none;
     }
 
-        .left_li,.right_li {
+    .left_li, .right_li {
         margin-left: 0;
     }
 }
 
-
 @media only screen and (max-width: 760px) {
-    #logo {
+    .logo {
         width: 100px;
     }
 }

@@ -8,7 +8,7 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 class MenusController extends BaseController
 {
     /**
-     * @Route("/menus", name="menus", defaults={"title": "Nos menus"})
+     * @Route("/menus", name="menus", defaults={"title": "Nos menus - Mon Panier Toqué"})
      * @Method({"GET","HEAD"})
      */
     public function showCurrentMenuAction()

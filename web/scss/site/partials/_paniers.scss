@@ -2,104 +2,78 @@
    Paniers
    ========================================================================== */
 
-#box_menu {
-    display: flex;
-    justify-content: space-around;
-    flex-wrap: wrap;
-}
-
-.menu_soir {
-    background-color: white;
+@mixin menuArticle() {
     width: 620px;
     position: relative;
     margin-bottom: 20px;
     text-align: center;
+    font-family: "arialnarrow";  
 }
 
-.menu_soir h3 {
+@mixin menuh3() {
     font-family: "Kraftstoff";
     font-size: 40px;
-    color: #493f34;
+    color: $font-brown;
     font-weight: normal;
-    position: absolute;
-    right: 90px;
-    top: 10px;
 }
 
-.menu_soir img, .menu_soir .sprite-span {
-    margin-top: 30px;
-    vertical-align: middle;
+.menu-flexbox {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+}
+.menu-soir {
+
+    &_article {
+        @include menuArticle();
+        background-color: white;
+    }
+
+    h3 {
+        @include menuh3();
+        position: absolute;
+        right: 90px;
+        top: 10px;
+    }
+
+    img, .sprite-span {
+        margin-top: 30px;
+    }
 }
 
-.prix_paniers_box {
-    font-family: "arialnarrow";
+.menu-other {
+
+    &_article {
+        @include menuArticle();
+        background-color: #e5dbd1;
+    }
+
+    h3 {
+        @include menuh3();
+    }
+
+    img {
+        margin-top: 10px;
+    }
+}
+
+.panier-prix_box {
     font-size: 24px;
     color: #5c5d61;
     margin: 10px 0;
     text-align: center;
 }
 
-.prix_paniers_box span {
+.menu_button-box {
+    @include buttonLink(36px, 240px);
+    text-transform: uppercase;
     margin: 0 10px;
 }
 
-.plus_soir, .plus_convi {
-    font-family: "arialnarrow";
-    font-size: 21px;
-    text-align: center;
-    display: inline-block;
-    text-transform: uppercase;
-}
-
-.plus_soir a, .plus_convi a{
-    display: inline-block;
-    width: 240px;
-    height: 35px;
-    vertical-align: middle;
-    line-height: 35px;
-}
-
-.menu_autre {
-    background-color: #e5dbd1;
-    width: 620px;
-    position: relative;  
-}
-
-.menu_autre h3 {
-    font-family: "Kraftstoff";
-    font-size: 40px;
-    color: #493f34;
-    font-weight: normal;
-    text-align: center;
-}
-
-.menu_autre img {
-    margin-top: 10px;
-    vertical-align: middle;
-}
-
-#engagement_panier {
-    background-color: #fffaf4;
-}
-
 @media only screen and (max-width: 620px) {
-    .menu_soir h3 {
+    .menu-soir h3 {
         position: inherit;
         text-align: center;
-        right:0;
+        right: 0;
     }
-    .menu_autre img {
-        width: 100%;
-    }
-
-}
-
-@media only screen and (max-width: 400px) {
-    .prix_paniers span {
-        margin: 0;
-    }
-    .menu_soir img:nth-child(2) {
-        width: 100%;
-    }
-
 }

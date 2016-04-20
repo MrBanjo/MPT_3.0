@@ -1,4 +1,4 @@
 <form action="{{ path('newsletter') }}" method="post" id="newsletter_form">
-	<input type="email" name="newsletter[email]"/><input type="submit" value="Envoyer" name="newsletter[Envoyer]"></input>
+	<input type="email" name="newsletter[email]" class="footer_input-email"/><input type="submit" value="Envoyer" name="newsletter[Envoyer]" class="footer_input-submit">
 	<input type="hidden" id="newsletter__token" name="newsletter[_token]" value="{{ csrf_token('news_item') }}">
 </form>

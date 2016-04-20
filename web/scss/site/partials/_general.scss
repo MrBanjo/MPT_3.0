@@ -2,118 +2,61 @@
    Base styles: opinionated defaults
    ========================================================================== */
 
-html {
-    color: #222;
-    font-size: 1em;
-    line-height: 1.4;
-}
-
-::-moz-selection {
-    background: #b3d4fc;
-    text-shadow: none;
-}
-
-::selection {
-    background: #b3d4fc;
-    text-shadow: none;
-}
-
-img { 
-    -ms-interpolation-mode: bicubic; 
-}
-
-hr {
-    display: block;
-    height: 1px;
-    border: 0;
-    border-top: 1px solid #ccc;
-    margin: 1em 0;
-    padding: 0;
-}
-
-audio,
-canvas,
-iframe,
-img,
-svg,
-video {
-    vertical-align: middle;
-}
-
-fieldset,ul,li {
-    border: 0;
-    margin: 0;
-    padding: 0;
-}
-
-textarea {
-    resize: vertical;
-}
-
-a {
-    text-decoration: none;
-    color: inherit;
-    &:focus {
-        outline: 0;
-    }
-}
-
-h1,h2,h3,h4,h5,h6,p {
-    margin:0;
-    padding:0;
-}
-
-input,button {
-    padding:0;
-    margin:0;
-    border:0;
-    background: none;
-}
-
-.browsehappy {
-    margin: 0.2em 0;
-    background: #ccc;
-    color: #000;
-    padding: 0.2em 0;
-}
-
-.container_small {
+.container-small {
     width: 1280px;
     margin: 0 auto;
     position: relative;
 }
 
-.first_section {
+.section-first {
     background-color: #e5dbd1;
     padding-top: 130px;
 }
 
-.alter_first_section {
+.section-first-white {
     background-color: white;
     padding-top: 130px;
-}
-
-@media only screen and (max-width: 1280px) {
-    .container_small {
-        width: 100%;
-    }
-}
-
-.label_login_form .required:after {
-    content: " *";
-    color: #f18a31;
-    font-weight: normal;
-    vertical-align: bottom;
 }
 
 .sprite-span {
     display: inline-block;
     vertical-align: middle; 
-} 
+}
+
+.green_light {
+    background-color: #f7f9f5;
+}
+
+.green_dark {
+    background-color: #dee8d6;
+}
+
+.sprite-span-base {
+    display: inline-block;
+    vertical-align: middle; 
+    margin-right: 20px; 
+}
+
+@media only screen and (max-width: 1280px) {
+    .container-small {
+        width: 100%;
+    }
+}
 
 /* ==========================================================================
    Styled Buttons
    ========================================================================== */
+
+@mixin buttonLink($height, $width, $font-size: "21px") {
+    display: inline-block;
+    text-align: center;
+    font-family: "arialnarrow";
+    font-size: unquote($font-size);
+    height: $height;
+    width: $width;
+    line-height: $height;
+    vertical-align: middle;        
+}
 
 .orange {
     background-color: $orange_ligth;
@@ -166,7 +109,6 @@ input,button {
             text-decoration: underline;
             color: #4d4135;
         }
-
     }
 
     ul li:after {
@@ -186,7 +128,7 @@ input,button {
     position: absolute;
     bottom: 0;
     left: 0;
-    background: #666\9;
+    background: rgb(80, 80, 80);;
     background: rgba(80, 80, 80, 0.4);
     width: 100%;
 }
@@ -197,4 +139,38 @@ input,button {
     display: block;
     font-size: 1.2em;
     padding: 10px;
+}
+
+/* ==========================================================================
+   Title
+   ========================================================================== */
+
+@mixin sectionTitle ($color) {
+    font-family: "Mohave semi-Bold", sans-serif;
+    font-size: 36px;
+    color: $color;
+    text-align: center;
+}
+
+.section-title {
+    text-align: center;
+    padding: 40px 0;
+}
+
+.section_title-green {
+    @include sectionTitle($font-green);
+}
+
+.section_title-brown {
+    @include sectionTitle($font-brown);
+}
+
+.section_title-white {
+    @include sectionTitle(white);
+}
+
+.section_description {
+    font-family: 'kraftstoff', sans-serif;
+    font-size: 30px;
+    color: $font-brown;    
 }

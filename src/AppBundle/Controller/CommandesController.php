@@ -11,7 +11,7 @@ use Doctrine\Common\Collections\ArrayCollection;
 class CommandesController extends BaseController
 {
     /**
-     * @Route("/caddie/commande-validée", name="addcommandes")
+     * @Route("/caddie/commande-validée", name="addcommandes", defaults={"title": "Commande validée - Mon Panier Toqué"})
      * @Method({"POST","GET","HEAD"})
      */
     public function createCommandesAction()

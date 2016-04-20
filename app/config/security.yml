@@ -39,11 +39,11 @@ security:
                 target_path_parameter: _target_path
             logout:
                 path:   /logout
-                target: /accueil
+                target: /
             remember_me:
                 secret:      "%secret%"
                 lifetime: 31536000 # 365 days in seconds
-                path:     /accueil
+                path:     /
                 domain:   ~ # Defaults to the current domain from $_SERVER
             # activate different ways to authenticate
 

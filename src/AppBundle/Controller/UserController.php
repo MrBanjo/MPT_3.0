@@ -17,7 +17,7 @@ class UserController extends BaseController
     protected $type = 'AppBundle\Form\Type\UserType';
 
     /**
-     * @Route("/login", name="login")
+     * @Route("/login", name="login", defaults={"title": "Connexion / Enregistrement - Mon Panier Toqué"})
      * @Method({"GET","HEAD","POST"})
      */
     public function loginAction(Request $request)
@@ -58,7 +58,6 @@ class UserController extends BaseController
             $event = new InteractiveLoginEvent($request, $token);
             $this->get('event_dispatcher')->dispatch('security.interactive_login', $event);
             
-            $this->get('session')->set('old_referer', $request->headers->get('referer'));
             return $this->container->get('login_handler')->onAuthenticationSuccess($request, $token);
         }
 

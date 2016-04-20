@@ -1,25 +1,25 @@
 <form action="{{ path('login') }}" method="post" class="login_form">             
-    <div class="box_form_user">
-        <div class="box_form_user_small">
-            <div class="row_login_form">
-                <div class="label_login_form">
+    <div class="userform">
+        <div class="userform_smallbox">
+            <div class="userform_row">
+                <div class="userform_label">
                     <label for="username_login">Votre email:</label>
                 </div>
-                <input type="text" id="username_login" name="_username"  />
+                <input type="text" id="username_login" name="_username"/>
             </div>
-            <div class="row_login_form">
-                <div class="label_login_form">
+            <div class="userform_row">
+                <div class="userform_label">
                     <label for="password_login">Mot de passe:</label>
                 </div>
-                <input type="password" id="password_login" name="_password" />
+                <input type="password" id="password_login" name="_password"/>
             </div>
-            <div class="row_login_form">
-                <div class="label_login_form rememberme_login">
-                    <label for="rememberme_login">Se souvenir de moi:</label>
+            <div class="userform_row">
+                <div class="userform_label label_login_form rememberme_login">
+                    <label for="userform_remember">Se souvenir de moi:</label>
                 </div>
-                <input type="checkbox" id="rememberme_login" name="_remember_me" checked />  
+                <input type="checkbox" id="userform_remember" name="_remember_me" checked/>  
             </div>
-            <div class="row_login_form">              
+            <div class="userform_row">              
                 <input type="hidden" name="_csrf_token" value="{{ csrf_token('authenticate') }}"/>
                 <button type="submit" value="Me connecter">SE CONNECTER</button>
             </div>         

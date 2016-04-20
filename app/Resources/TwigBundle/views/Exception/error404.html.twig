@@ -3,17 +3,17 @@
 {% block title %}An Error Occurred: {{ status_text }}{% endblock %}
 
 {% block body %}
-	<div class="first_section">		
+	<div class="section-first">		
 		<div class="container_small errorpage">
-			<div class="title_section">
-			    <h2 >Page not found</h2>
+			<div class="section-title">
+			    <h2 class="section_title-green">Page not found</h2>
 
 			    {# example security usage, see below #}
 			    {% if is_granted('IS_AUTHENTICATED_FULLY') %}
 			        {# ... #}
 			    {% endif %}
 
-			    <p>
+			    <p class="section_description">
 			        The requested page couldn't be located. Checkout for any URL
 			        misspelling or <strong><a href="{{ path('accueil') }}">return to the homepage</a></strong>.
 			    </p>			

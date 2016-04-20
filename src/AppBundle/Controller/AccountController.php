@@ -8,7 +8,7 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 class AccountController extends BaseController
 {
     /**
-     * @Route("/account", name="account", defaults={"title": "Votre compte"})
+     * @Route("/account", name="account", defaults={"title": "Votre compte - Mon Panier Toqué"})
      * @Method({"GET","HEAD"})
      */
     public function indexAction()

@@ -1,6 +1,6 @@
 // Mon Panier Toqué : SITE SCSS
 
-@import "vendor/_normalize.min.scss";
+@import "vendor/_normalize.scss";
 @import "site/modules/_variables.scss";
 @import "site/partials/_fonts.scss";
 @import "site/modules/_sprites.scss";
@@ -14,9 +14,10 @@
 
 @import "site/partials/_home.scss";
 @import "site/partials/_paniers.scss";
-@import "site/partials/_panier&menu.scss";
+@import "site/partials/_panier.scss";
+@import "site/partials/_menus.scss";
 @import "site/partials/_caddie.scss";
-@import "site/partials/_caddie_identification.scss";
+@import "site/partials/_userform.scss";
 @import "site/partials/_account.scss";
 
 // Third-party
