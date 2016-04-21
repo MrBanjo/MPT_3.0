@@ -71,6 +71,9 @@ set :composer_install_flags, '--prefer-dist --no-interaction --optimize-autoload
 
 server 'www.johannuntereiner.fr', user: 'banjo', roles: %w{app db web} # edit IP / Port and SSH user of your production server
 
+set :grunt_file, -> { release_path.join('Gruntfile.js') }
+set :grunt_flags, '--force' 
+
 after 'deploy:finished', 'mpt:database'
 after 'deploy:finished', 'grunt'
 after 'deploy:finished', 'mpt:removefiles'
