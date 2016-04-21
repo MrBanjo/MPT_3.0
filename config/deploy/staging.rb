@@ -75,4 +75,5 @@ set :grunt_file, -> { release_path.join('Gruntfile.js') }
 
 after 'deploy:finished', 'mpt:database'
 after 'deploy:finished', 'grunt'
+after 'deploy:finished', 'mpt:removefiles'
 after 'deploy:finished', 'mpt:clearcacheprod'
