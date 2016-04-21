@@ -69,8 +69,9 @@ set :deploy_to, '/var/www/html/mpt' # path on production server
 set :controllers_to_clear, ["app_*.php"]
 set :composer_install_flags, '--prefer-dist --no-interaction --optimize-autoloader'
 
-server 'www.johannuntereiner.fr', user: 'root', roles: %w{app db web} # edit IP / Port and SSH user of your production server
+server 'www.johannuntereiner.fr', user: 'banjo', roles: %w{app db web} # edit IP / Port and SSH user of your production server
 
 after 'deploy:finished', 'mpt:database'
+after 'deploy:finished', 'grunt'
 after 'deploy:finished', 'mpt:removefiles'
 after 'deploy:finished', 'mpt:clearcacheprod'

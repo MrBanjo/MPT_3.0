@@ -69,7 +69,7 @@ set :deploy_to, '/var/www/html/testmpt' # path on production server
 set :controllers_to_clear, []
 set :composer_install_flags, '--prefer-dist --no-interaction --optimize-autoloader'
 
-server 'www.johannuntereiner.fr', user: 'root', roles: %w{app db web} # edit IP / Port and SSH user of your production server
+server 'www.johannuntereiner.fr', user: 'banjo', roles: %w{app db web} # edit IP / Port and SSH user of your production server
 
 set :grunt_file, -> { release_path.join('Gruntfile.js') }
 
