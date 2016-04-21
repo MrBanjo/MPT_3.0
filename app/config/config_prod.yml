@@ -1,7 +1,9 @@
 imports:
     - { resource: config.yml }
 
-#framework:
+framework:
+    assets:
+        base_path: '/prod/'
 #    validation:
 #        cache: validator.mapping.cache.doctrine.apc
 #    serializer:

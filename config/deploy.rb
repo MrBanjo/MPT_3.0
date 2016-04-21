@@ -33,6 +33,9 @@ set :log_level, :debug
 set :linked_files, %w{app/config/parameters.yml}
 set :linked_dirs, %w{app/logs web/uploads}
 
+set :npm_target_path, -> { release_path.join('') }
+set :npm_flags, '--silent'
+
 # Default value for linked_dirs is []
 # set :linked_dirs, fetch(:linked_dirs, []).push('log', 'tmp/pids', 'tmp/cache', 'tmp/sockets', 'vendor/bundle', 'public/system')
 
@@ -40,7 +43,7 @@ set :linked_dirs, %w{app/logs web/uploads}
 # set :default_env, { path: "/opt/ruby/bin:$PATH" }
 
 # Default value for keep_releases is 5
-set :keep_releases, 3
+set :keep_releases, 2
 
 after 'deploy:finishing', 'deploy:cleanup'
 
