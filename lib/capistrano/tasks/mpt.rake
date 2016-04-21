@@ -9,7 +9,7 @@ namespace :mpt do
   desc 'Remove unecessary files'
   task :removefiles do
     on roles(:app) do
-        execute "rm -r #{release_path}/web/scss"
+        execute "rm -rf #{release_path}/web/dev"
     end
   end
 
@@ -19,8 +19,5 @@ namespace :mpt do
       invoke 'symfony:console', :'cache:clear', '--env=prod'
     end
   end
-
-  after 'deploy:finished', 'mpt:database'
-  after 'deploy:finished', 'mpt:removefiles'
-  after 'deploy:finished', 'mpt:clearcacheprod'
+  
 end

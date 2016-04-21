@@ -71,3 +71,6 @@ set :composer_install_flags, '--prefer-dist --no-interaction --optimize-autoload
 
 server 'www.johannuntereiner.fr', user: 'root', roles: %w{app db web} # edit IP / Port and SSH user of your production server
 
+after 'deploy:finished', 'mpt:database'
+after 'deploy:finished', 'mpt:removefiles'
+after 'deploy:finished', 'mpt:clearcacheprod'

@@ -5,31 +5,31 @@ module.exports = function(grunt){
 	grunt.initConfig({
 
 		jshint: {
-			all: ['web/js/*.js', '!web/js/main.min.js']
+			all: ['web/dev/js/*.js', '!web/js/main.min.js']
 		},
 
 		concat: {
 			dist: {
 				src: [
-					'web/js/vendor/jquery-1.11.2.min.js', 
+					'web/dev/js/vendor/jquery-1.11.2.min.js', 
 					'web/bundles/fosjsrouting/js/router.js',
-					'web/js/fos_js_routes.js', 
-					'web/js/vendor/bxslider/jquery.bxslider.min.js',
-					'web/js/vendor/jquery.magnific-popup.min.js', 
-					'web/js/main.js'
+					'web/dev/js/fos_js_routes.js', 
+					'web/dev/js/vendor/bxslider/jquery.bxslider.min.js',
+					'web/dev/js/vendor/jquery.magnific-popup.min.js', 
+					'web/dev/js/main.js'
 				],
-				dest: 'web/js/main.min.js'
+				dest: 'web/prod/js/main.min.js'
 			}		
 		},
 
 		cssmin: {
 			target: {
 			    files: [{
-			      expand: true,
-			      cwd: 'web/css/',
-			      src: ['*.css', '!*.min.css'],
-			      dest: 'web/css/',
-			      ext: '.min.css'
+        			expand: true,
+        			cwd: 'web/dev/css/',
+        			src: ['*.css', '!*.min.css'],
+        			dest: 'web/prod/css/',
+        			ext: '.min.css'
 			    }]
 			}
 		},
@@ -37,33 +37,49 @@ module.exports = function(grunt){
 		uglify: {
 			dist: {
 				files: {
-					'web/js/main.min.js': ['web/js/main.min.js']
+					'web/prod/js/main.min.js': ['web/prod/js/main.min.js']
 				}
 			}
 		},
 
 		imagemin: {                          // Task 
 		    dynamic: {                         // Another target 
-		      files: [{
-	        expand: true,                  // Enable dynamic expansion 
-		        cwd: 'web/img/',                   // Src matches are relative to this path 
-		        src: ['**/*.{png,jpg,gif}'],   // Actual patterns to match 
-		        dest: 'web/imgmin/'                  // Destination path prefix 
-		      }]
+		        files: [{
+    	            expand: true,                  // Enable dynamic expansion 
+    		        cwd: 'web/dev/img/',                   // Src matches are relative to this path 
+    		        src: ['**/*.{png,jpg,gif}'],   // Actual patterns to match 
+    		        dest: 'web/prod/img/'                  // Destination path prefix 
+		        }]
 		    }
-		  },
+		},
+
+        copy: {
+          main: {
+            files: [
+              // includes files within path
+              // {expand: true, src: ['path/*'], dest: 'dest/', filter: 'isFile'},
+              // includes files within path and its sub-directories
+              // {expand: true, src: ['path/**'], dest: 'dest/'},
+              // makes all src relative to cwd
+              // {expand: true, cwd: 'path/', src: ['**'], dest: 'dest/'},
+              // flattens results to a single level
+              // {expand: true, flatten: true, src: ['path/**'], dest: 'dest/', filter: 'isFile'},
+              {expand: true, cwd: 'web/dev/', src: ['fonts/**'], dest: 'web/prod/'},
+            ],
+          },
+        },
 
 		phpcs: {
 		    application: {
 		        src: ['src/AppBundle/**/*.php']
 		    },
 		    options: {
-		        bin: 'phpcs',
+		        bin: 'phpcbf',
 		        standard: 'PSR2'
 		    }
 		}
 
 	});
 
-	grunt.registerTask('default', ['jshint', 'concat', 'cssmin', 'uglify', 'phpcs']);
+	grunt.registerTask('default', ['jshint', 'concat', 'cssmin', 'uglify', 'imagemin', 'copy', 'phpcs']);
 };
