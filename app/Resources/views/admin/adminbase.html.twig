@@ -1,88 +1,79 @@
 <!DOCTYPE html>
-<html>
-    <head>
-        <meta charset="UTF-8" />
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <title>{% block title %}Welcome!{% endblock %}</title>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>{% block title %}Admin - Mon Panier Toqué{% endblock %}</title>
 
-        {% block stylesheets_admin %}
+    {% block stylesheets_admin %}
+    {% if app.environment == "dev" %}
+    <link rel="stylesheet" type="text/css" href="{{ asset('css/admin.css') }}" />
+    {% else %}
+    <link rel="stylesheet" type="text/css" href="{{ asset('css/admin.min.css') }}" />
+    {% endif %}
+    {% endblock %}
+    <link rel="icon" type="image/x-icon" href="{{ asset('../favicon.ico') }}" />
+</head>
 
-        <link href="{{ asset('css/admin.css')}}" rel="stylesheet">
-
-        <!-- Just for debugging purposes. Don't actually copy these 2 lines! -->
-        <!--[if lt IE 9]><script src="../../assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
-        <script src="{{ asset('js/vendor/bootstrap/ie-emulation-modes-warning.js') }}"></script>
-
-        <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
-        <!--[if lt IE 9]>
-          <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
-          <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
-        <![endif]-->
-        <style type="text/css"></style></head>
-
-        {% endblock %}
-
-        <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
-    </head>
- <body>
-
-    <nav class="navbar navbar-inverse navbar-fixed-top">
-      <div class="container-fluid">
-        <div class="navbar-header">
-          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
-            <span class="sr-only">Toggle navigation</span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-          </button>
-          <a class="navbar-brand" href="">Mon Panier Toqué</a>
-        </div>
-        <div id="navbar" class="navbar-collapse collapse">
-          <ul class="nav navbar-nav navbar-right">
-            <li><a href="{{ path('admin') }}">Dashboard</a></li>
-            <li><a href="{{ path('accueil') }}">Retour au site</a></li>
-            <li><a href="{{ path('logout') }}">Se déconnecter</a></li>
-          </ul>
-        </div>
-      </div>
-    </nav>
+<body>
+    <header>
+        <nav class="navbar navbar-inverse navbar-fixed-top">
+            <div class="container-fluid">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand" href="">Mon Panier Toqué</a>
+                </div>
+                <div id="navbar" class="navbar-collapse collapse">
+                    <ul class="nav navbar-nav navbar-right">
+                        <li><a href="{{ path('admin') }}">Dashboard</a></li>
+                        <li><a href="{{ path('accueil') }}">Retour au site</a></li>
+                        <li><a href="{{ path('logout') }}">Se déconnecter</a></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>        
+    </header>
 
     <div class="container-fluid">
-      <div class="row">
-        <div class="col-sm-3 col-md-2 sidebar">
-          <ul class="nav nav-sidebar">
-            <li class="menu_side tout"><a href="{{ path('admin')}}" id="tout" >Accueil<span class="sr-only">(current)</span></a></li>
-            <li class="menu_side produits"><a href="{{ path('user_admin')}}" id="blog">Utilisateurs</a></li>
-            <li class="menu_side produits"><a href="{{ path('blog_admin')}}" id="blog">Blog</a></li>
-            <li class="menu_side commandes"><a href="{{ path('plat_admin')}}" id="plats">Plats</a></li>
-            <li class="menu_side commandes"><a href="{{ path('menu_admin')}}" id="menus">Menus</a></li>
-            <li class="menu_side commandes"><a href="{{ path('commandes_admin')}}" id="menus">Commandes</a></li>
-          </ul>
-          <ul class="nav nav-sidebar">
-
-            {% block sidebar_admin %}{% endblock %} <!-- <li><a></a></li> -->
-
-
-
-          </ul>
-        </div>
-        <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main cat produits">
+        <div class="row">
+            <div class="col-sm-3 col-md-2 sidebar">
+                <ul class="nav nav-sidebar">
+                    <li class="menu_side tout"><a href="{{ path('admin')}}" id="tout" >Accueil<span class="sr-only">(current)</span></a></li>
+                    <li class="menu_side produits"><a href="{{ path('user_admin')}}" id="blog">Utilisateurs</a></li>
+                    <li class="menu_side produits"><a href="{{ path('blog_admin')}}" id="blog">Blog</a></li>
+                    <li class="menu_side commandes"><a href="{{ path('plat_admin')}}" id="plats">Plats</a></li>
+                    <li class="menu_side commandes"><a href="{{ path('menu_admin')}}" id="menus">Menus</a></li>
+                    <li class="menu_side commandes"><a href="{{ path('commandes_admin')}}" id="menus">Commandes</a></li>
+                </ul>
+                <ul class="nav nav-sidebar">
+                    {% block sidebar_admin %}{% endblock %} <!-- <li><a></a></li> -->
+                </ul>
+            </div>
+            <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main cat produits">
 
             {% block body_admin %}{% endblock %}
 
+            </div>
         </div>
-      </div>
     </div>
 
-    <!-- Bootstrap core JavaScript
-    ================================================== -->
-    <!-- Placed at the end of the document so the pages load faster -->
+    {% block javascripts %}
+    {% if app.environment == "dev" %}
     <script src="{{ asset('js/vendor/jquery-1.11.2.min.js')}}"></script>
     <script src="{{ asset('js/vendor/bootstrap/bootstrap.min.js')}}"></script>
     <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
     <script src="{{ asset('js/vendor/bootstrap/ie10-viewport-bug-workaround.js')}}"></script>
+    {% else %}
+    <script src="{{ asset('js/admin.min.js') }}"></script>
+    {% endif %}
+    {% endblock %}
 
 
-  </body>
+</body>
 </html>

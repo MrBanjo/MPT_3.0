@@ -9,7 +9,7 @@ module.exports = function(grunt){
 		},
 
 		concat: {
-			dist: {
+			site: {
 				src: [
 					'web/dev/js/vendor/jquery-1.11.2.min.js', 
 					'web/bundles/fosjsrouting/js/router.js',
@@ -19,7 +19,15 @@ module.exports = function(grunt){
 					'web/dev/js/main.js'
 				],
 				dest: 'web/prod/js/main.min.js'
-			}		
+			},
+            admin: {
+                src: [
+                    'web/dev/js/vendor/jquery-1.11.2.min.js', 
+                    'web/dev/js/vendor/bootstrap/bootstrap.min.js', 
+                    'web/dev/js/vendor/bootstrap/ie10-viewport-bug-workaround.js',
+                ],
+                dest: 'web/prod/js/admin.min.js'                
+            }	
 		},
 
 		cssmin: {
@@ -37,7 +45,8 @@ module.exports = function(grunt){
 		uglify: {
 			dist: {
 				files: {
-					'web/prod/js/main.min.js': ['web/prod/js/main.min.js']
+					'web/prod/js/main.min.js': ['web/prod/js/main.min.js'],
+                    'web/prod/js/admin.min.js': ['web/prod/js/admin.min.js']
 				}
 			}
 		},
