@@ -12,7 +12,7 @@ module.exports = function(grunt){
 			site: {
 				src: [
 					'web/dev/js/vendor/jquery-1.11.2.min.js', 
-					'web/bundles/fosjsrouting/js/router.js',
+					'web/dev/bundles/fosjsrouting/js/router.js',
 					'web/dev/js/fos_js_routes.js', 
 					'web/dev/js/vendor/bxslider/jquery.bxslider.min.js',
 					'web/dev/js/vendor/jquery.magnific-popup.min.js', 
@@ -31,6 +31,9 @@ module.exports = function(grunt){
 		},
 
 		cssmin: {
+            options: {
+                keepSpecialComments: 0
+            },
 			target: {
 			    files: [{
         			expand: true,
@@ -41,6 +44,41 @@ module.exports = function(grunt){
 			    }]
 			}
 		},
+
+        postcss: {
+            options: {
+                map: {
+                    inline: false, // save all sourcemaps as separate files...
+                    annotation: 'web/dev/css/maps/' // ...to the specified directory
+                },
+                processors: [
+                    require('postcss-pxtorem')(), // add fallbacks for rem units
+                    require('autoprefixer')({browsers: 'last 2 versions'}), // add vendor prefixes
+                    //require('cssnano')({
+                    //    discardComments: {removeAll: true}
+                    //}) // minify the result
+                ]
+            },
+            dist: {
+                src: 'web/dev/css/*.css',
+
+            }
+        },
+
+        px_to_rem: {
+            dist: {
+                options: {
+                    base: 16,
+                    fallback: false,
+                    fallback_existing_rem: false,
+                    ignore: [],
+                    map: false
+                },
+                files: {
+                    'web/prod/css/main.min.css': ['web/prod/css/main.min.css']
+                }
+            }
+        },        
 
 		uglify: {
 			dist: {
@@ -86,9 +124,34 @@ module.exports = function(grunt){
 		        bin: 'phpcbf',
 		        standard: 'PSR2'
 		    }
-		}
+		},
+
+        watch: {
+            css: {
+                files: ['web/dev/css/*.css'],
+                tasks: ['postcss'],
+                options: {
+                    spawn: false,
+                },
+            },
+        },
+
+        browserSync: {
+            dev: {
+                bsFiles: {
+                    src : 'web/dev/css/main.css'
+                },
+                options: {
+                    watchTask: true,
+                    proxy: "localhost/MPT_3.0/web/app_dev.php"
+                }
+            }
+        }
 
 	});
 
 	grunt.registerTask('default', ['jshint', 'concat', 'cssmin', 'uglify', 'imagemin', 'copy', 'phpcs']);
+    grunt.registerTask('watchall', ['browserSync', 'watch'])
+    grunt.registerTask('rem', ['px_to_rem']);
+    grunt.registerTask('post', ['postcss']);
 };

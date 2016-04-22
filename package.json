@@ -3,14 +3,22 @@
   "version": "1.0.0",
   "description": "Mon Panier Toqué 3.0",
   "devDependencies": {
+    "autoprefixer": "^6.3.6",
+    "cssnano": "^3.5.2",
     "grunt": "^0.4.5",
+    "grunt-browser-sync": "^2.2.0",
     "grunt-contrib-concat": "^1.0.0",
     "grunt-contrib-copy": "^1.0.0",
     "grunt-contrib-cssmin": "^1.0.1",
     "grunt-contrib-imagemin": "^1.0.0",
     "grunt-contrib-jshint": "^1.0.0",
     "grunt-contrib-uglify": "^1.0.1",
+    "grunt-contrib-watch": "^1.0.0",
     "grunt-phpcs": "^0.4.0",
-    "load-grunt-tasks": "^3.4.1"
+    "grunt-postcss": "^0.8.0",
+    "grunt-px-to-rem": "^0.4.0",
+    "load-grunt-tasks": "^3.4.1",
+    "postcss-pxtorem": "^3.3.1",
+    "pxtorem": "^1.0.0"
   }
 }

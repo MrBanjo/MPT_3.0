@@ -27,12 +27,12 @@
         height: 20%; 
         
         &_title {
-            font-family: "mohave bold";
+            font-family: 'Mohave-Bold';
             font-size: 80px;
         }
 
         &_description {
-            font-family: "Kraftstoff";
+            font-family: 'Kraftstoff';
             font-size: 47px;
             letter-spacing: 12px;            
         }       
@@ -234,7 +234,7 @@
     &_article {
         width: 380px;
         height: 200px;
-        font-family: "arialnarrow";
+        font-family: 'ArialNarrow';
         color: #493f33;
         text-align: left;
         vertical-align: top;
@@ -316,11 +316,11 @@
     text-align: center;
     padding-top: 30px;
     color: white;
-    font-family: 'arialnarrow', Arial, sans-serif;
+    font-family: 'ArialNarrow', Arial, sans-serif;
     font-size: 20px;
 
     h2 {
-        font-family: 'mohave bold';
+        font-family: 'Mohave-Bold';
         font-size: 36px;
         margin-left: -100px;
     }
@@ -373,7 +373,7 @@
         justify-content: space-around;
         flex-wrap: wrap;
         font-size: 21px;
-        font-family: "arialnarrow";
+        font-family: 'ArialNarrow';
         color: $font-brown;
 
         &_box {

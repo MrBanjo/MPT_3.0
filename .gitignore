@@ -14,8 +14,8 @@
 /var/sessions/*
 !var/sessions/.gitkeep
 !var/SymfonyRequirements.php
-/web/bundles/
-!/web/bundles/fosjsrouting/*
+/web/dev/bundles/
+!/web/dev/bundles/fosjsrouting/*
 /web/dev/.sass-cache
 /web/config.php
 /node_modules/

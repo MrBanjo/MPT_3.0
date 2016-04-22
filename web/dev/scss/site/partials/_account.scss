@@ -4,7 +4,7 @@
 
 .account {
     margin-top: 35px;
-    font-family: "arialnarrow", sans-serif;
+    font-family: 'ArialNarrow', sans-serif;
     color: $font-brown;
     font-size: 18px;        
 
@@ -15,7 +15,7 @@
 
     &-title {
         text-align: center;
-        font-family: "Kraftstoff", sans-serif;
+        font-family: 'Kraftstoff', sans-serif;
         color: white;
         font-size: 36px;
         font-weight: normal;
@@ -60,7 +60,7 @@
     width: 100%;
     border-collapse: collapse;
     border-spacing: 0;
-    font-family: "arialnarrow", sans-serif;
+    font-family: 'ArialNarrow', sans-serif;
 
     thead {
         background-color: #9bba83;
@@ -110,7 +110,7 @@
     }
 
     button {
-        font-family: "arialnarrow", sans-serif;
+        font-family: 'ArialNarrow', sans-serif;
         color: $font-brown;
         font-size: 18px;
         text-decoration: underline;

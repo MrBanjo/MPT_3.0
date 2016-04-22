@@ -1,6 +1,18 @@
-/* ==========================================================================
-   Header
-   ========================================================================== */
+/*------------------------------------*\
+    MAIN HEADER
+\*------------------------------------*/
+/**
+ * $NAVBAR.............Main navigation bar style
+ * $LOGINFORM..........The login form and some links
+ * $CART...............The cart button
+ * $MEDIA QUERIES......Responsive styles
+ */
+
+
+/*------------------------------------*\
+    $NAVBAR
+\*------------------------------------*/
+
 
 @mixin header-nav_link($height, $line, $size) {
     line-height: $line;
@@ -18,7 +30,7 @@ header {
     background-color: $header_footer_background;
     z-index: 1000;
     color: white;
-    font-family: "mohave bold";
+    font-family: 'Mohave-Bold';
 }
 
 .logo {
@@ -115,7 +127,7 @@ header {
     display: block;
 }
 
-// Question li
+/* Question li */
 .header-nav_li:last-child {
     position: relative;
     width: 100px;
@@ -183,6 +195,12 @@ header {
     position: absolute;
 }
 
+
+/*------------------------------------*\
+    $LOGINFORM
+\*------------------------------------*/
+
+
 .header-form {
     display: none;
     background-color: $header_footer_background;
@@ -216,7 +234,7 @@ header {
         width: 150px;
         padding: 3px 0;
         color: white;
-        font-family: "mohave bold";
+        font-family: 'Mohave-Bold';
         margin: 5px auto;
     }
 
@@ -237,6 +255,12 @@ header {
 .header-right-account:hover .header-form {
     display: block;
 }
+
+
+/*------------------------------------*\
+    $CART
+\*------------------------------------*/
+
 
 .header-caddie {
     display: inline-block;
@@ -268,7 +292,11 @@ header {
     top: 18px;
 }
 
-/*Responsive Styles*/
+
+/*------------------------------------*\
+    $MEDIA QUERIES
+\*------------------------------------*/
+
 
 @media screen and (max-width : 1280px){
     .logo {
