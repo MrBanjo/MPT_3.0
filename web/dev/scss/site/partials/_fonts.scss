@@ -1,10 +1,10 @@
-/* ==========================================================================
-   Web fonts
-   ========================================================================== */
+/*------------------------------------*\
+    FONTS
+\*------------------------------------*/
 
 @font-face {
-    font-family: 'Mohave Bold';
-    src: url('../fonts/Mohave-Bold/mohave-bold.eot');
+    font-family: 'Mohave-Bold';
+    src: url('../fonts/Mohave-Bold/Mohave-bold.eot');
     src: url('../fonts/Mohave-Bold/Mohave-Bold.eot?#iefix') format('embedded-opentype'),  
          url('../fonts/Mohave-Bold/Mohave-Bold.otf')  format('opentype'),
          url('../fonts/Mohave-Bold/Mohave-Bold.woff') format('woff'), 
@@ -15,7 +15,7 @@
 }
 
 @font-face {
-    font-family: 'mohave semi-bold';
+    font-family: 'Mohave-SemiBold';
     src: url('../fonts/Mohave-SemiBold/Mohave-SemiBold.eot');
     src: url('../fonts/Mohave-SemiBold/Mohave-SemiBold.eot?#iefix') format('embedded-opentype'),
          url('../fonts/Mohave-SemiBold/Mohave-SemiBold.woff2') format('woff2'),
@@ -27,19 +27,19 @@
 } 
 
 @font-face {
-    font-family: 'kraftstoff';
-    src: url('../fonts/Kraftstoff/kraftstoff-regular-webfont.eot');
-    src: url('../fonts/Kraftstoff/kraftstoff-regular-webfont.eot?#iefix') format('embedded-opentype'),
-         url('../fonts/Kraftstoff/kraftstoff-regular-webfont.woff2') format('woff2'),
-         url('../fonts/Kraftstoff/kraftstoff-regular-webfont.woff') format('woff'),
-         url('../fonts/Kraftstoff/kraftstoff-regular-webfont.ttf') format('truetype'),
-         url('../fonts/Kraftstoff/kraftstoff-regular-webfont.svg#kraftstoffregular') format('svg');
+    font-family: 'Kraftstoff';
+    src: url('../fonts/Kraftstoff/Kraftstoff-regular-webfont.eot');
+    src: url('../fonts/Kraftstoff/Kraftstoff-regular-webfont.eot?#iefix') format('embedded-opentype'),
+         url('../fonts/Kraftstoff/Kraftstoff-regular-webfont.woff2') format('woff2'),
+         url('../fonts/Kraftstoff/Kraftstoff-regular-webfont.woff') format('woff'),
+         url('../fonts/Kraftstoff/Kraftstoff-regular-webfont.ttf') format('truetype'),
+         url('../fonts/Kraftstoff/Kraftstoff-regular-webfont.svg#Kraftstoffregular') format('svg');
     font-weight: normal;
     font-style: normal;
 }
 
 @font-face {
-    font-family: 'arialnarrow';
+    font-family: 'ArialNarrow';
     src: url('../fonts/ArialNarrow/ArialNarrow.eot');
     src: url('../fonts/ArialNarrow/ArialNarrow.eot?#iefix') format('embedded-opentype'),
          url('../fonts/ArialNarrow/ArialNarrow.woff') format('woff'), 
@@ -61,13 +61,13 @@
 }
 
 @font-face {
-    font-family: 'aileron';
-    src: url('../fonts/Aileron/aileron-regular.eot');
-    src: url('../fonts/Aileron/aileron-regular.eot?#iefix') format('embedded-opentype'),
-         url('../fonts/Aileron/aileron-regular.woff2') format('woff2'),
-         url('../fonts/Aileron/aileron-regular.woff') format('woff'),
-         url('../fonts/Aileron/aileron-regular.ttf') format('truetype'),
-         url('../fonts/Aileron/aileron-regular.svg#aileronregular') format('svg');
+    font-family: 'Aileron';
+    src: url('../fonts/Aileron/Aileron-regular.eot');
+    src: url('../fonts/Aileron/Aileron-regular.eot?#iefix') format('embedded-opentype'),
+         url('../fonts/Aileron/Aileron-regular.woff2') format('woff2'),
+         url('../fonts/Aileron/Aileron-regular.woff') format('woff'),
+         url('../fonts/Aileron/Aileron-regular.ttf') format('truetype'),
+         url('../fonts/Aileron/Aileron-regular.svg#Aileronregular') format('svg');
     font-weight: normal;
     font-style: normal;
 } 

@@ -1,12 +1,13 @@
-/* ==========================================================================
-   FOOTER
-   ========================================================================== */
+/*------------------------------------*\
+    $FOOTER
+\*------------------------------------*/
+
 
 .footer {
     background-color: $header_footer_background;
     padding-top: 30px;
     padding-bottom: 10px;
-    font-family: "aileron";
+    font-family: 'Aileron';
     text-align: center;
 
     &-sectionbox {
@@ -40,7 +41,7 @@
         background-color: white; /* Fallback */
         background-color: rgba(255,255,255,0.77);
         color: #28180d;
-        font-family: "aileron";
+        font-family: 'Aileron';
         font-style: italic;
         margin-top: 10px;        
     }
@@ -51,7 +52,7 @@
         background-color: rgb(88,140,0); /* Fallback */
         background-color: rgba(88,140,0,0.59);
         color: white;
-        font-family: "aileron";
+        font-family: 'Aileron';
         font-style: italic;        
     } 
 

@@ -10,7 +10,6 @@ namespace :mpt do
   task :removefiles do
     on roles(:app) do
         execute "rm -rf #{release_path}/web/dev"
-        execute "rm -rf #{release_path}/web/bundles"
     end
   end
 

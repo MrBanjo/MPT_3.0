@@ -1,6 +1,18 @@
-/* ==========================================================================
-   Header
-   ========================================================================== */
+/*------------------------------------*\
+    MAIN HEADER
+\*------------------------------------*/
+/**
+ * $NAVBAR.............Main navigation bar style
+ * $USER...............The account and cart button
+ * $LOGINFORM..........The login form and some links
+ * $MEDIA QUERIES......Responsive styles
+ */
+
+
+/*------------------------------------*\
+    $NAVBAR
+\*------------------------------------*/
+
 
 @mixin header-nav_link($height, $line, $size) {
     line-height: $line;
@@ -10,7 +22,7 @@
     font-size: $size;
 }
 
-header {
+.Header {
     position: fixed;
     top: 0;
     width: 100%;
@@ -18,172 +30,182 @@ header {
     background-color: $header_footer_background;
     z-index: 1000;
     color: white;
-    font-family: "mohave bold";
+    font-family: 'Mohave-Bold';
+
+    &-logo {
+        position: absolute;
+        top: 10px;
+        left: 0;
+        right: 0;
+        margin: 0 auto;
+        z-index: 1000;
+        width: 150px;
+        height: 150px;        
+    }
+
+    &-logoLink {
+        width: 150px;
+        height: 150px;        
+    }
 }
 
-.logo {
-    position: absolute;
-    top: 10px;
-    left: 0;
-    right: 0;
-    margin: 0 auto;
-    z-index: 1000;
-} 
-
-/*Strip the ul of padding and list styling*/
-.header-nav_ul {
-    position: absolute;
+.HeaderNav {
+    &-ul {
+        position: absolute;
+    }
+    &-li {
+        display: inline-block;
+        /* li before and after logo */
+        &--left {
+            margin-left: 65px;
+        }
+        &--right {
+            margin-left: 30px;
+        }
+    }
+    /* Make room for the logo */
+    &-li:nth-child(3) {
+        margin-right: 220px;
+    }
+    /* Style for menu links */
+    &-link {
+        @include header-nav_link(100px, 100px, 18px);
+    }
+    /*Style for dropdown links*/
+    &-link2 {
+        @include header-nav_link(40px, 40px, 16px);
+        background-color: $header_footer_background;
+        width: auto;
+        min-width: 100px;
+        padding: 0 20px;
+    }
+    /*Hover state for dropdown links*/
+    &-link2:hover {
+        background: #312a22;
+    }
+    /*Hide dropdown links until they are needed*/
+    &-ul2 {
+        display: none;
+        position: absolute;
+    }
+    /*Make dropdown links vertical*/
+    &-li2 {
+        display: block;
+    }
+    /*Display the dropdown on hover*/
+    &-link:hover + &-ul2, &-ul2:hover {
+        display: block;
+    }
+    /*Style 'show menu' label button and hide it by default*/
+    &-sandwitchLabel {
+        height: 100px;
+        vertical-align: middle;
+        line-height: 100px;
+        position: relative;  
+    }
+    /*Hide checkbox*/
+    &-sandwitchInput {
+        display: none;
+    }
+    /*Show menu when invisible checkbox is checked*/
+    &-sandwitchInput:checked ~ .HeaderNav-ul {
+        display: block;
+    }
+    /* style for the mobile button */
+    &-sandwitchIcon {
+        display: none;
+        position: absolute;
+        margin: 0 auto;
+        top: 30px;
+        left: 0;
+        right: 0;        
+    }
+    /* Question li */
+    &-li:last-child {
+        position: relative;
+        width: 100px;
+    }
+    &-question {
+        position: relative;
+        top: 10px;
+        font-size: 18px;
+    }
 }
 
-/*Create a horizontal list with spacing*/
-.header-nav_li {
-    display: inline-block;
-}
 
-.left_li {
-    margin-left: 65px;
-}
+/*------------------------------------*\
+    $USER
+\*------------------------------------*/
 
-.right_li {
-    margin-left: 30px;
-}
 
-// Make room for the logo
-.header-nav_li:nth-child(3) {
-    margin-right: 220px;
-}
-
-/*Style for menu links*/
-.header-nav_link {
-    @include header-nav_link(100px, 100px, 18px);
-}
-
-/*Style for dropdown links*/
-.header-nav_link2 {
-    @include header-nav_link(40px, 40px, 16px);
-    background-color: $header_footer_background;
-    width: auto;
-    min-width: 100px;
-    padding: 0 20px;
-}
-
-/*Hover state for dropdown links*/
-.header-nav_link2:hover {
-    background: #312a22;
-} 
-
-/*Hide dropdown links until they are needed*/
-.header-nav_ul2 {
-    display: none;
-    position: absolute;
-}
-
-/*Make dropdown links vertical*/
-.header-nav_li2 {
-    display: block;
-}
-
-/*Display the dropdown on hover*/
-.header-nav_link:hover + .header-nav_ul2, .header-nav_ul2:hover {
-    display: block;
-}
-
-/*Style 'show menu' label button and hide it by default*/
-.show-menu {
-    height: 100px;
-    vertical-align: middle;
-    line-height: 100px;
-    position: relative;  
-}
-
-.header-menu_close {
-    display: none;
-    position: absolute;
-    margin: 0 auto;
-    top: 30px;
-    left: 0;
-    right: 0;
-}
-
-/*Hide checkbox*/
-.show-menu-input {
-    display: none;
-}
-
-/*Show menu when invisible checkbox is checked*/
-.show-menu-input:checked ~ .header-nav_ul {
-    display: block;
-}
-
-// Question li
-.header-nav_li:last-child {
-    position: relative;
-    width: 100px;
-}
-
-.header-question {
-    position: relative;
-    top: 10px;
-    font-size: 18px;
-
-/*     &:before {
-    content: "";
-    -webkit-backface-visibility:hidden;
-   display: inline-block;
-   position: absolute;
-   height: 62px;
-   width: 2px;
-   background-color: white;
-   left: -15px;
-   opacity: 0.7;
-   top: 0px;
-} */
-}
-
-/* .header-question-barre {
-    content: "";
-    display: inline-block;
-    position: absolute;
-    height: 62px;
-    width: 2px;
-    background-color: white;
-    left: -15px;
-    opacity: 0.7;
-    top: 0px;
- }  */ 
-
-.header-right {
+.HeaderUser {
     position: absolute;
     right:0;
     top:0;
 
+    &-account {
+        display: inline-block;
+        height:100px;
+        z-index: 500;
+        text-align: center;
+        width: 100px;
+        right: 55px;
+        position: absolute;
+
+        .sprite-span-base {
+            position: relative;
+            top: 33px;
+            left: 12px;
+        }
+    }
+
+    &-prenom {
+        position: relative;
+        top: 30px;
+    }
+
     p {
         margin-top: 10px;
     }
+
+    &-cart {
+        display: inline-block;
+        position: absolute;
+        z-index: 500;
+        right: -30px;
+        top: 32px;
+        width: 100px;
+        height: 100px;
+
+        a {
+            position: relative;
+            width: 100px;
+            height: 100px;
+        }
+    }
+
+    &-cartCount {
+        position: absolute;
+        width: 25px;
+        height: 25px;
+        background-color: $orange_ligth;
+        border-radius: 50%;
+        text-align: center;
+        font-weight: bold;
+        font-size: 16px;
+        color: white;
+        right: -6px;
+        top: 18px;
+    }
 }
 
-.header-account {
-    position: relative;
-    top: 33px;
-    left: 12px;
-}
 
-.header-prenom {
-    position: relative;
-    top: 30px;
-}
+/*------------------------------------*\
+    $LOGINFORM
+\*------------------------------------*/
 
-.header-right-account {
-    display: inline-block;
-    height:100px;
-    z-index: 500;
-    text-align: center;
-    width: 100px;
-    right: 55px;
-    position: absolute;
-}
 
-.header-form {
+.HeaderUser-form {
     display: none;
     background-color: $header_footer_background;
     width: 250px;
@@ -216,7 +238,7 @@ header {
         width: 150px;
         padding: 3px 0;
         color: white;
-        font-family: "mohave bold";
+        font-family: 'Mohave-Bold';
         margin: 5px auto;
     }
 
@@ -234,118 +256,87 @@ header {
     }    
 }
 
-.header-right-account:hover .header-form {
+/* Show form when the account icon is hovered */
+.HeaderUser-account:hover .HeaderUser-form {
     display: block;
 }
 
-.header-caddie {
-    display: inline-block;
-    position: absolute;
-    z-index: 500;
-    right: -30px;
-    top: 32px;
-    width: 100px;
-    height: 100px;
 
-    a {
-        position: relative;
-        width: 100px;
-        height: 100px;
-    }
-}
+/*------------------------------------*\
+    $MEDIA QUERIES
+\*------------------------------------*/
 
-.caddie-count {
-    position: absolute;
-    width: 25px;
-    height: 25px;
-    background-color: $orange_ligth;
-    border-radius: 50%;
-    text-align: center;
-    font-weight: bold;
-    font-size: 16px;
-    color: white;
-    right: -6px;
-    top: 18px;
-}
-
-/*Responsive Styles*/
 
 @media screen and (max-width : 1280px){
-    .logo {
+    .Header-logo {
         position: absolute;
         top: 10px;
         left: 10px;
         right: auto;
         margin: 0;
     }
-
-    .left_li,.right_li {
-        margin-left: 20px;
+    
+    .HeaderNav {
+        &-li--left, &-li--right {
+            margin-left: 20px;
+        }
+        &-li:nth-child(3) {
+            margin-right: 0;
+        }
+        &-ul {
+            right: 130px;
+        } 
     }
-
-    .header-nav_li:nth-child(3) {
-        margin-right: 0;
-    }
-
-    .header-nav_ul {
-        right: 130px;
-    } 
 }
 
 @media screen and (max-width : 1050px){
-    .logo {
+    .Header-logo {
         position: absolute;
         top: 10px;
         left: 10px;
         right: auto;
         margin: 0;
+    }
+
+    .HeaderNav {
+        &-link {
+            height: 50px;
+            line-height: 50px;           
+        }
+        /*Make dropdown links appear inline*/
+        ul {
+            position: static;
+            display: none;
+        }
+        /*Make all menu links full width*/
+        li {
+            width: 100%;
+            background-color: $header_footer_background;
+        }
+        /*Display 'show menu' link*/
+        &-sandwitchLabel {
+            display:block;
+        }
+        &-sandwitchIcon {
+            display: initial;
+        }
+        &-sandwitchIcon {
+            display: initial;
+        }
+        &-question {
+            display: block;
+            text-align: center;
+            height: 50px;
+        }
+        &-li--left, &-li--right {
+            margin-left: 0;
+        }
     } 
-    .header-nav_link {
-        height: 50px;
-        line-height: 50px;
-    }
-
-    /*Make dropdown links appear inline*/
-    .header-nav ul {
-        position: static;
-        display: none;
-    }
-
-    /*Make all menu links full width*/
-    .header-nav li {
-        width: 100%;
-        background-color: $header_footer_background;
-    }
-    /*Display 'show menu' link*/
-    .show-menu {
-        display:block;
-    }
-
-    .header-menu_close {
-        display: initial;
-    }
-
-    .header-nav_li:last-child {
-        width: 100%;
-    }
-
-    .header-question {
-        display: block;
-        text-align: center;
-        height: 50px;
-    }
-
-    .header-question-barre {
-        display: none;
-    }
-
-    .left_li, .right_li {
-        margin-left: 0;
-    }
 }
 
 @media only screen and (max-width: 760px) {
-    .logo {
+    .Header-logo, .Header-logoLink {
         width: 100px;
+        height: 100px;
     }
 }

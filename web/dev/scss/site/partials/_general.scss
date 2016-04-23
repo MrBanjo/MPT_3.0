@@ -1,6 +1,18 @@
-/* ==========================================================================
-   Base styles: opinionated defaults
-   ========================================================================== */
+/*------------------------------------*\
+    GENERAL STYLES
+\*------------------------------------*/
+/**
+ * $BOX................Some styled divs, sections etc
+ * $BUTTONS............Styled buttons 
+ * $BREADCRUMB.........The main breadcrumb
+ * $TITLES.............Titles for sections, articles etc
+ */
+
+
+/*------------------------------------*\
+    $BOX
+\*------------------------------------*/
+
 
 .container-small {
     width: 1280px;
@@ -43,14 +55,16 @@
     }
 }
 
-/* ==========================================================================
-   Styled Buttons
-   ========================================================================== */
+
+/*------------------------------------*\
+    $BUTTONS
+\*------------------------------------*/
+
 
 @mixin buttonLink($height, $width, $font-size: "21px") {
     display: inline-block;
     text-align: center;
-    font-family: "arialnarrow";
+    font-family: 'ArialNarrow';
     font-size: unquote($font-size);
     height: $height;
     width: $width;
@@ -91,9 +105,11 @@
     }
 }
 
-/* ==========================================================================
-   BREADCRUMB
-   ========================================================================== */
+
+/*------------------------------------*\
+    $BREADCRUMB
+\*------------------------------------*/
+
 
  .breadcrumb {
     margin: 0 0 10px 20px;
@@ -101,7 +117,7 @@
     ul li {
         display: inline-block;
         color: #4d4135;
-        font-family: "arialnarrow";
+        font-family: 'ArialNarrow';
         font-size: 18px;
         margin-right: 5px;
 
@@ -141,12 +157,14 @@
     padding: 10px;
 }
 
-/* ==========================================================================
-   Title
-   ========================================================================== */
+
+/*------------------------------------*\
+    $TITLES
+\*------------------------------------*/
+
 
 @mixin sectionTitle ($color) {
-    font-family: "Mohave semi-Bold", sans-serif;
+    font-family: 'Mohave-SemiBold', sans-serif;
     font-size: 36px;
     color: $color;
     text-align: center;
@@ -170,7 +188,7 @@
 }
 
 .section_description {
-    font-family: 'kraftstoff', sans-serif;
+    font-family: 'Kraftstoff', sans-serif;
     font-size: 30px;
     color: $font-brown;    
 }
