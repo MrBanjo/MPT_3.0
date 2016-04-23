@@ -5,14 +5,14 @@ module.exports = function(grunt){
 	grunt.initConfig({
 
 		jshint: {
-			all: ['web/dev/js/*.js', '!web/js/main.min.js']
+			all: ['web/dev/js/*.js', '!web/dev/js/main.min.js', '!web/dev/js/router.js']
 		},
 
 		concat: {
 			site: {
 				src: [
 					'web/dev/js/vendor/jquery-1.11.2.min.js', 
-					'web/dev/bundles/fosjsrouting/js/router.js',
+					'web/dev/js/router.js',
 					'web/dev/js/fos_js_routes.js', 
 					'web/dev/js/vendor/bxslider/jquery.bxslider.min.js',
 					'web/dev/js/vendor/jquery.magnific-popup.min.js', 

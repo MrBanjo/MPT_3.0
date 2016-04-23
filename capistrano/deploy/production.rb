@@ -63,7 +63,7 @@
 set :stage, :prod
 set :symfony_env, "prod"
 
-set :branch, 'master' # your production branch
+set :branch, 'dev' # your production branch
 set :deploy_to, '/var/www/html/mpt' # path on production server
 
 set :controllers_to_clear, ["app_*.php"]
@@ -75,6 +75,7 @@ set :grunt_file, -> { release_path.join('Gruntfile.js') }
 set :grunt_flags, '--force' 
 
 after 'deploy:finished', 'mpt:database'
+after 'deploy:finished', 'jsmap'
 after 'deploy:finished', 'grunt'
 after 'deploy:finished', 'mpt:removefiles'
 after 'deploy:finished', 'mpt:clearcacheprod'

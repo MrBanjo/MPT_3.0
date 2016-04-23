@@ -6,6 +6,13 @@ namespace :mpt do
     end
   end
 
+  desc 'Create js map'
+  task :jsmap do
+    on roles(:app) do
+      invoke 'symfony:console', :'fos:js-routing:dump' ,'--target web/dev/js/fos_js_routes.js'
+    end
+  end
+
   desc 'Remove unecessary files'
   task :removefiles do
     on roles(:app) do
