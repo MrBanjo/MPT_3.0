@@ -49,7 +49,7 @@ module.exports = function(grunt){
             options: {
                 map: {
                     inline: false, // save all sourcemaps as separate files...
-                    annotation: 'web/dev/css/maps/' // ...to the specified directory
+                    annotation: 'web/dev/css/' // ...to the specified directory
                 },
                 processors: [
                     require('postcss-pxtorem')(), // add fallbacks for rem units
@@ -62,6 +62,15 @@ module.exports = function(grunt){
             dist: {
                 src: 'web/dev/css/*.css',
 
+            }
+        },
+
+        compass: {
+            dist: {
+                options: {
+                    config: 'config.rb',
+                    watch: true
+                }
             }
         },
 
@@ -136,10 +145,17 @@ module.exports = function(grunt){
             },
         },
 
+        concurrent: {
+            target: ['compass', 'watch'],
+        },
+
         browserSync: {
             dev: {
                 bsFiles: {
-                    src : 'web/dev/css/main.css'
+                    src : [
+                        'web/dev/css/main.css',
+                        'app/resources/**/*.twig'
+                        ]
                 },
                 options: {
                     watchTask: true,
@@ -151,7 +167,9 @@ module.exports = function(grunt){
 	});
 
 	grunt.registerTask('default', ['jshint', 'concat', 'cssmin', 'uglify', 'imagemin', 'copy', 'phpcs']);
-    grunt.registerTask('watchall', ['browserSync', 'watch'])
+    grunt.registerTask('watchall', ['browserSync', 'concurrent:target']);
     grunt.registerTask('rem', ['px_to_rem']);
     grunt.registerTask('post', ['postcss']);
+    grunt.registerTask('sass', ['compass']);
+
 };
