@@ -32,6 +32,11 @@
     color: white;
     font-family: 'Mohave-Bold';
 
+    &-logoImage {
+        width: 150px;
+        height: 150px;
+    }
+
     &-logo {
         position: absolute;
         top: 10px;
@@ -39,11 +44,6 @@
         right: 0;
         margin: 0 auto;
         z-index: 1000;
-        width: 150px;
-        height: 150px;        
-    }
-
-    &-logoLink {
         width: 150px;
         height: 150px;        
     }
@@ -335,7 +335,7 @@
 }
 
 @media only screen and (max-width: 760px) {
-    .Header-logo, .Header-logoLink {
+    .Header-logo, .Header-logoImage {
         width: 100px;
         height: 100px;
     }

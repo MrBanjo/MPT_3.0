@@ -17,3 +17,8 @@ parameters:
 
     # A secret key that's used to generate certain security-related tokens
     secret:            a221a232544a420914f0839d3abbd25d5ca25787
+
+    # Path for the FOSJSbundle
+    router.request_context.host: ~
+    router.request_context.scheme: ~
+    router.request_context.base_url: ~

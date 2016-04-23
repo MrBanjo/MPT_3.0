@@ -31,7 +31,7 @@ set :log_level, :debug
 # set :linked_files, fetch(:linked_files, []).push('config/database.yml', 'config/secrets.yml')
 
 set :linked_files, %w{app/config/parameters.yml}
-set :linked_dirs, %w{app/logs web/uploads}
+set :linked_dirs, %w{app/logs web/uploads node_modules}
 
 set :npm_target_path, -> { release_path.join('') }
 set :npm_flags, '--silent'
