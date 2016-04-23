@@ -75,7 +75,7 @@ set :grunt_file, -> { release_path.join('Gruntfile.js') }
 set :grunt_flags, '--force' 
 
 after 'deploy:finished', 'mpt:database'
-after 'deploy:finished', 'jsmap'
+after 'deploy:finished', 'mpt:jsmap'
 after 'deploy:finished', 'grunt'
-after 'deploy:finished', 'mpt:removefiles'
+
 after 'deploy:finished', 'mpt:clearcacheprod'
