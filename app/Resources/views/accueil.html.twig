@@ -47,10 +47,10 @@
             <div id="slider_start">
                 <nav id="slider_start_nav">
                     <ul class="bxslider">
-                        <li><img src="{{ asset('img/plat/semaine/plat1.jpg') }}" title="Pétales de fleurs cristallisées" alt="Plat du jour Mon panier toqué"></li>
-                        <li><img src="{{ asset('img/plat/semaine/plat2.jpg') }}" title="Riz épicé aux tomates et poivrons" alt="Plat du jour Mon panier toqué"></li>
-                        <li><img src="{{ asset('img/plat/semaine/plat3.jpg') }}" title="Boeuf aux épinards et graines de courge" alt="Plat du jour Mon panier toqué"></li>
-                        </ul>
+                        <li><img src="{{ asset('img/plat/semaine/plat1.jpg') }}" title="Pétales de fleurs cristallisées" alt="Plat de présentation: Pétales de fleurs cristallisées"></li>
+                        <li><img src="{{ asset('img/plat/semaine/plat2.jpg') }}" title="Riz épicé aux tomates et poivrons" alt="Plat de présentation: Riz épicé aux tomates et poivrons"></li>
+                        <li><img src="{{ asset('img/plat/semaine/plat3.jpg') }}" title="Boeuf aux épinards et graines de courge" alt="Plat de présentation: Boeuf aux épinards et graines de courge"></li>
+                    </ul>
                 </nav>
                 <div class="home-slider_buttonbox">
                     <a href="{{ path('menus') }}" class="home-slider_button white-button">VOIR NOS MENUS</a>
@@ -73,7 +73,7 @@
                         dans la rubrique <strong>{{ blog.rubriqueblog.nom }}</strong></small>
                     <p>{{ blog.article | truncate(145, false, ' (...)') }}</p>
                     <a href="">lire la suite</a>
-                    <img src="{{ asset(blog.image) }}" alt="">
+                    <img src="{{ asset(blog.image) }}" alt="Image de l'article blog {{ blog.titre }}">
                 </article>
                 {% endfor %}                        
             </div>
@@ -107,22 +107,22 @@
                     <h2 class="section_title-green">NOS ENGAGEMENTS</h2>
                     <p class="section_description">renouer avec les plaisirs gustatifs des produits de notre région !</p>
                 </div>
-                <img src="{{ asset('img/accueil/local.png') }}" alt="100% local Mon Panier Toqué" class="engagements_100">
+                <img src="{{ asset('img/accueil/local.png') }}" alt="Garantie 100% local" class="engagements_100">
                 <div class="engagements_flexbox">
                     <div class="engagements_flexbox_box">
                         <p>NOS PRODUITS<br>Des ingrédients de qualité <br> et des recettes accessibles, <br>le tout livré chez vous pour<br> vous simplifier la vie.</p>
                         <a href="#">Lire la suite ></a>
-                        <img src="{{ asset('img/accueil/panier_garni.png') }}" alt="Panier Garni Mon Panier Toqué">
+                        <img src="{{ asset('img/accueil/panier_garni.png') }}" alt="Panier engagement">
                     </div>
                     <div class="engagements_flexbox_box">
-                        <img src="{{ asset('img/accueil/producteur.png') }}" alt="Producteur Mon Panier Toqué">
+                        <img src="{{ asset('img/accueil/producteur.png') }}" alt="Producteur engagement">
                         <p>Des produits de <br> saison issus des <br> PRODUCTEURS locaux.</p>
                         <a href="#">Lire la suite ></a>
                     </div>
                     <div class="engagements_flexbox_box">
                         <p>Des recettes simples, <br> pour tous les goûts, <br> élaborées par NOS CHEFS.</p>
                         <a href="#">Lire la suite ></a>
-                        <img src="{{ asset('img/accueil/chef.png') }}" alt="Chef Mon Panier Toqué">
+                        <img src="{{ asset('img/accueil/chef.png') }}" alt="Chef engagement">
                     </div>
                 </div>
             </section>            

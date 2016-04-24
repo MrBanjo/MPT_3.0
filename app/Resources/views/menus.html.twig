@@ -11,7 +11,7 @@
 				<ul class="bxslider ">
 					{% for plat in liste_classique %}
 				    	<li>
-							<img src="{{ asset(plat.photo)}}" alt="" class="menu-slider_photo">
+							<img src="{{ asset(plat.photo)}}" alt="Plat classique slider: {{ plat.titre }}" class="menu-slider_photo">
 							<div class="menu-slider_content">			
 								<h3 class="">Menu classique semaine du {{ menu_classique.date | date('d')}}</h3>
 								<h4 class="menu-slider_title">Plat {{ loop.index }} : {{ plat.titre }}</h4>
@@ -52,13 +52,13 @@
 			</div>	    		   
 			<div class="menu-nextweek_plat">
 				<h3>Semaine du 15 au 21 juin</h3>
-		    	<img src="{{ asset('img/menus/semaine1.jpg')}}" alt="" class="menu-nextweek_photo">
+		    	<img src="{{ asset('img/menus/semaine1.jpg')}}" alt="Plat classique semaine suivante" class="menu-nextweek_photo">
 		    	<p class="menu-nextweek_title">Tarte saumon et légumes</p>
 		    	<a href="#" class="menu-nextweek_link">voir le menu<span class="content-arrow-next sprite-span"></span></a>		
 			</div>
 			<div class="menu-nextweek_plat">
 				<h3>Semaine du 22 au 28 juin</h3>
-		    	<img src="{{ asset('img/menus/semaine2.jpg')}}" alt="" class="menu-nextweek_photo">
+		    	<img src="{{ asset('img/menus/semaine2.jpg')}}" alt="Plat classique seconde semaine" class="menu-nextweek_photo">
 		    	<p class="menu-nextweek_title">Brochettes poulet-carottes</p>
 		    	<a href="#" class="menu-nextweek_link">voir le menu<span class="content-arrow-next sprite-span"></span></a>
 			</div>
@@ -70,7 +70,7 @@
                 <ul class="bxslider ">
                     {% for plat in liste_vegan %}
                         <li>
-                            <img src="{{ asset(plat.photo)}}" alt="" class="menu-slider_photo">
+                            <img src="{{ asset(plat.photo)}}" alt="Plat végétarien slider: {{ plat.titre }}" class="menu-slider_photo">
                             <div class="menu-slider_content">           
                                 <h3 class="">Menu végétarien semaine du 7 Juin</h3>
                                 <h4 class="menu-slider_title">Plat {{ loop.index }} : {{ plat.titre }}</h4>
@@ -111,13 +111,13 @@
             </div>                 
             <div class="menu-nextweek_plat">
                 <h3>Semaine du 15 au 21 juin</h3>
-                <img src="{{ asset('img/menus/paella.jpg')}}" alt="" class="menu-nextweek_photo">
+                <img src="{{ asset('img/menus/paella.jpg')}}" alt="Plat végétarien semaine suivante" class="menu-nextweek_photo">
                 <p class="menu-nextweek_title">Paëlla végétarienne</p>
                 <a href="#" class="menu-nextweek_link">voir le menu<span class="content-arrow-next sprite-span"></span></a>     
             </div>
             <div class="menu-nextweek_plat">
                 <h3>Semaine du 22 au 28 juin</h3>
-                <img src="{{ asset('img/menus/feuillete.jpg')}}" alt="" class="menu-nextweek_photo">
+                <img src="{{ asset('img/menus/feuillete.jpg')}}" alt="Plat végétarien seconde semaine" class="menu-nextweek_photo">
                 <p class="menu-nextweek_title">Feuilleté de légumes</p>
                 <a href="#" class="menu-nextweek_link">voir le menu<span class="content-arrow-next sprite-span"></span></a>
             </div>

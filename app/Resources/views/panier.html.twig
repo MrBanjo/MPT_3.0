@@ -10,8 +10,8 @@
 		    <div class="panier_box">	    		   
 			    <article class="panier_article panier-type">
 			    	<h2 class="panier-type_description">Notre panier {{ menu.categorie.nom|lower }} contient tous les ingrédients pour préparer vos repas. <strong>4 repas originaux</strong>, simples et équilibrés.</h2>
-			    	<img src="{{ asset('img/accueil/local.png')}}" alt="100% local Mon Panier Toqué" class="panier-type_100">
-			    	<img src="{{ asset( menu.photo )}}" alt="Menu classique Mon Panier Toqué" class="panier-type_photo">
+			    	<img src="{{ asset('img/accueil/local.png')}}" alt="Garantie 100% local" class="panier-type_100">
+			    	<img src="{{ asset( menu.photo )}}" alt="Menu classique" class="panier-type_photo">
 			    	<div class="panier-type_infobox">
 			    		<span class="content-produits sprite-span"></span>	
 			    		<div class="panier-type_trait"></div>
@@ -66,7 +66,7 @@
                 <ul class="bxslider ">
                     {% for plat in plats %}
                         <li>
-                            <img src="{{ asset(plat.photo)}}" alt="" class="menu-slider_photo">
+                            <img src="{{ asset(plat.photo)}}" alt="{{ plat.titre }}" class="menu-slider_photo">
                             <div class="menu-slider_content">           
                                 <h3 class="">Menu {{ menu.categorie.nom|lower }} semaine du {{ menu.date | date('d')}}</h3>
                                 <h4 class="menu-slider_title">Plat {{ loop.index }} : {{ plat.titre }}</h4>
@@ -108,7 +108,7 @@
 			</div>
 			{% for categorie,upsell in liste_upsell %}<!-- 
 			 --><article class="panier-upsell_article"> 
-					<img src="{{ asset( upsell.photo )}}" alt="Upsell Mon Panier Toqué" class="panier-upsell_photo">
+					<img src="{{ asset( upsell.photo )}}" alt="{{ upsell.titre }}" class="panier-upsell_photo">
 					<p class="panier-upsell_titre">{{ upsell.titre }}</p>
 					<p class="panier-upsell_provenance">{{ upsell.origine }} <small>({{ upsell.departement }})</small></p>
 					<span class="panier-upsell_prix">{{ upsell.prix | localizednumber }} € <small>ttc ({{ upsell.contenance }})</small></span>

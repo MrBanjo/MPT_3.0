@@ -40,7 +40,7 @@
 							{% for article in articles %} <!-- Création des lignes du tableau contenant les produits -->
 
 								<tr>
-									<th><img src="{{ asset(article.photo)}}" alt="Article Caddie Mon Panier Toqué"></th>
+									<th><img src="{{ asset(article.photo)}}" alt="Caddie {{ article.titre }}"></th>
 									<th>{{ article.titre }}</th>
 									<th>{{ article.prix }} €</th>
 									<th>{{ article.quantite }}</th>
@@ -100,24 +100,24 @@
                 <h2 class="section_title-green">NOS ENGAGEMENTS</h2>
                 <p class="section_description">renouer avec les plaisirs gustatifs des produits de notre région !</p>
             </div>
-            <img src="{{ asset('img/accueil/local.png') }}" alt="100% local Mon Panier Toqué" class="engagements_100">
+            <img src="{{ asset('img/accueil/local.png') }}" alt="Garantie 100% local" class="engagements_100">
             <div class="engagements_flexbox">
                 <div class="engagements_flexbox_box">
                     <p>NOS PRODUITS<br>Des ingrédients de qualité <br> et des recettes accessibles, <br>le tout livré chez vous pour<br> vous simplifier la vie.</p>
                     <a href="#">Lire la suite ></a>
-                    <img src="{{ asset('img/accueil/panier_garni.png') }}" alt="Panier Garni Mon Panier Toqué">
+                    <img src="{{ asset('img/accueil/panier_garni.png') }}" alt="Panier engagement">
                 </div>
                 <div class="engagements_flexbox_box">
-                    <img src="{{ asset('img/accueil/producteur.png') }}" alt="Producteur Mon Panier Toqué">
+                    <img src="{{ asset('img/accueil/producteur.png') }}" alt="Producteur engagement">
                     <p>Des produits de <br> saison issus des <br> PRODUCTEURS locaux.</p>
                     <a href="#">Lire la suite ></a>
                 </div>
                 <div class="engagements_flexbox_box">
                     <p>Des recettes simples, <br> pour tous les goûts, <br> élaborées par NOS CHEFS.</p>
                     <a href="#">Lire la suite ></a>
-                    <img src="{{ asset('img/accueil/chef.png') }}" alt="Chef Mon Panier Toqué">
+                    <img src="{{ asset('img/accueil/chef.png') }}" alt="Chef engagement">
                 </div>
-            </div>                
+            </div>                 
         </div>
     </section>
 
