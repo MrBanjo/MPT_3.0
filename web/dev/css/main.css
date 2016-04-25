@@ -983,28 +983,28 @@ textarea {
   margin: 0 0 10px 20px;
 }
 /* line 117, ../scss/site/partials/_general.scss */
-.breadcrumb ul li {
+.breadcrumb li {
   display: inline-block;
   color: #4d4135;
   font-family: 'ArialNarrow';
   font-size: 1.125rem;
   margin-right: 5px;
 }
-/* line 124, ../scss/site/partials/_general.scss */
-.breadcrumb ul li a {
+/* line 125, ../scss/site/partials/_general.scss */
+.breadcrumb a {
   text-decoration: underline;
   color: #4d4135;
 }
 /* line 130, ../scss/site/partials/_general.scss */
-.breadcrumb ul li:after {
+.breadcrumb li:after {
   content: ">";
 }
 /* line 134, ../scss/site/partials/_general.scss */
-.breadcrumb ul li:last-child:after {
+.breadcrumb li:last-child:after {
   content: "";
 }
 /* line 138, ../scss/site/partials/_general.scss */
-.breadcrumb ul li:first-child:after {
+.breadcrumb li:first-child:after {
   content: "/";
 }
 
@@ -1413,8 +1413,8 @@ textarea {
     display: initial;
   }
   /* line 323, ../scss/site/partials/_header.scss */
-  .HeaderNav-sandwitchIcon {
-    display: initial;
+  .HeaderNav-li:last-child {
+    width: 100%;
   }
   /* line 326, ../scss/site/partials/_header.scss */
   .HeaderNav-question {
@@ -4101,5 +4101,4 @@ img.mfp-img {
     page-break-after: avoid;
   }
 }
-
 /*# sourceMappingURL=main.css.map */

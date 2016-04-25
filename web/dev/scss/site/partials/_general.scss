@@ -114,28 +114,28 @@
  .breadcrumb {
     margin: 0 0 10px 20px;
 
-    ul li {
+    li {
         display: inline-block;
         color: #4d4135;
         font-family: 'ArialNarrow';
         font-size: 18px;
         margin-right: 5px;
-
-        a {
-            text-decoration: underline;
-            color: #4d4135;
-        }
     }
 
-    ul li:after {
+    a {
+        text-decoration: underline;
+        color: #4d4135;
+    }
+
+    li:after {
         content : ">";
     }
 
-    ul li:last-child:after {
+    li:last-child:after {
         content : "";
     }
 
-    ul li:first-child:after {
+    li:first-child:after {
         content : "/";
     }
 } 

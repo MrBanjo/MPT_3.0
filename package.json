@@ -19,7 +19,9 @@
     "grunt-phpcs": "^0.4.0",
     "grunt-postcss": "^0.8.0",
     "grunt-px-to-rem": "^0.4.0",
+    "imagemin-mozjpeg": "^5.1.0",
     "load-grunt-tasks": "^3.4.1",
+    "postcss-bem-linter": "^2.4.1",
     "postcss-pxtorem": "^3.3.1",
     "pxtorem": "^1.0.0"
   }

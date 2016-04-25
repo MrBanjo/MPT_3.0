@@ -320,8 +320,8 @@
         &-sandwitchIcon {
             display: initial;
         }
-        &-sandwitchIcon {
-            display: initial;
+        &-li:last-child {
+            width: 100%;
         }
         &-question {
             display: block;

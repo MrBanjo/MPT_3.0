@@ -1,6 +1,7 @@
 module.exports = function(grunt){
 
 	require('load-grunt-tasks')(grunt);
+    var mozjpeg = require('imagemin-mozjpeg');
 
 	grunt.initConfig({
 
@@ -99,7 +100,11 @@ module.exports = function(grunt){
 		},
 
 		imagemin: {                          // Task 
-		    dynamic: {                         // Another target 
+		    dynamic: {
+                options: {                       // Target options
+                    optimizationLevel: 3,
+                    use: [mozjpeg({quality: 85})]
+                },                         // Another target 
 		        files: [{
     	            expand: true,                  // Enable dynamic expansion 
     		        cwd: 'web/dev/img/',                   // Src matches are relative to this path 
