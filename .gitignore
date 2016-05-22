@@ -15,6 +15,7 @@
 !var/sessions/.gitkeep
 !var/SymfonyRequirements.php
 /web/dev/bundles/
+/web/bundles/
 /.sass-cache/
 /web/config.php
 /node_modules/
