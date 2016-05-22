@@ -8,7 +8,7 @@ use Doctrine\ORM\Mapping as ORM;
  * Blog.
  *
  * @ORM\Table()
- * @ORM\Entity(repositoryClass="AppBundle\Entity\BlogRepository")
+ * @ORM\Entity(repositoryClass="AppBundle\Repository\BlogRepository")
  */
 class Blog
 {

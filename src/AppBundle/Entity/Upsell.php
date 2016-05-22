@@ -8,7 +8,7 @@ use Doctrine\ORM\Mapping as ORM;
  * Upsell.
  *
  * @ORM\Table()
- * @ORM\Entity(repositoryClass="AppBundle\Entity\UpsellRepository")
+ * @ORM\Entity(repositoryClass="AppBundle\Repository\UpsellRepository")
  */
 class Upsell
 {

@@ -15,6 +15,7 @@ class CartExtension extends \Twig_Extension
 
     /**
      * @param Doctrine $doctrine
+     * @param Session $session
      */
     public function __construct(EntityManager $doctrine, Session $session)
     {
@@ -34,13 +35,16 @@ class CartExtension extends \Twig_Extension
 
     public function countCart($user)
     {
-        $results = $this->doctrine
-        ->createQuery('SELECT c FROM AppBundle:Caddie c WHERE (c.user = :name1 OR c.session = :name2)')
-        ->setParameter('name1', $user)
-        ->setParameter('name2', $this->session->getId())
-        ->getResult();
+        if ($user) {
+            return count($user->getCaddies());
+        } else {
+            $results = $this->doctrine
+            ->createQuery('SELECT c FROM AppBundle:Caddie c WHERE c.session = :session')
+            ->setParameter('session', $this->session->getId())
+            ->getResult();
 
-        return count($results);
+            return count($results);
+        }
     }
     /**
      * @return string

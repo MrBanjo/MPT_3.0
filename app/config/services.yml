@@ -5,7 +5,7 @@ parameters:
 
 services:
         authentication_handler:
-            class: AppBundle\Controller\AuthenticationHandler
+            class: AppBundle\Security\AuthenticationHandler
             public: false
             arguments: 
                 - "@router"

@@ -987,7 +987,7 @@ textarea {
   display: inline-block;
   color: #4d4135;
   font-family: 'ArialNarrow';
-  font-size: 1.125rem;
+  font-size: 18px;
   margin-right: 5px;
 }
 /* line 125, ../scss/site/partials/_general.scss */
@@ -1039,7 +1039,7 @@ textarea {
 /* line 178, ../scss/site/partials/_general.scss */
 .section_title-green {
   font-family: 'Mohave-SemiBold', sans-serif;
-  font-size: 2.25rem;
+  font-size: 36px;
   color: #588c00;
   text-align: center;
 }
@@ -1047,7 +1047,7 @@ textarea {
 /* line 182, ../scss/site/partials/_general.scss */
 .section_title-brown {
   font-family: 'Mohave-SemiBold', sans-serif;
-  font-size: 2.25rem;
+  font-size: 36px;
   color: #493f33;
   text-align: center;
 }
@@ -1055,7 +1055,7 @@ textarea {
 /* line 186, ../scss/site/partials/_general.scss */
 .section_title-white {
   font-family: 'Mohave-SemiBold', sans-serif;
-  font-size: 2.25rem;
+  font-size: 36px;
   color: white;
   text-align: center;
 }
@@ -1063,7 +1063,7 @@ textarea {
 /* line 190, ../scss/site/partials/_general.scss */
 .section_description {
   font-family: 'Kraftstoff', sans-serif;
-  font-size: 1.875rem;
+  font-size: 30px;
   color: #493f33;
 }
 
@@ -1151,19 +1151,19 @@ textarea {
 }
 /* line 71, ../scss/site/partials/_header.scss */
 .HeaderNav-link {
-  line-height: 6.25rem;
+  line-height: 100px;
   height: 100px;
   display: block;
   text-align: center;
-  font-size: 1.125rem;
+  font-size: 18px;
 }
 /* line 75, ../scss/site/partials/_header.scss */
 .HeaderNav-link2 {
-  line-height: 2.5rem;
+  line-height: 40px;
   height: 40px;
   display: block;
   text-align: center;
-  font-size: 1rem;
+  font-size: 16px;
   background-color: #493f33;
   width: auto;
   min-width: 100px;
@@ -1190,7 +1190,7 @@ textarea {
 .HeaderNav-sandwitchLabel {
   height: 100px;
   vertical-align: middle;
-  line-height: 6.25rem;
+  line-height: 100px;
   position: relative;
 }
 /* line 107, ../scss/site/partials/_header.scss */
@@ -1219,7 +1219,7 @@ textarea {
 .HeaderNav-question {
   position: relative;
   top: 10px;
-  font-size: 1.125rem;
+  font-size: 18px;
 }
 
 /*------------------------------------*\
@@ -1281,7 +1281,7 @@ textarea {
   border-radius: 50%;
   text-align: center;
   font-weight: bold;
-  font-size: 1rem;
+  font-size: 16px;
   color: white;
   right: -6px;
   top: 18px;
@@ -1330,7 +1330,7 @@ textarea {
 }
 /* line 245, ../scss/site/partials/_header.scss */
 .HeaderUser-form label {
-  font-size: 0.875rem;
+  font-size: 14px;
 }
 /* line 249, ../scss/site/partials/_header.scss */
 .HeaderUser-form a {
@@ -1392,7 +1392,7 @@ textarea {
   /* line 302, ../scss/site/partials/_header.scss */
   .HeaderNav-link {
     height: 50px;
-    line-height: 3.125rem;
+    line-height: 50px;
   }
   /* line 307, ../scss/site/partials/_header.scss */
   .HeaderNav ul {
@@ -1473,7 +1473,7 @@ textarea {
   margin: 20px 0px 30px 0;
   vertical-align: middle;
   color: #fcf8f2;
-  font-size: 1.5rem;
+  font-size: 24px;
   font-weight: normal;
 }
 /* line 38, ../scss/site/partials/_footer.scss */
@@ -1508,7 +1508,7 @@ textarea {
 /* line 65, ../scss/site/partials/_footer.scss */
 .footer-copyright {
   display: block;
-  font-size: 0.875rem;
+  font-size: 14px;
 }
 /* line 69, ../scss/site/partials/_footer.scss */
 .footer-copyright_li {
@@ -1516,7 +1516,7 @@ textarea {
   padding: 0 14px;
   border-right: 2px solid #fcf8f2;
   color: #fcf8f2;
-  font-size: 0.875rem;
+  font-size: 14px;
 }
 /* line 77, ../scss/site/partials/_footer.scss */
 .footer-copyright_li:first-child {
@@ -1587,23 +1587,23 @@ textarea {
 /* line 29, ../scss/site/partials/_home.scss */
 .banner-title_title {
   font-family: 'Mohave-Bold';
-  font-size: 5rem;
+  font-size: 80px;
 }
 /* line 34, ../scss/site/partials/_home.scss */
 .banner-title_description {
   font-family: 'Kraftstoff';
-  font-size: 2.9375rem;
-  letter-spacing: 0.75rem;
+  font-size: 47px;
+  letter-spacing: 12px;
 }
 /* line 41, ../scss/site/partials/_home.scss */
 .banner_button {
   display: inline-block;
   text-align: center;
   font-family: 'ArialNarrow';
-  font-size: 1.3125rem;
+  font-size: 21px;
   height: 36px;
   width: 240px;
-  line-height: 2.25rem;
+  line-height: 36px;
   vertical-align: middle;
   position: absolute;
   margin: 0 auto;
@@ -1619,12 +1619,12 @@ textarea {
   }
   /* line 56, ../scss/site/partials/_home.scss */
   .banner-title_title {
-    font-size: 3.75rem;
+    font-size: 60px;
   }
   /* line 60, ../scss/site/partials/_home.scss */
   .banner-title_description {
-    font-size: 2.9375rem;
-    letter-spacing: 0.375rem;
+    font-size: 47px;
+    letter-spacing: 6px;
   }
   /* line 65, ../scss/site/partials/_home.scss */
   .banner_button {
@@ -1642,11 +1642,11 @@ textarea {
   }
   /* line 79, ../scss/site/partials/_home.scss */
   .banner-title_title {
-    font-size: 2.8125rem;
+    font-size: 45px;
   }
   /* line 82, ../scss/site/partials/_home.scss */
   .banner-title_description {
-    font-size: 1.875rem;
+    font-size: 30px;
   }
 }
 @media only screen and (max-width: 425px) {
@@ -1656,15 +1656,15 @@ textarea {
   }
   /* line 94, ../scss/site/partials/_home.scss */
   .banner-title_title {
-    font-size: 2.375rem;
+    font-size: 38px;
   }
   /* line 97, ../scss/site/partials/_home.scss */
   .banner-title_description {
-    font-size: 1.5625rem;
+    font-size: 25px;
   }
   /* line 101, ../scss/site/partials/_home.scss */
   .banner_button {
-    font-size: 1.125rem;
+    font-size: 18px;
   }
 }
 /* HOW IT WORKS */
@@ -1681,7 +1681,7 @@ textarea {
   vertical-align: top;
   margin-right: 145px;
   font-family: 'Kraftstoff';
-  font-size: 1.3125rem;
+  font-size: 21px;
   color: #4d4135;
 }
 /* line 123, ../scss/site/partials/_home.scss */
@@ -1773,10 +1773,10 @@ textarea {
   display: inline-block;
   text-align: center;
   font-family: 'ArialNarrow';
-  font-size: 1.3125rem;
+  font-size: 21px;
   height: 36px;
   width: 240px;
-  line-height: 2.25rem;
+  line-height: 36px;
   vertical-align: middle;
   margin: 20px 20px 0 20px;
 }
@@ -1822,7 +1822,7 @@ textarea {
   box-sizing: border-box;
   position: relative;
   margin-bottom: 90px;
-  font-size: 0.9375rem;
+  font-size: 15px;
 }
 /* line 248, ../scss/site/partials/_home.scss */
 .home-blog_article:nth-child(2) {
@@ -1831,13 +1831,13 @@ textarea {
 }
 /* line 253, ../scss/site/partials/_home.scss */
 .home-blog h3 {
-  font-size: 1.25rem;
+  font-size: 20px;
   color: #588c00;
   margin-top: 5px;
 }
 /* line 259, ../scss/site/partials/_home.scss */
 .home-blog small {
-  font-size: 0.8125rem;
+  font-size: 13px;
   font-style: italic;
 }
 /* line 264, ../scss/site/partials/_home.scss */
@@ -1901,17 +1901,17 @@ textarea {
   padding-top: 30px;
   color: white;
   font-family: 'ArialNarrow', Arial, sans-serif;
-  font-size: 1.25rem;
+  font-size: 20px;
 }
 /* line 321, ../scss/site/partials/_home.scss */
 .home-comments h2 {
   font-family: 'Mohave-Bold';
-  font-size: 2.25rem;
+  font-size: 36px;
   margin-left: -100px;
 }
 /* line 327, ../scss/site/partials/_home.scss */
 .home-comments small {
-  font-size: 1.6875rem;
+  font-size: 27px;
   margin-right: -160px;
   vertical-align: top;
 }
@@ -1968,7 +1968,7 @@ textarea {
   -webkit-flex-wrap: wrap;
       -ms-flex-wrap: wrap;
           flex-wrap: wrap;
-  font-size: 1.3125rem;
+  font-size: 21px;
   font-family: 'ArialNarrow';
   color: #493f33;
 }
@@ -2025,7 +2025,7 @@ textarea {
 /* line 32, ../scss/site/partials/_paniers.scss */
 .menu-soir h3 {
   font-family: 'Kraftstoff';
-  font-size: 2.5rem;
+  font-size: 40px;
   color: #493f33;
   font-weight: normal;
   position: absolute;
@@ -2049,7 +2049,7 @@ textarea {
 /* line 51, ../scss/site/partials/_paniers.scss */
 .menu-other h3 {
   font-family: 'Kraftstoff';
-  font-size: 2.5rem;
+  font-size: 40px;
   color: #493f33;
   font-weight: normal;
 }
@@ -2060,7 +2060,7 @@ textarea {
 
 /* line 60, ../scss/site/partials/_paniers.scss */
 .panier-prix_box {
-  font-size: 1.5rem;
+  font-size: 24px;
   color: #5c5d61;
   margin: 10px 0;
   text-align: center;
@@ -2071,10 +2071,10 @@ textarea {
   display: inline-block;
   text-align: center;
   font-family: 'ArialNarrow';
-  font-size: 1.3125rem;
+  font-size: 21px;
   height: 36px;
   width: 240px;
-  line-height: 2.25rem;
+  line-height: 36px;
   vertical-align: middle;
   text-transform: uppercase;
   margin: 0 10px;
@@ -2127,7 +2127,7 @@ textarea {
 .panier-type_description {
   position: absolute;
   font-weight: normal;
-  font-size: 1.625rem;
+  font-size: 26px;
   width: 300px;
   top: 45px;
   right: 20px;
@@ -2158,7 +2158,7 @@ textarea {
   background-color: #5f3817;
   width: 1px;
   height: 36px;
-  line-height: 2.25rem;
+  line-height: 36px;
   vertical-align: middle;
   margin-top: 8px;
 }
@@ -2174,7 +2174,7 @@ textarea {
 /* line 76, ../scss/site/partials/_panier.scss */
 .panier-order_box {
   margin: 20px;
-  font-size: 1.5rem;
+  font-size: 24px;
   position: relative;
 }
 /* line 82, ../scss/site/partials/_panier.scss */
@@ -2182,7 +2182,7 @@ textarea {
   height: 40px;
   border: 1px solid #5f3817;
   width: 90%;
-  font-size: 0.9375rem;
+  font-size: 15px;
   text-align: center;
 }
 /* line 90, ../scss/site/partials/_panier.scss */
@@ -2212,13 +2212,13 @@ textarea {
   width: 90%;
   color: white;
   border: none;
-  font-size: 1.3125rem;
+  font-size: 21px;
   margin-top: 10px;
   margin-bottom: 0;
 }
 /* line 121, ../scss/site/partials/_panier.scss */
 .panier-order small {
-  font-size: 0.9375rem;
+  font-size: 15px;
   font-style: italic;
   color: #493f34;
 }
@@ -2236,7 +2236,7 @@ textarea {
 .panier-order_quantity input {
   border: none;
   color: #719d26;
-  font-size: 1.5rem;
+  font-size: 24px;
 }
 /* line 140, ../scss/site/partials/_panier.scss */
 .panier-order_quantity button {
@@ -2256,7 +2256,7 @@ textarea {
   width: 100%;
   height: 40px;
   background: transparent;
-  font-size: 1rem;
+  font-size: 16px;
   -webkit-appearance: none;
   -moz-appearance: none;
   outline: none;
@@ -2283,7 +2283,7 @@ textarea {
   .panier-type {
     width: 100%;
     padding: 10px 20px 10px 20px;
-    font-size: 1.625rem;
+    font-size: 26px;
   }
   /* line 187, ../scss/site/partials/_panier.scss */
   .panier-type_description {
@@ -2341,7 +2341,7 @@ textarea {
 /* line 239, ../scss/site/partials/_panier.scss */
 .panier-upsell_submit {
   font-family: arial;
-  font-size: 0.875rem;
+  font-size: 14px;
   width: 214px;
   height: 35px;
 }
@@ -2353,24 +2353,24 @@ textarea {
 /* line 251, ../scss/site/partials/_panier.scss */
 .panier-upsell_prix {
   display: inline-block;
-  font-size: 1.25rem;
+  font-size: 20px;
   color: #4a2f14;
   margin: 20px 10px 40px 0;
   font-weight: bold;
 }
 /* line 258, ../scss/site/partials/_panier.scss */
 .panier-upsell_prix small {
-  font-size: 1rem;
+  font-size: 16px;
   font-style: italic;
 }
 /* line 264, ../scss/site/partials/_panier.scss */
 .panier-upsell_titre {
-  font-size: 1.625rem;
+  font-size: 26px;
   margin: 5px auto 0 auto;
 }
 /* line 269, ../scss/site/partials/_panier.scss */
 .panier-upsell_provenance {
-  font-size: 1.125rem;
+  font-size: 18px;
   font-style: italic;
 }
 
@@ -2428,19 +2428,19 @@ textarea {
 }
 /* line 327, ../scss/site/partials/_panier.scss */
 .panier-popup p {
-  font-size: 1.125rem;
+  font-size: 18px;
   text-align: center;
   font-weight: bold;
 }
 /* line 333, ../scss/site/partials/_panier.scss */
 .panier-popup span {
-  font-size: 1.375rem;
+  font-size: 22px;
   text-align: center;
   font-weight: bold;
 }
 /* line 339, ../scss/site/partials/_panier.scss */
 .panier-popup_end, .panier-popup_continue {
-  font-size: 1.375rem;
+  font-size: 22px;
   color: #558f29;
   font-style: italic;
   text-decoration: underline;
@@ -2486,13 +2486,13 @@ textarea {
 /* line 12, ../scss/site/partials/_menus.scss */
 .menu-slider h3 {
   font-family: 'Kraftstoff';
-  font-size: 2.8125rem;
+  font-size: 45px;
   color: #4a2f14;
   font-weight: normal;
 }
 /* line 19, ../scss/site/partials/_menus.scss */
 .menu-slider h4 {
-  font-size: 2.25rem;
+  font-size: 36px;
   color: #4a2f14;
   font-weight: normal;
 }
@@ -2507,7 +2507,7 @@ textarea {
   border-bottom: 1px solid #5f3817;
   width: 630px;
   height: 55px;
-  font-size: 0.75rem;
+  font-size: 12px;
   font-weight: bold;
   font-style: italic;
   text-align: center;
@@ -2537,21 +2537,21 @@ textarea {
 }
 /* line 64, ../scss/site/partials/_menus.scss */
 .menu-slider_accroche {
-  font-size: 1.625rem;
+  font-size: 26px;
   color: #ef8b3d;
   width: 330px;
   margin: 0 auto;
 }
 /* line 71, ../scss/site/partials/_menus.scss */
 .menu-slider_description {
-  font-size: 1.125rem;
+  font-size: 18px;
   width: 570px;
   margin: 0 auto;
 }
 /* line 77, ../scss/site/partials/_menus.scss */
 .menu-slider_salt {
   display: inline-block;
-  font-size: 0.875rem;
+  font-size: 14px;
   margin-top: 30px;
   font-style: italic;
   width: 230px;
@@ -2566,10 +2566,10 @@ textarea {
   display: inline-block;
   text-align: center;
   font-family: 'ArialNarrow';
-  font-size: 0.9375rem;
+  font-size: 15px;
   height: 35px;
   width: 275px;
-  line-height: 2.1875rem;
+  line-height: 35px;
   vertical-align: middle;
   float: right;
   font-weight: bold;
@@ -2625,7 +2625,7 @@ textarea {
   /* line 152, ../scss/site/partials/_menus.scss */
   .menu-slider_salt {
     display: block;
-    font-size: 0.875rem;
+    font-size: 14px;
     margin-top: 30px;
     width: auto;
   }
@@ -2669,12 +2669,12 @@ textarea {
 }
 /* line 198, ../scss/site/partials/_menus.scss */
 .menu-nextweek h3 {
-  font-size: 2.25rem;
+  font-size: 36px;
   color: #4a2f14;
 }
 /* line 203, ../scss/site/partials/_menus.scss */
 .menu-nextweek_title {
-  font-size: 1.625rem;
+  font-size: 26px;
   color: #493f34;
   margin: 20px 0;
   margin: 0 auto;
@@ -2685,7 +2685,7 @@ textarea {
 }
 /* line 214, ../scss/site/partials/_menus.scss */
 .menu-nextweek_link {
-  font-size: 0.9375rem;
+  font-size: 15px;
   color: #4a2f14;
   text-decoration: underline;
   font-style: italic;
@@ -2718,13 +2718,13 @@ textarea {
 .caddie_tel {
   text-align: right;
   color: #4d4135;
-  font-size: 1rem;
+  font-size: 16px;
   margin: 20px 0;
 }
 /* line 19, ../scss/site/partials/_caddie.scss */
 .caddie_continue {
   color: #588c31;
-  font-size: 1.3125rem;
+  font-size: 21px;
   text-decoration: underline;
   font-style: italic;
   margin-left: 10px;
@@ -2738,7 +2738,7 @@ textarea {
 /* line 32, ../scss/site/partials/_caddie.scss */
 .caddie_validate button {
   font-family: "arial";
-  font-size: 1.3125rem;
+  font-size: 21px;
   text-align: center;
   margin: 0 10px;
   display: inline-block;
@@ -2755,7 +2755,7 @@ textarea {
 .caddie_recette {
   text-align: center;
   color: #4d4135;
-  font-size: 1rem;
+  font-size: 16px;
   margin: 30px 0;
 }
 /* line 55, ../scss/site/partials/_caddie.scss */
@@ -2780,7 +2780,7 @@ textarea {
 /* line 74, ../scss/site/partials/_caddie.scss */
 .caddie-nav a {
   display: block;
-  font-size: 2.25rem;
+  font-size: 36px;
   font-family: 'Kraftstoff', Helvetica, Arial, sans-serif;
   color: #493f33;
   text-decoration: none;
@@ -2793,7 +2793,7 @@ textarea {
 }
 /* line 88, ../scss/site/partials/_caddie.scss */
 .caddie-nav strong {
-  font-size: 1.5rem;
+  font-size: 24px;
   font-family: 'Mohave-Bold', Helvetica, Arial, sans-serif;
   color: white;
   font-weight: bold;
@@ -2807,14 +2807,14 @@ textarea {
 /* line 101, ../scss/site/partials/_caddie.scss */
 .caddie-nav-show {
   height: 50px;
-  line-height: 3.125rem;
+  line-height: 50px;
   display: none;
   text-align: center;
   background-color: #493f33;
   vertical-align: middle;
   color: white;
   font-family: 'Kraftstoff', Helvetica, Arial, sans-serif;
-  font-size: 2.25rem;
+  font-size: 36px;
 }
 /* line 113, ../scss/site/partials/_caddie.scss */
 .caddie-nav input[type=checkbox] {
@@ -2846,7 +2846,7 @@ textarea {
 .caddie-table thead th {
   color: white;
   font-family: arial;
-  font-size: 1rem;
+  font-size: 16px;
   text-transform: uppercase;
 }
 /* line 146, ../scss/site/partials/_caddie.scss */
@@ -2861,7 +2861,7 @@ textarea {
 /* line 155, ../scss/site/partials/_caddie.scss */
 .caddie-table tbody th {
   color: #4d4135;
-  font-size: 1.125rem;
+  font-size: 18px;
   font-weight: normal;
   font-family: 'ArialNarrow';
   height: 100px;
@@ -2901,7 +2901,7 @@ textarea {
   height: 27px;
   width: 26px;
   color: #588c31;
-  font-size: 1.125rem;
+  font-size: 18px;
   font-weight: normal;
   font-family: "Arial";
   text-align: center;
@@ -2909,7 +2909,7 @@ textarea {
 /* line 201, ../scss/site/partials/_caddie.scss */
 .caddie-table tfoot th {
   color: #4d4135;
-  font-size: 1rem;
+  font-size: 16px;
   font-weight: normal;
   font-family: 'ArialNarrow';
   height: 50px;
@@ -2940,7 +2940,7 @@ textarea {
 .caddie-table_reduc {
   position: relative;
   display: inline-block;
-  font-size: 1rem;
+  font-size: 16px;
 }
 /* line 236, ../scss/site/partials/_caddie.scss */
 .caddie-table_reduc input[type="text"] {
@@ -3002,7 +3002,7 @@ textarea {
   .caddie_tel {
     text-align: center;
     color: #4d4135;
-    font-size: 1rem;
+    font-size: 16px;
     margin: 20px 0;
   }
 }
@@ -3034,7 +3034,7 @@ textarea {
   margin: 20px 0;
   padding: 20px;
   font-family: 'ArialNarrow';
-  font-size: 1.125rem;
+  font-size: 18px;
   color: #493f33;
   overflow: hidden;
 }
@@ -3057,7 +3057,7 @@ textarea {
 .userform_title {
   margin-bottom: 40px;
   text-align: left;
-  font-size: 1rem;
+  font-size: 16px;
   font-weight: bold;
 }
 /* line 36, ../scss/site/partials/_userform.scss */
@@ -3079,7 +3079,7 @@ textarea {
 /* line 52, ../scss/site/partials/_userform.scss */
 .userform_asterix-reminder {
   float: right;
-  font-size: 1rem;
+  font-size: 16px;
   font-weight: bold;
 }
 /* line 58, ../scss/site/partials/_userform.scss */
@@ -3127,7 +3127,7 @@ textarea {
   width: 90px;
   height: 30px;
   background: transparent;
-  font-size: 1rem;
+  font-size: 16px;
   outline: none;
   border: 1px solid #6d9a4b;
   text-align: center;
@@ -3158,7 +3158,7 @@ textarea {
   text-align: left;
   color: #588c31;
   font-family: 'ArialNarrow';
-  font-size: 1.3125rem;
+  font-size: 21px;
   font-weight: bold;
   font-style: italic;
   text-decoration: underline;
@@ -3167,7 +3167,7 @@ textarea {
 .userform_adresse-remove {
   float: right;
   font-family: 'ArialNarrow';
-  font-size: 1.3125rem;
+  font-size: 21px;
   font-weight: bold;
   font-style: italic;
   color: #588c31;
@@ -3244,7 +3244,7 @@ textarea {
   margin-top: 35px;
   font-family: 'ArialNarrow', sans-serif;
   color: #493f33;
-  font-size: 1.125rem;
+  font-size: 18px;
 }
 /* line 11, ../scss/site/partials/_account.scss */
 .account-header {
@@ -3256,7 +3256,7 @@ textarea {
   text-align: center;
   font-family: 'Kraftstoff', sans-serif;
   color: white;
-  font-size: 2.25rem;
+  font-size: 36px;
   font-weight: normal;
   margin: auto;
 }
@@ -3296,7 +3296,7 @@ textarea {
 .account caption {
   margin-top: 20px;
   font-family: 'Kraftstoff';
-  font-size: 1.875rem;
+  font-size: 30px;
   color: #4d4135;
 }
 
@@ -3322,7 +3322,7 @@ textarea {
 /* line 76, ../scss/site/partials/_account.scss */
 .account-table thead th {
   font-family: arial;
-  font-size: 1rem;
+  font-size: 16px;
   text-transform: uppercase;
   padding: 0 20px;
 }
@@ -3330,7 +3330,7 @@ textarea {
 .account-table tbody {
   background-color: #eef4ea;
   color: #493f33;
-  font-size: 1.125rem;
+  font-size: 18px;
 }
 /* line 89, ../scss/site/partials/_account.scss */
 .account-table tbody th {
@@ -3359,7 +3359,7 @@ textarea {
 .account-sidebar button {
   font-family: 'ArialNarrow', sans-serif;
   color: #493f33;
-  font-size: 1.125rem;
+  font-size: 18px;
   text-decoration: underline;
   margin: 5px 0;
   position: relative;
@@ -3557,7 +3557,7 @@ button::-moz-focus-inner {
 .mfp-close {
   width: 44px;
   height: 44px;
-  line-height: 2.75rem;
+  line-height: 44px;
   position: absolute;
   right: 0;
   top: 0;
@@ -3568,7 +3568,7 @@ button::-moz-focus-inner {
   padding: 0 0 18px 10px;
   color: #FFF;
   font-style: normal;
-  font-size: 1.75rem;
+  font-size: 28px;
   font-family: Arial, Baskerville, monospace;
 }
 
@@ -3603,8 +3603,8 @@ button::-moz-focus-inner {
   top: 0;
   right: 0;
   color: #CCC;
-  font-size: 0.75rem;
-  line-height: 1.125rem;
+  font-size: 12px;
+  line-height: 18px;
   white-space: nowrap;
 }
 
@@ -3771,8 +3771,8 @@ img.mfp-img {
 .mfp-figure small {
   color: #BDBDBD;
   display: block;
-  font-size: 0.75rem;
-  line-height: 0.875rem;
+  font-size: 12px;
+  line-height: 14px;
 }
 
 /* line 275, ../scss/vendor/_magnific-popup.scss */
@@ -3793,7 +3793,7 @@ img.mfp-img {
 /* line 286, ../scss/vendor/_magnific-popup.scss */
 .mfp-title {
   text-align: left;
-  line-height: 1.125rem;
+  line-height: 18px;
   color: #F3F3F3;
   word-wrap: break-word;
   padding-right: 36px;
@@ -3864,7 +3864,7 @@ img.mfp-img {
     right: 0;
     width: 35px;
     height: 35px;
-    line-height: 2.1875rem;
+    line-height: 35px;
     background: rgba(0, 0, 0, 0.6);
     position: fixed;
     text-align: center;

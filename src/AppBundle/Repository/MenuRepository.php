@@ -1,6 +1,6 @@
 <?php
 
-namespace AppBundle\Entity;
+namespace AppBundle\Repository;
 
 use Doctrine\ORM\EntityRepository;
 
@@ -16,32 +16,16 @@ class MenuRepository extends EntityRepository
     {
         $query = $this->getEntityManager()
         ->createQuery('
-            SELECT m, c 
+            SELECT m,c,p
             FROM AppBundle:Menu m 
-            JOIN m.categorie c 
+            JOIN m.categorie c
+            JOIN m.plats p
             WHERE c.nom = :nom AND m.active = :active 
             ORDER BY m.date DESC')
         ->setParameter('nom', $menuType)
         ->setParameter('active', 'oui');
 
         $results = $query->getOneOrNullResult();
-
-        return $results;
-    }
-
-    public function getCurrentMenuVegan()
-    {
-        $query = $this->getEntityManager()
-        ->createQuery('
-            SELECT m, c 
-            FROM AppBundle:Menu m 
-            JOIN m.categorie c 
-            WHERE c.nom = :nom AND m.active = :active 
-            ORDER BY m.date DESC')
-        ->setParameter('nom', 'Végétarien')
-        ->setParameter('active', 'oui');
-
-        $results = $query->getResult();
 
         return $results;
     }

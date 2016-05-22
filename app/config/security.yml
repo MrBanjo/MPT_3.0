@@ -12,6 +12,7 @@ security:
         AppBundle\Entity\User: 
             algorithm: bcrypt
             cost: 6
+        AppBundle\Security\User\WebserviceUser: bcrypt
 
     # http://symfony.com/doc/current/book/security.html#hierarchical-roles
     role_hierarchy:

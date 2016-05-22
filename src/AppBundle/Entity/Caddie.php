@@ -8,7 +8,7 @@ use Doctrine\ORM\Mapping as ORM;
  * Caddie.
  *
  * @ORM\Table()
- * @ORM\Entity(repositoryClass="AppBundle\Entity\CaddieRepository")
+ * @ORM\Entity(repositoryClass="AppBundle\Repository\CaddieRepository")
  */
 class Caddie
 {

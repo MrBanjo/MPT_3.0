@@ -1,6 +1,6 @@
 <?php
 
-namespace AppBundle\Entity;
+namespace AppBundle\Repository;
 
 use Doctrine\ORM\EntityRepository;
 
@@ -15,7 +15,7 @@ class BlogRepository extends EntityRepository
     public function getBlogAccueil()
     {
         $query = $this->getEntityManager()
-        ->createQuery('SELECT u FROM AppBundle:Blog u ORDER BY u.date DESC')
+        ->createQuery('SELECT u,b FROM AppBundle:Blog u JOIN u.rubriqueblog b ORDER BY u.date DESC')
         ->setMaxResults(3);
 
         $results = $query->getResult();

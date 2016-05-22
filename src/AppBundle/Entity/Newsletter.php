@@ -9,7 +9,7 @@ use Doctrine\ORM\Mapping as ORM;
  * Newsletter.
  *
  * @ORM\Table()
- * @ORM\Entity(repositoryClass="AppBundle\Entity\NewsletterRepository")
+ * @ORM\Entity(repositoryClass="AppBundle\Repository\NewsletterRepository")
  * @UniqueEntity("email")
  */
 class Newsletter

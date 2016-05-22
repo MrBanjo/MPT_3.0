@@ -53,7 +53,7 @@ module.exports = function(grunt){
                     annotation: 'web/dev/css/' // ...to the specified directory
                 },
                 processors: [
-                    require('postcss-pxtorem')(), // add fallbacks for rem units
+                    //require('postcss-pxtorem')(), // add fallbacks for rem units
                     require('autoprefixer')({browsers: 'last 2 versions'}), // add vendor prefixes
                     //require('cssnano')({
                     //    discardComments: {removeAll: true}

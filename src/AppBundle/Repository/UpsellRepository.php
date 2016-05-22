@@ -1,6 +1,6 @@
 <?php
 
-namespace AppBundle\Entity;
+namespace AppBundle\Repository;
 
 use Doctrine\ORM\EntityRepository;
 
@@ -15,7 +15,7 @@ class UpsellRepository extends EntityRepository
     public function getCurrentUpsell()
     {
         $results = $this->getEntityManager()
-        ->createQuery('SELECT u FROM AppBundle:Upsell u WHERE u.actif = :actif')
+        ->createQuery('SELECT u,c FROM AppBundle:Upsell u JOIN u.categorie c WHERE u.actif = :actif')
         ->setParameter('actif', 'oui')
         ->getResult();
 
