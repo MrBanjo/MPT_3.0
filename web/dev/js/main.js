@@ -27,11 +27,11 @@ $(document).ready(function() {
                 url: Routing.generate('newsletter'),
                 data: $("#newsletter_form").serialize(),
                 success: function(data) {
+                    var str = "Vous êtes déjà inscrit à la newsletter !";
                     if (data.message === 'success') {
-                        $('#error_newsletter').html('Vous êtes maintenant inscrit à la newsletter !');
-                    } else {
-                        $('#error_newsletter').html('Vous êtes déjà inscrit à la newsletter !');
+                        str = "Vous êtes maintenant inscrit à la newsletter !";
                     }
+                    $('#error_newsletter').html(str);
                 }
             });
         });
@@ -131,19 +131,19 @@ $(document).ready(function() {
 
         // Mis à jour du prix du panier
         $('.quantite_button').on("click", function() {
+            var prix = 89;
             if ($('#nbre_pers').val() === null || $('#nbre_pers').val() == 2) {
-                $('#update_prix').html($('#quantite').val() * ($('#update_prix').data('prix')));
-            } else {
-                $('#update_prix').html($('#quantite').val() * 89);
+                prix = $('#update_prix').data('prix');
             }
+            $('#update_prix').html($('#quantite').val() * prix);
         });
 
         $('#nbre_pers').on("change", function() {
+            var prix = 89;
             if ($('#nbre_pers').val() === null || $('#nbre_pers').val() == 2) {
-                $('#update_prix').html($('#quantite').val() * ($('#update_prix').data('prix')));
-            } else {
-                $('#update_prix').html($('#quantite').val() * 89);
+                prix = $('#update_prix').data('prix');
             }
+            $('#update_prix').html($('#quantite').val() * prix);
             $('#update_pers').html($('#nbre_pers').val());
         });
 
@@ -194,13 +194,13 @@ $(document).ready(function() {
                         $('#js-emailspinner').empty().html('<span class="spinner-load"></span>');
                     },
                     success: function(data) {
+                        var addSpinner = '<span class="content-sprite content-no"><p>Adresse e-mail déjà utilisée</p></span>';
                         if (data.message == 'success') {
-                            $('#js-emailspinner').empty().html('<span class="content-sprite content-ok"><p>Adresse e-mail disponible</p></span>');
+                            addSpinner = '<span class="content-sprite content-ok"><p>Adresse e-mail disponible</p></span>';
                         } else if (data.message == 'novalidate') {
-                            $('#js-emailspinner').empty().html('<span class="content-sprite content-no"><p>Adresse e-mail incorrecte</p></span>');
-                        } else {
-                            $('#js-emailspinner').empty().html('<span class="content-sprite content-no"><p>Adresse e-mail déjà utilisée</p></span>');
+                            addSpinner = '<span class="content-sprite content-no"><p>Adresse e-mail incorrecte</p></span>';
                         }
+                        $('#js-emailspinner').empty().html(addSpinner);
                     }
                 });
             });
@@ -265,13 +265,13 @@ $(document).ready(function() {
 
             // On ajoute un premier champ automatiquement s'il n'en existe pas déjà un (cas d'une nouvelle annonce par exemple).
             if (index === 0) {
-                addAdresse($container);
-            } else {
-                // Pour chaque catégorie déjà existante, on ajoute un lien de suppression
-                $container.children('div').each(function() {
-                    addDeleteLink($(this));
-                });
+                return addAdresse($container);
             }
+
+            // Pour chaque catégorie déjà existante, on ajoute un lien de suppression
+            $container.children('div').each(function() {
+                addDeleteLink($(this));
+            });
         }
     })();
 });
