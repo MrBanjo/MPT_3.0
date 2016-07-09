@@ -29,12 +29,11 @@ class AuthenticationHandler implements AuthenticationSuccessHandlerInterface, Au
      * @param Session         $session
      * @param EntityManager   $em
      */
-    public function __construct(RouterInterface $router, Session $session, EntityManager $doctrine, TokenStorageInterface $security)
+    public function __construct(RouterInterface $router, Session $session, EntityManager $doctrine)
     {
         $this->router = $router;
         $this->session = $session;
         $this->doctrine = $doctrine;
-        $this->security = $security;
     }
 
     /**
@@ -48,31 +47,28 @@ class AuthenticationHandler implements AuthenticationSuccessHandlerInterface, Au
     public function onAuthenticationSuccess(Request $request, TokenInterface $token)
     {
         // Donne aux produits dans le panier un user_id si le client se connecte
-        $user = $this->security->getToken()->getUser();
+        $user = $token->getUser();
         $this->doctrine->getRepository('AppBundle:Caddie')->switchSessionToUserProduct($user);
 
+        $url = $this->router->generate('accueil');
         if ($this->session->get('_security.main.target_path')) {
             $url = $this->session->get('_security.main.target_path');
         } elseif ($this->session->get('old_referer')) {
             $url = $this->session->get('old_referer');
         } elseif ($request->headers->get('referer')) {
             $url = $request->headers->get('referer');
-        } else {
-            $url = $this->router->generate('accueil');
         }
 
-        // if AJAX login
-        if ($request->isXmlHttpRequest()) {
-            $array = array('success' => true, 'url' => $url); // data to return via JSON
-            $response = new Response(json_encode($array));
-            $response->headers->set('Content-Type', 'application/json');
-
-            return $response;
-
-        // if form login
-        } else {
+        // Normal login
+        if (!$request->isXmlHttpRequest()) {
             return new RedirectResponse($url);
         }
+        // AJAX login
+        $array = array('success' => true, 'url' => $url); // data to return via JSON
+        $response = new Response(json_encode($array));
+        $response->headers->set('Content-Type', 'application/json');
+
+        return $response;
     }
 
     /**
@@ -85,20 +81,18 @@ class AuthenticationHandler implements AuthenticationSuccessHandlerInterface, Au
      */
     public function onAuthenticationFailure(Request $request, AuthenticationException $exception)
     {
-        // if AJAX login
-        if ($request->isXmlHttpRequest()) {
-            $array = array('success' => false, 'message' => $exception->getMessage()); // data to return via JSON
-            $response = new Response(json_encode($array));
-            $response->headers->set('Content-Type', 'application/json');
-
-            return $response;
-
-        // if form login
-        } else {
+        // Normal login
+        if (!$request->isXmlHttpRequest()) {
             // set authentication exception to session
             $request->getSession()->set(Security::AUTHENTICATION_ERROR, $exception);
-
             return new RedirectResponse($request->headers->get('referer'));
         }
+
+        // AJAX login
+        $array = array('success' => false, 'message' => $exception->getMessage()); // data to return via JSON
+        $response = new Response(json_encode($array));
+        $response->headers->set('Content-Type', 'application/json');
+
+        return $response;
     }
 }

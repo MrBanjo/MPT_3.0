@@ -17,26 +17,18 @@ class NewsletterController extends BaseController
      */
     public function newsAction(Request $request)
     {
-        if ($request->isXmlHttpRequest()) {
-            $news = new Newsletter();
-            $newsform = $this->getForm($news);
-
-            if ($newsform->handleRequest($request)->isValid()) {
-                $this->save($news);
-
-                return $this->jsonSuccess();
-            }
-
-            return $this->jsonFail();
-        } else {
+        if (!$request->isXmlHttpRequest()) {
             throw $this->createNotFoundException('');
         }
-    }
 
-/*	public function showformAction() // Leave here for performance test purpose
-    {
         $news = new Newsletter();
-        $newsform = $this->createForm(NewsletterType::class, $news);
-        return $this->render('form/newsletterformtest.html.twig', array('newsform' => $newsform->createView()));
-    }*/
+        $newsform = $this->getForm($news);
+
+        if ($newsform->handleRequest($request)->isValid()) {
+            $this->save($news);
+            return $this->jsonSuccess();
+        }
+
+        return $this->jsonFail();
+    }
 }

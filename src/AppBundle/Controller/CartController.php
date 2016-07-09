@@ -33,7 +33,7 @@ class CartController extends BaseController
     }
 
     /**
-     * @Route("/caddie/identification", name="cart_identification", defaults={"title": "Identification - Mon Panier Toqué"})
+     * @Route("/caddie/identification", name="cart_identification")
      * @Method({"GET","HEAD"})
      */
     public function showIdentificationAction()
@@ -46,7 +46,7 @@ class CartController extends BaseController
     }
 
     /**
-     * @Route("/caddie/recapitulatif", name="cart_summary", defaults={"title": "Récapitulatif de la commande - Mon Panier Toqué"})
+     * @Route("/caddie/recapitulatif", name="cart_summary")
      * @Method({"GET","HEAD"})
      */
     public function showSummaryAction()
@@ -76,39 +76,45 @@ class CartController extends BaseController
      */
     public function addProductAction(Request $request, $slug)
     {
-        if ($request->isXmlHttpRequest() && $request->request->get('quantite') !== null) {
-            $quantite = $request->request->get('quantite');
-            $product_id = $request->request->get('id_product');
-            $produit = $this->find('AppBundle:'.$slug, $product_id);
-
-            // Recherche si le produit existe dans le caddie
-            $checkdb = $this->getRepo('AppBundle:Caddie')->getProductCaddie($product_id, strtolower($slug), $this->getUser());
-            if (!empty($checkdb)) {
-                $checkdb[0]->setQuantite($quantite + $checkdb[0]->getQuantite());
-                $this->save($checkdb[0]);
-            } else {
-                $caddie = new Caddie();
-                $session = new Session();
-                $caddie->setSession($session->getId());
-                $caddie->setTitre($produit->getTitre());
-                $caddie->setUser($this->getUser());
-                $caddie->setQuantite($quantite);
-                $caddie->setPrix($produit->getPrix());
-                $caddie->setPhoto($produit->getPhoto());
-                ($slug == 'Menu') ? $caddie->setMenu($produit) : $caddie->setUpsell($produit);
-                $this->save($caddie);
-            }
-
-            return new JsonResponse([
-                'titre' => $produit->getTitre(),
-                'idi' => $produit->getId(),
-                'photo' => $produit->getPhoto(),
-                'quantite' => $quantite,
-                'countcaddie' => $this->countCart(),
-            ], 200);
+        if (!($request->isXmlHttpRequest() && $request->request->get('quantite') !== null)) {
+            return $this->redirectToRoute('cart');
         }
 
-        return $this->redirectToRoute('cart');
+        $quantite = $request->request->get('quantite');
+        $product_id = $request->request->get('id_product');
+        $produit = $this->find('AppBundle:'.$slug, $product_id);
+
+        $array = [
+            'titre' => $produit->getTitre(),
+            'idi' => $produit->getId(),
+            'photo' => $produit->getPhoto(),
+            'quantite' => $quantite,
+            'countcaddie' => $this->countCart(),
+        ];
+
+        // Recherche si le produit existe dans le caddie
+        $user = $this->getUser();
+        $checkdb = $this->getRepo('AppBundle:Caddie')->getProductCaddie($product_id, strtolower($slug), $user);
+        if (!empty($checkdb)) {
+            $checkdb[0]->setQuantite($quantite + $checkdb[0]->getQuantite());
+            $this->save($checkdb[0]);
+
+            return new JsonResponse($array, 200);
+        }
+
+        // Si le produit existe
+        $caddie = new Caddie();
+        $session = new Session();
+        $caddie->setSession($session->getId());
+        $caddie->setTitre($produit->getTitre());
+        $caddie->setUser($this->getUser());
+        $caddie->setQuantite($quantite);
+        $caddie->setPrix($produit->getPrix());
+        $caddie->setPhoto($produit->getPhoto());
+        ($slug == 'Menu') ? $caddie->setMenu($produit) : $caddie->setUpsell($produit);
+        $this->save($caddie);
+
+        return new JsonResponse($array, 200);
     }
 
     /**
@@ -117,25 +123,30 @@ class CartController extends BaseController
      */
     public function updateQuantiteAction(Request $request)
     {
-        if ($request->isXmlHttpRequest()) {
-            $article = $this->getRepo('AppBundle:Caddie')->findOneById($request->request->get('article_id'));
-            $html = false;
-
-            if ($request->request->get('quantite') == 0) {
-                $this->remove($article); // Supprime le produit du caddie si sa quantité est 0
-                $html = true;
-            } else {
-                $article->setQuantite($request->request->get('quantite'));
-                $this->save($article);
-            }
-
-            return new JsonResponse([
-                'prix' => $article->getPrix(),
-                'countcaddie' => $this->countCart(),
-                'html' => $html,
-            ], 200);
+        if (!$request->isXmlHttpRequest()) {
+            return $this->redirectToRoute('cart');
         }
 
-        return $this->redirectToRoute('cart');
+        $article = $this->getRepo('AppBundle:Caddie')->findOneById($request->request->get('article_id'));
+        $html = false;
+        $array = [
+            'prix' => $article->getPrix(),
+            'countcaddie' => $this->countCart(),
+            'html' => $html,
+        ];
+
+        // Supprime le produit du caddie si sa quantité est 0
+        if ($request->request->get('quantite') == 0) {
+            $this->remove($article);
+            $html = true;
+
+            return new JsonResponse($array, 200);
+        }
+
+        // Update la quantite
+        $article->setQuantite($request->request->get('quantite'));
+        $this->save($article);
+
+        return new JsonResponse($array, 200);
     }
 }

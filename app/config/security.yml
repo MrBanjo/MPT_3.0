@@ -9,7 +9,7 @@ security:
                 class: AppBundle:User
 
     encoders:
-        AppBundle\Entity\User: 
+        AppBundle\Entity\User:
             algorithm: bcrypt
             cost: 6
         AppBundle\Security\User\WebserviceUser: bcrypt
@@ -27,7 +27,7 @@ security:
         main:
             pattern:   ^/
             anonymous: true
-            provider: users 
+            provider: users
             form_login:
                 check_path: login
                 login_path: login

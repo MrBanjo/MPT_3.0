@@ -1,7 +1,9 @@
 {% extends "base.html.twig" %}
 
-{% block body %}
+{% block title %}Mon Panier Toqué - Récapitulatif de la commande{% endblock %
 
+{% block body %}
+    
     <section class="caddie section-first">
         <div class="container-small">
             <nav class="caddie-nav">
@@ -44,7 +46,7 @@
 									<th>{{ article.titre }}</th>
 									<th>{{ article.prix }} €</th>
 									<th>{{ article.quantite }}</th>
-									<th><span class='js-prixtotal form-{{ article.id }}'>{{ article.prix * article.quantite }}</span> €</th>			            		
+									<th><span class='js-prixtotal form-{{ article.id }}'>{{ article.prix * article.quantite }}</span> €</th>
 								</tr>
 
 							{% endfor %}
@@ -58,7 +60,7 @@
 								<th></th>
 								<th class="cart_prixtotal">{{ prix_total }} €</th>
 							</tr>
-							<tr class="green_dark"> 
+							<tr class="green_dark">
 								<th></th>
 								<th></th>
 								<th>Livraison</th>
@@ -67,33 +69,33 @@
 							</tr>
 							<tr class="green_light">
 								<th></th>
-								<th  id="caddie_codereduc">		            			
+								<th  id="caddie_codereduc">
 			            		</th>
 			            		<th>TOTAL TTC</th>
 			            		<th></th>
 			            		<th>
 			            		<strong class="cart_prixtotal">{{ prix_total }} €</strong>
 			            		</th>
-			        		</tr>			            				            	
+			        		</tr>
 			    		</tfoot>
 					</table>
                     <div class="caddie_recette">
-                        <span >Je souhaite recevoir les recettes par email :</span>  
+                        <span >Je souhaite recevoir les recettes par email :</span>
                         <form>
                             <input type="radio" name="sex" value="male" checked>OUI
                             <input type="radio" name="sex" value="female">NON
-                        </form>                             
+                        </form>
                     </div>
                     <a href="{{path('paniers')}}" class="caddie_continue">&lt; Poursuivre mes achats</a>
                     <div class="caddie_validate">
                         <form action="{{ path('addcommandes') }}" method="post">
 							<button type="submit" class="orange">PROCÉDER AU PAIEMENT</button>
-						</form>		        	
-					</div>			
+						</form>
+					</div>
 				</div>
 			</div>
 		</div>
-	</section>	
+	</section>
     <section class="engagements">
         <div class="container-small">
             <div class="section-title">
@@ -117,7 +119,7 @@
                     <a href="#">Lire la suite ></a>
                     <img src="{{ asset('img/accueil/chef.png') }}" alt="Chef engagement">
                 </div>
-            </div>                 
+            </div>
         </div>
     </section>
 

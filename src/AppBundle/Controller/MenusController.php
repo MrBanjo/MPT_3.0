@@ -29,20 +29,18 @@ class MenusController extends BaseController
                 'photo' => '',
         ]];
 
+        $menuClassique = $menuvide;
+        $platsClassique = $platvide;
         if (isset($curClassique)) {
             $menuClassique = $curClassique;
             $platsClassique = $curClassique->getPlats();
-        } else {
-            $menuClassique = $menuvide;
-            $platsClassique = $platvide;
         }
 
+        $menuVegan = $menuvide;
+        $platsVegan = $menuvide;
         if (isset($curVegan)) {
             $menuVegan = $curVegan;
             $platsVegan = $curVegan->getPlats();
-        } else {
-            $menuVegan = $menuvide;
-            $platsVegan = $menuvide;
         }
 
         return $this->render(

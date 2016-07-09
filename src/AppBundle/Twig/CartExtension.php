@@ -33,19 +33,25 @@ class CartExtension extends \Twig_Extension
         );
     }
 
+    /**
+     * Count articles in cart
+     * @param  Object $user
+     * @return int
+     */
     public function countCart($user)
     {
         if ($user) {
             return count($user->getCaddies());
-        } else {
-            $results = $this->doctrine
-            ->createQuery('SELECT c FROM AppBundle:Caddie c WHERE c.session = :session')
-            ->setParameter('session', $this->session->getId())
-            ->getResult();
-
-            return count($results);
         }
+
+        $results = $this->doctrine
+        ->createQuery('SELECT c FROM AppBundle:Caddie c WHERE c.session = :session')
+        ->setParameter('session', $this->session->getId())
+        ->getResult();
+
+        return count($results);
     }
+
     /**
      * @return string
      */

@@ -1,5 +1,7 @@
 {% extends "base.html.twig" %}
 
+{% block title %}Mon Panier Toqué - Identification{% endblock %}
+
 {% block body %}
 
 <section class="caddie section-first">
@@ -23,9 +25,9 @@
     </div>
     <h1 class="section_title-green">CONNEXION</h1>
     {{ include ("form/loginForm.html.twig") }}
-    <h2 class="section_title-green">ENREGISTREMENT</h2>     
+    <h2 class="section_title-green">ENREGISTREMENT</h2>
     {{ include ("form/subsaccountForm.html.twig") }}
   </div>
 </section>
 
-{% endblock %} 
+{% endblock %}

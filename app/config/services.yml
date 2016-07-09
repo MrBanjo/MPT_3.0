@@ -7,11 +7,10 @@ services:
         authentication_handler:
             class: AppBundle\Security\AuthenticationHandler
             public: false
-            arguments: 
+            arguments:
                 - "@router"
                 - "@session"
                 - "@doctrine.orm.entity_manager"
-                - "@security.token_storage"
         login_handler:
             alias: authentication_handler
         twig.extension.intl:
@@ -38,13 +37,13 @@ services:
                 - '@knp_menu.matcher'
             tags:
                 - { name: twig.extension }
-                
+
         app.twig.cart_extension:
             class: AppBundle\Twig\CartExtension
             arguments:
                 - "@doctrine.orm.entity_manager"
                 - "@session"
-            tags: 
+            tags:
                 - { name: twig.extension }
 
 #    service_name:
