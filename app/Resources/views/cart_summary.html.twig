@@ -38,8 +38,8 @@
                             </tr>
                         </thead>
                         <tbody>
-
-							{% for article in articles %} {# Création des lignes du tableau contenant les produits #}
+                            {# 'Création des lignes du tableau contenant les produits' #}
+							{% for article in articles %}
 
 								<tr>
 									<th><img src="{{ asset(article.photo)}}" alt="Caddie {{ article.titre }}"></th>
