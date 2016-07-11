@@ -22,7 +22,7 @@
                 <nav class="breadcrumb">
                     {{ knp_menu_render('breadcrumb',{'depth': 2,'currentAsLink':false}) }}
                 </nav>
-                <a href="{{path('paniers')}}" class="caddie_continue">&lt; Poursuivre mes achats</a>
+                <a href="{{path('paniers')}}" class="caddie_continue">{{ '<'|escape }} Poursuivre mes achats</a>
                 <form action="{{ (app.user) ? path('addcommandes') : path('cart_identification') }}" class="caddie_validate">
                     <button type="submit" class="orange">PROCÉDER AU PAIEMENT</button>
                 </form>
@@ -86,7 +86,7 @@
                             <input type="radio" name="sex" value="female">NON
                         </form>
                     </div>
-                    <a href="{{path('paniers')}}" class="caddie_continue">&lt; Poursuivre mes achats</a>
+                    <a href="{{path('paniers')}}" class="caddie_continue">{{ '<'|escape }} Poursuivre mes achats</a>
                     <div class="caddie_validate">
                         <form action="{{ path('addcommandes') }}" method="post">
 							<button type="submit" class="orange">PROCÉDER AU PAIEMENT</button>
