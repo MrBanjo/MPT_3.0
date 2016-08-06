@@ -20,7 +20,7 @@ class NewsletterController extends BaseController
         if (!$request->isXmlHttpRequest()) {
             throw $this->createNotFoundException('');
         }
-
+        
         $news = new Newsletter();
         $newsform = $this->getForm($news);
 

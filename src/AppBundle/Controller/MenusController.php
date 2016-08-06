@@ -19,14 +19,14 @@ class MenusController extends BaseController
         $menuvide = ['titre' => '', 'prix' => '', 'date' => ''];
 
         $platvide = [[
-                'titre' => '',
-                'temps' => '',
-                'difficulte' => '',
-                'consistance' => '',
-                'accroche' => '',
-                'description' => '',
-                'plus' => '',
-                'photo' => '',
+            'titre' => '',
+            'temps' => '',
+            'difficulte' => '',
+            'consistance' => '',
+            'accroche' => '',
+            'description' => '',
+            'plus' => '',
+            'photo' => '',
         ]];
 
         $menuClassique = $menuvide;

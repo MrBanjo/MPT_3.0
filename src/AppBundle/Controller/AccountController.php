@@ -16,7 +16,7 @@ class AccountController extends BaseController
         if (!$this->get('security.authorization_checker')->isGranted('IS_AUTHENTICATED_FULLY')) {
             throw $this->createAccessDeniedException();
         }
-
+        
         $commandes = $this->findBy('AppBundle:Commandes', ['user' => $this->getUser()]);
         $price = $this->getRepo('AppBundle:Caddie')->getTotalPrix($commandes);
 
